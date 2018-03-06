@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  3 MAR 2018 12:07
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  6 MAR 2018 14:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -434,55 +434,65 @@ Package: tabularx 2014/10/28 v2.10 `tabularx' package (DPC)
 \TX@cols=\count123
 \TX@ftn=\toks29
 )
+(/usr/local/texlive/2015/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box39
+\UL@hyphenbox=\box40
+\UL@skip=\skip46
+\UL@hook=\toks30
+\UL@height=\dimen159
+\UL@pe=\count124
+\UL@pixel=\dimen160
+\ULC@box=\box41
+Package: ulem 2012/05/18
+\ULdepth=\dimen161
+)
 (./projectProposal_Braglia.aux)
 \openout1 = `projectProposal_Braglia.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
+LaTeX Font Info:    ... okay on input line 17.
  ABD: EveryShipout initializing macros
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 15.
+(Font)              <14.4> on input line 18.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 15.
+(Font)              <7> on input line 18.
+ [1
+
+]
 File: graph.png Graphic file (type QTm)
 
-<use  "graph.png" >
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[1
-
-] [2]
+<use  "graph.png" > [2]
 File: graphPartitioning.png Graphic file (type QTm)
  <use  "graphPartitioning.png" > [3]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 77.
+(Font)              <12> on input line 80.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 77.
+(Font)              <8> on input line 80.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 77.
- [4] (./projectProposal_Braglia.aux) )
+(Font)              <6> on input line 80.
+ [4]
+(./projectProposal_Braglia.aux) )
 (\end occurred inside a group at level 1)
 
-### semi simple group (level 1) entered at line 6 (\begingroup)
+### semi simple group (level 1) entered at line 8 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 12391 strings out of 493706
- 268941 string characters out of 6145769
- 315905 words of memory out of 5000000
- 15522 multiletter control sequences out of 15000+600000
- 9502 words of font info for 33 fonts, out of 8000000 for 9000
+ 12472 strings out of 493706
+ 269733 string characters out of 6145769
+ 318047 words of memory out of 5000000
+ 15598 multiletter control sequences out of 15000+600000
+ 9608 words of font info for 34 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 62i,10n,65p,454b,352s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 62i,10n,65p,454b,354s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on projectProposal_Braglia.pdf (4 pages).
