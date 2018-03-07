@@ -1,1 +1,0 @@
-curl --request GET --header "Authorization: Bearer MSwxNTIwMzU2NjEwMTQyLDUxMDYwMzMzMSwxMDI4LGFsbCwsLDk4YWU4ZTgwMjZjZGY4NGI2NjE5ZjM3NmRmY2E2NzUxNWE0OGd4cnFiLDJhOWM1NWE1LWY5NTYtMzJlMS1iYTU1LTA3NTAxYzRiYjI2NyxSNVJQdUM3a0Q5V2ZZREl2YkxCQmtTV3RobWc" "https://api.mendeley.com/catalog?doi=10.1103/PhysRevA.20.1521" > file.txt
