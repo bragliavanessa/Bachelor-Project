@@ -1,0 +1,31 @@
+Research institutes
+
+    Agroscope Changins-Wädenswil (ACW)
+    Agroscope Liebefeld-Posieux (ALP)
+    Agroscope Reckenholz-Tänikon (ART)
+    European Organization for Nuclear Research (CERN)
+    Swiss National Supercomputing Centre (CSCS), Manno
+    Swiss Center for Electronics and Microtechnology (CSEM)
+    Paul Scherrer Institute (PSI)
+        Swiss Light Source
+    Swiss Federal Laboratories for Materials Science and Technology (EMPA)
+    Swiss Federal Institute of Aquatic Science and Technology (EAWAG)
+    Swiss Federal Institute for Forest, Snow and Landscape Research (WSL)
+    Swiss Federal Institute for Vocational Education and Training (SFIVET)
+    Swiss Graduate School of Public Administration (IDHEAP)
+    Idiap Research Institute
+    Dalle Molle Institute for Artificial Intelligence Research (IDSIA)
+    Swiss Institute of Comparative Law
+    Kurt Bösch University Institute (IUKB)
+    Federal Institute of Metrology (METAS)
+    Federal Office of Meteorology and Climatology (MeteoSwiss)
+    Swiss Institute of Bioinformatics (SIB)
+    Swiss Finance Institute
+    International Institute for Management Development (IMD)
+    Graduate Institute of International and Development Studies (IHEID)
+    Sempach Bird Observatory
+    Swiss Institute of Allergy and Asthma Research
+    Swiss Nanoscience Institute
+    Friedrich Miescher Institute for Biomedical Research
+    Campus Biotech
+    Research Institute of Organic Agriculture

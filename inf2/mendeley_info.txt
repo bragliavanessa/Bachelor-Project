@@ -1,3 +1,5 @@
+MENDELEY API MODELS:
+
 
 1. Academic Statuses
 	- Retrieve all academic statuses (Post Doc, Doctoral Student,…)
@@ -7,7 +9,7 @@
 	- Retireve catalog documents attributes (bib view for more info)
 	  GET https://api.mendeley.com/catalog?query=*&view=bib
 
-	  (retrieve only 500 documents)
+	  (retrieve only 100 documents)
 
 	  Search by query: 
 	  https://api.mendeley.com/search/catalog?query=polar+bears&limit=3
@@ -34,6 +36,7 @@
 
 8. Institutions
 	- We have city, state country. Useful to find swiss institutions
+	  GET https://api.mendeley.com/institutions?limit=500
 
 9. Profiles
 	- Education attribute contains institution
