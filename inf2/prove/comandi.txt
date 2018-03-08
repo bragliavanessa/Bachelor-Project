@@ -1,0 +1,12 @@
+SEARCH PROFILES FROM INSTITUTIONS’ NAMES AND RESEARCH SUBJECT
+
+"https://api.mendeley.com/search/profiles?query=Universita+della+Svizzera+Italiana+computer+science&limit=100"
+
+"https://api.mendeley.com/search/profiles?query=Universita+della+Svizzera+Italiana&limit=100”
+
+
+SEARCH ARTICLES FROM PROFILES’ NAMES
+
+"https://api.mendeley.com/search/catalog?query=olaf+schenk&view=bib&limit=100
+
+EXTRACT FROM THE ARTICLES ALL USEFUL INFORMATION
