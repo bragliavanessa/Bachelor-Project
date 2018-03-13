@@ -1,0 +1,27 @@
+PER I NOMI:
+
+<br> <a href...> ...</a>
+Per evitare quelli cancellati
+
+
+
+
++^(http://meetings.siam.org/program)
++^(http://meetings.siam.org/sess)
+
+
+
+
+CLASSIC:
+Annie Raymond, University of Washington, USA; James Saunderson, Monash University, Australia; Mohit Singh, Microsoft Research, USA; Rekha Thomas, University of Washington, USA
+
+
+
+OTHER:
+Mauricio Velasco, Universidad de los Andes, Colombia; Greg Blekherman and Rainer Sinn, Georgia Institute of Technology, USA
+
+Xavier Allamigeon and Stephane Gaubert, Inria and CMAP, Ecole Polytechnique, France; Mateusz Skomra, INRIA Saclay and Ecole Polytechnique, France 
+
+Mickael Chekroun, University of California, Los Angeles, USA; Axel Kroener, Inria Saclay and CMAP Ecole Polytechnique, France ; Honghu Liu, Virginia Tech, USA 
+
+Christian Boehm, Naiara Korta Martiartu, and Andreas Fichtner, ETH Zürich, Switzerland 

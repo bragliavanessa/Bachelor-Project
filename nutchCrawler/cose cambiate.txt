@@ -1,0 +1,23 @@
+nutch-default.xml
+	http.content.limit to -1
+	http.agent.name
+
+regex-urlfilter.txt
+
+urls/seed.txt
+
+
+
+
+-------------------------
+	COMANDI
+-------------------------
+
+Crawl:
+bin/crawl -s ./urls/ ./crawl/crawldb 2
+
+Merge segments:
+./bin/nutch mergesegs ./crawl/crawldb/merge/ -dir ./crawl/crawldb/segments/
+
+Read segements:
+./bin/nutch readseg ./dump -nofetch -nogenerate -noparse -noparsetext -noparsetext
