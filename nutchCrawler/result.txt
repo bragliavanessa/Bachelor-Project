@@ -1,0 +1,293 @@
+ Alfio Quarteroni and Gianluigi Rozza, École Polytechnique Fédérale de Lausanne, Switzerland
+ Michael Gloor , ETH Zürich, Switzerland
+ Christian Gross and Rolf Krause, Università della Svizzera italiana, Switzerland 
+ Olaf Schenk , Grote Marcus, and Johannes Huber, University of Basel, Switzerland 
+ Laura Sanita', École Polytechnique Fédérale de Lausanne, Switzerland
+ Rico Zenklusen, EPFL, Switzerland 
+ Christian Gross and Rolf Krause, Università della Svizzera italiana, Switzerland 
+ Alberto Del Pia , ETH Zürich, Switzerland 
+ Diethard Klatte , University of Zurich, Switzerland
+ Stefan Richter , Colin Jones, and Manfred Morari, ETH Zürich, Switzerland 
+ Sean Summers, Davide Raimondo , Colin Jones, John Lygeros, and Manfred Morari, ETH Zürich, Switzerland 
+ Robert Weismantel, ETH Zürich, Switzerland 
+ Christian Gross and Rolf Krause, Università della Svizzera italiana, Switzerland 
+ Yves Ineichen , ETH Zürich, Switzerland
+ Andreas Adelmann, Paul Scherrer Institut, Switzerland
+ Peter Arbenz, ETH Zürich, Switzerland
+ Alessandro Curioni, IBM Research-Zurich, Switzerland 
+ Tulin Kaman , ETH Zürich and Paul Scherrer Institute, Switzerland
+ Mathieu Luisier , ETH Zürich, Switzerland 
+ Martin J. Gander , University of Geneva, Switzerland 
+ Costas Bekas and Alessandro Curioni, IBM Research-Zurich, Switzerland 
+ Diego Rossinelli , ETH Zürich, Switzerland 
+ Andreas Adelmann, Paul Scherrer Institut, Switzerland
+ Bendikt Oswald, Paul Scherrer Institut, Switzerland
+ Andreas Adelmann , Paul Scherrer Institut, Switzerland 
+ Matthias Christen and Olaf Schenk, University of Basel, Switzerland 
+ Thomas C. Schulthess , Swiss National Supercomputing Center, Switzerland 
+ Daniel Kressner, EPFL, Switzerland
+ Dave A. May, ETH Zürich, Switzerland
+ Costas Bekas and Alessandro Curioni, IBM Research-Zurich, Switzerland 
+ Yves Ineichen , ETH Zürich, Switzerland
+ Andreas Adelmann, Paul Scherrer Institut, Switzerland
+ Peter Arbenz, ETH Zürich, Switzerland
+ Costas Bekas and Alessandro Curioni, IBM Research-Zurich, Switzerland 
+ Robert Speck and Rolf Krause, University of Lugano, Switzerland
+ Radu Popescu , École Polytechnique Fédérale de Lausanne, Switzerland
+ Simone Deparis, École Polytechnique Fédérale de Lausanne, Switzerland
+ Dorian Krause , Mark Potse, Thomas Dickopf, and Rolf Krause, University of Lugano, Switzerland
+ Angelo Auricchio, Fondazione Cardiocentro Ticino, Switzerland
+ Volkan Cevher , École Polytechnique Fédérale de Lausanne, Switzerland 
+ Volkan Cevher , École Polytechnique Fédérale de Lausanne, Switzerland 
+ Dimitri Van De Ville , École Polytechnique Fédérale de Lausanne, Switzerland
+ Michel Kocher, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Michael M. Bronstein , Università della Svizzera italiana, Switzerland 
+ Dominique P. Zosso , École Polytechnique Fédérale de Lausanne, Switzerland
+ Jean-Philippe Thiran, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Martin Vetterli, École Polytechnique Fédérale de Lausanne, Switzerland
+ Christoph Schwab, ETH Zürich, Switzerland 
+ Fabio Nobile, EPFL, Switzerland
+ Peter Reichert , Swiss Federal Institute of Aquatic Science and Technology, Switzerland 
+ Hans Rudolf Kuensch, ETH Zürich, Switzerland 
+ David Ginsbourger, University of Berne, Switzerland
+ Ilya Molchanov, University of Berne, Switzerland 
+ Fabio Nobile and Lorenzo Tamellini, EPFL, Switzerland
+ Lorenzo Tamellini , EPFL, Switzerland
+ Fabio Nobile, EPFL, Switzerland
+ Victor M. Panaretos , EPFL, Switzerland 
+ Carlo Albert , Eawag, Switzerland 
+ Daniel Ruprecht and Rolf Krause, University of Lugano, Switzerland 
+ Toni Lassila , École Polytechnique Fédérale de Lausanne, Switzerland
+ Jonas Šukys , ETH Zürich, Switzerland 
+ Sahar Sargheini and Alberto Paganini, ETH Zürich, Switzerland 
+ Rolf Krause , University of Lugano, Switzerland 
+ Claudia Schillings , ETH Zürich, Switzerland
+ Christoph Schwab, ETH Zürich, Switzerland 
+ Peter Arbenz, ETH Zürich, Switzerland
+ Christoph Schwab, ETH Zürich, Switzerland 
+ Raffaele Solc\'{a}, ETH Zürich, Switzerland
+ Thomas C. Schulthess, Swiss National Supercomputing Center, Switzerland 
+ Thomas C. Schulthess , Swiss National Supercomputing Center, Switzerland 
+ Christoph Schwab, ETH Zürich, Switzerland
+ Peter Arbenz , Cyril Flaig, and Daniel Kellenberger, ETH Zürich, Switzerland 
+ Daniel Ruprecht , University of Lugano, Switzerland
+ Rolf Krause, University of Lugano, Switzerland 
+ Felix Kwok, University of Geneva, Switzerland 
+ Daniel Ruprecht, University of Lugano, Switzerland 
+ Johannes Steiner and Rolf Krause, University of Lugano, Switzerland 
+ Dmitry Mikushin and Olaf Schenk, Università della Svizzera italiana, Switzerland 
+ Stephan Mohr, University of Basel, Switzerland
+ Stefan Goedecker, University of Basel, Switzerland
+ Olaf Schenk , Università della Svizzera italiana, Switzerland 
+ Manuel Kohler and Peter Arbenz, ETH Zürich, Switzerland 
+ Felix Sch\"urmann , Nenad Buncic, Fabien Delalondre, Stefan Eilemann, and Jeffrey Muller, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Peng Chen and Alfio Quarteroni, École Polytechnique Fédérale de Lausanne, Switzerland
+ Peng Chen and Alfio Quarteroni, École Polytechnique Fédérale de Lausanne, Switzerland
+ Tulin Kaman , ETH Zürich and Paul Scherrer Institute, Switzerland 
+ Andreas Adelmann , Paul Scherrer Institut, Switzerland 
+ Lorenzo Tamellini, EPFL, Switzerland 
+ Claudia Schillings , ETH Zürich, Switzerland
+ Christoph Schwab, ETH Zürich, Switzerland 
+ Helmut Harbrecht , Universität Basel, Switzerland 
+ Peng Chen, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Napat Rujeerapaiboon and Daniel Kuhn, École Polytechnique Fédérale de Lausanne, Switzerland
+ Jean-Philippe Vial, Ordecsys, Switzerland 
+ Michel Baes and Michael Buergisser, ETH Zürich, Switzerland 
+ Thomas Wuest , Swiss Federal Research Institute WSL, Switzerland
+ Thomas Wuest, Swiss Federal Research Institute WSL, Switzerland
+ Francesco Tesei , École Polytechnique Fédérale de Lausanne, Switzerland
+ David Machac , ETH Zürich, Switzerland
+ Peter Reichert, Swiss Federal Institute of Aquatic Science and Technology, Switzerland
+ Carlo Albert, Eawag, Switzerland 
+ Stefano Marelli and Bruno Sudret, ETH Zürich, Switzerland 
+ Bruno Sudret and Schoebi Roland, ETH Zürich, Switzerland 
+ AlbertoGiovanni Busetto and John Lygeros, ETH Zürich, Switzerland 
+ Seyedehsomayeh Hosseini , ETH Zürich, Switzerland 
+ Guillaume Jouvet , ETH Zürich, Switzerland 
+ Daniel Kressner, EPFL, Switzerland 
+ Christoph Schwab , ETH Zürich, Switzerland 
+ Xavier Bresson, Swiss Federal Institute of Technology, Switzerland 
+ Thomas C. Schulthess , Anton Kozhevnikov, and Solcà Raffaele, ETH Zürich, Switzerland 
+ Daniel Kressner, EPFL, Switzerland 
+ Peng Chen and Christoph Schwab, ETH Zürich, Switzerland 
+ Johannes Steiner and Rolf Krause, University of Lugano, Switzerland 
+ Simone Deparis, École Polytechnique Fédérale de Lausanne, Switzerland
+ Davide Forti, École Polytechnique Fédérale de Lausanne, Switzerland
+ Alfio Quarteroni, École Polytechnique Fédérale de Lausanne, Switzerland
+ Robert Luce , EPFL, Switzerland 
+ Patrick Sanan , Università della Svizzera italiana, Switzerland
+ Olaf Schenk, Università della Svizzera italiana, Switzerland 
+ Jonas Ballani, EPFL, Switzerland
+ Edgar Solomonik , ETH Zürich, Switzerland 
+ Michael Steinlechner , EPFL, Switzerland 
+ Vladimir Kazeev and Christoph Schwab, ETH Zürich, Switzerland 
+ Ding Lu, University of Geneva, Switzerland
+ Alfio Lazzaro , Ole Schuett, and Joost VandeVondele, ETH Zürich, Switzerland 
+ Bart Vandereycken , Université de Genève, Switzerland
+ Daniel Kressner and Michael Steinlechner, EPFL, Switzerland 
+ François Serre and Markus Pueschel, ETH Zürich, Switzerland 
+ Christoph Schwab, Siddhartha Mishra, and Fillippo Leonardi , ETH Zürich, Switzerland 
+ Siddhartha Mishra , ETH Zürich, Switzerland 
+ Michele Pisaroni , Fabio Nobile, and Penelope Leyland, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Christoph Schwab, ETH Zürich, Switzerland 
+ Daniel Kressner , EPFL, Switzerland
+ Edgar Solomonik , ETH Zürich, Switzerland 
+ Stefan Goedecker , University of Basel, Switzerland 
+ Mathieu Luisier, Mauro Calderara, Sascha Brueck , Hossein Bani-Hashemian, and Joost VandeVondele, ETH Zürich, Switzerland 
+ Rolf Krause, Università della Svizzera italiana, Switzerland 
+ Erich Foster , USI, Switzerland
+ Marco Favino, University of Lugano, Switzerland
+ Patrick Zulian, USI, Switzerland 
+ Andrea Arteaga , ETH Zürich, Switzerland
+ Christophe Charpilloz and Olive Fuhrer, MeteoSwiss, Switzerland
+ Torsten Hoefler, ETH Zürich, Switzerland 
+ Laura Scarabosio and Ralf Hiptmair, ETH Zürich, Switzerland
+ Christoph Schwab, ETH Zürich, Switzerland 
+ Peter Arbenz and Manuel Kohler, ETH Zürich, Switzerland 
+ Rolf Krause, Università della Svizzera italiana, Switzerland 
+ Pietro Benedusi , USI, Switzerland
+ Peter Arbenz and Daniel Hupp, ETH Zürich, Switzerland 
+ Daniel Hupp and Peter Arbenz, ETH Zürich, Switzerland
+ Dominik Obrist, University of Bern, Switzerland 
+ Matteo Astorino, École Polytechnique Fédérale de Lausanne, Switzerland
+ Alfio Quarteroni, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Simplice Donfack and Patrick Sanan, Università della Svizzera italiana, Switzerland
+ Olaf Schenk, Università della Svizzera italiana, Switzerland 
+ Cristiano Malossi, IBM Research-Zurich, Switzerland
+ Peter W. J. Staar, Yves Ineichen, Costas Bekas, and Alessandro Curioni, IBM Research-Zurich, Switzerland
+ Rolf Krause , Università della Svizzera italiana, Switzerland 
+ Andreas Kreienbühl, USI, Switzerland
+ Dorian Krause, University of Lugano, Switzerland
+ Kjetil O. Lye , ETH Zürich, Switzerland 
+ Stefano Marelli , Christos Lataniotis, and Bruno Sudret, ETH Zürich, Switzerland 
+ Hans Rudolf Künsch , ETH Zürich, Switzerland 
+ Jonas Ballani, EPFL, Switzerland
+ Daniel Kressner , École Polytechnique Fédérale de Lausanne, Switzerland 
+ James Irving , Corinna Koepke, and Delphine Roubinet, University of Lausanne, Switzerland 
+ Francesco Tesei , Fabio Nobile, and Sebastian Krumscheid, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Fabio Nobile, École Polytechnique Fédérale de Lausanne, Switzerland
+ Francesco Tesei, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Bruno Sudret and Chu Mai, ETH Zürich, Switzerland 
+ Christoph Schwab , ETH Zürich, Switzerland
+ Robert N. Gantner, ETH Zürich, Switzerland 
+ Christoph Schwab, ETH Zürich, Switzerland 
+ Fabio Nobile, École Polytechnique Fédérale de Lausanne, Switzerland
+ Fabio Nobile and Daniel Kressner , École Polytechnique Fédérale de Lausanne, Switzerland 
+ Eleonora Musharbash and Fabio Nobile, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Roland Schöbi and Bruno Sudret, ETH Zürich, Switzerland 
+ Helmut Harbrecht , Universität Basel, Switzerland 
+ Arnulf Jentzen , ETH Zürich, Switzerland 
+ Andrea Manzoni and Alfio Quarteroni, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Anthony Davison , École Polytechnique Fédérale de Lausanne, Switzerland 
+ Leonhard Held and Sebastian Meyer, University of Zurich, Switzerland 
+ Reinhard Furrer and David Masson, University of Zurich, Switzerland 
+ Christoph Jaeggli , Julien Straubhaar, and Philippe Renard, Universite de Neuchatel, Switzerland 
+ Pascal Frossard and Dorina Thanou , École Polytechnique Fédérale de Lausanne, Switzerland 
+ Virginie Uhlmann , Daniel Schmitter, and Michael A. Unser, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Michael Liebling , Idiap Research Institute, Switzerland 
+ Juergen Doelz , Helmut Harbrecht, and Michael Peters, Universität Basel, Switzerland
+ Christoph Schwab, ETH Zürich, Switzerland 
+ Michael Peters and Helmut Harbrecht, Universität Basel, Switzerland
+ Juraj Kardoš and Drosos Kourounis, Università della Svizzera italiana, Switzerland
+ Olaf Schenk, Università della Svizzera italiana, Switzerland 
+ Patrick Sanan , Università della Svizzera italiana, Switzerland 
+ Fabio Nobile , École Polytechnique Fédérale de Lausanne, Switzerland
+ Corinna Koepke and James Irving, University of Lausanne, Switzerland 
+ Lina Kulakova , Panagiotis Hadjidoukas, and Panagiotis Angelikopoulos, ETH Zürich, Switzerland
+ Dmitry Alexeev, Diego Rossinelli, and Petros Koumoutsakos, ETH Zürich, Switzerland 
+ Damiano Pasetto , École Polytechnique Fédérale de Lausanne, Switzerland
+ Flavio Finger, Enrico Bertuzzo, and Andrea Rinaldo, EPFL, Switzerland 
+ Juan Pablo Carbajal , David Machac, Jörg Rieckermann, and Carlo Albert Eawag, Swiss Federal Institute of Aquatic Science and Technology, Switzerland 
+ Stefano Moret , Michel Bierlaire, and François Maréchal, EPFL, Switzerland 
+ Sai Ganesh S. Pai and Ian Smith, EPFL, Switzerland 
+ Yousra El Bachir , EPFL, Switzerland 
+ Djalel-Eddine Meskaldji and Stephan Morgenthaler, EPFL, Switzerland 
+ Léo Belzile , EPFL, Switzerland
+ Stefano Marelli and Bruno Sudret , ETH Zürich, Switzerland 
+ Fabio Verbosio and Drosos Kourounis, Università della Svizzera italiana, Switzerland
+ Olaf Schenk, Università della Svizzera italiana, Switzerland 
+ Fabien Delalondre and Timothee Ewart, École Polytechnique Fédérale de Lausanne, Switzerland
+ Timothee Ewart , École Polytechnique Fédérale de Lausanne, Switzerland
+ Fabien Delalondre, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Victor M. Panaretos, EPFL, Switzerland 
+ Mikael Kuusela , École Polytechnique Fédérale de Lausanne, Switzerland
+ Carlo Albert , Eawag, Switzerland
+ Simone Ulzega, Swiss Federal Institute of Aquatic Science and Technology, Switzerland 
+ Fabio Verbosio , Università della Svizzera italiana, Switzerland
+ Olaf Schenk and Drosos Kourounis, Università della Svizzera italiana, Switzerland 
+ Christoph Schwab , ETH Zürich, Switzerland 
+ Volkan Cevher, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Juergen Doelz , Helmut Harbrecht, and Michael Peters, Universität Basel, Switzerland
+ Christoph Schwab, ETH Zürich, Switzerland 
+ Fabio Verbosio , Università della Svizzera italiana, Switzerland
+ Olaf Schenk, Università della Svizzera italiana, Switzerland 
+ Rolf Krause , Università della Svizzera italiana, Switzerland 
+ Xiaozhou Li, Pietro Benedusi , and Rolf Krause, Università della Svizzera italiana, Switzerland 
+ Jan S. Hesthaven and Allan Nielsen , École Polytechnique Fédérale de Lausanne, Switzerland 
+ Marzio Sala, ETHZ Computational Laboratory, Switzerland
+ Christian Boehm , Naiara Korta Martiartu, and Andreas Fichtner, ETH Zürich, Switzerland 
+ Volkan Cevher, École Polytechnique Fédérale de Lausanne, Switzerland
+ Alp Yurtsever , École Polytechnique Fédérale de Lausanne, Switzerland 
+ Sebastian Stich , EPFL, Switzerland
+ Volkan Cevher, École Polytechnique Fédérale de Lausanne, Switzerland
+ Daniel Kuhn, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Volkan Cevher and Alp Yurtsever, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Marcus J Grote, University of Basel, Switzerland
+ Uri Nahum, University of Basel, Switzerland 
+ Rolf Krause , Seif Ben Bader, and Marco Favino, Università della Svizzera italiana, Switzerland 
+ Alessio Quaglino, Università della Svizzera italiana, Switzerland 
+ Patrick Sanan, Università della Svizzera italiana, Switzerland
+ Victoria Caparros Cabezas and Markus Pueschel , ETH Zürich, Switzerland 
+ Torsten Hoefler, ETH Zürich, Switzerland
+ Alena Kopanicakova , Università della Svizzera italiana, Switzerland 
+ Rolf Krause, Università della Svizzera italiana, Switzerland 
+ Cristiano Malossi and Florian Scheidegger , IBM Research-Zurich, Switzerland 
+ Torsten Hoefler , ETH Zürich, Switzerland 
+ Petros Koumoutsakos , ETH Zürich, Switzerland 
+ Tal Ben-Nun , ETH Zürich, Switzerland 
+ Igor V. Pivkin , Università della Svizzera italiana, Switzerland 
+ Patrick Cheridito, Arnulf Jentzen, and Timo Welti , ETH Zürich, Switzerland 
+ Paul-Remo Wagner , Reto Fahrni, Michael Klippel, and Bruno Sudret, ETH Zürich, Switzerland 
+ Simone Carlo Surace , Jean-Pascal Pfister, and Anna Kutschireiter, University of Zurich and ETH Zurich, Switzerland 
+ Davide Torlo, Universität Zürich, Switzerland
+ Aryan Eftekhar , Università della Svizzera italiana, Switzerland 
+ Olaf Schenk, Università della Svizzera italiana, Switzerland 
+ Christoph Schwab , ETH Zürich, Switzerland 
+ Mengwu Guo and Jan S. Hesthaven, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Helmut Harbrecht, Universität Basel, Switzerland 
+ Panagiotis Hadjidoukas, ETH Zürich, Switzerland
+ Petros Koumoutsakos, ETH Zürich, Switzerland
+ Daniel W. Meyer , Institute of Fluid Dynamics, Switzerland 
+ Caterina Bigoni , École polytechnique fédérale de Lausanne, Switzerland
+ Jan S. Hesthaven, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Andreas Adelmann , Paul Scherrer Institut, Switzerland 
+ Matthias Christen , Olaf Schenk, and Helmar Burkhart, University of Basel, Switzerland 
+ Simone Deparis, École Polytechnique Fédérale de Lausanne, Switzerland
+ Olaf Schenk , University of Basel, Switzerland
+ Yves Wiaux, EPFL, Switzerland
+ Pierre Vandergheynst, École Polytechnique Fédérale de Lausanne, Switzerland
+ Alfio Quarteroni, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Vasile Gradinaru , ETH Zürich, Switzerland 
+ Gisela Widmer , ETH Zürich, Switzerland 
+ Toni Lassila , École Polytechnique Fédérale de Lausanne, Switzerland 
+ Christof Voemel , ETH Zürich, Switzerland 
+ Martin H. Gutknecht , ETH Zürich, Switzerland 
+ Martin Gutknecht, ETH Zürich, Switzerland 
+ Olaf Schenk , University of Basel, Switzerland 
+ Martin J. Gander, University of Geneva, Switzerland
+ Karthik Raoaroor, École Polytechnique Fédérale de Lausanne, Switzerland
+ Pierre Vandergheynst, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Volkan Cevher, École Polytechnique Fédérale de Lausanne, Switzerland
+ Joppe Bos and Arjen Lenstra, École Polytechnique Fédérale de Lausanne, Switzerland
+ Jean-Philippe Aumasson, École Polytechnique Fédérale de Lausanne, Switzerland
+ Luca Henzen , Eidgenössische Technische Hochschule Zürich, Switzerland 
+ Tulin Kaman, ETH Zürich and Paul Scherrer Institute, Switzerland
+ Djano Kandaswamy and Dimitri Van De Ville, École Polytechnique Fédérale de Lausanne, Switzerland 
+ Michael A. Unser , École Polytechnique Fédérale de Lausanne, Switzerland
+ Olaf Schenk and Madan Sathe , University of Basel, Switzerland 
+ Andreas Adelmann , Paul Scherrer Institut, Switzerland
+ Peter Arbenz, Swiss Federal Institute of Technology, Switzerland
+ Yves Ineichen, ETH Zürich, Switzerland 
+ Joost VandeVondele and Juerg Hutter, University of Zurich, Switzerland
+ Simone Deparis , Alfio Quarteroni, and Paolo Crosetto, École Polytechnique Fédérale de Lausanne, Switzerland
+ Gilles Fourestey, Swiss Centre of Scientific Computing, Switzerland 

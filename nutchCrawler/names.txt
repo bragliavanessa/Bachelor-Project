@@ -1,0 +1,253 @@
+Alfio Quarteroni	École Polytechnique Fédérale de Lausanne
+Gianluigi Rozza	École Polytechnique Fédérale de Lausanne
+Michael Gloor	ETH Zürich
+Christian Gross	Università della Svizzera italiana
+Rolf Krause	Università della Svizzera italiana
+Olaf Schenk	University of Basel
+Grote Marcus	University of Basel
+Johannes Huber	University of Basel
+Laura Sanita'	École Polytechnique Fédérale de Lausanne
+Rico Zenklusen	EPFL
+Alberto Del Pia	ETH Zürich
+Diethard Klatte	University of Zurich
+Stefan Richter	ETH Zürich
+Colin Jones	ETH Zürich
+Manfred Morari	ETH Zürich
+Sean Summers	ETH Zürich
+Davide Raimondo	ETH Zürich
+John Lygeros	ETH Zürich
+Robert Weismantel	ETH Zürich
+Yves Ineichen	ETH Zürich
+Andreas Adelmann	Paul Scherrer Institut
+Peter Arbenz	ETH Zürich
+Alessandro Curioni	IBM Research-Zurich
+Tulin Kaman	 Paul Scherrer Institute
+ETH Zürich	 Paul Scherrer Institute
+Mathieu Luisier	ETH Zürich
+Martin J. Gander	University of Geneva
+Costas Bekas	IBM Research-Zurich
+Diego Rossinelli	ETH Zürich
+Bendikt Oswald	Paul Scherrer Institut
+Matthias Christen	University of Basel
+Thomas C. Schulthess	Swiss National Supercomputing Center
+Daniel Kressner	EPFL
+Dave A. May	ETH Zürich
+Robert Speck	University of Lugano
+Rolf Krause	University of Lugano
+Radu Popescu	École Polytechnique Fédérale de Lausanne
+Simone Deparis	École Polytechnique Fédérale de Lausanne
+Dorian Krause	University of Lugano
+Mark Potse	University of Lugano
+Thomas Dickopf	University of Lugano
+Angelo Auricchio	Fondazione Cardiocentro Ticino
+Volkan Cevher	École Polytechnique Fédérale de Lausanne
+Dimitri Van De Ville	École Polytechnique Fédérale de Lausanne
+Michel Kocher	École Polytechnique Fédérale de Lausanne
+Michael M. Bronstein	Università della Svizzera italiana
+Dominique P. Zosso	École Polytechnique Fédérale de Lausanne
+Jean-Philippe Thiran	École Polytechnique Fédérale de Lausanne
+Martin Vetterli	École Polytechnique Fédérale de Lausanne
+Christoph Schwab	ETH Zürich
+Fabio Nobile	EPFL
+Peter Reichert	 Technology
+Swiss Federal Institute of Aquatic Science	 Technology
+Hans Rudolf Kuensch	ETH Zürich
+David Ginsbourger	University of Berne
+Ilya Molchanov	University of Berne
+Lorenzo Tamellini	EPFL
+Victor M. Panaretos	EPFL
+Carlo Albert	Eawag
+Daniel Ruprecht	University of Lugano
+Toni Lassila	École Polytechnique Fédérale de Lausanne
+Jonas Šukys	ETH Zürich
+Sahar Sargheini	ETH Zürich
+Alberto Paganini	ETH Zürich
+Claudia Schillings	ETH Zürich
+Raffaele Solc\'{a}	ETH Zürich
+Cyril Flaig	ETH Zürich
+Daniel Kellenberger	ETH Zürich
+Felix Kwok	University of Geneva
+Johannes Steiner	University of Lugano
+Dmitry Mikushin	Università della Svizzera italiana
+Olaf Schenk	Università della Svizzera italiana
+Stephan Mohr	University of Basel
+Stefan Goedecker	University of Basel
+Manuel Kohler	ETH Zürich
+Felix Sch\"urmann	École Polytechnique Fédérale de Lausanne
+Nenad Buncic	École Polytechnique Fédérale de Lausanne
+Fabien Delalondre	École Polytechnique Fédérale de Lausanne
+Stefan Eilemann	École Polytechnique Fédérale de Lausanne
+Jeffrey Muller	École Polytechnique Fédérale de Lausanne
+Peng Chen	École Polytechnique Fédérale de Lausanne
+Helmut Harbrecht	Universität Basel
+Napat Rujeerapaiboon	École Polytechnique Fédérale de Lausanne
+Daniel Kuhn	École Polytechnique Fédérale de Lausanne
+Jean-Philippe Vial	Ordecsys
+Michel Baes	ETH Zürich
+Michael Buergisser	ETH Zürich
+Thomas Wuest	Swiss Federal Research Institute WSL
+Francesco Tesei	École Polytechnique Fédérale de Lausanne
+David Machac	ETH Zürich
+Stefano Marelli	ETH Zürich
+Bruno Sudret	ETH Zürich
+Schoebi Roland	ETH Zürich
+AlbertoGiovanni Busetto	ETH Zürich
+Seyedehsomayeh Hosseini	ETH Zürich
+Guillaume Jouvet	ETH Zürich
+Xavier Bresson	Swiss Federal Institute of Technology
+Thomas C. Schulthess	ETH Zürich
+Anton Kozhevnikov	ETH Zürich
+Solcà Raffaele	ETH Zürich
+Peng Chen	ETH Zürich
+Davide Forti	École Polytechnique Fédérale de Lausanne
+Robert Luce	EPFL
+Patrick Sanan	Università della Svizzera italiana
+Jonas Ballani	EPFL
+Edgar Solomonik	ETH Zürich
+Michael Steinlechner	EPFL
+Vladimir Kazeev	ETH Zürich
+Ding Lu	University of Geneva
+Alfio Lazzaro	ETH Zürich
+Ole Schuett	ETH Zürich
+Joost VandeVondele	ETH Zürich
+Bart Vandereycken	Université de Genève
+François Serre	ETH Zürich
+Markus Pueschel	ETH Zürich
+Siddhartha Mishra	ETH Zürich
+Fillippo Leonardi	ETH Zürich
+Michele Pisaroni	École Polytechnique Fédérale de Lausanne
+Fabio Nobile	École Polytechnique Fédérale de Lausanne
+Penelope Leyland	École Polytechnique Fédérale de Lausanne
+Mauro Calderara	ETH Zürich
+Sascha Brueck	ETH Zürich
+Hossein Bani-Hashemian	ETH Zürich
+Erich Foster	USI
+Marco Favino	University of Lugano
+Patrick Zulian	USI
+Andrea Arteaga	ETH Zürich
+Christophe Charpilloz	MeteoSwiss
+Olive Fuhrer	MeteoSwiss
+Torsten Hoefler	ETH Zürich
+Laura Scarabosio	ETH Zürich
+Ralf Hiptmair	ETH Zürich
+Pietro Benedusi	USI
+Daniel Hupp	ETH Zürich
+Dominik Obrist	University of Bern
+Matteo Astorino	École Polytechnique Fédérale de Lausanne
+Simplice Donfack	Università della Svizzera italiana
+Cristiano Malossi	IBM Research-Zurich
+Peter W. J. Staar	IBM Research-Zurich
+Yves Ineichen	IBM Research-Zurich
+Andreas Kreienbühl	USI
+Kjetil O. Lye	ETH Zürich
+Christos Lataniotis	ETH Zürich
+Hans Rudolf Künsch	ETH Zürich
+Daniel Kressner	École Polytechnique Fédérale de Lausanne
+James Irving	University of Lausanne
+Corinna Koepke	University of Lausanne
+Delphine Roubinet	University of Lausanne
+Sebastian Krumscheid	École Polytechnique Fédérale de Lausanne
+Chu Mai	ETH Zürich
+Robert N. Gantner	ETH Zürich
+Eleonora Musharbash	École Polytechnique Fédérale de Lausanne
+Rol Schöbi	ETH Zürich
+Arnulf Jentzen	ETH Zürich
+Andrea Manzoni	École Polytechnique Fédérale de Lausanne
+Anthony Davison	École Polytechnique Fédérale de Lausanne
+Leonhard Held	University of Zurich
+Sebastian Meyer	University of Zurich
+Reinhard Furrer	University of Zurich
+David Masson	University of Zurich
+Christoph Jaeggli	Universite de Neuchatel
+Julien Straubhaar	Universite de Neuchatel
+Philippe Renard	Universite de Neuchatel
+Pascal Frossard	École Polytechnique Fédérale de Lausanne
+Dorina Thanou	École Polytechnique Fédérale de Lausanne
+Virginie Uhlmann	École Polytechnique Fédérale de Lausanne
+Daniel Schmitter	École Polytechnique Fédérale de Lausanne
+Michael A. Unser	École Polytechnique Fédérale de Lausanne
+Michael Liebling	Idiap Research Institute
+Juergen Doelz	Universität Basel
+Michael Peters	Universität Basel
+Juraj Kardoš	Università della Svizzera italiana
+Drosos Kourounis	Università della Svizzera italiana
+Lina Kulakova	ETH Zürich
+Panagiotis Hadjidoukas	ETH Zürich
+Panagiotis Angelikopoulos	ETH Zürich
+Dmitry Alexeev	ETH Zürich
+Petros Koumoutsakos	ETH Zürich
+Damiano Pasetto	École Polytechnique Fédérale de Lausanne
+Flavio Finger	EPFL
+Enrico Bertuzzo	EPFL
+Andrea Rinaldo	EPFL
+Juan Pablo Carbajal	 Technology
+David Machac	 Technology
+Jörg Rieckermann	 Technology
+Carlo Albert Eawag	 Technology
+Stefano Moret	EPFL
+Michel Bierlaire	EPFL
+François Maréchal	EPFL
+Sai Ganesh S. Pai	EPFL
+Ian Smith	EPFL
+Yousra El Bachir	EPFL
+Djalel-Eddine Meskaldji	EPFL
+Stephan Morgenthaler	EPFL
+Léo Belzile	EPFL
+Fabio Verbosio	Università della Svizzera italiana
+Timothee Ewart	École Polytechnique Fédérale de Lausanne
+Mikael Kuusela	École Polytechnique Fédérale de Lausanne
+Simone Ulzega	 Technology
+Xiaozhou Li	Università della Svizzera italiana
+Pietro Benedusi	Università della Svizzera italiana
+Jan S. Hesthaven	École Polytechnique Fédérale de Lausanne
+Allan Nielsen	École Polytechnique Fédérale de Lausanne
+Marzio Sala	ETHZ Computational Laboratory
+Christian Boehm	ETH Zürich
+Naiara Korta Martiartu	ETH Zürich
+Andreas Fichtner	ETH Zürich
+Alp Yurtsever	École Polytechnique Fédérale de Lausanne
+Sebastian Stich	EPFL
+Marcus J Grote	University of Basel
+Uri Nahum	University of Basel
+Seif Ben Bader	Università della Svizzera italiana
+Marco Favino	Università della Svizzera italiana
+Alessio Quaglino	Università della Svizzera italiana
+Victoria Caparros Cabezas	ETH Zürich
+Alena Kopanicakova	Università della Svizzera italiana
+Florian Scheidegger	IBM Research-Zurich
+Tal Ben-Nun	ETH Zürich
+Igor V. Pivkin	Università della Svizzera italiana
+Patrick Cheridito	ETH Zürich
+Timo Welti	ETH Zürich
+Paul-Remo Wagner	ETH Zürich
+Reto Fahrni	ETH Zürich
+Michael Klippel	ETH Zürich
+Simone Carlo Surace	 ETH Zurich
+Jean-Pascal Pfister	 ETH Zurich
+Anna Kutschireiter	 ETH Zurich
+University of Zurich	 ETH Zurich
+Davide Torlo	Universität Zürich
+Aryan Eftekhar	Università della Svizzera italiana
+Mengwu Guo	École Polytechnique Fédérale de Lausanne
+Daniel W. Meyer	Institute of Fluid Dynamics
+Caterina Bigoni	École polytechnique fédérale de Lausanne
+Helmar Burkhart	University of Basel
+Yves Wiaux	EPFL
+Pierre Vandergheynst	École Polytechnique Fédérale de Lausanne
+Vasile Gradinaru	ETH Zürich
+Gisela Widmer	ETH Zürich
+Christof Voemel	ETH Zürich
+Martin H. Gutknecht	ETH Zürich
+Martin Gutknecht	ETH Zürich
+Karthik Raoaroor	École Polytechnique Fédérale de Lausanne
+Joppe Bos	École Polytechnique Fédérale de Lausanne
+Arjen Lenstra	École Polytechnique Fédérale de Lausanne
+Jean-Philippe Aumasson	École Polytechnique Fédérale de Lausanne
+Luca Henzen	Eidgenössische Technische Hochschule Zürich
+Djano Kandaswamy	École Polytechnique Fédérale de Lausanne
+Madan Sathe	University of Basel
+Peter Arbenz	Swiss Federal Institute of Technology
+Joost VandeVondele	University of Zurich
+Juerg Hutter	University of Zurich
+Paolo Crosetto	École Polytechnique Fédérale de Lausanne
+Gilles Fourestey	Swiss Centre of Scientific Computing

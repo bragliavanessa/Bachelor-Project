@@ -1,0 +1,136 @@
+<dd>								
+		
+		
+
+		
+
+		Gianluigi Rozza, 
+		
+		
+		École Polytechnique Fédérale de Lausanne, Switzerland;
+		
+		
+		
+		
+
+			
+			
+		
+		
+		
+		
+		
+
+		
+
+		Andrea Manzoni, 
+		
+		
+		International School for Advanced Studies, Trieste, Italy
+		
+	
+	
+	
+	
+	<dt>
+	
+
+	<strong>
+	
+
+	
+		
+			10:00-10:25
+		
+ 	     Reduced Basis Method for Radar Cross Section Computation of a Pacman Scattering Problem</strong> 
+    
+    
+    
+      
+    <a href="dsp_talk.cfm?p=39148">abstract</a>
+    
+	
+	<dd>
+		
+		
+		
+		
+
+			
+			
+		
+		
+		
+		
+		
+
+		<em>
+
+		Yanlai Chen</EM>, 
+		
+		
+		University of Massachusetts, Dartmouth, USA;
+		
+		
+		
+		
+
+			
+			
+		
+		
+		
+		
+		
+
+		
+
+		Jan S.  Hesthaven, 
+		
+		
+		Brown University, USA;
+		
+		
+		
+		
+
+			
+			
+		
+		
+		
+		
+		
+
+		
+
+		Yvon Maday, 
+		
+		
+		Université Pierre et Marie Curie, France and Brown University, USA
+		
+	
+	
+	
+	
+	<dt>
+	
+
+	<strong>
+	
+
+	
+		
+			10:30-10:55
+		
+ 	     An "Uncertainty Region" Reduced Basis Approach to Parameter Estimation</strong> 
+    
+    
+    
+      
+    <a href="dsp_talk.cfm?p=40593">abstract</a>
+    
+	
+	<dd>
+		
+		
