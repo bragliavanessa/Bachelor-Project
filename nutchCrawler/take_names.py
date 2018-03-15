@@ -26,10 +26,12 @@ def write_in_file(text):
 
 # CONSTANTS
 # Token for Mendeley API requests
-TOKEN = "jjj"
+TOKEN = "MSwxNTIxMTIxOTQ1MzcxLDUxMDYwMzMzMSwxMDI4LGFsbCwsLDE2ZTZhNTE3NGRlNzAwNGUwODg4MWYxMGY1MWZlOTgzZTg3Y2d4cnFiLDJhOWM1NWE1LWY5NTYtMzJlMS1iYTU1LTA3NTAxYzRiYjI2NyxWMnlvYi0yYmx1YlpfOUc0aE1ETTZBM3Ridlk"
 # Requests parts
 REQUEST = "curl --request GET --header \"Authorization: Bearer "
 REQUEST2 = "\" \"https://api.mendeley.com/catalog?query="
+REQUEST3 = "&limit=100&view=bib\" > catalogs/catalog_"
+REQUEST4 = ".json\n"
 
 
 # FIRST PART: take all the necessary information and save them in a file
@@ -82,12 +84,13 @@ for x in res:
    for index in range(0, len(x)-1):
       name = (re.sub(' +',' ',x[index].replace('and ', ' ')).rstrip().lstrip()+'\t'+re.sub(' +',' ',x[len(x)-1]) +"\n")
       query_name = name.split('\t')[0].replace(' ', '+')
+      file_name = name.split('\t')[0].replace(' ', '_')
       file_output.close()
       file_output = open("names.txt", "r+")
       content_output = file_output.read()
       if (name not in content_output):
          file_output.write(name)
-         file_req.write(REQUEST + TOKEN + REQUEST2 + query_name + "&limit=100&view=bib\"\n")
+         file_req.write(REQUEST + TOKEN + REQUEST2 + query_name + REQUEST3 + file_name + REQUEST4)
 
 file_input.close()
 file_output.close()
