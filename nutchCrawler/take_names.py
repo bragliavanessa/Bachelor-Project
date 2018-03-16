@@ -2,36 +2,51 @@
 # from the crawled html pages
 import re
 import os
+import json
 
 # Remove unnecessary content and excess spaces
 def to_plane_text(fileLine):
    fileLine = (re.sub(' +',' ', fileLine.replace('\n', ' ').replace('\t',' ').replace("<em>", ' ').replace('</EM>', ' ').replace('</S>', ' ').replace('<img src="../updated.gif" alt="updated">', ' ')))
    return fileLine
 
-# Split the lines per university
-# The lines are organized such that the university with their memebers
-# are separated by a ';'
+
+# Take only the Switzerland researchers and same them tomporarily in a file
 def split_lines(fileLine):
    components = fileLine.split(';')
-   map(write_in_file, components)
+   res = ""
+   for x in components:
+	   if 'Switzerland' in x:
+		   res = res + x + ';';
+   if res != "":
+      file_result.write(res+'\n')
    return
+
+
+def check_if_name_exists(data, name):
+    for x in data['authors']:
+        if x['name']==name:
+            print 1
+            return
+    print 0
+    return
+
+def check_if_coauthor_exists(data, name, coauthor_name):
+    for x in data['authors']:
+        if x['name']==name:
+            for coauthor in x['coauthors']:
+                if(coauthor == coauthor_name):
+                    print 1
+                    return 1
+    print 0
+    return 0
 
 # Temporary write the results in a file
 # For each line we have one Swiss university with one or some memebers
-def write_in_file(text):
-   if 'Switzerland' in text:
-      file_result.write(text+'\n')
-   return
-
-
-# CONSTANTS
-# Token for Mendeley API requests
-TOKEN = "MSwxNTIxMTIxOTQ1MzcxLDUxMDYwMzMzMSwxMDI4LGFsbCwsLDE2ZTZhNTE3NGRlNzAwNGUwODg4MWYxMGY1MWZlOTgzZTg3Y2d4cnFiLDJhOWM1NWE1LWY5NTYtMzJlMS1iYTU1LTA3NTAxYzRiYjI2NyxWMnlvYi0yYmx1YlpfOUc0aE1ETTZBM3Ridlk"
-# Requests parts
-REQUEST = "curl --request GET --header \"Authorization: Bearer "
-REQUEST2 = "\" \"https://api.mendeley.com/catalog?query="
-REQUEST3 = "&limit=100&view=bib\" > catalogs/catalog_"
-REQUEST4 = ".json\n"
+# def write_in_file(text):
+# 	res = "";
+#    if 'Switzerland' in text:
+#       file_result.write(text+'\n')
+#    return
 
 
 # FIRST PART: take all the necessary information and save them in a file
@@ -66,32 +81,44 @@ file_result.close()
 # SECOND PART: take the information, extract a list of names
 # with their universities
 file_input = open("result.txt","r")
-file_output = open("names.txt", "r+")
-file_req = open("requests.sh", "w")
+file_output = open("authors.json", "w")
 content_input = file_input.read()
 file_output.truncate()
-file_req.truncate()
 
 # Take the lines of the file
 res = content_input.split('\n')
 
+
+data = {}
+data['authors'] = []
+
+
 # For each line we extract the names and the university,
 # in one file we write the lists of names with their respective university
 # in the other file we write the requests for Mendeley API
-for x in res:
-   x = re.split(', | and', x)
-   x.remove(x[len(x)-1])
-   for index in range(0, len(x)-1):
-      name = (re.sub(' +',' ',x[index].replace('and ', ' ')).rstrip().lstrip()+'\t'+re.sub(' +',' ',x[len(x)-1]) +"\n")
-      query_name = name.split('\t')[0].replace(' ', '+')
-      file_name = name.split('\t')[0].replace(' ', '_')
-      file_output.close()
-      file_output = open("names.txt", "r+")
-      content_output = file_output.read()
-      if (name not in content_output):
-         file_output.write(name)
-         file_req.write(REQUEST + TOKEN + REQUEST2 + query_name + REQUEST3 + file_name + REQUEST4)
+for y in res:
+   parts = y.split(';')
+   names = []
+   universities = []
+   for x in parts:
+      x = re.split(', | and', x)
+      x.remove(x[len(x)-1])
+      for index in range(0, len(x)-1):
+         name = re.sub(' +',' ',x[index].replace('and ', ' ')).rstrip().lstrip()
+         university = re.sub(' +',' ',x[len(x)-1])
+         if(name not in names):
+            names.append(name)
+            universities.append(university)
+         else:
+
+            continue
+   for count in range(0,len(names)):
+      coauthors = list(names)
+      coauthors.remove(names[count])
+      data['authors'].append({'name' : names[count], 'university' : universities[count], 'coauthors': coauthors})
+
+json.dump(data, file_output)
 
 file_input.close()
 file_output.close()
-os.remove("result.txt")
+# os.remove("result.txt")
