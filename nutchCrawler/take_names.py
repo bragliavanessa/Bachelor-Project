@@ -22,23 +22,43 @@ def split_lines(fileLine):
    return
 
 
-def check_if_name_exists(data, name):
+def check_if_name_exists(data, nu):
+    s = nu.split('\t')
     for x in data['authors']:
-        if x['name']==name:
-            print 1
-            return
-    print 0
-    return
+        if x['name']==s[0] and x['university']==s[1]:
+            return 0
+    return 1
 
-def check_if_coauthor_exists(data, name, coauthor_name):
+def check_if_coauthor_exists_or_add(data, nu, coauthor_name):
+    s = nu.split('\t')
     for x in data['authors']:
-        if x['name']==name:
+        if x['name']==s[0] and x['university']==s[1]:
             for coauthor in x['coauthors']:
                 if(coauthor == coauthor_name):
-                    print 1
-                    return 1
-    print 0
-    return 0
+                    return 0
+            x['coauthors'].append(coauthor_name)
+    return 1
+
+def adjust_coauthors(coauthors):
+	res = []
+	for e in coauthors:
+		s = e.split('\t')
+		res.append({'name': s[0], 'university':s[1]})
+	return res
+
+# def check_if_coauthor_exists(data, name, coauthor_name):
+#     for x in data['authors']:
+#         if x['name']==name:
+#             x['coauthors'].append(coauthor_name)
+#     return
+
+# def take_name(l):
+# 	res = []
+# 	for i in l:
+# 		j=i.split('\t')
+# 		res.append(j[0])
+# 	return res
+
 
 # Temporary write the results in a file
 # For each line we have one Swiss university with one or some memebers
@@ -99,23 +119,29 @@ data['authors'] = []
 for y in res:
    parts = y.split(';')
    names = []
-   universities = []
    for x in parts:
       x = re.split(', | and', x)
       x.remove(x[len(x)-1])
-      for index in range(0, len(x)-1):
+      for index in range(0,len(x)-1):
          name = re.sub(' +',' ',x[index].replace('and ', ' ')).rstrip().lstrip()
          university = re.sub(' +',' ',x[len(x)-1])
-         if(name not in names):
-            names.append(name)
-            universities.append(university)
-         else:
-
-            continue
+         nu = name + '\t' + university
+         if (nu not in names):
+            names.append(nu)
    for count in range(0,len(names)):
       coauthors = list(names)
       coauthors.remove(names[count])
-      data['authors'].append({'name' : names[count], 'university' : universities[count], 'coauthors': coauthors})
+      # coauthors = take_name(coauthors)
+      if(check_if_name_exists(data, names[count])):
+         s = names[count].split('\t')
+         data['authors'].append({'name': s[0], 'university':s[1], 'coauthors': coauthors})
+      else:
+         for c in coauthors:
+            check_if_coauthor_exists_or_add(data, names[count], c)
+
+
+for elem in data['authors']:
+   elem['coauthors'] = adjust_coauthors(elem['coauthors'])
 
 json.dump(data, file_output)
 
