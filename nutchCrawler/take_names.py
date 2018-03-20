@@ -4,13 +4,18 @@ import re
 import os
 import json
 
+
+'''##############################
+         HELPER FUNCTIONS
+################################# '''
+
 # Remove unnecessary content and excess spaces
 def to_plane_text(fileLine):
    fileLine = (re.sub(' +',' ', fileLine.replace('\n', ' ').replace('\t',' ').replace("<em>", ' ').replace('</EM>', ' ').replace('</S>', ' ').replace('<img src="../updated.gif" alt="updated">', ' ')))
    return fileLine
 
 
-# Take only the Switzerland researchers and same them tomporarily in a file
+# Take only the Switzerland researchers and same them temporarily in a file
 def split_lines(fileLine):
    components = fileLine.split(';')
    res = ""
@@ -21,7 +26,7 @@ def split_lines(fileLine):
       file_result.write(res+'\n')
    return
 
-
+# Check if the name has been already saved
 def check_if_name_exists(data, nu):
     s = nu.split('\t')
     for x in data['authors']:
@@ -29,6 +34,8 @@ def check_if_name_exists(data, nu):
             return 0
     return 1
 
+# If the name of the author is already present, check
+# if there are some coauthors to add
 def check_if_coauthor_exists_or_add(data, nu, coauthor_name):
     s = nu.split('\t')
     for x in data['authors']:
@@ -39,6 +46,8 @@ def check_if_coauthor_exists_or_add(data, nu, coauthor_name):
             x['coauthors'].append(coauthor_name)
     return 1
 
+# Organizes the coauthors list such that we have an array of :
+# {'name': coauthor_name, 'university': coauthor_university}
 def adjust_coauthors(coauthors):
 	res = []
 	for e in coauthors:
@@ -46,27 +55,11 @@ def adjust_coauthors(coauthors):
 		res.append({'name': s[0], 'university':s[1]})
 	return res
 
-# def check_if_coauthor_exists(data, name, coauthor_name):
-#     for x in data['authors']:
-#         if x['name']==name:
-#             x['coauthors'].append(coauthor_name)
-#     return
 
-# def take_name(l):
-# 	res = []
-# 	for i in l:
-# 		j=i.split('\t')
-# 		res.append(j[0])
-# 	return res
+'''##############################
+      END HELPER FUNCTIONS
+################################# '''
 
-
-# Temporary write the results in a file
-# For each line we have one Swiss university with one or some memebers
-# def write_in_file(text):
-# 	res = "";
-#    if 'Switzerland' in text:
-#       file_result.write(text+'\n')
-#    return
 
 
 # FIRST PART: take all the necessary information and save them in a file
@@ -113,9 +106,9 @@ data = {}
 data['authors'] = []
 
 
-# For each line we extract the names and the university,
-# in one file we write the lists of names with their respective university
-# in the other file we write the requests for Mendeley API
+# For each line we extract the names with relative universities,
+# and we organized the results in a json file with a list of authors
+# Each author has a name, a university and a list of coauthors
 for y in res:
    parts = y.split(';')
    names = []
@@ -147,4 +140,4 @@ json.dump(data, file_output)
 
 file_input.close()
 file_output.close()
-# os.remove("result.txt")
+os.remove("result.txt")
