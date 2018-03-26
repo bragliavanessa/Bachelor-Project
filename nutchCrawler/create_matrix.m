@@ -1,3 +1,4 @@
+% Take all the "edges" saved in the file "edges.txt"
 fname = 'edges.txt';
 fid = fopen(fname);
 raw = fread(fid,inf);
@@ -5,12 +6,23 @@ str = char(raw');
 fclose(fid);
 couples = strsplit(str, '\n');
 
-% Da recuperare quanti nomi sono
-% per initializzare la matrice
-n=253;
+
+% Take the number of authors we have to set the matrix
+fname_names = 'names.json';
+fid_names = fopen(fname_names);
+raw_names = fread(fid_names,inf);
+str_names = char(raw_names');
+fclose(fid_names);
+val = jsondecode(str_names);
+val = struct2cell(val(1));
+authors = val{1};
+n = size(authors,1);
+
+
 m = zeros(n,n);
 
-
+% Create the matrix and where there is an "edge" put a 1 in
+% matrix entry, otherwise leave 0s
 for i = 1:numel(couples)
     if(couples{i})
         elem = couples{i};
