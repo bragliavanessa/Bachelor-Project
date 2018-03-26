@@ -111,13 +111,25 @@ data['authors'] = []
 # Each author has a name, a university and a list of coauthors
 for y in res:
    parts = y.split(';')
+   parts = filter(None, parts)
    names = []
    for x in parts:
-      x = re.split(', | and', x)
-      x.remove(x[len(x)-1])
-      for index in range(0,len(x)-1):
-         name = re.sub(' +',' ',x[index].replace('and ', ' ')).rstrip().lstrip()
-         university = re.sub(' +',' ',x[len(x)-1])
+      y = re.split(',', x)
+      y.remove(y[len(y)-1])
+
+      print ("Lenght %d" % len(y))
+      print "Y" + y[len(y)-1]
+      university = re.sub(' +',' ',y[len(y)-1]).rstrip().lstrip()
+      y.remove(y[len(y)-1])
+
+      y = ",".join(y)
+
+      y = re.split(', | and', y)
+      # y.remove(y[len(y)-1])
+
+      for index in range(0,len(y)):
+         name = re.sub(' +',' ',y[index].replace('and ', ' ')).rstrip().lstrip()
+         # university = re.sub(' +',' ',x[len(x)-1]).rstrip().lstrip()
          nu = name + '\t' + university
          if (nu not in names):
             names.append(nu)
