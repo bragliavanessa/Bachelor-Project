@@ -20,4 +20,4 @@ Merge segments:
 ./bin/nutch mergesegs ./crawl/crawldb/merge/ -dir ./crawl/crawldb/segments/
 
 Read segements:
-./bin/nutch readseg ./dump -nofetch -nogenerate -noparse -noparsetext -noparsetext
+./bin/nutch readseg -dump ./crawl/crawldb/segments/20180327153707/ ./dump

@@ -116,9 +116,6 @@ for y in res:
    for x in parts:
       y = re.split(',', x)
       y.remove(y[len(y)-1])
-
-      print ("Lenght %d" % len(y))
-      print "Y" + y[len(y)-1]
       university = re.sub(' +',' ',y[len(y)-1]).rstrip().lstrip()
       y.remove(y[len(y)-1])
 
