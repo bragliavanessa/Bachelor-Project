@@ -32,7 +32,7 @@ def adjust_coauthors(coauthors):
 		res.append({'name': s[0], 'university':s[1]})
 	return res
 
-def take_names(co_organisers):
+def take_names_pasc(co_organisers):
 	for x in co_organisers:
 		if "Switzerland" in x:
 			information = x.split('(')
@@ -72,9 +72,6 @@ regex = re.compile("<!DOCTYPE html(.*?)</html>",  re.MULTILINE|re.DOTALL)
 # find all matching strings with the regex
 all_matching = re.findall(regex, content)
 
-print len(all_matching)
-# <base href="http://www.pasc15.org/" />
-# <base href="http://www.pasc16.org/" />
 
 if(not (("<base href=\"http://www.pasc15.org/\" />" in all_matching[0]) and ("<base href=\"http://www.pasc16.org/\" />" in all_matching[1]))):
     sys.exit()
@@ -110,7 +107,7 @@ for i in programs:
 	for y in table:
 		elem = re.findall(regex_elem, y)[0]
 		co_organisers.append(elem)
-	take_names(co_organisers)
+	take_names_pasc(co_organisers)
 
 
 for elem in data['authors']:
