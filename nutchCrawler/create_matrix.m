@@ -20,6 +20,9 @@ n = size(authors,1);
 
 
 m = zeros(n,n);
+for i = 1:n
+    m(i,i)=1;
+end
 
 % Create the matrix and where there is an "edge" put a 1 in
 % matrix entry, otherwise leave 0s
