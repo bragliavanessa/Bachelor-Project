@@ -52,8 +52,15 @@ def adjust_university(uni):
    uni = uni.replace('Philip Morris Int.','Philip Morris International R&D')
    uni = uni.replace('IBM Research - Zurich','IBM Research')
    uni = uni.replace('IBM Research - Zürich','IBM Research')
+   uni = uni.replace('IBM Research-Zürich','IBM Research')
    uni = uni.replace('Univeristy', 'University')
    uni = uni.replace('Universite de', 'University of')
+   uni = uni.replace('Eidgenössische Technische Hochschule','ETH')
+   uni = uni.replace('École Polytechnique Fédérale de Lausanne','EPFL')
+   uni = uni.replace('Università della Svizzera italiana', 'USI')
+   uni = uni.replace('Università della Svizzera Italiana', 'USI')
+   uni = uni.replace('University of Lugano','USI')
+   uni = uni.replace('Centre','Center')
    if 'polytechnique f' in uni:
       uni = uni.replace('polytechnique f','Polytechnique F')
    return uni
@@ -130,6 +137,13 @@ def check_if_name_exists(data, nu):
         if x['name']==s[0] and x['university']==s[1]:
             return 0
     return 1
+
+def take_index(data, nu):
+    s = nu.split('\t')
+    for count in range(0,len(data['authors'])):
+        if data['authors'][count]['name']==s[0] and data['authors'][count]['university']==s[1]:
+            return count+1
+    return -1
 
 def make_edges(id, ids, file):
    for i in ids:
@@ -292,6 +306,8 @@ file_names = open("names.json", "w")
 file_universities = open("universities.json", "w")
 file_edges = open("edges.txt", "w")
 
+author_indexes=[]
+
 author_names = {}
 universities = {}
 author_names['authors'] = []
@@ -312,6 +328,8 @@ for idx in range(0,len(data_json['authors'])):
       for x in author_names['authors']:
           if x['name']==name and x['university']==university:
               author_id = x['index']
+
+   author_indexes.append(author_id)
    coauthor_indexes = []
    for author in data_json['authors'][idx]['coauthors']:
       nn = author['name']+'\t'+author['university']
@@ -320,11 +338,12 @@ for idx in range(0,len(data_json['authors'])):
          universities['universities'].append(author['university'])
          coauthor_indexes.append(index)
          index = index+1
+      else:
+         id = take_index(author_names, nn)
+         if(id not in author_indexes):
+            coauthor_indexes.append(id)
+
    make_edges(author_id, coauthor_indexes, file_edges)
-   ats = list(coauthor_indexes)
-   for id in coauthor_indexes:
-      ats.remove(id)
-      make_edges(id, ats, file_edges)
 
 json.dump(author_names, file_names)
 json.dump(universities, file_universities)
