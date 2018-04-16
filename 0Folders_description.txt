@@ -1,0 +1,23 @@
+Bachelor Project
+|
+|
+|
+------- nutch_crawler: contains the crawler apache notch 1.14.
+|		|
+|		|
+|		----- dump (crawled infomation of siam conferences)
+|		----- dump2 (crawled infomation of pasc conferences)
+|
+------- information retrieval: extract the information from dump files
+|			       look at README.txt inside the folder to know what is done
+|
+------- data_organization: organise the information in MATLAB matrices
+|			   look at README.txt inside the folder to know what is done
+|
+------- project_proposal
+|
+|
+------- report
+|
+|
+------- time_table

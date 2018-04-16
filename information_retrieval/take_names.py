@@ -144,7 +144,7 @@ def make_edges(id, ids, file):
 
 # FIRST PART: take all the necessary information and save them in a file
 # Open the file with all html pages "apache-nutch-1.14/dump/dump"
-file = open("apache-nutch-1.14/dump/dump","r")
+file = open("../nutch_crawler/apache-nutch-1.14/dump/dump","r")
 # Read the file
 content = file.read()
 
@@ -225,7 +225,7 @@ for y in res:
 
 # THIRD PART: take two html pages with a regex about pasc conferences
 # Open the file with all html pages "apache-nutch-1.14/dump2/dump"
-file = open("apache-nutch-1.14/dump2/dump","r")
+file = open("../nutch_crawler/apache-nutch-1.14/dump2/dump","r")
 # Read the file
 content = file.read()
 
@@ -283,7 +283,7 @@ file_output.close()
 os.remove("result.txt")
 
 
-# THIRD PART: take the information in the json file and create a file
+# FIFTH PART: take the information in the json file and create a file
 # containing the "edges" between coauthors
 
 file_json = open('authors.json')
