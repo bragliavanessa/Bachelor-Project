@@ -18,8 +18,6 @@ def to_plane_text(fileLine):
 
 # Take only the Switzerland researchers and same them temporarily in a file
 def split_lines(fileLine):
-   # 'University of Zürich and ETH Zürich'
-   # 'ETH Zürich and Paul Scherrer Institutee'
    components = fileLine.split(';')
    res = ""
    for x in components:
@@ -65,7 +63,8 @@ def adjust_university(uni):
       uni = uni.replace('polytechnique f','Polytechnique F')
    return uni
 
-# Extract names from pasc conferences
+# Extract names from pasc conferences and insert them in
+# json data['authors']
 def take_names_pasc(co_organisers):
    for x in co_organisers:
       if "Switzerland" in x:
@@ -102,7 +101,8 @@ def take_names_pasc(co_organisers):
             check_if_coauthor_exists_or_add(data, names[count], c)
    return
 
-# Check if the name has been already saved
+# Check if the name has been already saved in json data['authors']
+# If not we save it
 def check_if_name_exists(data, nu):
     s = nu.split('\t')
     for x in data['authors']:
@@ -110,8 +110,8 @@ def check_if_name_exists(data, nu):
             return 0
     return 1
 
-# If the name of the author is already present, check
-# if there are some coauthors to add
+# If the name of the author is already present in json data['authors'],
+# check if there are some coauthors to add
 def check_if_coauthor_exists_or_add(data, nu, coauthor_name):
     s = nu.split('\t')
     for x in data['authors']:
@@ -131,13 +131,8 @@ def adjust_coauthors(coauthors):
 		res.append({'name': s[0], 'university':s[1]})
 	return res
 
-def check_if_name_exists(data, nu):
-    s = nu.split('\t')
-    for x in data['authors']:
-        if x['name']==s[0] and x['university']==s[1]:
-            return 0
-    return 1
-
+# If the author is already in author_names['authors']
+# take its index
 def take_index(data, nu):
     s = nu.split('\t')
     for count in range(0,len(data['authors'])):
@@ -145,6 +140,8 @@ def take_index(data, nu):
             return count+1
     return -1
 
+# Write in the edges file all the connection between authors
+# such as (first_author_index,second_author_index)
 def make_edges(id, ids, file):
    for i in ids:
       if(id != i):
@@ -254,14 +251,13 @@ all_matching = re.findall(regex, content)
 if(not (("<base href=\"http://www.pasc15.org/\" />" in all_matching[0]) and ("<base href=\"http://www.pasc16.org/\" />" in all_matching[1]))):
     sys.exit()
 
-# <div class="tx-pascprogramm-pi1">(.*?)<!--Plugin inserted: [end]--></div>
-# regex_pasc15 = re.compile("<div class=\"tx-pascprogramm-pi1\">(.*?)</div>",  re.MULTILINE|re.DOTALL)
-regex_pasc15 = re.compile("<!-- new symposium(.*?)<!-- end symposium abstract",  re.MULTILINE|re.DOTALL)
-programs = re.findall(regex_pasc15, all_matching[0])
-programs2 = re.findall(regex_pasc15, all_matching[1])
+# Regex for pasc conferences
+regex_pasc = re.compile("<!-- new symposium(.*?)<!-- end symposium abstract",  re.MULTILINE|re.DOTALL)
+programs = re.findall(regex_pasc, all_matching[0])
+programs2 = re.findall(regex_pasc, all_matching[1])
 programs = programs + programs2
 
-
+# Take all the names from pasc conferences' pages
 for i in programs:
 	names = []
 	regex_organiser = re.compile("Organiser:</td>(.*?)<td>(.*?)</td>",  re.MULTILINE|re.DOTALL)
@@ -285,11 +281,11 @@ for i in programs:
 	take_names_pasc(co_organisers)
 
 
-
 # FOURTH PART: adjust coauthors to save all in a file
 for elem in data['authors']:
    elem['coauthors'] = adjust_coauthors(elem['coauthors'])
 
+# Save all in the output file
 json.dump(data, file_output)
 
 file_input.close()

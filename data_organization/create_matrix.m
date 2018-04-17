@@ -2,18 +2,18 @@
 fname = '../information_retrieval/edges.txt';
 fid = fopen(fname);
 raw = fread(fid,inf);
-str = char(raw');
+raw = char(raw');
 fclose(fid);
-couples = strsplit(str, '\n');
+couples = strsplit(raw, '\n');
 
 
 % Take the number of authors we have to set the matrix
 fname_names = '../information_retrieval/names.json';
 fid_names = fopen(fname_names);
 raw_names = fread(fid_names,inf);
-str_names = char(raw_names');
+raw_names = char(raw_names');
 fclose(fid_names);
-val = jsondecode(str_names);
+val = jsondecode(raw_names);
 val = struct2cell(val(1));
 authors = val{1};
 n = size(authors,1);
@@ -31,12 +31,16 @@ univ = unique(universities);
 uni_size = size(univ,1);
 
 M = zeros(n,n);
-for i = 1:n
-    M(i,i)=1;
-end
-
 U = zeros(uni_size,uni_size);
 W = zeros(uni_size,uni_size);
+
+for i = 1:n
+    M(i,i)=1;
+    if(i<=uni_size)
+        U(i,i)=1;
+        W(i,i)=1;
+    end
+end
 
 % Create the matrix and where there is an "edge" put a 1 in
 % matrix entry, otherwise leave 0s
