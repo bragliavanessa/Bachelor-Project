@@ -94,7 +94,7 @@ def take_names_pasc(co_organisers):
       coauthors.remove(names[count])
       if(check_if_name_exists(data, names[count])):
          s = names[count].split('\t')
-         data['authors'].append({'name': s[0], 'university':s[1], 'nation':'Switzerland', 'coauthors': coauthors})
+         data['authors_swiss'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
       else:
          for c in coauthors:
             check_if_coauthor_exists_or_add(data, names[count], c)
@@ -226,6 +226,8 @@ for y in res:
          j = re.split(', | and', j)
 
          for index in range(0,len(j)):
+            if(nation=='</s>'):
+               break
             name = re.sub(' +',' ',j[index].replace('and ', ' ')).rstrip().lstrip()
             nu = name + '\t' + university + '\t'+nation
             if (nu not in names):
