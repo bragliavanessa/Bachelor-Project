@@ -107,6 +107,9 @@ def check_if_name_exists(data, nu):
     for x in data['authors']:
         if x['name']==s[0] and x['university']==s[1] and x['nation']==s[2]:
             return 0
+    for x in data['authors_swiss']:
+        if x['name']==s[0] and x['university']==s[1] and x['nation']==s[2]:
+            return 0
     return 1
 
 # If the name of the author is already present in json data['authors'],
@@ -114,6 +117,12 @@ def check_if_name_exists(data, nu):
 def check_if_coauthor_exists_or_add(data, nu, coauthor_name):
     s = nu.split('\t')
     for x in data['authors']:
+        if x['name']==s[0] and x['university']==s[1] and x['nation']==s[2]:
+            for coauthor in x['coauthors']:
+                if(coauthor == coauthor_name):
+                    return 0
+            x['coauthors'].append(coauthor_name)
+    for x in data['authors_swiss']:
         if x['name']==s[0] and x['university']==s[1] and x['nation']==s[2]:
             for coauthor in x['coauthors']:
                 if(coauthor == coauthor_name):
