@@ -195,7 +195,6 @@ data = {}
 data['authors'] = []
 data['authors_swiss'] = []
 
-count_authors=0
 
 # For each line we extract the names with relative universities,
 # and we organized the results in a json file with a list of authors
@@ -230,13 +229,11 @@ for y in res:
          if ('Switzerland' in s[2]):
             data['authors_swiss'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
          else:
-            count_authors = count_authors+1
             data['authors'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
       else:
          for c in coauthors:
             check_if_coauthor_exists_or_add(data, names[count], c)
 
-print count_authors
 
 # THIRD PART: take two html pages with a regex about pasc conferences
 # Open the file with all html pages "apache-nutch-1.14/dump2/dump"
