@@ -32,8 +32,7 @@ def split_lines(fileLine):
          res = x.split(' and ')[0]+',Switzerland;'
          res = res+x.split(' ETH')[0]+' Paul Scherrer Institute,Switzerland;'
          break
-      if 'Switzerland' in x:
-		   res = res + x + ';';
+      res = res + x + ';';
    if res != "":
       file_result.write(res+'\n')
    return
@@ -86,7 +85,7 @@ def take_names_pasc(co_organisers):
             university = x.split(',')[0].rstrip().lstrip()
             university = re.sub(' +',' ',university)
             university = adjust_university(university)
-            nu = name + '\t' + university
+            nu = name + '\t' + university +'\tSwitzerland'
             if (nu not in names):
                names.append(nu)
 
@@ -95,7 +94,7 @@ def take_names_pasc(co_organisers):
       coauthors.remove(names[count])
       if(check_if_name_exists(data, names[count])):
          s = names[count].split('\t')
-         data['authors'].append({'name': s[0], 'university':s[1], 'coauthors': coauthors})
+         data['authors'].append({'name': s[0], 'university':s[1], 'nation':'Switzerland', 'coauthors': coauthors})
       else:
          for c in coauthors:
             check_if_coauthor_exists_or_add(data, names[count], c)
@@ -106,7 +105,7 @@ def take_names_pasc(co_organisers):
 def check_if_name_exists(data, nu):
     s = nu.split('\t')
     for x in data['authors']:
-        if x['name']==s[0] and x['university']==s[1]:
+        if x['name']==s[0] and x['university']==s[1] and x['nation']==s[2]:
             return 0
     return 1
 
@@ -115,7 +114,7 @@ def check_if_name_exists(data, nu):
 def check_if_coauthor_exists_or_add(data, nu, coauthor_name):
     s = nu.split('\t')
     for x in data['authors']:
-        if x['name']==s[0] and x['university']==s[1]:
+        if x['name']==s[0] and x['university']==s[1] and x['nation']==s[2]:
             for coauthor in x['coauthors']:
                 if(coauthor == coauthor_name):
                     return 0
@@ -128,7 +127,7 @@ def adjust_coauthors(coauthors):
 	res = []
 	for e in coauthors:
 		s = e.split('\t')
-		res.append({'name': s[0], 'university':s[1]})
+		res.append({'name': s[0], 'university':s[1], 'nation':s[2]})
 	return res
 
 # If the author is already in author_names['authors']
@@ -194,7 +193,9 @@ res = content_input.split('\n')
 
 data = {}
 data['authors'] = []
+data['authors_swiss'] = []
 
+count_authors=0
 
 # For each line we extract the names with relative universities,
 # and we organized the results in a json file with a list of authors
@@ -205,34 +206,37 @@ for y in res:
    names = []
    for x in parts:
       j = re.split(',', x)
-      j.remove(j[len(j)-1])
-      university = re.sub(' +',' ',j[len(j)-1]).rstrip().lstrip()
-      university = adjust_university(university)
-      j.remove(j[len(j)-1])
+      if (len(j)>=3):
+         nation = re.sub(' +',' ',j[len(j)-1]).rstrip().lstrip()
+         j.remove(j[len(j)-1])
+         university = re.sub(' +',' ',j[len(j)-1]).rstrip().lstrip()
+         university = adjust_university(university)
+         j.remove(j[len(j)-1])
 
-      j = ",".join(j)
+         j = ",".join(j)
 
-      j = re.split(', | and', j)
-      # y.remove(y[len(y)-1])
+         j = re.split(', | and', j)
 
-      for index in range(0,len(j)):
-         name = re.sub(' +',' ',j[index].replace('and ', ' ')).rstrip().lstrip()
-         # university = re.sub(' +',' ',x[len(x)-1]).rstrip().lstrip()
-         nu = name + '\t' + university
-         if (nu not in names):
-            names.append(nu)
+         for index in range(0,len(j)):
+            name = re.sub(' +',' ',j[index].replace('and ', ' ')).rstrip().lstrip()
+            nu = name + '\t' + university + '\t'+nation
+            if (nu not in names):
+               names.append(nu)
    for count in range(0,len(names)):
       coauthors = list(names)
       coauthors.remove(names[count])
-      # coauthors = take_name(coauthors)
       if(check_if_name_exists(data, names[count])):
          s = names[count].split('\t')
-         data['authors'].append({'name': s[0], 'university':s[1], 'coauthors': coauthors})
+         if ('Switzerland' in s[2]):
+            data['authors_swiss'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
+         else:
+            count_authors = count_authors+1
+            data['authors'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
       else:
          for c in coauthors:
             check_if_coauthor_exists_or_add(data, names[count], c)
 
-
+print count_authors
 
 # THIRD PART: take two html pages with a regex about pasc conferences
 # Open the file with all html pages "apache-nutch-1.14/dump2/dump"
@@ -284,6 +288,9 @@ for i in programs:
 # FOURTH PART: adjust coauthors to save all in a file
 for elem in data['authors']:
    elem['coauthors'] = adjust_coauthors(elem['coauthors'])
+for elem in data['authors_swiss']:
+   elem['coauthors'] = adjust_coauthors(elem['coauthors'])
+
 
 # Save all in the output file
 json.dump(data, file_output)
@@ -295,56 +302,56 @@ os.remove("result.txt")
 
 # FIFTH PART: take the information in the json file and create a file
 # containing the "edges" between coauthors
-
-file_json = open('authors.json')
-data_json = json.load(file_json)
-file_names = open("names.json", "w")
-file_universities = open("universities.json", "w")
-file_edges = open("edges.txt", "w")
-
-author_indexes=[]
-
-author_names = {}
-universities = {}
-author_names['authors'] = []
-universities['universities'] = []
-index = 1;
-
-for idx in range(0,len(data_json['authors'])):
-   name = data_json['authors'][idx]['name']
-   university = data_json['authors'][idx]['university']
-   nu = name+'\t'+university
-
-   if(check_if_name_exists(author_names, nu)):
-      author_names['authors'].append({'index': index, 'name': name, 'university': university})
-      universities['universities'].append(university)
-      author_id = index
-      index = index+1
-   else:
-      for x in author_names['authors']:
-          if x['name']==name and x['university']==university:
-              author_id = x['index']
-
-   author_indexes.append(author_id)
-   coauthor_indexes = []
-   for author in data_json['authors'][idx]['coauthors']:
-      nn = author['name']+'\t'+author['university']
-      if(check_if_name_exists(author_names, nn)):
-         author_names['authors'].append({'index': index, 'name': author['name'], 'university': author['university']})
-         universities['universities'].append(author['university'])
-         coauthor_indexes.append(index)
-         index = index+1
-      else:
-         id = take_index(author_names, nn)
-         if(id not in author_indexes):
-            coauthor_indexes.append(id)
-
-   make_edges(author_id, coauthor_indexes, file_edges)
-
-json.dump(author_names, file_names)
-json.dump(universities, file_universities)
-
-file_json.close()
-file_names.close()
-file_edges.close()
-file_universities.close()
+#
+# file_json = open('authors.json')
+# data_json = json.load(file_json)
+# file_names = open("names.json", "w")
+# file_universities = open("universities.json", "w")
+# file_edges = open("edges.txt", "w")
+#
+# author_indexes=[]
+#
+# author_names = {}
+# universities = {}
+# author_names['authors'] = []
+# universities['universities'] = []
+# index = 1;
+#
+# for idx in range(0,len(data_json['authors'])):
+#    name = data_json['authors'][idx]['name']
+#    university = data_json['authors'][idx]['university']
+#    nu = name+'\t'+university
+#
+#    if(check_if_name_exists(author_names, nu)):
+#       author_names['authors'].append({'index': index, 'name': name, 'university': university})
+#       universities['universities'].append(university)
+#       author_id = index
+#       index = index+1
+#    else:
+#       for x in author_names['authors']:
+#           if x['name']==name and x['university']==university:
+#               author_id = x['index']
+#
+#    author_indexes.append(author_id)
+#    coauthor_indexes = []
+#    for author in data_json['authors'][idx]['coauthors']:
+#       nn = author['name']+'\t'+author['university']
+#       if(check_if_name_exists(author_names, nn)):
+#          author_names['authors'].append({'index': index, 'name': author['name'], 'university': author['university']})
+#          universities['universities'].append(author['university'])
+#          coauthor_indexes.append(index)
+#          index = index+1
+#       else:
+#          id = take_index(author_names, nn)
+#          if(id not in author_indexes):
+#             coauthor_indexes.append(id)
+#
+#    make_edges(author_id, coauthor_indexes, file_edges)
+#
+# json.dump(author_names, file_names)
+# json.dump(universities, file_universities)
+#
+# file_json.close()
+# file_names.close()
+# file_edges.close()
+# file_universities.close()
