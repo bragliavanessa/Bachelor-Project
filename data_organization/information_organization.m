@@ -1,5 +1,5 @@
 % Take all the "edges" saved in the file "edges.txt"
-fname = '../information_retrieval/edges.txt';
+fname = '../information_retrieval/edges_swiss.txt';
 fid = fopen(fname);
 raw = fread(fid,inf);
 raw = char(raw');
@@ -8,24 +8,17 @@ couples = strsplit(raw, '\n');
 
 
 % Take the number of authors we have to set the matrix
-fname_names = '../information_retrieval/names.json';
+fname_names = '../information_retrieval/swiss_information.json';
 fid_names = fopen(fname_names);
-raw_names = fread(fid_names,inf);
-raw_names = char(raw_names');
+raw = fread(fid_names,inf);
+raw = char(raw');
 fclose(fid_names);
-val = jsondecode(raw_names);
+val = jsondecode(raw);
 val = struct2cell(val(1));
-authors = val{1};
+authors = val{2};
 n = size(authors,1);
 
 % Takes universities array, without duplicates
-fname = '../information_retrieval/universities.json';
-fid = fopen(fname);
-raw = fread(fid,inf);
-str = char(raw');
-fclose(fid);
-val = jsondecode(str);
-val = struct2cell(val(1));
 universities = val{1};
 univ = unique(universities);
 uni_size = size(univ,1);
