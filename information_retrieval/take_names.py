@@ -112,6 +112,13 @@ def check_if_name_exists(data, nu):
             return 0
     return 1
 
+def check_if_name_exists_with_nation(data, nu):
+    s = nu.split('\t')
+    for x in data:
+        if x['name']==s[0] and x['university']==s[1] and x['nation']==s[2]:
+            return 0
+    return 1
+
 def check_if_name_exists_no_nation(data, nu):
    s = nu.split('\t')
    for x in data:
@@ -322,9 +329,8 @@ file_json = open('authors.json')
 data_json = json.load(file_json)
 swiss_information = open("swiss_information.json", "w")
 edges_swiss = open("edges_swiss.txt", "w")
-# file_names = open("names.json", "w")
-# file_universities = open("universities.json", "w")
-# file_edges = open("edges.txt", "w")
+world_information = open("world_information.json", "w")
+edges_world = open("edges_world.txt", "w")
 
 author_indexes_swiss=[]
 author_indexes=[]
@@ -332,11 +338,11 @@ author_indexes=[]
 information = {}
 information['authors_swiss'] = []
 information['universities_swiss'] = []
-# information['authors'] = []
-# information['universities'] = []
+information['authors'] = []
+information['universities'] = []
 index = 1;
 
-
+# Edges for swiss
 for idx in range(0,len(data_json['authors_swiss'])):
    name = data_json['authors_swiss'][idx]['name']
    university = data_json['authors_swiss'][idx]['university']
@@ -369,16 +375,51 @@ for idx in range(0,len(data_json['authors_swiss'])):
 
    make_edges(author_id, coauthor_indexes, edges_swiss)
 
+# Edges from all the world
+all_names = data_json['authors_swiss']+data_json['authors']
+index = 1;
+
+for idx in range(0,len(all_names)):
+   name = all_names[idx]['name']
+   university = all_names[idx]['university']
+   nation = all_names[idx]['nation']
+   nu = name+'\t'+university+'\t'+nation
+
+   if(check_if_name_exists_with_nation(information['authors'], nu)):
+      information['authors'].append({'index': index, 'name': name, 'university': university, 'nation': nation})
+      information['universities'].append(university)
+      author_id = index
+      index = index+1
+   else:
+      for x in information['authors']:
+          if x['name']==name and x['university']==university and x['nation']==nation:
+              author_id = x['index']
+
+   author_indexes.append(author_id)
+   coauthor_indexes = []
+   for author in all_names[idx]['coauthors']:
+      nn = author['name']+'\t'+author['university']+'\t'+author['nation']
+      if(check_if_name_exists_with_nation(information['authors'], nn)):
+         information['authors'].append({'index': index, 'name': author['name'], 'university': author['university'], 'nation': author['nation']})
+         information['universities'].append(author['university'])
+         coauthor_indexes.append(index)
+         index = index+1
+      else:
+         id = take_index(information['authors'], nn)
+         if(id not in author_indexes):
+            coauthor_indexes.append(id)
+
+   make_edges(author_id, coauthor_indexes, edges_world)
+
 
 swiss_file = {'names':information['authors_swiss'],'universities':information['universities_swiss']}
 json.dump(swiss_file, swiss_information)
 
-# json.dump(information['authors'], file_names)
-# json.dump(information['universities'], file_universities)
+world_file = {'names':information['authors'],'universities':information['universities']}
+json.dump(world_file, world_information)
 
 file_json.close()
 swiss_information.close()
 edges_swiss.close()
-# file_names.close()
-# file_edges.close()
-# file_universities.close()
+world_information.close()
+edges_world.close()
