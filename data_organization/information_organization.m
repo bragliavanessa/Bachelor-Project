@@ -27,6 +27,10 @@ val = jsondecode(raw);
 val = struct2cell(val(1));
 authors = val{2};
 n = size(authors,1);
+A = {};
+for a=1:n
+    A{end+1} = authors(a).('name');
+end
 
 % Takes universities array, without duplicates
 % Only Swiss

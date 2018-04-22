@@ -58,6 +58,7 @@ def adjust_university(uni):
    uni = uni.replace('Università della Svizzera Italiana', 'USI')
    uni = uni.replace('University of Lugano','USI')
    uni = uni.replace('Centre','Center')
+   uni = uni.replace('and ', ' ').rstrip().lstrip()
    if 'polytechnique f' in uni:
       uni = uni.replace('polytechnique f','Polytechnique F')
    return uni
@@ -173,7 +174,9 @@ def make_edges(id, ids, file):
       END HELPER FUNCTIONS
 ################################# '''
 
-
+# uni_to_delete = ['1QBit','3M','A*STAR','www.charlesperry.com','and Adele Tortorici','eBay Research Labs','Yahoo! Research','Yahoo! Labs','Yahoo! Inc.','Yahoo Japan Corporation','Xilinx',
+#                  'Xuefei Sexton','Wuxi','WorldQuant Research','Wilmington','William Knottenbelt','Wells Fargo','Wellcome Trust Center for Neuroimaging','Wei Ji Ma','Weapons Division',
+#                  'Wallis Consulting','Wachovia Investments','Volvo Group Trucks Technology','Volkswagen','Vmware Research','Vigo']
 
 # FIRST PART: take all the necessary information and save them in a file
 # Open the file with all html pages "apache-nutch-1.14/dump/dump"
