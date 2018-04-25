@@ -1,0 +1,90 @@
+Francisco Casesnoves, MSc</EM>, SIAM Activity Group on Geometric Design, USA
+Jack J. Dongarra, University of Tennessee, ORNL, and University of Manchester, USA
+Miguel F. Anjos, Mathematics and Industrial Engineering & GERAD, Ecole Polytechnique de Montreal, Canada
+Rene Henrion, Weierstrass Institute for Applied Analysis and Stochastics, Berlin, Germany
+Dinesh K. Kaushik, King Abdullah University of Science and Technology, Saudia Arabia, and Argonne National Laboratory, USA
+Lin Lin, University of California, Berkeley and Lawrence Berkeley National Laboratory, USA
+Yvon Maday, Université Pierre et Marie Curie, France and Brown University, USA
+David E. Keyes, KAUST, Saudia Arabia and Columbia University, USA
+Ekkehard W. Sachs, University of Trier, Germany and Virginia Tech, USA
+Helmut Pottmann, Technische Universitaet Wien, Austria and King Abdullah University of Science & Technology (KAUST), Saudi Arabia
+Duvan Henao, UPMC Paris 6, France and Catolica de Chile, Chile
+Sylvia Serfaty, UPMC Paris 6, France, and Courant Institute of Mathematical Sciences, New York University, USA
+Edriss S. Titi, University of California, Irvine, USA and Weizmann Institute of Science, Israel
+Olga Holtz, University of California, Berkeley, USA and Technische Universitat Berlin, Germany
+Frédéric Dias, University College Dublin, Ireland and Ecole Normale Supérieure de Cachan, France
+Xue-cheng Tai, University of Bergen, Norway, and Nanyang Technological University, Singapore
+Jari P Kaipio, University of Eastern Finland, Finland and University of Auckland, New Zealand
+Jari P. Kaipio, University of Eastern Finland, Finland and University of Auckland, New Zealand
+Micha Sharir, Tel Aviv University, Israel, and New York University, USA
+Mikkel Thorup, University of Copenhagen, Denmark and AT&T Labs – Research, USA
+Chuanqi Shen, Stanford University, USA, and Raffles Institution, Singapore
+Shi Jin, Shanghai Jiao Tong University, China, and the University of Wisconsin-Madison, USA
+Vladimir Maz’ya, University of Liverpool, United Kingdon and Linköping University, Sweden
+Claire Mathieu, CNRS, Ecole Normale Supérieure, France and Brown University, USA
+Nicolas Bonifas, École Polytechnique, France and IBM, USA
+Lukasz Jez, Tel Aviv University, Israel and University of Wroclaw, Poland
+J\'anos Pach, École Polytechnique Fédérale de Lausanne, Switzerland and Alfréd Rényi Institute of Mathematics, Hungary
+Clemens Heitzinger, Arizona State University, USA and Vienna University of Technology, Austria
+Ivan Gutman, University of Kragujevac, Serbia and State University of Novi Pazar, Serbia
+Iain Duff, Science & Technology Facilities Council, United Kingdom and CERFACS, Toulouse, France
+Michael Griebel, Institut für Numerische Simulation, Universität Bonn and Fraunhofer-Institut für Algorithmen und Wissenschaftliches Rechnen, Germany
+Gerassimos A. Athanassoulis, National Technical University of Athens, Greece and ITMO University, Russia
+Xue-cheng Tai, University of Bergen, Norway, and Nanyang Technological University, Singapore
+Hossein Talebi, Google and University of California, Santa Cruz, USA
+Lukasz Jez, Tel Aviv University, Israel and University of Wroclaw, Poland
+Mikkel Thorup, AT&T Labs Research, USA and University of Copenhagen, Denmark
+Yonina C. Eldar, Technion Israel Institute of Technology, Israel and Stanford University, USA
+Iain Duff, Science & Technology Facilities Council, United Kingdom and CERFACS, Toulouse, France
+Sylvia Serfaty, UPMC Paris 6, France, and Courant Institute of Mathematical Sciences, New York University, USA
+Gunther Uhlmann, Hong Kong University of Science and Technology, Hong Kong and University of Washington, USA
+Maria Carvalho, University of Lisbon, Portugal, and Georgia Institute of Technology, USA
+Shi Jin, Shanghai Jiao Tong University, China, and the University of Wisconsin, USA
+Nicola D. Costanzino, Brown University and University of North Carolina, Chapel Hill, USA
+Gunther Uhlmann, Hong Kong University of Science and Technology, Hong Kong and University of Washington, USA
+Qi Wang, University of South Carolina, USA and Beijing Computational Science Research Center, China
+Dinesh K. Kaushik, King Abdullah University of Science and Technology, Saudia Arabia, and Argonne National Laboratory, USA
+Dmitriy Kolyukhin, Trofimuk Institute of Petroleum Geology and Geophysics SB RAS, Russia and Uni CIRP, Norway
+Santha Akella, NASA/GSFC Global Modeling and Assimilation Office, SSAI Inc., USA
+Qi Wang, University of South Carolina, USA and Beijing Computational Science Research Center, China
+Iain Duff, Science & Technology Facilities Council, United Kingdom and CERFACS, Toulouse, France
+David E. Keyes, KAUST, Saudia Arabia and Columbia University, USA
+Michael Griebel, Institut für Numerische Simulation, Universität Bonn and Fraunhofer-Institut für Algorithmen und Wissenschaftliches Rechnen, Germany
+Xavier Allamigeon and Stephane Gaubert, Inria and CMAP, Ecole Polytechnique, France
+Lorenzo Rosasco, Instituto Italiano di Technologia, Italy and Massachusetts Institute of Technology, USA
+Zhi-Quan Luo, University of Minnesota, USA and Chinese University of Hong Kong, Hong Kong
+Rene Henrion, Weierstrass Institute for Applied Analysis and Stochastics, Berlin, Germany
+Edriss S. Titi, Texas A&M University, USA and Weizmann Institute of Science, Israel
+George M Turkiyyah, American University of Beirut, Lebanon and King Abdullah University of Science & Technology (KAUST), Saudi Arabia
+Jack J. Dongarra, University of Tennessee, ORNL, and University of Manchester, USA
+Mikhail P. Vishnevskii, North Fluminense State University Darcy Ribeiro, Brazil and Sobolev Institute of Mathematics, Russia
+Vadim Levchenko, Keldysh Institute of Applied Mathematics of RAS, Russia and Moscow Institute of Physics and Technology, Russia </S>
+Iain Duff, Science & Technology Facilities Council, United Kingdom and CERFACS, Toulouse, France
+Sebastian Reich, Universität Potsdam, Germany and University of Reading, United Kingdom
+Shi Jin, Shanghai Jiao Tong University, China, and the University of Wisconsin, USA
+Christian Schulz, University of Vienna, Austria and Karlsruhe Institute of Technology, Germany
+Sergey Dovgal, Université Paris 7, France and Moscow Institute of Physics and Technology, Russia
+Micha Sharir, Tel Aviv University, Israel, and New York University, USA
+Ronitt Rubinfeld, Massachusetts Institute of Technology, USA and Tel Aviv University, Israel
+Stefan Rigger, Technische Universität Wien, Austria and Arizona State University, USA
+Vladimir Maz'ya, Ohio State University, Linköping University, Sweden and University of Liverpool, United Kingdom
+Edriss S. Titi, Texas A&M University, USA and Weizmann Institute of Science, Israel
+Darryl D. Holm, Imperial College London, United Kingdom and Los Alamos National Laboratory, USA
+Iain Duff, Science & Technology Facilities Council, United Kingdom and CERFACS, Toulouse, France
+Miguel F. Anjos, Mathematics and Industrial Engineering & GERAD, Ecole Polytechnique de Montreal, Canada
+Robert E. Duke, NIEHS and University of North Carolina, Chapel Hill, USA
+David E. Keyes, KAUST, Saudia Arabia and Columbia University, USA
+Michael Griebel, Institut für Numerische Simulation, Universität Bonn and Fraunhofer-Institut für Algorithmen und Wissenschaftliches Rechnen, Germany
+David E. Keyes, KAUST, Saudia Arabia and Columbia University, USA
+Xue-cheng Tai, University of Bergen, Norway, and Nanyang Technological University, Singapore
+Xiaoming Wang, Florida State University, USA and Fudan University, China
+Enkeleida Lushi, Imperial College London, United Kingdom and Courant Institute of Mathematical Sciences, New York University, USA
+Xue-cheng Tai, University of Bergen, Norway, and Nanyang Technological University, Singapore
+Iain Duff, Science & Technology Facilities Council, United Kingdom and CERFACS, Toulouse, France
+David E. Keyes, KAUST, Saudia Arabia and Columbia University, USA
+Olga Holtz, University of California, Berkeley, USA and Technische Universitat Berlin, Germany
+Patrick Dewilde, Technische Universität München, Germany, and Delft University of Technology, The Netherlands
+Xue-cheng Tai, University of Bergen, Norway, and Nanyang Technological University, Singapore
+Olga Holtz, University of California, Berkeley, USA and Technische Universitat Berlin, Germany
+Dinesh K. Kaushik, King Abdullah University of Science and Technology, Saudia Arabia, and Argonne National Laboratory, USA
+Science & Technology Facilities Council, United Kingdom and CERFACS, Toulouse, France
