@@ -25,6 +25,7 @@ def split_lines(fileLine):
 
 # Helper function that adjust names of university
 def adjust_university(uni):
+   uni = re.sub(' +',' ', uni)
    uni = uni.replace('Zurich', 'Zürich')
    uni = uni.replace('Institut', 'Institute')
    uni = uni.replace('Institutee', 'Institute')
@@ -44,9 +45,8 @@ def adjust_university(uni):
    uni = uni.replace('Università della Svizzera Italiana', 'USI')
    uni = uni.replace('University of Lugano','USI')
    uni = uni.replace('Centre','Center')
+   uni = uni.replace('polytechnique f','Polytechnique F')
    uni = uni.replace('and ', ' ').rstrip().lstrip()
-   if 'polytechnique f' in uni:
-      uni = uni.replace('polytechnique f','Polytechnique F')
    return uni
 
 # Extract names from pasc conferences and insert them in
@@ -134,11 +134,15 @@ def check_if_coauthor_exists_or_add(data, nu, coauthor_name):
 # Organizes the coauthors list such that we have an array of :
 # {'name': coauthor_name, 'university': coauthor_university}
 def adjust_coauthors(coauthors):
-	res = []
-	for e in coauthors:
-		s = e.split('\t')
-		res.append({'name': s[0], 'university':s[1], 'nation':s[2]})
-	return res
+   res = []
+   for e in coauthors:
+      s = e.split('\t')
+      s[2] = s[2].replace(';','')
+      s[2] = re.sub(' +',' ', s[2]).rstrip().lstrip()
+      s[1] = re.sub(' +',' ', s[1]).rstrip().lstrip()
+      s[0] = re.sub(' +',' ', s[0]).rstrip().lstrip()
+      res.append({'name': s[0], 'university':s[1], 'nation':s[2]})
+   return res
 
 # If the author is already in author_names['authors']
 # take its index
@@ -264,6 +268,8 @@ for y in all_matching:
                universities = []
          else:
             unis = info.split(',')
+            unis = filter(lambda x: x!="", unis)
+            unis = filter(lambda x: x!=" ", unis)
             if(len(unis)==1):
                universities = []
             elif(len(unis)==2):
@@ -276,12 +282,19 @@ for y in all_matching:
                universities = []
 
          if(names_list and universities):
-            # print universities
             for n in names_list:
                for u in universities:
-                  nn = n+'\t'+u
-                  if(nn not in names):
-                     names.append(nn)
+                  n = re.sub(' +',' ', n).rstrip().lstrip()
+                  u = u.split('\t')
+                  u[1] = u[1].replace(';','')
+                  if(n and u[0] and u[1]):
+                     if(u[1] == 'The Netherlands'):
+                        u[1] = 'Netherlands'
+                     if(u[1] == 'Saudia Arabia'):
+                        u[1] = 'Saudi Arabia'
+                     nn = n+'\t'+u[0]+'\t'+u[1]
+                     if(nn not in names):
+                        names.append(nn)
 
       for count in range(0,len(names)):
          coauthors = list(names)
@@ -289,8 +302,12 @@ for y in all_matching:
          if(check_if_name_exists(data, names[count])):
             s = names[count].split('\t')
             if ('Switzerland' in s[2]):
+               s[1] = adjust_university(s[1])
                data['authors_swiss'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
             else:
+               s[2] = s[2].replace(';','')
+               s[2] = re.sub(' +',' ', s[2]).rstrip().lstrip()
+               s[1] = re.sub(' +',' ', s[1]).rstrip().lstrip()
                data['authors'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
          else:
             for c in coauthors:
@@ -356,7 +373,6 @@ json.dump(data, file_output)
 
 
 file_output.close()
-os.remove("result.txt")
 
 
 # FIFTH PART: take the information in the json file and create a file
