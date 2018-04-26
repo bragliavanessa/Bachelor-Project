@@ -23,8 +23,12 @@ def split_lines(fileLine):
    else:
       return fileLine.replace('</s>','').replace('</S>','')
 
-# Helper function that adjust names of university
 def adjust_university(uni):
+   uni = re.sub(' +',' ', uni).rstrip().lstrip()
+   return uni
+
+# Helper function that adjust names of university
+def adjust_university_pasc(uni):
    uni = re.sub(' +',' ', uni)
    uni = uni.replace('Zurich', 'Zürich')
    uni = uni.replace('Institut', 'Institute')
@@ -71,7 +75,7 @@ def take_names_pasc(co_organisers):
                continue
             university = x.split(',')[0].rstrip().lstrip()
             university = re.sub(' +',' ',university)
-            university = adjust_university(university)
+            university = adjust_university_pasc(university)
             nu = name + '\t' + university +'\tSwitzerland'
             if (nu not in names):
                names.append(nu)
@@ -159,8 +163,6 @@ def make_edges(id, ids, file):
    for i in ids:
       if(id != i):
          file.write('('+str(id)+','+str(i)+')\n')
-
-
 
 def adjust_name(name):
    name = name.replace(',', '').replace(' and', '').replace('and ', '')
@@ -307,7 +309,7 @@ for y in all_matching:
             else:
                s[2] = s[2].replace(';','')
                s[2] = re.sub(' +',' ', s[2]).rstrip().lstrip()
-               s[1] = re.sub(' +',' ', s[1]).rstrip().lstrip()
+               s[1] = adjust_university(s[1])
                data['authors'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
          else:
             for c in coauthors:
