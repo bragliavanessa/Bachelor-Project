@@ -23,15 +23,19 @@ def split_lines(fileLine):
    else:
       return fileLine.replace('</s>','').replace('</S>','')
 
-def adjust_university(uni):
+def adjust_university(uni, uni_map):
    uni = re.sub(' +',' ', uni).rstrip().lstrip()
+   for i in uni_map:
+      for j in uni_map[i]:
+         if(uni == j.encode('utf-8')):
+            uni = j.encode('utf-8')
    return uni
 
 # Helper function that adjust names of university
 def adjust_university_pasc(uni):
    uni = re.sub(' +',' ', uni)
    uni = uni.replace('Zurich', 'Zürich')
-   uni = uni.replace('Institut', 'Institute')
+   uni = uni.replace('Institut ', 'Institute ')
    uni = uni.replace('Institutee', 'Institute')
    uni = uni.replace('Berne', 'Bern')
    uni = uni.replace('Bernee', 'Bern')
@@ -224,6 +228,9 @@ uni_to_delete = [['German Aerospace Center (DLR)', ' Simulation'],
                  ['Khalifa University of Science', ' Technology'],
                  ['University of Wisconsin', ' Madison']]
 
+file_unimap = open("university_map_copy.json","r")
+uni_map = json.load(file_unimap)
+
 # For each line we extract the names with relative universities,
 # and we organized the results in a json file with a list of authors
 # Each author has a name, a university and a list of coauthors
@@ -304,17 +311,19 @@ for y in all_matching:
          if(check_if_name_exists(data, names[count])):
             s = names[count].split('\t')
             if ('Switzerland' in s[2]):
-               s[1] = adjust_university(s[1])
+               s[1] = adjust_university(s[1],uni_map)
                data['authors_swiss'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
             else:
                s[2] = s[2].replace(';','')
                s[2] = re.sub(' +',' ', s[2]).rstrip().lstrip()
-               s[1] = adjust_university(s[1])
+               s[1] = adjust_university(s[1],uni_map)
                data['authors'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
          else:
             for c in coauthors:
                check_if_coauthor_exists_or_add(data, names[count], c)
 
+
+file_unimap.close()
 
 # THIRD PART: take two html pages with a regex about pasc conferences
 # Open the file with all html pages "apache-nutch-1.14/dump2/dump"
