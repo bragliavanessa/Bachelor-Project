@@ -5,6 +5,7 @@
 import re
 import os
 import json
+import unicodedata
 
 '''##############################
          HELPER FUNCTIONS
@@ -27,8 +28,10 @@ def adjust_university(uni, uni_map):
    uni = re.sub(' +',' ', uni).rstrip().lstrip()
    for i in uni_map:
       for j in uni_map[i]:
-         if(uni == j.encode('utf-8')):
-            uni = j.encode('utf-8')
+         if(uni == unicodedata.normalize('NFC', j)):
+            print uni
+            print unicodedata.normalize('NFC', i)
+            uni = unicodedata.normalize('NFC', i)
    return uni
 
 # Helper function that adjust names of university
@@ -312,11 +315,15 @@ for y in all_matching:
             s = names[count].split('\t')
             if ('Switzerland' in s[2]):
                s[1] = adjust_university(s[1],uni_map)
+               # if(s[1] == "École polytechnique fédérale de Lausanne"):
+               #    print "NOPE"
                data['authors_swiss'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
             else:
                s[2] = s[2].replace(';','')
                s[2] = re.sub(' +',' ', s[2]).rstrip().lstrip()
                s[1] = adjust_university(s[1],uni_map)
+               # if(s[1] == "École polytechnique fédérale de Lausanne"):
+               #    print "NOPE"
                data['authors'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
          else:
             for c in coauthors:
