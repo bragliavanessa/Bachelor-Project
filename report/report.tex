@@ -1,5 +1,5 @@
 \documentclass[12 pt]{article}
-\usepackage[a4paper,top=3.5cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+%\usepackage[a4paper,top=3.5cm,bottom=3cm,left=3cm,right=3cm]{geometry}
 \usepackage{graphicx} 
 \usepackage{amssymb}
 \usepackage{lmodern}
@@ -17,7 +17,7 @@
 \tableofcontents
 \newpage
 \section{Introduction}
-A social network consists of a set of objects connected to each other by social relations. The best way to model social networks is using graphs (see an example in Figure 1): the objects (entities) are represented as nodes and the connections as edges between two different nodes. \\
+A social network consists of a set of objects connected to each other by social relations. The best way to model social networks is using graphs (see an example in Figure 1): the objects (entities) are represented as nodes and the connections as edges between two different nodes. The most common example we can take is the World Wide Web (WWW) where we have web pages as nodes connected by hyperlinks, the edges.\\
 \begin{figure} [h!]
 \centering 
 \includegraphics[scale=0.5]{graph.png}
@@ -25,8 +25,11 @@ A social network consists of a set of objects connected to each other by social 
 \end{figure}
 \\
 The goal of this project is to create a social network of computational science authors belonging to Swiss institutions and then analyze the relative graph.\\
-The first step is retrieving all necessary information for the construction of the social network: names of the authors and relationships between each other. (aggiungere tutti gli argomenti delle conferenze) I crawled Pasc and Siam conferences and authors that did a conference together are considered coauthors.\\
-The second step is the information analysis: I apply some methods such as PageRank algorithm (che consiste in..) and Graph Partitioning.
+The first step is retrieving all necessary information for the construction of the social network: names of the authors and relationships between each other. I crawled the 2015,2016 and 2017 PASC Conferences, interdisciplinary conferences which brings together research across the areas of computational science, high-performance computing, and various domain sciences, and SIAM conferences of several years, selecting the topics relevant to us (e.g. Optimization, Parallel Computing,...). \\
+The second step is the information analysis to find out relations between institutions but also between members belonging to the same institution.\\
+With PageRank algorithm we obtain a ``ranking" of all conferences' participants: PageRank is an algorithm implemented by Google Search to rank websites in their search engine results but it can be applied to any social network. In this project I use the algorithm to measure the importance of institutions' members considering the number and quality of their collaborations.\\
+I use Graph Partitioning to ``invert" the process and obtain the institutions from members collaborations: probably members of the same institution collaborate more between each other than with other institutions' representatives.\\
+I also analyze the institutions' connectivity matrices and their structure: looking at the cliques (i.e. a sub matrix where every two distinct members collaborate with each other; this means that all entries of the sub matrix are ones) present in the matrices we can for example detect the different research areas of the institutions and the connection between them.\\
 The results will provide an interesting picture of the different research scenarios in Switzerland and how they interact with each other.
 
 \section{PageRank Algorithm}
