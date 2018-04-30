@@ -26,12 +26,12 @@ def split_lines(fileLine):
 
 def adjust_university(uni, uni_map):
    uni = re.sub(' +',' ', uni).rstrip().lstrip()
-   for i in uni_map:
-      for j in uni_map[i]:
-         if(uni == unicodedata.normalize('NFC', j)):
-            print uni
-            print unicodedata.normalize('NFC', i)
-            uni = unicodedata.normalize('NFC', i)
+   # for i in uni_map:
+   #    for j in uni_map[i]:
+   #       if(uni == unicodedata.normalize('NFC', j)):
+   #          print uni
+   #          print unicodedata.normalize('NFC', i)
+   #          uni = unicodedata.normalize('NFC', i)
    return uni
 
 # Helper function that adjust names of university
@@ -131,13 +131,13 @@ def check_if_coauthor_exists_or_add(data, nu, coauthor_name):
     for x in data['authors']:
         if x['name']==s[0] and x['university']==s[1] and x['nation']==s[2]:
             for coauthor in x['coauthors']:
-                if(coauthor == coauthor_name):
+                if(coauthor.rstrip().lstrip() == coauthor_name.rstrip().lstrip()):
                     return 0
             x['coauthors'].append(coauthor_name)
     for x in data['authors_swiss']:
         if x['name']==s[0] and x['university']==s[1] and x['nation']==s[2]:
             for coauthor in x['coauthors']:
-                if(coauthor == coauthor_name):
+                if(coauthor.rstrip().lstrip() == coauthor_name.rstrip().lstrip()):
                     return 0
             x['coauthors'].append(coauthor_name)
     return 1
@@ -306,7 +306,7 @@ for y in all_matching:
                         u[1] = 'Saudi Arabia'
                      nn = n+'\t'+u[0]+'\t'+u[1]
                      if(nn not in names):
-                        names.append(nn)
+                        names.append(nn.rstrip().lstrip())
 
       for count in range(0,len(names)):
          coauthors = list(names)
@@ -315,15 +315,11 @@ for y in all_matching:
             s = names[count].split('\t')
             if ('Switzerland' in s[2]):
                s[1] = adjust_university(s[1],uni_map)
-               # if(s[1] == "École polytechnique fédérale de Lausanne"):
-               #    print "NOPE"
                data['authors_swiss'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
             else:
                s[2] = s[2].replace(';','')
                s[2] = re.sub(' +',' ', s[2]).rstrip().lstrip()
                s[1] = adjust_university(s[1],uni_map)
-               # if(s[1] == "École polytechnique fédérale de Lausanne"):
-               #    print "NOPE"
                data['authors'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
          else:
             for c in coauthors:
