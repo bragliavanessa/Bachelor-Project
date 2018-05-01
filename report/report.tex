@@ -3,6 +3,8 @@
 \usepackage{graphicx} 
 \usepackage{amssymb}
 \usepackage{lmodern}
+\usepackage{amsmath}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
 \usepackage{setspace}
 \author{Vanessa Braglia}
 \title{The swiss scientific social network}
@@ -27,28 +29,88 @@ A social network consists of a set of objects connected to each other by social 
 The goal of this project is to create a social network of computational science authors belonging to Swiss institutions and then analyze the relative graph.\\
 The first step is retrieving all necessary information for the construction of the social network: names of the authors and relationships between each other. I crawled the 2015,2016 and 2017 PASC Conferences, interdisciplinary conferences which brings together research across the areas of computational science, high-performance computing, and various domain sciences, and SIAM conferences of several years, selecting the topics relevant to us (e.g. Optimization, Parallel Computing,...). \\
 The second step is the information analysis to find out relations between institutions but also between members belonging to the same institution.\\
-With PageRank algorithm we obtain a ``ranking" of all conferences' participants: PageRank is an algorithm implemented by Google Search to rank websites in their search engine results but it can be applied to any social network. In this project I use the algorithm to measure the importance of institutions' members considering the number and quality of their collaborations.\\
+With PageRank algorithm we obtain a ``ranking" of all conferences' participants: PageRank is an algorithm used by Google Search to rank websites in their search engine results but it can be applied to any social network. In this project I use the algorithm to measure the importance of institutions' members considering the number and quality of their collaborations.\\
 I use Graph Partitioning to ``invert" the process and obtain the institutions from members collaborations: probably members of the same institution collaborate more between each other than with other institutions' representatives.\\
 I also analyze the institutions' connectivity matrices and their structure: looking at the cliques (i.e. a sub matrix where every two distinct members collaborate with each other; this means that all entries of the sub matrix are ones) present in the matrices we can for example detect the different research areas of the institutions and the connection between them.\\
 The results will provide an interesting picture of the different research scenarios in Switzerland and how they interact with each other.
 
 \section{PageRank Algorithm}
-PageRank (PR) is an algorithm used by Google Search to rank websites in their search engine results. PageRank was named after Larry Page,[1] one of the founders of Google. PageRank is a way of measuring the importance of website pages. According to Google:
+PageRank is an algorithm used by Google Search to rank websites in their search engine results; it was developed by  Larry Page and  Sergey Brin (the two founders of Google) in 1996 as part of their research project at Stanford University. \\
+PageRank is used, together with other algorithms, to measure the importance of web pages and sort them by popularity in the result; it can be used in any graph to compute the importance of each node with its PageRank value. Larry Page and  Sergey Brin algorithm works by counting the number and quality of links to a page to compute a value which represents its importance; more popular a page is, more likely it receives links from other websites and more likely from important websites.\\
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[scale=0.3]{./img/page_rank_example.png}
+\caption{PageRank example}
+\end{center}
+\end{figure}
+As we can see in Figure 2, node C has higher PageRank than E even if it has lower number of inner links; this is because the only inner link C has is from the most important node of the graph B so it is considered more than all the inner links of E from purple lower nodes.
 
-    PageRank works by counting the number and quality of links to a page to determine a rough estimate of how important the website is. The underlying assumption is that more important websites are likely to receive more links from other websites.[2] 
-
-It is not the only algorithm used by Google to order search engine results, but it is the first algorithm that was used by the company, and it is the best-known
-One of the reasons why GoogleTM is such an effective search engine is the Page-RankTM algorithm developed by Google’s founders, Larry Page and Sergey Brin, when they were graduate students at Stanford University. PageRank is determined entirely by the link structure of the World Wide Web. It is recomputed about once a month and does not involve the actual content of any Web pages or individual queries. Then, for any particular query, Google finds the pages on the Web that match that query and lists those pages in the order of their PageRank. Imagine surfing the Web, going from page to page by randomly choosing an outgoing link from one page to get to the next. This can lead to dead ends at pages with no outgoing links, or cycles around cliques of interconnected pages. So, a certain fraction of the time, simply choose a random page from the Web. This theoretical random walk is known as a Markov chain or Markov process. The limiting probability that an infinitely dedicated random surfer visits any particular page is its PageRank. A page has high rank if other pages with high rank link to it.
-Let W be the set of Web pages that can be reached by following a chain of hyperlinks starting at some root page and let n be the number of pages in W . For Google, the set W actually varies with time, but by the end of 2002, n was over 3 billion. Let G be the n-by-n connectivity matrix of a portion of the Web, that is gij = 1 if there is a hyperlink to page i from page j and zero otherwise. The matrix G can be huge, but it is very sparse. Its j-th column shows the links on the j -th page. The number of nonzeros in G is the total number of hyperlinks in W .
-Let ri and cj be the row and column sums of G:
-
-The quantities rj and cj are the in-degree and out-degree of the j-th page. Let p be the probability that the random walk follows a link. A typical value is p = 0.85. Then 1 − p is the probability that some arbitrary page is chosen and δ = (1 − p)/n is the probability that a particular random page is chosen. Let A be the n-by-n matrix whose elements are
-
-Notice that A comes from scaling the connectivity matrix by its column sums. The j-th column is the probability of jumping from the j-th page to the other pages on the Web. If the j-th page is a dead end, that is has no out-links, then we assign a uniform probability of 1/n to all the elements in its column. Most of the elements of A are equal to δ, the probability of jumping from one page to another without following a link. If n = 4 · 109 and p = 0.85, then δ = 3.75 · 10−11. The matrix A is the transition probability matrix of the Markov chain. Its elements are all strictly between zero and one and its column sums are all equal to one. An important result in matrix theory known as the Perron–Frobenius theorem applies to such matrices. It concludes that a nonzero solution of the equation
+Imagine surfing websites, going from one page to another: to avoid problems with pages without outer links we have two different methods to choose the next page. Our surfer can:
+\begin{itemize}
+\item randomly choose an outgoing link from the page,
+\item simply choose a random page from the Web.
+\end{itemize}
+We assume that with probability $p$ (typically p=0.85) our surfer follows the first option and with probability $1-p$ the second.\\
+The probability that an infinite random surfer visits a specific website it's called its PageRank; a page will have high rank if other pages with high rank link to it.
+\subsection{How to compute PageRank values?}
+To apply PageRank, from a graph of $n$ nodes we construct a $n$-by-$n$ connectivity matrix G: $g_{ij}=1$ if and only if node i and j are connected. The number of non-zeros in G is the total number of connections in the graph.\\
+The row $r_i$ represents the number of inner-links of page $i$, instead column $c_i$ the number of outer-links. So we can define:
+\begin{itemize}
+\item In-degree of page $i$: \tab $r_i = \sum\limits_{j=1}^{n} g_{ij}$
+\item Out-degree of page $i$: \tab $c_i = \sum\limits_{j=1}^{n} g_{ji}$
+\end{itemize}
+Let $p$ be the probability that the surfer follows a link and $1-p$ the probability that it chooses a random page. \\
+$\delta = \frac{1-p}{n}$ is the probability that a particular random page is chosen.\\
+We construct a transition probability matrix A where all elements are positive, smaller than one and sums of columns are equal to one; column $j$ represents the probabilities to go from page j to all other pages. So we set:\\
+\begin{equation}\notag
+a_{ij} = 
+\begin{cases}
+\frac{pg_{ij}}{c_{j}} + \delta  & \text{if } c_{j} \neq 0\\
+\frac{1}{n} & \text{if } c_{j} = 0
+\end{cases}
+\end{equation}
+If the page $j$ has no outer links it means that column $j$ of A assigns equal probability $\frac{1}{n}$ to all its elements.\\
+We can now compute PageRanks values solving the homogeneous linear system:
+$$x = A\:x$$
+The transition matrix A can be written as
+$$A = pGD+ez^{T}$$
+where D is a diagonal matrix with the reciprocals of the out-degrees
+\begin{equation}\notag
+d_{jj} = 
+\begin{cases}
+\frac{1}{n} & \text{if } c_{j} \neq 0\\
+0 & \text{if } c_{j} = 0
+\end{cases}
+\end{equation}
+z is the vector formed by
+\begin{equation}\notag
+z_{j} = 
+\begin{cases}
+\delta & \text{if } c_{j} \neq 0\\
+\frac{1}{n} & \text{if } c_{j} = 0
+\end{cases}
+\end{equation}
+and e is the vector of length n with all ones.\\
+We can write the linear system
+$$(I-A)x=0$$
+as
+$$(I − pGD)x = \gamma e$$
+where we take $\gamma = z^{T} x=1$. WHY?\\
+To conclude, we find the solution of
+$$(I − pGD)x = e$$
+and then rescale the solution x so that $\sum\limits_{i=1}^{n} x_i = 1$.
+\newpage
 \section{Graph Partitioning}
-
+Cliques\footnote{Some text in a footnote.}
 \section{Results}
 \subsection{Information Retrieval}
 \subsection{PageRank}
 \subsection{Graph Partitioning}
+
+\section{Bibliography}
+\begin{itemize}
+\item https://en.wikipedia.org/wiki/PageRank
+\item Assignment1 1 Course Numerical Computing 2107/2018
+\item Assignment2 1 Course Numerical Computing 2107/2018
+\end{itemize}
 \end{document}

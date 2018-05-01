@@ -1,7 +1,9 @@
 \contentsline {section}{\numberline {1}Introduction}{3}
 \contentsline {section}{\numberline {2}PageRank Algorithm}{4}
-\contentsline {section}{\numberline {3}Graph Partitioning}{6}
-\contentsline {section}{\numberline {4}Results}{6}
-\contentsline {subsection}{\numberline {4.1}Information Retrieval}{6}
-\contentsline {subsection}{\numberline {4.2}PageRank}{6}
-\contentsline {subsection}{\numberline {4.3}Graph Partitioning}{6}
+\contentsline {subsection}{\numberline {2.1}How to compute PageRank values?}{6}
+\contentsline {section}{\numberline {3}Graph Partitioning}{8}
+\contentsline {section}{\numberline {4}Results}{8}
+\contentsline {subsection}{\numberline {4.1}Information Retrieval}{8}
+\contentsline {subsection}{\numberline {4.2}PageRank}{8}
+\contentsline {subsection}{\numberline {4.3}Graph Partitioning}{8}
+\contentsline {section}{\numberline {5}Bibliography}{8}
