@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  1 MAY 2018 15:44
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  3 MAY 2018 14:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -221,8 +221,8 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 \openout3 = `report.toc'.
 
  [2]
-File: ./img/graph.png Graphic file (type QTm)
- <use  "./img/graph.png" > [3]
+File: ./img/graph3.png Graphic file (type QTm)
+ <use  "./img/graph3.png" > [3]
 File: ./img/page_rank_example.png Graphic file (type QTm)
 
 <use  "./img/page_rank_example.png" >
@@ -250,7 +250,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
  [8] (./report.aux) ) 
 Here is how much of TeX's memory you used:
  1644 strings out of 493706
- 20422 string characters out of 6145769
+ 20424 string characters out of 6145769
  73420 words of memory out of 5000000
  4966 multiletter control sequences out of 15000+600000
  47010 words of font info for 56 fonts, out of 8000000 for 9000
