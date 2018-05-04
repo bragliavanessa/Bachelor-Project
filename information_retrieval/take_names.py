@@ -16,6 +16,8 @@ def to_plane_text(fileLine):
    fileLine = (re.sub(' +',' ', fileLine.replace('\t','').replace('<em>', '').replace('<EM>', '').replace('</em>', '').replace('</EM>', '').replace('<img src="../updated.gif" alt="updated">', '')))
    return fileLine
 
+# def _func_str_to_unicode(s):
+#    return s.encode('ascii', 'ignore').decode('ascii')
 
 # Take only the Switzerland researchers and same them temporarily in a file
 def split_lines(fileLine):
@@ -24,20 +26,65 @@ def split_lines(fileLine):
    else:
       return fileLine.replace('</s>','').replace('</S>','')
 
+def strcmp(name1,name2):
+   # if(len(name1) != len(name2)):
+   #    print len(name1)
+   #    print len(name2)
+   #    return 0
+   m = min(len(name1),len(name2))
+   # print "CS " + name1[0]
+   # print "CS " + name1[1]
+   # print "CS " + name1[2]
+   # print "CS " + name1[3]
+   for i in range(0, m):
+      if(name1[i]!=name2[i]):
+         # print name1[i]
+         # print name2[i]
+         return 0
+   return 1
+
 def adjust_university(uni, uni_map):
-   uni = re.sub(' +',' ', uni).rstrip().lstrip()
-   # for i in uni_map:
-   #    for j in uni_map[i]:
-   #       if(uni == unicodedata.normalize('NFC', j)):
-   #          print uni
-   #          print unicodedata.normalize('NFC', i)
-   #          uni = unicodedata.normalize('NFC', i)
-   return uni
+   # HES-SO//Valais-Wallis
+   # ETH Zurich
+   # University of Zurich
+   # University of Lausanne
+   # print "INPUT " + uni.encode('latin_1')
+   # if(uni.encode('latin_1')=='École Polytechnique Fédérale de Lausanne'):
+      # print "OK"
+   newuni = re.sub(' +',' ', uni).rstrip().lstrip()
+   if(uni.encode('latin_1')=='École Polytechnique Fédérale de Lausanne') or (uni.encode('latin_1')=='École polytechnique fédérale de Lausanne') or ('École polytechnique fédérale' in uni.encode('latin_1')):
+      return "EPFL"
+
+   if(uni.encode('latin_1')=='Eidgenössische Technische Hochschule Zürich') or (uni.encode('latin_1')=='ETH Zürich') or (uni.encode('latin_1')=='Universität Zürich') or (uni.encode('latin_1')=='ETH Zürich and Paul Scherrer Institute'):
+      return "ETHZ"
+
+   if(uni.encode('latin_1')=='Università della Svizzera italiana'):
+      return "USI"
+
+   if(uni.encode('latin_1')=='Universität Basel'):
+      return "University of Basel"
+
+   if(uni.encode('latin_1')=='Université de Genève'):
+      return "University of Geneva"
+
+   for i in uni_map:
+      for j in uni_map[i]:
+         # string = j.encode('latin_1')
+         # if(j=='École Polytechnique Fédérale de Lausanne'):
+         #    print j
+         if(newuni.encode('latin_1')==j):
+            # if(uni.encode('latin_1')=='École Polytechnique Fédérale de Lausanne'):
+            #    print "SOL1 " + i
+            # print "SOL1 " + i
+            return i
+   # if(uni.encode('latin_1')=='École Polytechnique Fédérale de Lausanne'):
+   #    print "SOL2 " + newuni.encode('latin_1')
+   return newuni.encode('latin_1')
 
 # Helper function that adjust names of university
 def adjust_university_pasc(uni):
    uni = re.sub(' +',' ', uni)
-   uni = uni.replace('Zurich', 'Zürich')
+   uni = uni.replace('Zürich', 'Zurich')
    uni = uni.replace('Institut ', 'Institute ')
    uni = uni.replace('Institutee', 'Institute')
    uni = uni.replace('Berne', 'Bern')
@@ -62,7 +109,7 @@ def adjust_university_pasc(uni):
 
 # Extract names from pasc conferences and insert them in
 # json data['authors']
-def take_names_pasc(co_organisers):
+def take_names_pasc(co_organisers, uni_map_p):
    for x in co_organisers:
       if "Switzerland" in x:
          information = x.split('(')
@@ -83,7 +130,9 @@ def take_names_pasc(co_organisers):
             university = x.split(',')[0].rstrip().lstrip()
             university = re.sub(' +',' ',university)
             university = adjust_university_pasc(university)
-            nu = name + '\t' + university +'\tSwitzerland'
+            university = adjust_university(university.decode('latin_1'), uni_map_p)
+            nu = name + '\t' + university.decode("latin_1").encode("latin_1") +'\tSwitzerland'
+            # print university
             if (nu not in names):
                names.append(nu)
 
@@ -92,6 +141,7 @@ def take_names_pasc(co_organisers):
       coauthors.remove(names[count])
       if(check_if_name_exists(data, names[count])):
          s = names[count].split('\t')
+         # print "106 " +s[1]
          data['authors_swiss'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
       else:
          for c in coauthors:
@@ -231,7 +281,7 @@ uni_to_delete = [['German Aerospace Center (DLR)', ' Simulation'],
                  ['Khalifa University of Science', ' Technology'],
                  ['University of Wisconsin', ' Madison']]
 
-file_unimap = open("university_map_copy.json","r")
+file_unimap = open("university_map.json","r")
 uni_map = json.load(file_unimap)
 
 # For each line we extract the names with relative universities,
@@ -304,7 +354,11 @@ for y in all_matching:
                         u[1] = 'Netherlands'
                      if(u[1] == 'Saudia Arabia'):
                         u[1] = 'Saudi Arabia'
-                     nn = n+'\t'+u[0]+'\t'+u[1]
+                     u[0] = adjust_university(u[0].decode('latin_1'),uni_map)
+                     # if(u[1] == 'Switzerland'):
+                     #    print u[0]
+                     # print u[0]
+                     nn = n+'\t'+u[0].decode('latin-1').encode('latin-1')+'\t'+u[1]
                      if(nn not in names):
                         names.append(nn.rstrip().lstrip())
 
@@ -314,19 +368,20 @@ for y in all_matching:
          if(check_if_name_exists(data, names[count])):
             s = names[count].split('\t')
             if ('Switzerland' in s[2]):
-               s[1] = adjust_university(s[1],uni_map)
+               # s[1] = adjust_university(s[1],uni_map)
+               # print "300 " +s[1]
                data['authors_swiss'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
             else:
                s[2] = s[2].replace(';','')
                s[2] = re.sub(' +',' ', s[2]).rstrip().lstrip()
-               s[1] = adjust_university(s[1],uni_map)
+               s[1] = re.sub(' +',' ', s[1]).rstrip().lstrip()
+               # s[1] = adjust_university(s[1],uni_map)
                data['authors'].append({'name': s[0], 'university':s[1], 'nation':s[2], 'coauthors': coauthors})
          else:
             for c in coauthors:
                check_if_coauthor_exists_or_add(data, names[count], c)
 
 
-file_unimap.close()
 
 # THIRD PART: take two html pages with a regex about pasc conferences
 # Open the file with all html pages "apache-nutch-1.14/dump2/dump"
@@ -372,7 +427,7 @@ for i in programs:
 	for y in table:
 		elem = re.findall(regex_elem, y)[0]
 		co_organisers.append(elem)
-	take_names_pasc(co_organisers)
+	take_names_pasc(co_organisers, uni_map)
 
 
 # FOURTH PART: adjust coauthors to save all in a file
@@ -385,7 +440,7 @@ for elem in data['authors_swiss']:
 # Save all in the output file
 json.dump(data, file_output)
 
-
+file_unimap.close()
 file_output.close()
 
 
@@ -409,6 +464,8 @@ information['authors'] = []
 information['universities'] = []
 index = 1;
 
+# print len(information['universities_swiss'])
+
 # Edges for swiss
 for idx in range(0,len(data_json['authors_swiss'])):
    name = data_json['authors_swiss'][idx]['name']
@@ -417,7 +474,9 @@ for idx in range(0,len(data_json['authors_swiss'])):
 
    if(check_if_name_exists_no_nation(information['authors_swiss'], nu)):
       information['authors_swiss'].append({'index': index, 'name': name, 'university': university})
+      # print university
       information['universities_swiss'].append(university)
+      # print information['universities_swiss']
       author_id = index
       index = index+1
    else:
@@ -432,7 +491,9 @@ for idx in range(0,len(data_json['authors_swiss'])):
          nn = author['name']+'\t'+author['university']
          if(check_if_name_exists_no_nation(information['authors_swiss'], nn)):
             information['authors_swiss'].append({'index': index, 'name': author['name'], 'university': author['university']})
+            # print author['university']
             information['universities_swiss'].append(author['university'])
+            # print information['universities_swiss']
             coauthor_indexes.append(index)
             index = index+1
          else:
@@ -441,6 +502,8 @@ for idx in range(0,len(data_json['authors_swiss'])):
                coauthor_indexes.append(id)
 
    make_edges(author_id, coauthor_indexes, edges_swiss)
+
+# print information['universities_swiss']
 
 # Edges from all the world
 all_names = data_json['authors_swiss']+data_json['authors']
@@ -477,7 +540,6 @@ for idx in range(0,len(all_names)):
             coauthor_indexes.append(id)
 
    make_edges(author_id, coauthor_indexes, edges_world)
-
 
 swiss_file = {'names':information['authors_swiss'],'universities':information['universities_swiss']}
 json.dump(swiss_file, swiss_information)
