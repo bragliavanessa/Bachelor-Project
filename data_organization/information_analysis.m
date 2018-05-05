@@ -35,4 +35,6 @@ group2 = authors(g1(g4));
 group3 = authors(g2(g5));
 group4 = authors(g2(g6));
 
+p = [g1(g3); g1(g4); g2(g5); g2(g6)];
 
+spy(M(p,p))

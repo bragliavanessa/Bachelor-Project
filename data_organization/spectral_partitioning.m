@@ -12,7 +12,7 @@ L = diag(deg)-B;
 % index2 = p(221:end);
 s = fix(size(p,1)/2);
 g1 = p(1:s);
-g2 = p(s:end);
+g2 = p(s+1:end);
 
 % size(index1)
 % size(index2)
