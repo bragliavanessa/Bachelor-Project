@@ -1,16 +1,18 @@
 \documentclass[12 pt]{article}
-%\usepackage[a4paper,top=3.5cm,bottom=3cm,left=3cm,right=3cm]{geometry}
+%\usepackage[a4paper,top=4cm,bottom=3.5cm,left=3.5cm,right=3.5cm]{geometry}
 \usepackage{graphicx} 
 \usepackage{amssymb}
 \usepackage{lmodern}
 \usepackage{amsmath}
+\usepackage{hyperref}
+\usepackage{footnotebackref}
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \usepackage{setspace}
 \author{Vanessa Braglia}
 \title{The swiss scientific social network}
 \date{\today}
 
-\onehalfspacing
+%\onehalfspacing
 
 \begin{document}
 \fontfamily{lmr}\selectfont
@@ -94,23 +96,98 @@ and e is the vector of length n with all ones.\\
 We can write the linear system
 $$(I-A)x=0$$
 as
-$$(I − pGD)x = \gamma e$$
+$$(I - pGD)x = \gamma e$$
 where we take $\gamma = z^{T} x=1$. WHY?\\
 To conclude, we find the solution of
-$$(I − pGD)x = e$$
+$$(I - pGD)x = e$$
 and then rescale the solution x so that $\sum\limits_{i=1}^{n} x_i = 1$.
-\newpage
+\subsubsection{PageRank algorithm}
+\begin{center}
+\framebox[\textwidth][l]{\parbox{\textwidth}{
+\textbf{Input}: a list of authors U, the corresponding adjacency matrix G \\
+\tab \tab and a damping factor p\\
+\textbf{Output}: list of authors sorted according to PageRank in descending order\\
+\begin{itemize}
+\item[1.] Remove self collaborations \tab $G = G - diag(G)$
+\item[2.] Compute out-degree and in-degree of each node \\
+$c = sum(G,1)$ and  $r = sum(G,2)$
+\item[3.] Create diagonal matrix D with the reciprocals of the out-degrees
+\item[4.] Solve $(I - pGD)x = e$
+\item[5.] Normalize the result x \tab $x = x/sum(x)$
+\item[6.] Sort x in descending order
+\end{itemize}
+}}
+\end{center}
 \section{Graph Partitioning}
-Cliques\footnote{Some text in a footnote.}
+Graph partitioning consists in dividing a graph $G=(V,E)$\footnote{A graph G with vertexes V and edges E.}  cutting the smaller number of edges and obtaining sub-graphs with specific properties. For example k-way partitioning divides the graph G into k smaller components.\\
+To apply graph partitioning we need the adjacency matrix A of the graph, which is symmetric, and the Laplacian matrix L constructed such that:
+\begin{equation}\notag
+L_{ij} = 
+\begin{cases}
+d_i \tab if i=j \\
+-1 \tab if i \neq j \:\: and \: \: (i,j) \in E \\
+0 \tab \text{otherwise}
+\end{cases}
+\end{equation}
+where $d_i$ is the vertex degree of node $i \in V$.\\
+The relation between A and L is
+$$L = D - A$$
+where D is the diagonal matrix where $d_{ii}$ if the vertex degree of node $i \in V$.\\
+Since L is symmetric and positive semidefinite per construction, all its eigenvalues are real and nonnegative. The first eigenvalue is always zero and the second is not equal to zero if the graph is connected\footnote{there is a path from any node to any other node in the graph}; we can define eigenvalues of L as follows
+$$ 0 = \lambda1 < \lambda_2 \leq ... \leq \lambda_n$$
+The eigenvector corresponding to the first eigenvalue $\lambda_1$ is the vector of all ones and it does not provide information about the graph structure; instead the second lowest eigenvector, Fiedler vector, is used by spectral partitioning to return the smaller sub-graphs. Dividing the nodes of graph G according to the median $s$ of the Fiedler vector $\vec{v} = (v_1,v_2,...,v_n)$ helping obtaining two partitions $V_1$ and $V_2$:
+\begin{equation}\notag
+\begin{cases}
+v_i \in V_1 \Longrightarrow v_i \leq s \\
+v_i \in V_2 \Longrightarrow v_i > s
+\end{cases}
+\end{equation}
+Such a partition is called the Fiedler cut and leads to two parts of G with nearly equals number of vertexes with small number of cutting edges.
+\subsubsection{Spectral partitioning algorithm}
+\begin{center}
+\framebox[\textwidth][l]{\parbox{\textwidth}{
+\textbf{Input}: a graph $G=(V,E)$ \\
+\textbf{Output}: two graphs $G_1=(V_1,E_1)$ and $G_2=(V_2,E_2)$ \\
+\begin{itemize}
+\item[1.] Compute Fiedler vector of L = D - A 
+\item[2.] Sort the vector values 
+\item[3.] Put first half of the nodes in $V_1$ 
+\item[4.] Put second half of the nodes in $V_2$ 
+\item[5.] $E_1$ be the set of edges with both nodes in $V_1$ 
+\item[6.] $E_2$ be the set of edges with both nodes in $V_2$
+\end{itemize}
+}}
+\end{center}
+\subsection{K-way Partitioning}
+K-way partitioning of a graph G of n nodes, consists in a division of its nodes in k disjoint subset, all with size nearly $\frac{n}{k}$.\\
+We consider only the simple case where we want to divide the graph in k partitions and k is a power of two. The idea is just to apply the spectral partitioning $\frac{k}{2}$ times recursively.
+\subsubsection{Recursive Spectral partitioning algorithm}
+\begin{center}
+\framebox[\textwidth][l]{\parbox{\textwidth}{
+\textbf{Input}: a graph $G=(V,E)$ and number $k$ of desired partitions\\
+\textbf{Output}: $k$ graphs $G_1=(V_1,E_1)$ ... $GK=(V_K,E_K)$ \\
+\begin{itemize}
+\item[1.] Apply spectral partitioning on G to find $G_1$ and $G_2$
+\item[2.] If $\frac{k}{2} > 1$
+\begin{itemize}
+\item[2.1] recursive partition on $G_1$ with $\frac{k}{2}$
+\item[2.2] recursive partition on $G_2$ with $\frac{k}{2}$
+\item[2.3] $k = \frac{k}{2}$
+\end{itemize}
+\item[3.] Return partitions $G_1$ ... $G_K$
+\end{itemize}
+}}
+\end{center}
 \section{Results}
+Cliques\footnote{Some text in a footnote.}
 \subsection{Information Retrieval}
 \subsection{PageRank}
 \subsection{Graph Partitioning}
-
 \section{Bibliography}
 \begin{itemize}
 \item https://en.wikipedia.org/wiki/PageRank
 \item Assignment1 1 Course Numerical Computing 2107/2018
 \item Assignment2 1 Course Numerical Computing 2107/2018
+\item \hyperref[label_name]{''https://am.vsb.cz/export/sites/am/cs/theses/kabelikova\_ing.pdf''}
 \end{itemize}
 \end{document}

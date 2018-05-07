@@ -1,11 +1,8 @@
 function T = pagerank(U,G,p)
 % PAGERANK  Google's PageRank
-% pagerank(U,G,p) uses the list of authors and adjacency matrix,
-% together with a damping factory p, (default is .85), to compute and plot
+% pagerank(U,G,p) uses the list of authors U and adjacency matrix G,
+% together with a damping factory p, to compute and plot
 % a bar graph of page rank, and print the first 15 most "famous" authors.
-
-
-if nargin < 3, p = .85; end
 
 % Eliminate any self-referential collaborations
 G = G - diag(diag(G));

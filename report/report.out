@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{PageRank\040Algorithm}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{How\040to\040compute\040PageRank\040values?}{section.2}% 3
+\BOOKMARK [3][-]{subsubsection.2.1.1}{PageRank\040algorithm}{subsection.2.1}% 4
+\BOOKMARK [1][-]{section.3}{Graph\040Partitioning}{}% 5
+\BOOKMARK [2][-]{subsubsection.3.0.1}{Spectral\040partitioning\040algorithm}{section.3}% 6
+\BOOKMARK [2][-]{subsection.3.1}{K-way\040Partitioning}{section.3}% 7
+\BOOKMARK [3][-]{subsubsection.3.1.1}{Recursive\040Spectral\040partitioning\040algorithm}{subsection.3.1}% 8
+\BOOKMARK [1][-]{section.4}{Results}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{Information\040Retrieval}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{PageRank}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.3}{Graph\040Partitioning}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Bibliography}{}% 13

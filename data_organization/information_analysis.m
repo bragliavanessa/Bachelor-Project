@@ -26,9 +26,15 @@ title('Ordered connectivity matrix')
 sparsity = nnz(M)/numel(M);
 %% Spectral graph Partitioning
 itr = 0;
+k = 4;
 [g1,g2] = spectral_partitioning(M);
-[g3,g4] = spectral_partitioning(M(g1,g1));
-[g5,g6] = spectral_partitioning(M(g2,g2));
+
+while(k/2>1)
+    [g3,g4] = spectral_partitioning(M(g1,g1));
+    [g5,g6] = spectral_partitioning(M(g2,g2));
+    k = k/2;
+end
+
 
 group1 = authors(g1(g3));
 group2 = authors(g1(g4));
