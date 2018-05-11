@@ -1,0 +1,382 @@
+\documentclass[]{usiinfbachelorproject}
+\usepackage{subfigure, wrapfig, url, array, caption,xcolor,amsmath,algorithm}
+\usepackage{footnotebackref}
+\usepackage[ngerman,english]{babel}
+\usepackage[noend]{algpseudocode}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\captionsetup{labelfont={bf}}
+
+%%% For algorithms %%%
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+%%%%%%%%%%%%%
+
+
+\author{Vanessa Braglia}
+
+\title{The swiss scientific social network}
+\versiondate{\today}
+
+% DA SCOMMENTARE
+%\begin{committee}
+%\advisor[Universit\`a della Svizzera Italiana, Switzerland]{Prof.}{Olaf}{Schenk}
+%\assistant[Universit\`a della Svizzera Italiana, Switzerland]{}{Fabio}{Verbosio}
+%\end{committee}
+
+\abstract {
+In this project I implemented some algorithms to analyze the swiss scientific social network.
+To construct the graph representing the relations (the edges) between authors (the nodes) I crawled some conferences' online programs and I have extracted all the necessary information. I used PageRank and graph partitioning to study the relationships between authors: I found the members that collaborate more with each other and the relationship between different institutions. The results provide an interesting picture of the different research scenarios in Switzerland and how they interact with each other internally to an establishment but also between different institutions. 
+}
+
+
+\begin{document}
+% DA SCOMMENTARE
+%\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction} \label{sec:intro} 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A social network consists of a set of objects connected to each other by social relations. The best way to model social networks is using graphs (see Figure \ref{fig:socialnetwork}): the objects (entities) are represented as nodes and the connections as edges between two different nodes. The most common example we can take is the World Wide Web (WWW) where we have web pages as nodes connected by hyperlinks, the edges.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[height=4cm]{img/graph3.png}
+	\caption{Example of social network graph}
+	\label{fig:socialnetwork}
+\end{figure}
+
+The goal of this project is to create a social network of computational science authors belonging to Swiss institutions and then analyze the relative graph.
+
+\textcolor{red}{I wanted to find the relations between authors of the same or different institution and of the same or different research scenario: how do they interact with each other and if they are strictly related to the institution or cooperate throughout Switzerland. The result will provide also a "ranking" of the authors and the institutions to see which are the most influential in the computational science researches.}
+
+The first step is retrieving all necessary information for the construction of the social network: names of the authors and relationships between each other. I crawled the 2015,2016 and 2017 PASC Conferences, interdisciplinary conferences which brings together research across the areas of computational science, high-performance computing, and various domain sciences, and SIAM conferences of several years, selecting the topics relevant to us (e.g. Optimization, Parallel Computing,...).
+
+The second step is the information analysis to find out relations between institutions but also between members belonging to the same institution. With PageRank algorithm we obtain a ``ranking" of all conferences' participants: PageRank is an algorithm used by Google Search to rank websites in their search engine results but it can be applied to any social network. In this project I use the algorithm to measure the importance of institutions' members considering the number and quality of their collaborations. I use Graph Partitioning to ``invert" the process and obtain the institutions from members collaborations: probably members of the same institution collaborate more between each other than with other institutions' representatives.
+
+I also analyze the institutions' connectivity matrices and their structure: looking at the cliques (i.e. a sub matrix where every two distinct members collaborate with each other; this means that all entries of the sub matrix are ones) present in the matrices we can for example detect the different research areas of the institutions and the connection between them.
+
+The results will provide an interesting picture of the different research scenarios in Switzerland and how they interact with each other.
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Information Retrieval} \label{sec:inforetrieval} 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ldots
+
+\subsection{Crawling}
+
+\ldots
+
+\subsection{Parsing}
+
+\ldots
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The PageRank Algorithm} \label{sec:pagerank} 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+PageRank is an algorithm used by Google Search to rank websites in their search engine results; it was developed by  Larry Page and  Sergey Brin (the Google's founders) in 1996 as part of their research project at Stanford University.
+
+PageRank is used, together with other algorithms, to measure the importance of web pages and sort them by popularity in the result; it can be used in any graph to compute the importance of each node with its PageRank value. Larry Page and  Sergey Brin algorithm works by counting the number and quality of links to a page to compute a value which represents its importance; more popular a page is, more likely it receives links from other websites and more likely from important websites.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[height=6cm]{img/page_rank_example.png}
+	\caption{PageRank example}
+	\label{fig:prexample}
+\end{figure}
+
+As we can see in Figure \ref{fig:prexample}, node C has higher PageRank than E even if it has lower number of inner links; this is because the only inner link C has is from the most important node of the graph B so it is considered more than all the inner links of E from purple lower nodes.
+
+Imagine surfing websites, going from one page to another: to avoid problems with pages without outer links we have two different methods to choose the next page. Our surfer can:
+\begin{itemize}
+\item randomly choose an outgoing link from the page,
+\item simply choose a random page from the Web.
+\end{itemize}
+We assume that with probability $p$ (typically p=0.85) our surfer follows the first option and with probability $1-p$ the second.
+
+The probability that an infinite random surfer visits a specific website it's called its PageRank; a page will have high rank if other pages with high rank link to it.
+\subsection{How to compute PageRank values?}
+To apply PageRank, from a graph of $n$ nodes we construct a $n$-by-$n$ connectivity matrix G:\\ $g_{ij}=1$ if and only if node i and j are connected. The number of non-zeros in G is the total number of connections in the graph.
+
+The row $r_i$ represents the number of inner-links of page $i$, instead column $c_i$ the number of outer-links. So we can define:
+\begin{itemize}
+\item In-degree of page $i$: \tab $r_i = \sum\limits_{j=1}^{n} g_{ij}$
+\item Out-degree of page $i$: \tab $c_i = \sum\limits_{j=1}^{n} g_{ji}$
+\end{itemize}
+Let $p$ be the probability that the surfer follows a link and $1-p$ the probability that it chooses a random page, then $\delta = \frac{1-p}{n}$ is the probability that a particular random page is chosen.
+
+We construct a transition probability matrix A where all elements are positive, smaller than one and sums of columns are equal to one; column $j$ represents the probabilities to go from page j to all other pages. So we set:
+\begin{equation}\notag
+a_{ij} = 
+\begin{cases}
+\frac{pg_{ij}}{c_{j}} + \delta  & \text{if } c_{j} \neq 0\\
+\frac{1}{n} & \text{if } c_{j} = 0
+\end{cases}
+\end{equation}
+If the page $j$ has no outer links it means that column $j$ of A assigns equal probability $\frac{1}{n}$ to all its elements. We can now compute PageRanks values solving the homogeneous linear system:
+$$x = A\:x$$
+The transition matrix A can be written as
+$$A = pGD+ez^{T}$$
+where D is a diagonal matrix with the reciprocals of the out-degrees
+\begin{equation}\notag
+d_{jj} = 
+\begin{cases}
+\frac{1}{n} & \text{if } c_{j} \neq 0\\
+0 & \text{if } c_{j} = 0
+\end{cases}
+\end{equation}
+z is the vector formed by
+\begin{equation}\notag
+z_{j} = 
+\begin{cases}
+\delta & \text{if } c_{j} \neq 0\\
+\frac{1}{n} & \text{if } c_{j} = 0
+\end{cases}
+\end{equation}
+and e is the vector of length n with all ones.\\
+We can write the linear system
+$$(I-A)x=0$$
+as
+$$(I - pGD)x = \gamma e$$
+where we take $\gamma = z^{T} x=1$. \textcolor{red}{WHY?}
+To conclude, we find the solution of
+$$(I - pGD)x = e$$
+and then rescale the solution so that $\sum\limits_{i=1}^{n} x_i = 1$.
+
+
+\textcolor{red}{cosa inserire in procedure}
+\begin{algorithm}
+\caption{ (PageRank)}\label{pagerank}
+\begin{algorithmic}[1]
+\Procedure{PageRank}{}
+\State $\textit{U} \gets \text{list of }\textit{authors}$
+\State $\textit{G} \gets \text{adjacency matrix}$
+\State $p \gets \text{dumping factor}$
+\State $\textit{G} \gets \textit{G} - \text{diag(}\textit{G}\text{)} \: \: \: \text{(remove self collaborations)}$
+\State $\textit{c} \gets \text{sum(}\textit{G}\text{,1)} \:\:\: \textit{r} \gets \text{sum(}\textit{G}\text{,2)} \:\:\: \text{(Compute out-degree and in-degree of each node)}$
+\State $\textit{D} \gets \text{Diagonal matrix with reciprocals of out-degrees}$
+\State $(I - pGD)x = e$
+\State $x \gets x / sum(x) \: \:\: \text{(normalize the result x)}$
+\State $x \gets \text{sort x in descending order}$\\
+\Return x
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Graph Partitioning Algorithm} \label{sec:graphpart} 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+Graph partitioning consists in dividing a graph $G=(V,E)$\footnote{A graph G with vertexes V and edges E.}  cutting the smaller number of edges and obtaining sub-graphs with specific properties. For example k-way partitioning divides the graph G into k smaller components.
+
+\textcolor{red}{A partitioning algorithm is said to be efficient if it manage to divide the graph into smaller components with about the same size, cutting as few edges as possible. 
+A valid and fast method is the coordinate bisection, which simply chooses a partitioning plane perpendicular to one of the coordinate axes but spectral algorithm is more efficient: it finds a partition from the adjacency matrix of the graph. As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave the same but usually the second one is more effective.}
+
+\begin{figure}[ht]
+	\centering
+	\subfigure[]{
+		\includegraphics[height=4cm]{img/g1.jpg}
+		\includegraphics[height=4cm]{img/g2.jpg}
+		\includegraphics[height=4cm]{img/g3.jpg}
+		\label{fig:corandsp}
+	}
+	\subfigure[]{
+		\includegraphics[height=4cm]{img/g10.jpg}
+		\includegraphics[height=4cm]{img/g11.jpg}
+		\includegraphics[height=4cm]{img/g12.jpg}
+		\label{fig:cororsp}
+	}
+	\caption{In both \subref{fig:corandsp} \subref{fig:cororsp} we have the graph at the left, the coordinate partition in the middle and the spectral partition at the right}
+	\label{fig:partitioning}
+\end{figure}
+
+\subsection{How to apply spectral graph partitioning}
+To apply graph partitioning we need the adjacency matrix A of the graph, which is symmetric, and the Laplacian matrix L constructed such that: 
+\begin{equation}\notag
+L_{ij} = 
+\begin{cases}
+d_i \tab \:\:\: if \:\: i=j \\
+-1 \tab if \:\: i \neq j \:\: and \: \: (i,j) \in E \\
+0 \tab \:\:\:\: \text{otherwise}
+\end{cases}
+\end{equation}
+where $d_i$ is the vertex degree of node $i \in V$.
+The relation between A and L is
+$$L = D - A$$
+where D is the diagonal matrix where $d_{ii}$ if the vertex degree of node $i~\in~V$. Since L is symmetric and positive semidefinite per construction, all its eigenvalues are real and nonnegative. The first eigenvalue is always zero and the second is not equal to zero if the graph is \textcolor{red}{Is this correct?} connected\footnote{there is a path from any node to any other node in the graph}; we can define eigenvalues of L as follows
+$$ 0 = \lambda_1 < \lambda_2 \leq ... \leq \lambda_n$$
+The eigenvector corresponding to the first eigenvalue $\lambda_1$ is the vector of all ones and it does not provide information about the graph structure; instead the second lowest eigenvector, Fiedler vector, is used by spectral partitioning to return the smaller sub-graphs. Dividing the nodes of graph G according to the median $s$ of the Fiedler vector $\vec{v} = (v_1,v_2,...,v_n)$ helping obtaining two partitions $V_1$ and $V_2$:
+\begin{equation}\notag
+\begin{cases}
+v_i \in V_1 \Longrightarrow v_i \leq s \\
+v_i \in V_2 \Longrightarrow v_i > s
+\end{cases}
+\end{equation}
+Such a partition is called the Fiedler cut and leads to two parts of G with nearly equals number of vertexes with small number of cutting edges.
+
+\begin{algorithm}
+\caption{ (Graph Partitioning)}\label{gpartitioning}
+\begin{algorithmic}[1]
+\Procedure{Graph Partitioning}{}
+\State $\textit{G} \gets \text{(V,E)}$
+\State $\text{compute Fiedler vector of } \textit{L = D - A}$
+\State $\text{Sort the vector values}$
+\State $\text{Put first half of the nodes in } V_1 \text{ and second half in } V_2$
+\State $ E_1 \gets \text{ edges with both nodes in } V_1$
+\State $ E_2 \gets \text{ edges with both nodes in } V_2$\\
+\Return $\textit{G1} = \text{(V1,E1) and } \textit{G2} = \text{(V2,E2)}$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+
+\subsection{K-way Partitioning}
+K-way partitioning of a graph G of n nodes, consists in a division of its nodes in k disjoint subset, all with size nearly $\frac{n}{k}$ (see Figure \ref{fig:kpartitioning}).
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[height=3cm]{img/k_way_partitioning.jpg}
+	\caption{Example of k-way graph partitioning}
+	\label{fig:kpartitioning}
+\end{figure}
+
+We consider only the simple case where we want to divide the graph in k partitions and k is a power of two. The idea is just to apply the spectral partitioning $\frac{k}{2}$ times recursively.
+
+\begin{algorithm}
+\caption{ (k-way Partitioning)}\label{kpartitioning}
+\begin{algorithmic}[1]
+\Procedure{k-way Partitioning}{}
+\State $\textit{G} \gets \text{(V,E)}$
+\State $k \gets \text{number of desired partitions}$
+\State $\text{Apply spectral partitioning on G and find }G_1 \text{ and } G_2$
+\BState \emph{loop}:
+\If {$\frac{k}{2} > 1$}
+\State $\text{Recursive partition on }G_1 \text{ with } \frac{k}{2}$
+\State $\text{Recursive partition on }G_2 \text{ with } \frac{k}{2}$
+\State $k \gets \frac{k}{2}$
+\EndIf
+\State \textbf{goto} \emph{loop}\\
+\Return $G_1 = (V_1,E_1) \text{ ... } G_K = (V_K,E_K)$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+\section{Numerical results / Data analysis / \ldots}
+Cliques\footnote{Some text in a footnote.} \ldots
+
+\subsection{PageRank -- forse (inclusi in R.analysis)}
+
+\subsection{Graph Partitioning -- forse (inclusi in R.analysis)}
+
+\textcolor{red}{DA TOGLIERE, MOMENTANEA}
+\section{Bibliography}
+\begin{itemize}
+\item https://en.wikipedia.org/wiki/PageRank
+\item Assignment1 1 Course Numerical Computing 2107/2018
+\item Assignment2 1 Course Numerical Computing 2107/2018
+\item \hyperref[label_name]{''https://am.vsb.cz/export/sites/am/cs/theses/kabelikova\_ing.pdf''}
+\item https://en.wikipedia.org/wiki/Graph\_partition
+\end{itemize}
+
+
+
+
+
+% Footnotes
+%Cliques\footnote{Some text in a footnote.} \ldots
+
+
+%Immagini
+%\begin{figure}[ht]
+%	\centering
+%	\subfigure[]{
+%		\includegraphics[height=6cm]{img/seurat.jpeg}
+%		\label{fig:seurat}
+%	}
+%	\subfigure[]{
+%		\includegraphics[height=6cm]{img/gogh.jpeg}
+%		\label{fig:gogh}
+%	}
+%	\caption{Famous examples of divisionism painting: \subref{fig:seurat} ``Un dimanche apr\`es-midi \`a l'\^Ile de la Grande Jatte'' (1884-1886) by Georges Seurat and \subref{fig:gogh} ``Self Portrait with felt Hat'' (1887-1888) by Vincent van Gogh.}
+%	\label{fig:divisionism}
+%\end{figure}
+
+
+%Referenza a immagini
+% whose greatest exponent was Georges Seurat (see Figure \ref{fig:seurat}).
+ 
+ 
+% Referenza bibliografica
+%In this project I implemented an algorithm for extracting a resolution-independent vector representation from pixel art images, based on the paper of Johannes Kopf and Dani Lischinski \cite{Kopf2011}. 
+
+
+% algorithm
+%\begin{algorithm}
+%\caption{ (PageRank algorithm)}\label{pagerank}
+%\begin{algorithmic}[1]
+%\Procedure{MyProcedure}{}
+%\State $\textit{U} \gets \text{list of }\textit{authors}$
+%\State $\textit{G} \gets \text{adjacency matrix}$
+%\State $p \gets \text{dumping factor}$
+%\BState \emph{top}:
+%\If {$i > \textit{stringlen}$} \Return false
+%\EndIf
+%\State $j \gets \textit{patlen}$
+%\BState \emph{loop}:
+%\If {$\textit{string}(i) = \textit{path}(j)$}
+%\State $j \gets j-1$.
+%\State $i \gets i-1$.
+%\State \textbf{goto} \emph{loop}.
+%\State \textbf{close};
+%\EndIf
+%\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
+%\State \textbf{goto} \emph{top}.
+%\EndProcedure
+%\end{algorithmic}
+%\end{algorithm}
+
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions} \label{sec:conclusions}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+I have implemented an algorithm for extracting a resolution-independent vector representation from pixel art images. This algorithm resolves separation/connectedness ambiguities in the square pixel lattice and then reshapes the pixel cells so that both cardinal and diagonal neighbors of a pixel are connected through edges. The regions with smoothly varying shading are extracted and separated through piecewise smooth contour curves. I have demonstrated that conventional image upsampling and vectorization algorithms cannot handle pixel art images well, while this algorithm produces good results on a wide variety of inputs.
+
+
+\subsection{Future work} \label{sec:future}
+
+There are many possibilities for future work. The implementation still suffers from some limitations (Section \ref{sec:limitations}) which could be corrected or improved, but also more features can be added to increase the number of different applications for this algorithm.
+
+
+\subsection{Acknowledgments}
+
+I want to thank my project advisor, prof. Kai Hormann, for suggesting this fascinating project. I really enjoyed working on it and prof. Hormann has been very helpful throughout the whole project. I was given a lot of freedom and independence, which pushed me to give the best of myself. The project had such a great potential and was so intellectually challenging that I was thrilled and eager every time I could spend time working on it.\\
+I also want to thank my wife for being so supportive and patient. The long nights passed working on this project really proved her love, and her caring for my well-being helped me a lot through the difficult and stressing moments. Her excitement for every new feature pushed me to improve the project more and more, seeking that wonderful smile.
+
+%%%%%
+\bibliographystyle{abbrv}
+\bibliography{references}
+
+\end{document}

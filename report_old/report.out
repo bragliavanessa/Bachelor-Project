@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{Information\040Retrieval}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Crawling}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Parsing}{section.2}% 4
+\BOOKMARK [1][-]{section.3}{The\040PageRank\040Algorithm}{}% 5
+\BOOKMARK [2][-]{subsection.3.1}{How\040to\040compute\040PageRank\040values?}{section.3}% 6
+\BOOKMARK [3][-]{subsubsection.3.1.1}{PageRank\040algorithm}{subsection.3.1}% 7
+\BOOKMARK [1][-]{section.4}{Graph\040Partitioning}{}% 8
+\BOOKMARK [2][-]{subsection.4.1}{Mathematical\040stuff...}{section.4}% 9
+\BOOKMARK [3][-]{subsubsection.4.1.1}{Spectral\040partitioning\040algorithm}{subsection.4.1}% 10
+\BOOKMARK [2][-]{subsection.4.2}{K-way\040Partitioning}{section.4}% 11
+\BOOKMARK [3][-]{subsubsection.4.2.1}{Recursive\040Spectral\040partitioning\040algorithm}{subsection.4.2}% 12
+\BOOKMARK [1][-]{section.5}{Numerical results / Data analysis / …}{}% 13
+\BOOKMARK [2][-]{subsection.5.1}{PageRank – forse \(inclusi in R.analysis\)}{section.5}% 14
+\BOOKMARK [2][-]{subsection.5.2}{Graph Partitioning – forse \(inclusi in R.analysis\)}{section.5}% 15
+\BOOKMARK [1][-]{section.6}{Conclusions}{}% 16
+\BOOKMARK [1][-]{section.7}{Bibliography}{}% 17
