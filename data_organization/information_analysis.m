@@ -43,4 +43,5 @@ group4 = authors(g2(g6));
 
 p = [g1(g3); g1(g4); g2(g5); g2(g6)];
 
+figure
 spy(M(p,p))
