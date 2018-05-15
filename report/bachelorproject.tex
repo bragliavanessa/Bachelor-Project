@@ -12,6 +12,7 @@
 \makeatother
 %%%%%%%%%%%%%
 
+\newcommand\transp[1]{{#1}^{\top}}
 
 \author{Vanessa Braglia}
 
@@ -52,13 +53,15 @@ A social network consists of a set of objects connected to each other by social 
 
 The goal of this project is to create a social network of computational science authors belonging to Swiss institutions and then analyze the relative graph.
 
-\textcolor{red}{I wanted to find the relations between authors of the same or different institution and of the same or different research scenario: how do they interact with each other and if they are strictly related to the institution or cooperate throughout Switzerland. The result will provide also a "ranking" of the authors and the institutions to see which are the most influential in the computational science researches.}
+\textcolor{red}{I want to find the relations between authors of the same or different institutions and belonging to the same or to different research scenarios: how they interact with each other and if they are strictly related to the institution or cooperate throughout Switzerland. The result will provide also a ranking of the authors and the institutions to see which are the most influential in the computational science research.}
 
-The first step is retrieving all necessary information for the construction of the social network: names of the authors and relationships between each other. I crawled the 2015,2016 and 2017 PASC Conferences, interdisciplinary conferences which brings together research across the areas of computational science, high-performance computing, and various domain sciences, and SIAM conferences of several years, selecting the topics relevant to us (e.g. Optimization, Parallel Computing,...).
+The first step is retrieving all the necessary information for the construction of the social network, i.e., names of the authors and relationships between each other. I crawled the 2015, 2016 and 2017 PASC Conferences, interdisciplinary conferences which bring together researchers across the areas of computational science, high-performance computing, and various domain sciences, and different SIAM conferences of several years, selecting the topics relevant to us (e.g. Optimization, Parallel Computing,...).
+\textcolor{red}{Split previous long sentence into shorter ones.}
 
-The second step is the information analysis to find out relations between institutions but also between members belonging to the same institution. With PageRank algorithm we obtain a ``ranking" of all conferences' participants: PageRank is an algorithm used by Google Search to rank websites in their search engine results but it can be applied to any social network. In this project I use the algorithm to measure the importance of institutions' members considering the number and quality of their collaborations. I use Graph Partitioning to ``invert" the process and obtain the institutions from members collaborations: probably members of the same institution collaborate more between each other than with other institutions' representatives.
+The second step is the information analysis to find out relations between institutions and between members belonging to the same institution. With PageRank algorithm we obtain a ``ranking'' of all conferences' participants.
+PageRank is an algorithm used by Google Search to rank websites in their search engine results, but it can be applied to any social network. In this project I use the algorithm to measure the importance of institutions' members considering the number and quality of their collaborations. I use graph partitioning techniques to invert the process and obtain the institutions from members collaborations: it is reasonable to assume that members of the same institution collaborate more between each other than with other institutions' representatives.
 
-I also analyze the institutions' connectivity matrices and their structure: looking at the cliques (i.e. a sub matrix where every two distinct members collaborate with each other; this means that all entries of the sub matrix are ones) present in the matrices we can for example detect the different research areas of the institutions and the connection between them.
+I also analyze the institutions' connectivity matrices and their structure: looking at the cliques \textcolor{red}{(i.e. a sub matrix where every two distinct members collaborate with each other; this means that all entries of the sub matrix are ones)--REFORMULATE: the submatrix is not ``where'' members are, but the dense submatrix ``represents'' a group of authors densely connected. Also, I would not put this in parenthesis, but I'd describe cliques clearly in a paragraph.} present in the matrices we can for example detect the different research areas of the institutions and the connection between them.
 
 The results will provide an interesting picture of the different research scenarios in Switzerland and how they interact with each other.
 
@@ -96,31 +99,38 @@ PageRank is used, together with other algorithms, to measure the importance of w
 \begin{figure}[ht]
 	\centering
 	\includegraphics[height=6cm]{img/page_rank_example.png}
-	\caption{PageRank example}
+	\caption{PageRank example \textcolor{red}{Either change this figure or introduce reference to online source (I prefer changing the figure).}}
 	\label{fig:prexample}
 \end{figure}
 
-As we can see in Figure \ref{fig:prexample}, node C has higher PageRank than E even if it has lower number of inner links; this is because the only inner link C has is from the most important node of the graph B so it is considered more than all the inner links of E from purple lower nodes.
+As we can see in Fig ure \ref{fig:prexample}, node C has higher PageRank than E even if it has lower number of inner links; this is because the only inner link C has is from the most important node of the graph B so it is considered to be more important than all the inner links of node E from the purple lower nodes.
 
-Imagine surfing websites, going from one page to another: to avoid problems with pages without outer links we have two different methods to choose the next page. Our surfer can:
+\textcolor{red}{Imagine surfing websites, going from one page to another: -- I don't like the ``imagine'' part \ldots} to avoid problems with pages without outer links we have two different methods to choose the next page. The surfer can:
 \begin{itemize}
 \item randomly choose an outgoing link from the page,
-\item simply choose a random page from the Web.
+\item choose a random page from the network \textcolor{red}{``network'' instead of ``Web'', since we are not surfing the whole WWW}.
 \end{itemize}
-We assume that with probability $p$ (typically p=0.85) our surfer follows the first option and with probability $1-p$ the second.
+We assume that with probability $p$ (typically $p=0.85$) our surfer follows the first option and with probability $1-p$ the second. \textcolor{red}{Invert subject--verb: We assume that the surfer (get rid of ``our'') follows the first option with probability \ldots}
 
-The probability that an infinite random surfer visits a specific website it's called its PageRank; a page will have high rank if other pages with high rank link to it.
-\subsection{How to compute PageRank values?}
-To apply PageRank, from a graph of $n$ nodes we construct a $n$-by-$n$ connectivity matrix G:\\ $g_{ij}=1$ if and only if node i and j are connected. The number of non-zeros in G is the total number of connections in the graph.
+The probability that an infinite random surfer visits a specific website is called its PageRank; a page will have high rank if other pages with high rank link to it.
 
-The row $r_i$ represents the number of inner-links of page $i$, instead column $c_i$ the number of outer-links. So we can define:
+
+\subsection{How to compute PageRank values}
+To apply PageRank, from a graph of $n$ nodes we construct a $n$-by-$n$ connectivity matrix G such that
+\begin{equation*}
+g_{ij}=1 \text{\;\;\; if and only if nodes $i$ and $j$ are connected.} 
+\end{equation*}
+The number of non-zeros in $G$ is the total number of connections in the graph.
+
+The row $r_i$ represents the number of inner-links of page $i$, while column $c_i$ the number of outer-links. So we can define:
 \begin{itemize}
 \item In-degree of page $i$: \tab $r_i = \sum\limits_{j=1}^{n} g_{ij}$
 \item Out-degree of page $i$: \tab $c_i = \sum\limits_{j=1}^{n} g_{ji}$
 \end{itemize}
+\textcolor{red}{Try to use an align command or something similar to align the previous list.}
 Let $p$ be the probability that the surfer follows a link and $1-p$ the probability that it chooses a random page, then $\delta = \frac{1-p}{n}$ is the probability that a particular random page is chosen.
 
-We construct a transition probability matrix A where all elements are positive, smaller than one and sums of columns are equal to one; column $j$ represents the probabilities to go from page j to all other pages. So we set:
+We construct a transition probability matrix A where all elements are positive, smaller than one and sums of columns are equal to one; column $j$ represents the probabilities to go from page j to all other pages. So we set
 \begin{equation}\notag
 a_{ij} = 
 \begin{cases}
@@ -128,34 +138,39 @@ a_{ij} =
 \frac{1}{n} & \text{if } c_{j} = 0
 \end{cases}
 \end{equation}
-If the page $j$ has no outer links it means that column $j$ of A assigns equal probability $\frac{1}{n}$ to all its elements. We can now compute PageRanks values solving the homogeneous linear system:
-$$x = A\:x$$
-The transition matrix A can be written as
-$$A = pGD+ez^{T}$$
-where D is a diagonal matrix with the reciprocals of the out-degrees
+In other words, if page $j$ has no outer links, it means that column $j$ of $A$ present a uniform probability $\frac{1}{n}$ in all its elements. We can now compute PageRank values by solving the \textcolor{red}{homogeneous linear system -- this is an eigenvalue problem. I guess we could add a paragraph or two about eigenvalue problems inspired by Chapter 8 of the Num. Comp. book.}
+\begin{equation}
+x = A\:x
+\end{equation}
+The transition matrix $A$ can be written as
+$$A = pGD+ez^{T}, $$
+where $D$ is a diagonal matrix with the reciprocals of the out-degrees, i.e.,
 \begin{equation}\notag
 d_{jj} = 
 \begin{cases}
 \frac{1}{n} & \text{if } c_{j} \neq 0\\
 0 & \text{if } c_{j} = 0
-\end{cases}
+\end{cases} \,,
 \end{equation}
-z is the vector formed by
+$z$ is the vector formed by
 \begin{equation}\notag
 z_{j} = 
 \begin{cases}
 \delta & \text{if } c_{j} \neq 0\\
 \frac{1}{n} & \text{if } c_{j} = 0
-\end{cases}
+\end{cases} \,,
 \end{equation}
-and e is the vector of length n with all ones.\\
+and e is the vector of length n with all ones.
+
 We can write the linear system
 $$(I-A)x=0$$
 as
 $$(I - pGD)x = \gamma e$$
-where we take $\gamma = z^{T} x=1$. \textcolor{red}{WHY?}
-To conclude, we find the solution of
-$$(I - pGD)x = e$$
+where $\gamma = \transp{z}x$.
+To conclude, \textcolor{red}{since the value of the scalar $\gamma$ depends on the unknown $x$, we impose the condition $\gamma = 1$}, then solve
+\begin{equation}
+(I - pGD)x = e
+\end{equation}
 and then rescale the solution so that $\sum\limits_{i=1}^{n} x_i = 1$.
 
 
@@ -188,9 +203,10 @@ and then rescale the solution so that $\sum\limits_{i=1}^{n} x_i = 1$.
 %%%%%%%%%%%%%%%%%%%%%%%%%
 Graph partitioning consists in dividing a graph $G=(V,E)$\footnote{A graph G with vertexes V and edges E.}  cutting the smaller number of edges and obtaining sub-graphs with specific properties. For example k-way partitioning divides the graph G into k smaller components.
 
-\textcolor{red}{A partitioning algorithm is said to be efficient if it manage to divide the graph into smaller components with about the same size, cutting as few edges as possible. 
-A valid and fast method is the coordinate bisection, which simply chooses a partitioning plane perpendicular to one of the coordinate axes but spectral algorithm is more efficient: it finds a partition from the adjacency matrix of the graph. As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave the same but usually the second one is more effective.}
+\textcolor{red}{A partitioning algorithm is said to be efficient if it divides a given graph into smaller components with about the same size, cutting as few edges as possible. 
+A valid and fast method is the coordinate bisection, which simply chooses a partitioning plane perpendicular to one of the coordinate axes} but spectral algorithm is more efficient: it finds a partition from the adjacency matrix of the graph. -- Un po' sbrigativo, expand, lower the ``speed'' of the sentences and try to explain more details.
 
+\textcolor{red}{As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave the same but usually the second one is more effective.}
 \begin{figure}[ht]
 	\centering
 	\subfigure[]{
@@ -205,12 +221,12 @@ A valid and fast method is the coordinate bisection, which simply chooses a part
 		\includegraphics[height=4cm]{img/g12.jpg}
 		\label{fig:cororsp}
 	}
-	\caption{In both \subref{fig:corandsp} \subref{fig:cororsp} we have the graph at the left, the coordinate partition in the middle and the spectral partition at the right}
+	\caption{In both \subref{fig:corandsp} and \subref{fig:cororsp} we have the graph at the left, the coordinate bisection in the middle and the spectral partition on the right}
 	\label{fig:partitioning}
 \end{figure}
 
 \subsection{How to apply spectral graph partitioning}
-To apply graph partitioning we need the adjacency matrix A of the graph, which is symmetric, and the Laplacian matrix L constructed such that: 
+To apply graph partitioning we need the adjacency matrix $A$ of the graph, which is symmetric since the graph is considered to be undirected, and the Laplacian matrix $L$ constructed such that: 
 \begin{equation}\notag
 L_{ij} = 
 \begin{cases}
@@ -221,17 +237,24 @@ d_i \tab \:\:\: if \:\: i=j \\
 \end{equation}
 where $d_i$ is the vertex degree of node $i \in V$.
 The relation between A and L is
-$$L = D - A$$
-where D is the diagonal matrix where $d_{ii}$ if the vertex degree of node $i~\in~V$. Since L is symmetric and positive semidefinite per construction, all its eigenvalues are real and nonnegative. The first eigenvalue is always zero and the second is not equal to zero if the graph is \textcolor{red}{Is this correct?} connected\footnote{there is a path from any node to any other node in the graph}; we can define eigenvalues of L as follows
-$$ 0 = \lambda_1 < \lambda_2 \leq ... \leq \lambda_n$$
-The eigenvector corresponding to the first eigenvalue $\lambda_1$ is the vector of all ones and it does not provide information about the graph structure; instead the second lowest eigenvector, Fiedler vector, is used by spectral partitioning to return the smaller sub-graphs. Dividing the nodes of graph G according to the median $s$ of the Fiedler vector $\vec{v} = (v_1,v_2,...,v_n)$ helping obtaining two partitions $V_1$ and $V_2$:
+\begin{equation}
+L = D - A
+\end{equation}
+where D is the diagonal matrix having the $d_i$'s on the diagonal. Since L is symmetric and positive semidefinite by construction, all its eigenvalues are real and nonnegative. The first eigenvalue is always zero and the second is not equal to zero if the graph is connected\footnote{A graph is connected if there is a path from any node to any other node in the graph.}.
+The eigenvalues of L are ordered as follows:
+\begin{equation}
+0 = \lambda_1 < \lambda_2 \leq ... \leq \lambda_n \,.
+\end{equation}
+%In the general case, the multiplicity of the the first eigenvalue corresponds to the number of connected components of the graph and the eigenvalues read $0 = \lambda_1 = \ldots = \lambda_m < \lambda_{m+1} \le \ldots \lambda_n$.
+
+The eigenvector corresponding to the first eigenvalue $\lambda_1$ is the vector of all ones and it does not provide information about the graph structure; the second lowest eigenvector, instead, called ``Fiedler eigenvector'', is used by spectral partitioning to return the smaller sub-graphs. Dividing the nodes of graph G according to the median $s$ of the Fiedler vector $v = (v_1,v_2,...,v_n)$ gives two partitions $V_1$ and $V_2$ such that
 \begin{equation}\notag
 \begin{cases}
-v_i \in V_1 \Longrightarrow v_i \leq s \\
-v_i \in V_2 \Longrightarrow v_i > s
-\end{cases}
+v_i \in V_1 \text{\;\; if \;\;} v_i \leq s \\
+v_i \in V_2 \text{\;\; if \;\;} v_i > s
+\end{cases} .
 \end{equation}
-Such a partition is called the Fiedler cut and leads to two parts of G with nearly equals number of vertexes with small number of cutting edges.
+Such a partition is called the Fiedler cut and leads to two parts of G with nearly equal number of vertices with a small number of cutting edges. \textcolor{red}{Is it the best edge-cut? We should summarize briefly the actual formulation of the problem which is NP-hard and show how spectral partitioning approximates the solution (see Prof. Schenk's lecture notes).}
 
 \begin{algorithm}
 \caption{ (Graph Partitioning)}\label{gpartitioning}
@@ -260,7 +283,7 @@ K-way partitioning of a graph G of n nodes, consists in a division of its nodes 
 	\label{fig:kpartitioning}
 \end{figure}
 
-We consider only the simple case where we want to divide the graph in k partitions and k is a power of two. The idea is just to apply the spectral partitioning $\frac{k}{2}$ times recursively.
+We consider only the simple case where we want to divide the graph in k partitions and k is a power of two. The idea is just to apply the spectral partitioning $\frac{k}{2}$ times recursively to each of the partitions obtained. The method is presented in Algorithm~\ref{kpartitioning}.
 
 \begin{algorithm}
 \caption{ (k-way Partitioning)}\label{kpartitioning}
