@@ -140,7 +140,7 @@ In other words, if page $j$ has no outer links, it means that column $j$ of $A$ 
 
 We can now compute PageRank values by solving the problem. 
 
-\begin{equation}
+\begin{equation}\notag
 A\:x = x
 \end{equation}
 
@@ -174,7 +174,7 @@ as
 $$(I - pGD)x = \gamma e$$
 where $\gamma = \transp{z}x$.
 To conclude, since the value of the scalar $\gamma$ depends on the unknown $x$, we impose the condition $\gamma = 1$, then solve
-\begin{equation}
+\begin{equation}\notag
 (I - pGD)x = e
 \end{equation}
 and then rescale the solution so that $\sum\limits_{i=1}^{n} x_i = 1$.
@@ -241,15 +241,15 @@ d_i \tab \:\:\: if \:\: i=j \\
 \end{equation}
 where $d_i$ is the vertex degree of node $i \in V$.
 The relation between A and L is
-\begin{equation}
+\begin{equation}\notag
 L = D - A
 \end{equation}
-where D is the diagonal matrix having the $d_i$'s on the diagonal. Since L is symmetric and positive semidefinite by construction, all its eigenvalues are real and nonnegative. The first eigenvalue is always zero and the second is not equal to zero if the graph is connected\footnote{A graph is connected if there is a path from any node to any other node in the graph.}.
+where D is the diagonal matrix having the $d_i$'s on the diagonal. Since L is symmetric and positive semidefinite by construction, all its eigenvalues are real and nonnegative. The first eigenvalue is always zero and, in the general case, the multiplicity of the the first eigenvalue corresponds to the number of connected components of the graph.
+
 The eigenvalues of L are ordered as follows:
-\begin{equation}
-0 = \lambda_1 < \lambda_2 \leq ... \leq \lambda_n \,.
+\begin{equation}\notag
+0 = \lambda_1 = \ldots = \lambda_m < \lambda_{m+1} \le \ldots \lambda_n
 \end{equation}
-%In the general case, the multiplicity of the the first eigenvalue corresponds to the number of connected components of the graph and the eigenvalues read $0 = \lambda_1 = \ldots = \lambda_m < \lambda_{m+1} \le \ldots \lambda_n$.
 
 The eigenvector corresponding to the first eigenvalue $\lambda_1$ is the vector of all ones and it does not provide information about the graph structure; the second lowest eigenvector, instead, called ``Fiedler eigenvector'', is used by spectral partitioning to return the smaller sub-graphs. Dividing the nodes of graph G according to the median $s$ of the Fiedler vector $v = (v_1,v_2,...,v_n)$ gives two partitions $V_1$ and $V_2$ such that
 \begin{equation}\notag
@@ -258,7 +258,30 @@ v_i \in V_1 \text{\;\; if \;\;} v_i \leq s \\
 v_i \in V_2 \text{\;\; if \;\;} v_i > s
 \end{cases} .
 \end{equation}
-Such a partition is called the Fiedler cut and leads to two parts of G with nearly equal number of vertices with a small number of cutting edges. \textcolor{red}{Is it the best edge-cut? We should summarize briefly the actual formulation of the problem which is NP-hard and show how spectral partitioning approximates the solution (see Prof. Schenk's lecture notes).}
+Such a partition is called the Fiedler cut and leads to two parts of G with nearly equal number of vertexes, minimizing the number of cut edges. 
+
+Fiedler theorem said that if the graph G is connected, L the Laplacian matrix, $N_+$ and $N_-$ a partitioning such that
+\begin{equation}\notag
+x(i) = +1 \tab \text{if } v_i \text{in } N_+ 
+\end{equation}
+\begin{equation}\notag
+x(i) = -1 \tab \text{if } v_i \text{in } N_-
+\end{equation}
+
+Then the number of edges cut is:
+\begin{equation}\notag
+\#\text{edge\_cut} = \frac{1}{4}x^T L x
+\end{equation}
+
+This problem of minimizing the number of cut edges is NP-hard and can be written as a constrained minimization problem:
+\begin{equation}\notag
+\min\limits_z f(z)=\frac{1}{4} z^T L z \tab \text{subject to} \tab 
+\begin{cases}
+z^T z = n \tab \text{z is a real vector}\\
+z^T e = 0 \tab \text{with } e=[1,1,...,1]^T
+\end{cases}
+\end{equation}
+
 
 \begin{algorithm}
 \caption{ (Graph Partitioning)}\label{gpartitioning}

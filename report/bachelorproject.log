@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  17 MAY 2018 15:20
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  17 MAY 2018 17:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1061,24 +1061,24 @@ File: img/k_way_partitioning.jpg Graphic file (type QTm)
 <use  "img/k_way_partitioning.jpg" > [7] [8]
 
 LaTeX Warning: Hyper reference `label_name' on page 9 undefined on input line 3
-25.
+48.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 409.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 432.
 [9]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 409.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 432.
  (./bachelorproject.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 409.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 409.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 432.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 432.
 
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 16212 strings out of 493706
- 230253 string characters out of 6145769
- 343463 words of memory out of 5000000
- 19272 multiletter control sequences out of 15000+600000
+ 16211 strings out of 493706
+ 230245 string characters out of 6145769
+ 344463 words of memory out of 5000000
+ 19271 multiletter control sequences out of 15000+600000
  57364 words of font info for 75 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  60i,9n,94p,901b,478s stack positions out of 5000i,500n,10000p,200000b,80000s
