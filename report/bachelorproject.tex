@@ -53,15 +53,14 @@ A social network consists of a set of objects connected to each other by social 
 
 The goal of this project is to create a social network of computational science authors belonging to Swiss institutions and then analyze the relative graph.
 
-\textcolor{red}{I want to find the relations between authors of the same or different institutions and belonging to the same or to different research scenarios: how they interact with each other and if they are strictly related to the institution or cooperate throughout Switzerland. The result will provide also a ranking of the authors and the institutions to see which are the most influential in the computational science research.}
+I want to find the relations between authors of the same or different institutions and belonging to the same or to different research scenarios: how they interact with each other and if they are strictly related to the institution or cooperate throughout Switzerland. The result will provide also a ranking of the authors and the institutions to see which are the most influential in the computational science research.
 
-The first step is retrieving all the necessary information for the construction of the social network, i.e., names of the authors and relationships between each other. I crawled the 2015, 2016 and 2017 PASC Conferences, interdisciplinary conferences which bring together researchers across the areas of computational science, high-performance computing, and various domain sciences, and different SIAM conferences of several years, selecting the topics relevant to us (e.g. Optimization, Parallel Computing,...).
-\textcolor{red}{Split previous long sentence into shorter ones.}
+The first step is retrieving all the necessary information for the construction of the social network, i.e., names of the authors and relationships between each other. I crawled the 2015, 2016 and 2017 PASC Conferences and different SIAM conferences of several years, selecting the topics relevant to us (e.g. Optimization, Parallel Computing,...). The PASC conferences are interdisciplinary and bring together researchers across the areas of computational science, high-performance computing, and various domain sciences, 
 
 The second step is the information analysis to find out relations between institutions and between members belonging to the same institution. With PageRank algorithm we obtain a ``ranking'' of all conferences' participants.
 PageRank is an algorithm used by Google Search to rank websites in their search engine results, but it can be applied to any social network. In this project I use the algorithm to measure the importance of institutions' members considering the number and quality of their collaborations. I use graph partitioning techniques to invert the process and obtain the institutions from members collaborations: it is reasonable to assume that members of the same institution collaborate more between each other than with other institutions' representatives.
 
-I also analyze the institutions' connectivity matrices and their structure: looking at the cliques \textcolor{red}{(i.e. a sub matrix where every two distinct members collaborate with each other; this means that all entries of the sub matrix are ones)--REFORMULATE: the submatrix is not ``where'' members are, but the dense submatrix ``represents'' a group of authors densely connected. Also, I would not put this in parenthesis, but I'd describe cliques clearly in a paragraph.} present in the matrices we can for example detect the different research areas of the institutions and the connection between them.
+I also analyze the institutions' connectivity matrices and their structure: looking at the cliques present in the matrices we can for example detect the different research areas of the institutions and the connection between them. Cliques are dense sub matrices which represent a group of authors that are closely connected with each other. 
 
 The results will provide an interesting picture of the different research scenarios in Switzerland and how they interact with each other.
 
@@ -99,18 +98,18 @@ PageRank is used, together with other algorithms, to measure the importance of w
 \begin{figure}[ht]
 	\centering
 	\includegraphics[height=6cm]{img/page_rank_example.png}
-	\caption{PageRank example \textcolor{red}{Either change this figure or introduce reference to online source (I prefer changing the figure).}}
+	\caption{PageRank example}
 	\label{fig:prexample}
 \end{figure}
 
 As we can see in Fig ure \ref{fig:prexample}, node C has higher PageRank than E even if it has lower number of inner links; this is because the only inner link C has is from the most important node of the graph B so it is considered to be more important than all the inner links of node E from the purple lower nodes.
 
-\textcolor{red}{Imagine surfing websites, going from one page to another: -- I don't like the ``imagine'' part \ldots} to avoid problems with pages without outer links we have two different methods to choose the next page. The surfer can:
+While surfing websites, going from one page to another I want to avoid problems with pages without outer links so I introduce two different methods to choose the next page. The surfer can:
 \begin{itemize}
 \item randomly choose an outgoing link from the page,
-\item choose a random page from the network \textcolor{red}{``network'' instead of ``Web'', since we are not surfing the whole WWW}.
+\item choose a random page from the network.
 \end{itemize}
-We assume that with probability $p$ (typically $p=0.85$) our surfer follows the first option and with probability $1-p$ the second. \textcolor{red}{Invert subject--verb: We assume that the surfer (get rid of ``our'') follows the first option with probability \ldots}
+We assume that the surfer follows the first option with probability $p$ (typically $p=0.85$) and the second with probability $1-p$. This theoretical random walk is known as a Markov chain or Markov process.
 
 The probability that an infinite random surfer visits a specific website is called its PageRank; a page will have high rank if other pages with high rank link to it.
 
@@ -124,10 +123,9 @@ The number of non-zeros in $G$ is the total number of connections in the graph.
 
 The row $r_i$ represents the number of inner-links of page $i$, while column $c_i$ the number of outer-links. So we can define:
 \begin{itemize}
-\item In-degree of page $i$: \tab $r_i = \sum\limits_{j=1}^{n} g_{ij}$
+\item In-degree of page $i$: \tab $\:\:\:\:r_i = \sum\limits_{j=1}^{n} g_{ij}$
 \item Out-degree of page $i$: \tab $c_i = \sum\limits_{j=1}^{n} g_{ji}$
 \end{itemize}
-\textcolor{red}{Try to use an align command or something similar to align the previous list.}
 Let $p$ be the probability that the surfer follows a link and $1-p$ the probability that it chooses a random page, then $\delta = \frac{1-p}{n}$ is the probability that a particular random page is chosen.
 
 We construct a transition probability matrix A where all elements are positive, smaller than one and sums of columns are equal to one; column $j$ represents the probabilities to go from page j to all other pages. So we set
@@ -138,10 +136,18 @@ a_{ij} =
 \frac{1}{n} & \text{if } c_{j} = 0
 \end{cases}
 \end{equation}
-In other words, if page $j$ has no outer links, it means that column $j$ of $A$ present a uniform probability $\frac{1}{n}$ in all its elements. We can now compute PageRank values by solving the \textcolor{red}{homogeneous linear system -- this is an eigenvalue problem. I guess we could add a paragraph or two about eigenvalue problems inspired by Chapter 8 of the Num. Comp. book.}
+In other words, if page $j$ has no outer links, it means that column $j$ of $A$ present a uniform probability $\frac{1}{n}$ in all its elements. Since matrix A is a transition matrix of a Markov chian, all its eigenvalues are real, between 0 and 1, and 1 is an eigenvalue itself. 
+
+We can now compute PageRank values by solving the problem. 
+
 \begin{equation}
-x = A\:x
+A\:x = x
 \end{equation}
+
+It is a particular eigenvalue problem because usually they are of the form $Ax=\lambda x$. Finding the solution of eigensystems is complicated and doesn't exist direct methods; the process has to be iterative such as the power or Jacobi methods.
+
+In our specific problem we have $\lambda = 1$ so the power method seems to be the most effective. It computes the eigenvector relative to the greatest eigenvalue and it is our problem since A is a matrix of a Markov chain.
+
 The transition matrix $A$ can be written as
 $$A = pGD+ez^{T}, $$
 where $D$ is a diagonal matrix with the reciprocals of the out-degrees, i.e.,
@@ -167,14 +173,12 @@ $$(I-A)x=0$$
 as
 $$(I - pGD)x = \gamma e$$
 where $\gamma = \transp{z}x$.
-To conclude, \textcolor{red}{since the value of the scalar $\gamma$ depends on the unknown $x$, we impose the condition $\gamma = 1$}, then solve
+To conclude, since the value of the scalar $\gamma$ depends on the unknown $x$, we impose the condition $\gamma = 1$, then solve
 \begin{equation}
 (I - pGD)x = e
 \end{equation}
 and then rescale the solution so that $\sum\limits_{i=1}^{n} x_i = 1$.
 
-
-\textcolor{red}{cosa inserire in procedure}
 \begin{algorithm}
 \caption{ (PageRank)}\label{pagerank}
 \begin{algorithmic}[1]
@@ -203,10 +207,10 @@ and then rescale the solution so that $\sum\limits_{i=1}^{n} x_i = 1$.
 %%%%%%%%%%%%%%%%%%%%%%%%%
 Graph partitioning consists in dividing a graph $G=(V,E)$\footnote{A graph G with vertexes V and edges E.}  cutting the smaller number of edges and obtaining sub-graphs with specific properties. For example k-way partitioning divides the graph G into k smaller components.
 
-\textcolor{red}{A partitioning algorithm is said to be efficient if it divides a given graph into smaller components with about the same size, cutting as few edges as possible. 
-A valid and fast method is the coordinate bisection, which simply chooses a partitioning plane perpendicular to one of the coordinate axes} but spectral algorithm is more efficient: it finds a partition from the adjacency matrix of the graph. -- Un po' sbrigativo, expand, lower the ``speed'' of the sentences and try to explain more details.
+A partitioning algorithm is said to be efficient if it divides a given graph into smaller components with about the same size, cutting as few edges as possible. 
+A valid and fast method is the coordinate bisection, which simply chooses a partitioning plane perpendicular to one of the coordinate axes but spectral algorithm is more efficient. It finds a partition based on the eigenvalues and eigenvectors of the Laplacian matrix of the graph and doesn't need the nodal coordinates.
 
-\textcolor{red}{As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave the same but usually the second one is more effective.}
+As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave the same but usually the second one is more effective.
 \begin{figure}[ht]
 	\centering
 	\subfigure[]{
@@ -312,8 +316,8 @@ We consider only the simple case where we want to divide the graph in k partitio
 \subsection{Graph Partitioning -- forse (inclusi in R.analysis)}
 
 \newpage
-\textcolor{red}{DA TOGLIERE, MOMENTANEA}
-\section{Bibliography}
+
+\section{Bibliography  \textcolor{red}{Temporary}}
 \begin{itemize}
 \item https://en.wikipedia.org/wiki/PageRank
 \item Assignment1 1 Course Numerical Computing 2107/2018
