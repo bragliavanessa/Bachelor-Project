@@ -1060,7 +1060,6 @@ for idx in range(0,len(data_json['authors_swiss'])):
 
    make_edges(author_id, coauthor_indexes, edges_swiss)
 
-# print information['universities_swiss']
 
 # Edges from all the world
 all_names = data_json['authors_swiss']+data_json['authors']
@@ -1069,7 +1068,7 @@ index = 1;
 for idx in range(0,len(all_names)):
    name = all_names[idx]['name']
    university = all_names[idx]['university']
-   nation = all_names[idx]['nation']
+   nation = all_names[idx]['nation'].rstrip().lstrip()
    nu = name+'\t'+university+'\t'+nation
 
    if(check_if_name_exists_with_nation(information['authors'], nu)):
@@ -1085,7 +1084,7 @@ for idx in range(0,len(all_names)):
    author_indexes.append(author_id)
    coauthor_indexes = []
    for author in all_names[idx]['coauthors']:
-      nn = author['name']+'\t'+author['university']+'\t'+author['nation']
+      nn = author['name']+'\t'+author['university']+'\t'+author['nation'].rstrip().lstrip()
       if(check_if_name_exists_with_nation(information['authors'], nn)):
          information['authors'].append({'index': index, 'name': author['name'], 'university': author['university'], 'nation': author['nation']})
          information['universities'].append(author['university'])

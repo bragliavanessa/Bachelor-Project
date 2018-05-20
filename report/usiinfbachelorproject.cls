@@ -53,7 +53,7 @@
   to: }
 \typeout{*** Domenico Bianculli <domenico.bianculli@usi.ch>}
 %%% package loading
-\LoadClass[a4paper,12pt,oneside,onecolumn,final,titlepage,top=0.2]{article}
+\LoadClass[a4paper,12pt,twoside,onecolumn,final,titlepage,top=0.2]{article}
 %%% main code
 
 %font settings
@@ -74,7 +74,7 @@
 \allsectionsfont{\normalfont}
 
 %geometry
-\RequirePackage[a4paper,total={170mm,257mm}]{geometry}
+\RequirePackage[a4paper,total={165mm,243mm}]{geometry}
 \geometry{hscale=0.67}
 \ifthenelse{\boolean{@printversion}}{}%
 {  \geometry{asymmetric}

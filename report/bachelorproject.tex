@@ -73,15 +73,32 @@ The results will provide an interesting picture of the different research scenar
 \section{Information Retrieval} \label{sec:inforetrieval} 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-\ldots
+Information retrieval is the process of extracting, starting from an information need, the relevant information from a collection of resources. In this project the necessary information are the names of the institutions' members and the collaborations between them. 
+
+After the first useless attempt to use Mendeley API, I decide to  extract the information from some online conferences' programs; the idea is that if two authors made a conference together, in my social network it turns out that they have collaboration.
+
+I crawl the conferences' programs and I construct a parser to extract the information from the html pages and  to organize the data.
 
 \subsection{Crawling}
 
-\ldots
+A web crawler is an Internet bot that browses the World Wide Web, typically for the purpose of web indexing of search engines. In this project the goal is not indexing web pages but save the information contained in the html to parse them and construct the social network.
+
+I use Apache Nutch that is a highly extensible and scalable open source web crawler.
+It starts with a list of URLs to visit, called the seeds; I create this list putting there all the SIAM conferences web pages relative to some specific arguments (optimization, parallel computing, etc.) and 2015, 2016 and 2017 PASC conferences sites. 
+
+As the crawler visits the URLs, it identifies all the hyperlinks in the page and adds them to the list of URLs to visit; in my case I crawl only the pages in the starting seed ignoring all the internal links. The crawler copies and saves the information as it goes and stores each page in a distinct file in a repository.
+
+Thanks to Apache Nutch I manage to create a text file with the html of all the saved conferences' pages. Obtained this file ,the next step is studying the structure of the page and how to extract the information needed: where are the information I need? Are they in a particular html tag? How we can extract them? Is here that the parser do its job.
 
 \subsection{Parsing}
 
-\ldots
+A parser is a program that receives some data as input and breaks it up into smaller elements that can then be used for different purposes.
+
+In this project I personally write a parser, using Python programming language, to extract the information from the conferences' html pages. Clearly all the SIAM conferences have the same structure but the PASC ones are different so I write two distinct parser, one for each html framework.
+
+The parser extract only the lines of the pages which contain the names of the authors, their institutions and nationality; the institutions' members that make a conference together appear in group in the page so I keep them together to later get the relations. Thanks to the nation expressed in the program I can differentiate the Swiss authors from the ones from all over the world. 
+
+Obtained the desired lines I take the groups, one after the other, and I extract name, institution, nation and coauthors for each member. With all this information I manage to construct a social network and its adjacency matrix.
 
 
 
@@ -333,7 +350,7 @@ We consider only the simple case where we want to divide the graph in k partitio
 
 
 \section{Numerical results / Data analysis / \ldots}
-
+Since the swiss names obtained are only 422, I decide to extend the research to the institutions from all over the word.
 \subsection{PageRank -- forse (inclusi in R.analysis)}
 
 \subsection{Graph Partitioning -- forse (inclusi in R.analysis)}
