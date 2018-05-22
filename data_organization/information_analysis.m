@@ -1,3 +1,12 @@
+%% Matrix visualization
+figure
+spy(M)
+title('authors adjacency matrix')
+
+figure
+imagesc(W)
+colorbar
+title('universities adjacency matrix')
 %% PageRank
 % Call the function with swiss authors' information
 TP = pagerank(authors,M,0.85);
