@@ -46,7 +46,7 @@ A social network consists of a set of objects connected to each other by social 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[height=4cm]{img/graph3.png}
+	\includegraphics[height=4cm]{img/graph2.png}
 	\caption{Example of social network graph}
 	\label{fig:socialnetwork}
 \end{figure}
@@ -102,7 +102,7 @@ The parser extract only the lines of the pages which contain the names of the au
 
 Obtained the desired lines I take the groups, one after the other, and I extract name, institution, nation and coauthors for each member. With all this information I manage to construct a social network and its adjacency matrix.
 
-I run into some problems like an author with two different institution and I decide to consider it as two different authors because I'm interest in institutions collaborations: so the same author can have some coauthors with one university and completely different coauthors with the other one. We can see an example in Figure \ref{fig:twoUni}
+I run into some problems like an author with two different institution and I decide to consider it as two different authors because I'm interest in institutions collaborations: so the same author can have some coauthors with one university and completely different coauthors with the other one. We can see an example in Figure \ref{fig:twoUni} where professor Olaf Schenk has two different universities, Università della Svizzera Italiana and Univerisity of Basel: he collaborates with Matthias Bolhoefer with both institutions but he works with Fabio Verbosio only in USI and with Grote Marcus only in the University of Basel.
 \begin{figure}
 \begin{center}
 \tikzset{every picture/.style={line width=0.75pt}}      
@@ -178,7 +178,7 @@ PageRank is used, together with other algorithms, to measure the importance of w
 	\label{fig:prexample}
 \end{figure}
 
-As we can see in Fig ure \ref{fig:prexample}, node C has higher PageRank than E even if it has lower number of inner links; this is because the only inner link C has is from the most important node of the graph B so it is considered to be more important than all the inner links of node E from the purple lower nodes.
+As we can see in Fig ure \ref{fig:prexample}, node C has higher PageRank than A even if it has the same number of inner links; this is because the only inner link of C is from the most important node of the graph B so it is considered to be more important than the inner link of node A.
 
 While surfing websites, going from one page to another I want to avoid problems with pages without outer links so I introduce two different methods to choose the next page. The surfer can:
 \begin{itemize}
