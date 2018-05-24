@@ -4,9 +4,13 @@ spy(M)
 title('authors adjacency matrix')
 
 figure
+spy(U)
+title('universities adjacency matrix')
+
+figure
 imagesc(W)
 colorbar
-title('universities adjacency matrix')
+title('universities weighted adjacency matrix')
 %% PageRank
 % Call the function with swiss authors' information
 TP = pagerank(authors,M,0.85);
@@ -50,7 +54,10 @@ group2 = authors(g1(g4));
 group3 = authors(g2(g5));
 group4 = authors(g2(g6));
 
+% Visualizzare di diversi colori
+% hold on tra una e l'altra
+
 p = [g1(g3); g1(g4); g2(g5); g2(g6)];
 
 figure
-spy(M(p,p))
+spy(M(p,p), 'ro')

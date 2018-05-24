@@ -1,5 +1,5 @@
 \documentclass[]{usiinfbachelorproject}
-\usepackage{subfigure, wrapfig, url, array, caption,xcolor,amsmath,algorithm}
+\usepackage{subfigure, wrapfig, url, array, caption,xcolor,amsmath,algorithm, tikz}
 \usepackage{footnotebackref}
 \usepackage[ngerman,english]{babel}
 \usepackage[noend]{algpseudocode}
@@ -83,8 +83,10 @@ I crawl the conferences' programs and I construct a parser to extract the inform
 
 A web crawler is an Internet bot that browses the World Wide Web, typically for the purpose of web indexing of search engines. In this project the goal is not indexing web pages but save the information contained in the html to parse them and construct the social network.
 
-I use Apache Nutch that is a highly extensible and scalable open source web crawler.
-It starts with a list of URLs to visit, called the seeds; I create this list putting there all the SIAM conferences web pages relative to some specific arguments (optimization, parallel computing, etc.) and 2015, 2016 and 2017 PASC conferences sites. 
+The web pages that I decide to crawl are the online programs of 2015, 2016 and 2017 PASC conferences and of SIAM conferences with arguments concerning computational science, i.e. Optimization, Parallel Computing, Computational Science \& Engineering, Imaging Science, Uncertainty Quantification, Linear Algebra in Signals, Systems \& Control, Data Mining, Analysis of Partial Differential Equations.
+
+I use Apache Nutch that is a highly extensible and scalable open source web crawler and it allow you to crawl a lot of web pages with few command lines.
+It starts with a list of URLs to visit, called the seeds; I create this list putting there all the links to the computational science web pages previously selected.
 
 As the crawler visits the URLs, it identifies all the hyperlinks in the page and adds them to the list of URLs to visit; in my case I crawl only the pages in the starting seed ignoring all the internal links. The crawler copies and saves the information as it goes and stores each page in a distinct file in a repository.
 
@@ -92,15 +94,72 @@ Thanks to Apache Nutch I manage to create a text file with the html of all the s
 
 \subsection{Parsing}
 
-A parser is a program that receives some data as input and breaks it up into smaller elements that can then be used for different purposes.
+A parser is a program that receives some data as input and breaks it up into smaller elements that can then be used for different purposes. In this project the parser read the text file created after the crawling, extracting from the text the information about Swiss institutions and their members. The data obtained is used to create the social network ready to be analyzed.
 
-In this project I personally write a parser, using Python programming language, to extract the information from the conferences' html pages. Clearly all the SIAM conferences have the same structure but the PASC ones are different so I write two distinct parser, one for each html framework.
+In this project I personally write a parser, using Python programming language, to extract the information from the conferences' html pages. The parser go through the structure of the page and extract only the pieces where there are useful information; clearly different page structures require different parser. I write two of them because  all the SIAM conferences have the same structure but the PASC ones are different.
 
 The parser extract only the lines of the pages which contain the names of the authors, their institutions and nationality; the institutions' members that make a conference together appear in group in the page so I keep them together to later get the relations. Thanks to the nation expressed in the program I can differentiate the Swiss authors from the ones from all over the world. 
 
 Obtained the desired lines I take the groups, one after the other, and I extract name, institution, nation and coauthors for each member. With all this information I manage to construct a social network and its adjacency matrix.
 
+I run into some problems like an author with two different institution and I decide to consider it as two different authors because I'm interest in institutions collaborations: so the same author can have some coauthors with one university and completely different coauthors with the other one. We can see an example in Figure \ref{fig:twoUni}
+\begin{figure}
+\begin{center}
+\tikzset{every picture/.style={line width=0.75pt}}      
 
+\begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-0.7,xscale=0.7]
+
+\draw    (186.75,311) -- (279,369.8) ;
+
+
+\draw    (181.5,146.8) -- (280,107.8) ;
+
+
+\draw    (359.75, 242.3) circle [x radius= 75.75, y radius= 34.7]  ;
+\draw    (179.75,155) -- (284.25,234.5) ;
+
+
+\draw    (186.5,302.8) -- (284,242.3) ;
+
+
+\draw    (354.75, 369.8) circle [x radius= 75.75, y radius= 34.7]  ;
+\draw    (355.75, 107.8) circle [x radius= 75.75, y radius= 34.7]  ;
+\draw    (105.75, 146.8) circle [x radius= 75.75, y radius= 34.7]  ;
+\draw    (111.75, 303.8) circle [x radius= 75.75, y radius= 34.7]  ;
+\draw [rotate around= { 336.14: (275.61, 109.5)
+    }]  (271.23,105.42) -- (279.99,109.5) -- (271.23,113.58) ;
+\draw [rotate around= { 158.13: (186.11, 145)
+    }]  (181.73,140.92) -- (190.49,145) -- (181.73,149.08) ;
+\draw [rotate around= { 219.28: (183.61, 158)
+    }]  (179.23,153.92) -- (187.99,158) -- (179.23,162.08) ;
+\draw [rotate around= { 35.54: (282.11, 232.5)
+    }]  (277.73,228.42) -- (286.49,232.5) -- (277.73,236.58) ;
+\draw [rotate around= { 214.12: (190.11, 313)
+    }]  (185.73,308.92) -- (194.49,313) -- (185.73,317.08) ;
+\draw [rotate around= { 148.5: (191.11, 300)
+    }]  (186.73,295.92) -- (195.49,300) -- (186.73,304.08) ;
+\draw [rotate around= { 35.54: (275.61, 367.5)
+    }]  (271.23,363.42) -- (279.99,367.5) -- (271.23,371.58) ;
+\draw [rotate around= { 320.3: (280.11, 245)
+    }]  (275.73,240.92) -- (284.49,245) -- (275.73,249.08) ;
+
+\draw (108,139) node [scale=0.7] [align=left] {Olaf Schenk};
+\draw (105,162) node [scale=0.7] [align=left] {USI};
+\draw (355,361) node [scale=0.7] [align=left] {Grote Marcus};
+\draw (355,381) node [scale=0.7] [align=left] {Univ. of Basel};
+\draw (354,99) node  [align=left] {{\scriptsize Fabio Verbosio}};
+\draw (354,119) node  [align=left] {{\scriptsize USI}};
+\draw (358,233) node [scale=0.7] [align=left] {Matthias Bollhoefer};
+\draw (359,253) node [scale=0.7] [align=left] {T.U. Braunschweig};
+\draw (115,297) node [scale=0.7] [align=left] {Olaf Schenk};
+\draw (111,319) node [scale=0.7] [align=left] {Univ. of Basel};
+\draw (105,36) node  [align=left] {\textit{Auhtors}};
+\draw (349,36) node  [align=left] {\textit{Co-auhtors}};
+
+\end{tikzpicture}
+\caption{Example of author with two different universities and different coauthors} \label{fig:twoUni}
+\end{center}
+\end{figure}
 
 
 
@@ -227,13 +286,13 @@ Graph partitioning consists in dividing a graph $G=(V,E)$\footnote{A graph G wit
 A partitioning algorithm is said to be efficient if it divides a given graph into smaller components with about the same size, cutting as few edges as possible. 
 A valid and fast method is the coordinate bisection, which simply chooses a partitioning plane perpendicular to one of the coordinate axes but spectral algorithm is more efficient. It finds a partition based on the eigenvalues and eigenvectors of the Laplacian matrix of the graph and doesn't need the nodal coordinates.
 
-As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave the same but usually the second one is more effective.
+As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave similarly but usually the second one is more effective.
 \begin{figure}[ht]
 	\centering
 	\subfigure[]{
-		\includegraphics[height=4cm]{img/g1.jpg}
-		\includegraphics[height=4cm]{img/g2.jpg}
-		\includegraphics[height=4cm]{img/g3.jpg}
+		\includegraphics[height=4cm]{img/g4.jpg}
+		\includegraphics[height=4cm]{img/g5.jpg}
+		\includegraphics[height=4cm]{img/g6.jpg}
 		\label{fig:corandsp}
 	}
 	\subfigure[]{
@@ -350,6 +409,7 @@ We consider only the simple case where we want to divide the graph in k partitio
 
 
 \section{Numerical results / Data analysis / \ldots}
+
 Since the swiss names obtained are only 422, I decide to extend the research to the institutions from all over the word.
 \subsection{PageRank -- forse (inclusi in R.analysis)}
 

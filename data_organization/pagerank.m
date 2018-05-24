@@ -27,8 +27,9 @@ x = x/sum(x);
 % Bar graph of page rank.
 shg
 bar(x)
-title('Page Rank')
 
+title('Page Rank')
+xlim([1, length(x)]);
 
 
 [~,q] = sort(-x);

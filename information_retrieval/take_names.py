@@ -918,6 +918,7 @@ for y in all_matching:
                      if(u[1] == 'Saudia Arabia'):
                         u[1] = 'Saudi Arabia'
                      u[0] = adjust_university(u[0].decode('latin_1'),uni_map)
+                     u[1] = u[1].rstrip().lstrip()
                      nn = n+'\t'+u[0].decode('latin-1').encode('latin-1')+'\t'+u[1]
                      if(nn not in names):
                         if(u[0] != "TODELETE"):
