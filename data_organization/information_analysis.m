@@ -55,10 +55,6 @@ group2 = authors(g1(g4));
 group3 = authors(g2(g5));
 group4 = authors(g2(g6));
 
-% Visualizzare di diversi colori
-% hold on tra una e l'altra
-
-
 p = [g1(g3); g1(g4); g2(g5); g2(g6)];
 
 Mp = M(p,p);
@@ -87,13 +83,13 @@ N4(n1+n2+n3+1:m,n1+n2+n3+1:n1+n2+n3+n4) = Mp(n1+n2+n3+1:m,n1+n2+n3+1:n1+n2+n3+n4
 
 
 figure
-spy(N1, 'r')
+spy(N1, 'm')
 hold on
 spy(N2, 'b')
 hold on
-spy(N3, 'g')
+spy(N3, 'r')
 hold on
-spy(N4, 'y')
+spy(N4, 'c')
+[~, b] = legend('group 1','group 2', 'group 3', 'group 4');
+set(findobj(b,'-property','MarkerSize'),'MarkerSize',15)
 
-figure 
-spy(M(p,p))
