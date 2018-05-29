@@ -25,6 +25,7 @@ x = (I - p*G*D)\e;
 x = x/sum(x);
 
 % Bar graph of page rank.
+figure
 shg
 bar(x)
 
@@ -40,24 +41,44 @@ in=[];
 out=[];
 name=[];
 university=[];
-while (k <= n)
-    j = q(k);
-    temp1  = r(j);
-    temp2  = c(j);
-    indexes = [indexes j];
-    pagerank = [pagerank x(j)];
-    in = [in full(temp1)];
-    out = [out full(temp2)];
-    name = [name {U(j).('name')}];
-    university = [university {U(j).('university')}];
-    k = k+1;
+if isstruct(U)
+    while (k <= n)
+        j = q(k);
+        temp1  = r(j);
+        temp2  = c(j);
+        indexes = [indexes j];
+        pagerank = [pagerank x(j)];
+        in = [in full(temp1)];
+        out = [out full(temp2)];
+        name = [name {U(j).('name')}];
+        university = [university {U(j).('university')}];
+        k = k+1;
+    end
+    T = table(indexes', pagerank', in', out', name', university');
+    T.Properties.VariableNames{'Var1'} = 'Index';
+    T.Properties.VariableNames{'Var2'} = 'Pagerank';
+    T.Properties.VariableNames{'Var3'} = 'In_degree';
+    T.Properties.VariableNames{'Var4'} = 'Out_degree';
+    T.Properties.VariableNames{'Var5'} = 'Name';
+    T.Properties.VariableNames{'Var6'} = 'University';
+else
+    while (k <= n)
+        j = q(k);
+        temp1  = r(j);
+        temp2  = c(j);
+        indexes = [indexes j];
+        pagerank = [pagerank x(j)];
+        in = [in full(temp1)];
+        out = [out full(temp2)];
+        university = [university U(j)];
+        k = k+1;
+    end
+    T = table(indexes', pagerank', in', out', university');
+    T.Properties.VariableNames{'Var1'} = 'Index';
+    T.Properties.VariableNames{'Var2'} = 'Pagerank';
+    T.Properties.VariableNames{'Var3'} = 'In_degree';
+    T.Properties.VariableNames{'Var4'} = 'Out_degree';
+    T.Properties.VariableNames{'Var5'} = 'University';
 end
-T = table(indexes', pagerank', in', out', name', university');
-T.Properties.VariableNames{'Var1'} = 'Index';
-T.Properties.VariableNames{'Var2'} = 'Pagerank';
-T.Properties.VariableNames{'Var3'} = 'In_degree';
-T.Properties.VariableNames{'Var4'} = 'Out_degree';
-T.Properties.VariableNames{'Var5'} = 'Name';
-T.Properties.VariableNames{'Var6'} = 'University';
 end
 

@@ -408,15 +408,98 @@ We consider only the simple case where we want to divide the graph in k partitio
 \end{algorithm}
 
 
-\section{Numerical results / Data analysis / \ldots}
+\section{Numerical analysis}
+After retrieving all the necessary information and organizing the data in adjacency matrix, I applied PageRank and Graph Partitioning algorithms, obtaining the following results.
+Since the Swiss authors' names obtained are only 422, I decide to extend the research to the institutions from all over the word, reaching 16425 names. 
 
-Since the swiss names obtained are only 422, I decide to extend the research to the institutions from all over the word.
+I first construct the adjacency matrix of the authors and their corresponding universities; for the universities I also build a weighted matrix which keep the number of collaborations between each university. We can see the matrices obtained in figure \ref{fig:authorsAdj} and \ref{fig:univAdj}
+
+\begin{figure}[ht]
+	\centering
+	\subfigure[]{
+		\includegraphics[height=5cm]{img/Analysis/authors_adj.jpg}
+		\label{fig:AdjS}
+	}
+	\subfigure[]{
+		\includegraphics[height=5cm]{img/Analysis_world/author_adj.jpg}
+		\label{fig:AdjW}
+	}
+	\caption{\subref{fig:AdjS} is the Swiss authors' adjacency matrix and \subref{fig:AdjW} is the one of the world authors}
+	\label{fig:authorsAdj}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\subfigure[]{
+		\includegraphics[height=5cm]{img/Analysis/univ_adj.jpg}
+		\label{fig:uniAdj}
+	}
+	\subfigure[]{
+		\includegraphics[height=5cm]{img/Analysis/univ_adj_weighted.jpg}
+		\label{fig:uniAdjW}
+	}
+	\caption{ \subref{fig:uniAdj} is the Swiss university adjacency matrix, \subref{fig:uniAdjW} is the universities weighted graph}
+	\label{fig:univAdj}
+\end{figure}
+
+The sparsity of the Swiss author adjacency matrix is $0.0085$ instead the one of world author matrix is $2.4312*10^{-04}$.
+
+The universities that collaborate more in Switzerland are the École polytechnique fédérale de Lausanne and the ETH Zürich which correspond to the indexes 7 and 8 in the matrix. In the weighted matrix we can observe that these two universities collaborate both internally in the university but also with other institutions: for example  ETH Zürich has 19 collaboration with Università della Svizzera italiana.
+
+
 \subsection{PageRank -- forse (inclusi in R.analysis)}
+\begin{figure}[ht]
+	\centering
+	\subfigure[]{
+		\includegraphics[height=6cm]{img/Analysis/page_rank_bars.jpg}
+		\label{fig:PRbars}
+	}
+	\subfigure[]{
+		\includegraphics[height=4.5cm]{img/Analysis/Pagerank_swiss_10}
+		\label{fig:PRlist}
+	}
+	\caption{ \subref{fig:PRbars} is a bar graph of PageRank values, \subref{fig:PRlist} are the first 15 people with higher PageRank value}
+	\label{fig:PRAuthors}
+\end{figure}
 
+\begin{figure}[ht]
+	\centering
+	\subfigure[]{
+		\includegraphics[height=6cm]{img/Analysis/page_rank_uni.jpg}
+		\label{fig:PRbarsuni}
+	}
+	\subfigure[]{
+		\includegraphics[height=4.5cm]{img/Analysis/pr_uni_10}
+		\label{fig:PRlistuni}
+	}
+	\caption{ \subref{fig:PRbars} is a bar graph of PageRank values, \subref{fig:PRlist} are the first 15 universities with higher PageRank value}
+	\label{fig:PRUniversities}
+\end{figure}
 \subsection{Graph Partitioning -- forse (inclusi in R.analysis)}
 
-\newpage
+\begin{figure}[ht]
+	\centering
+	\includegraphics[height=6cm]{img/Analysis/cuthill_mckee.jpg}
+	\caption{The Reverse Cuthill McKee ordering}
+	\label{fig:CuthillMcKee}
+\end{figure}
 
+\begin{figure}[ht]
+	\centering
+	\includegraphics[height=5cm]{img/Analysis/degree_centrality}
+	\caption{Degree Centrality}
+	\label{fig:degree}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[height=6cm]{img/Analysis/graph_partitioning.jpg}
+	\caption{The graph partitioning algortihm}
+	\label{fig:graphPart}
+\end{figure}
+
+
+\newpage
 \section{Bibliography  \textcolor{red}{Temporary}}
 \begin{itemize}
 \item https://en.wikipedia.org/wiki/PageRank
