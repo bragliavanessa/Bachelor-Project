@@ -1,7 +1,7 @@
 \documentclass[]{usiinfbachelorproject}
 \usepackage{subfigure, wrapfig, url, array, caption,xcolor,amsmath,algorithm, tikz}
 \usepackage{footnotebackref}
-\usepackage[ngerman,english]{babel}
+\usepackage[english]{babel}
 \usepackage[noend]{algpseudocode}
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \captionsetup{labelfont={bf}}
@@ -408,20 +408,28 @@ We consider only the simple case where we want to divide the graph in k partitio
 \end{algorithm}
 
 
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Numerical analysis}
-After retrieving all the necessary information and organizing the data in adjacency matrix, I applied PageRank and Graph Partitioning algorithms, obtaining the following results.
+%%%%%%%%%%%%%%%%%%%%%%%%%
+After retrieving all the necessary information and organizing the data in adjacency matrices, I applied PageRank and Graph Partitioning algorithms, obtaining the following results.
 Since the Swiss authors' names obtained are only 422, I decide to extend the research to the institutions from all over the word, reaching 16425 names. 
 
-I first construct the adjacency matrix of the authors and their corresponding universities; for the universities I also build a weighted matrix which keep the number of collaborations between each university. We can see the matrices obtained in figure \ref{fig:authorsAdj} and \ref{fig:univAdj}
+I first construct the adjacency matrices of the authors and their corresponding universities; for the universities I also build a weighted matrix which keep the number of collaborations between each university. I consider that each author collaborates with himself so the diagonal of the matrix will be all ones.
+We can see in figure \ref{fig:authorsAdj} the authors' matrices, instead in figure \ref{fig:univAdj} the one of the Swiss universities.
 
 \begin{figure}[ht]
 	\centering
 	\subfigure[]{
-		\includegraphics[height=5cm]{img/Analysis/authors_adj.jpg}
+		\includegraphics[height=5.5cm]{img/Analysis/authors_adj.jpg}
 		\label{fig:AdjS}
 	}
 	\subfigure[]{
-		\includegraphics[height=5cm]{img/Analysis_world/author_adj.jpg}
+		\includegraphics[height=5.5cm]{img/Analysis_world/author_adj.jpg}
 		\label{fig:AdjW}
 	}
 	\caption{\subref{fig:AdjS} is the Swiss authors' adjacency matrix and \subref{fig:AdjW} is the one of the world authors}
@@ -431,23 +439,55 @@ I first construct the adjacency matrix of the authors and their corresponding un
 \begin{figure}[ht]
 	\centering
 	\subfigure[]{
-		\includegraphics[height=5cm]{img/Analysis/univ_adj.jpg}
+		\includegraphics[height=5.5cm]{img/Analysis/univ_adj.jpg}
 		\label{fig:uniAdj}
 	}
 	\subfigure[]{
-		\includegraphics[height=5cm]{img/Analysis/univ_adj_weighted.jpg}
+		\includegraphics[height=5.5cm]{img/Analysis/univ_adj_weighted.jpg}
 		\label{fig:uniAdjW}
 	}
 	\caption{ \subref{fig:uniAdj} is the Swiss university adjacency matrix, \subref{fig:uniAdjW} is the universities weighted graph}
 	\label{fig:univAdj}
 \end{figure}
 
-The sparsity of the Swiss author adjacency matrix is $0.0085$ instead the one of world author matrix is $2.4312*10^{-04}$.
+The sparsity of a matrix is the number of zero-valued elements divided by the total number of elements; the Swiss authors adjacency matrix has sparsity equal to $0.0085$ instead the one of the world authors matrix is $2.4312*10^{-04}$.
 
-The universities that collaborate more in Switzerland are the École polytechnique fédérale de Lausanne and the ETH Zürich which correspond to the indexes 7 and 8 in the matrix. In the weighted matrix we can observe that these two universities collaborate both internally in the university but also with other institutions: for example  ETH Zürich has 19 collaboration with Università della Svizzera italiana.
+In figure \ref{fig:uniAdjW} (lets call this matrix U) we can see the matrix representing the weighted collaborations between Swiss universities: as we can see in the bar at the right, blue corresponds to no collaboration and while increasing the number of collaborations the color changes to yellow.
 
+The universities which collaborate more in Switzerland are École polytechnique fédérale de Lausanne and ETH Zürich which correspond to the 7th and 8th columns in the matrix. These two universities collaborate both internally in the university (see the yellow squares of $U_{7,7}$ and $U_{8,8}$ entries of the matrix U)  but also with other institutions (see the 7th and 8th columns of U where we have a lot of light-blue squares): for example  ETH Zürich has 19 collaboration with Università della Svizzera italiana (25th column). 
 
-\subsection{PageRank -- forse (inclusi in R.analysis)}
+We can see that most of the light-blue squares appear in the diagonal of the matrix; it means that institutions' members usually works with authors of the same university instead of ones from a different institution.
+
+I applied the Cuthill-McKee algorithm to the two authors matrices: it permutes a sparse matrix that has a symmetric sparsity pattern into a band matrix form with a small bandwidth.
+A band matrix is a sparse matrix whose non-zero elements are confined to a diagonal band; if the bandwidth of a symmetric matrix A is \textit{n}, it means that 
+$$A_{ij} = 0  \:\: \text{ if } \:\: |j-i| > n$$
+ This means that all the non zero elements are put as near as possible to the diagonal of the matrix, as we can see in figure \ref{fig:CuthillMcKee}. 
+ 
+For the matrix of Swiss authors in \ref{fig:CuthillMcKeeS} the bandwidth is 48, instead the one of the authors from all the world \ref{fig:CuthillMcKeeW} has a bandwidth of 1210. 
+
+We can notice that in both figures the number of non-zero elements, written below the graph, doesn't change; in fact, the reverse Cuthill-McKee ordering consists only in rows and columns permutations and don't change any entry of the matrix.
+
+\begin{figure}[ht]
+	\centering
+	\subfigure[]{
+		\includegraphics[height=4cm]{img/Analysis/cuthill_mckee.jpg}
+		\label{fig:CuthillMcKeeS}
+	}
+	\subfigure[]{
+		\includegraphics[height=4cm]{img/Analysis_world/cuthill_mckee.jpg}
+		\label{fig:CuthillMcKeeW}
+	}
+	\caption{ The Reverse Cuthill McKee ordering for only Switzerland in \subref{fig:CuthillMcKeeS} and for the authors of all the world in \subref{fig:CuthillMcKeeW}}
+	\label{fig:CuthillMcKee}
+\end{figure}
+
+\subsection{PageRank}
+Applying the PageRank algorithm I obtain a sorted list of authors and in figure \ref{fig:PRbars} we can see all the 422 Swiss authors with their corresponding PageRank value. 
+
+In figure \ref{fig:PRlist} we can see the first 10 most ``popular" authors sorted by the algorithm; we can see that the \textit{In\_degree} column, which correspond to the number of collaboration, it is not sorted because PageRank takes into account also the quality of the collaborations. For example the third author \textit{Simone Deparis} has more collaborations than the second \textit{Christoph Schwab}. 
+
+To see it better we can compare this table with the one in figure \ref{fig:degree} that contains the first 10 authors sorted only by degree-centrality (i.e. number of collaborations). The most collaborative author is still \textit{Rolf Krause} because it has 30 associations but from the second we can already see some differences.
+
 \begin{figure}[ht]
 	\centering
 	\subfigure[]{
@@ -464,6 +504,16 @@ The universities that collaborate more in Switzerland are the École polytechniq
 
 \begin{figure}[ht]
 	\centering
+	\includegraphics[height=5cm]{img/Analysis/degree_centrality}
+	\caption{Degree Centrality}
+	\label{fig:degree}
+\end{figure}
+
+I have also applied the PageRank algorithm to the universities' adjacency matrix obtaining the results in figure \ref{fig:PRUniversities}.
+
+We can observe that the most present universities in the area of computational science are École polytechnique fédérale de Lausanne, ETH Züric and Università della Svizzera italiana. Here the universities sorted by PageRank corresponds to the  sorting by number of collaborations (\textit{In\_degree} column).
+\begin{figure}[ht]
+	\centering
 	\subfigure[]{
 		\includegraphics[height=6cm]{img/Analysis/page_rank_uni.jpg}
 		\label{fig:PRbarsuni}
@@ -475,22 +525,36 @@ The universities that collaborate more in Switzerland are the École polytechniq
 	\caption{ \subref{fig:PRbars} is a bar graph of PageRank values, \subref{fig:PRlist} are the first 15 universities with higher PageRank value}
 	\label{fig:PRUniversities}
 \end{figure}
-\subsection{Graph Partitioning -- forse (inclusi in R.analysis)}
+
+About what concerning world information we can better see the difference between PageRank and degree centrality sorting in figure \ref{fig:PRAuthorW}; the Swiss  \textit{Rolf Krause}, member of USI, has the 7th PageRank value with only 38 collaborations but doesn't appear in the first ten positions of the degree centrality list.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[height=6cm]{img/Analysis/cuthill_mckee.jpg}
-	\caption{The Reverse Cuthill McKee ordering}
-	\label{fig:CuthillMcKee}
+	\subfigure[]{
+		\includegraphics[height=3.5cm]{img/Analysis_world/pr_world_10}
+		\label{fig:PRauthorW}
+	}
+	\subfigure[]{
+		\includegraphics[height=4cm]{img/Analysis_world/degree}
+		\label{fig:degreeW}
+	}
+	\caption{ \subref{fig:PRauthorW} is the words authors sorted by PageRank values; \subref{fig:degreeW}  is the words authors sorted by degree centrality}
+	\label{fig:PRAuthorW}
 \end{figure}
+
+In figure \ref{fig:PRuniW} we can see the first 10 universities with higher PageRank value: in the computational science area the most importante are the University of California and the MAssachusetts Institute of Technology. At the last position we can find the Swiss institution, École polytechnique fédérale de Lausanne, which was in the first position in the Swiss list.
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[height=5cm]{img/Analysis/degree_centrality}
-	\caption{Degree Centrality}
-	\label{fig:degree}
+	\includegraphics[height=4cm]{img/Analysis_world/pr_uni_10}
+	\caption{PageRank list of universities from all over the world}
+	\label{fig:PRuniW}
 \end{figure}
 
+\subsection{Graph Partitioning}
+Applying the graph partitioning algorithm I would like to obtain a division between different  Swiss universities based on the fact the the members mainly work with people of the same institution. The algorithm, cutting the edges, probably cut the collaboration between different universities and keep the ones internal to the same institution. I decide to apply 4-way partitioning, obtaining four groups of about 105 members. 
+
+Unfortunately the result was not what I expected because the main universities, such as École polytechnique fédérale de Lausanne and  ETH Züric, collaborate with almost all other institutions and for this reason appear in all the groups obtained. This results in four groups which are not divided by universities otherwise we can see that all members of the University of Basel are in the second group, instead the ones of USI are almost all in the third group.
 \begin{figure}[ht]
 	\centering
 	\includegraphics[height=6cm]{img/Analysis/graph_partitioning.jpg}
@@ -509,62 +573,6 @@ The universities that collaborate more in Switzerland are the École polytechniq
 \item https://en.wikipedia.org/wiki/Graph\_partition
 \end{itemize}
 
-
-
-
-
-% Footnotes
-%Cliques\footnote{Some text in a footnote.} \ldots
-
-
-%Immagini
-%\begin{figure}[ht]
-%	\centering
-%	\subfigure[]{
-%		\includegraphics[height=6cm]{img/seurat.jpeg}
-%		\label{fig:seurat}
-%	}
-%	\subfigure[]{
-%		\includegraphics[height=6cm]{img/gogh.jpeg}
-%		\label{fig:gogh}
-%	}
-%	\caption{Famous examples of divisionism painting: \subref{fig:seurat} ``Un dimanche apr\`es-midi \`a l'\^Ile de la Grande Jatte'' (1884-1886) by Georges Seurat and \subref{fig:gogh} ``Self Portrait with felt Hat'' (1887-1888) by Vincent van Gogh.}
-%	\label{fig:divisionism}
-%\end{figure}
-
-
-%Referenza a immagini
-% whose greatest exponent was Georges Seurat (see Figure \ref{fig:seurat}).
- 
- 
-% Referenza bibliografica
-%In this project I implemented an algorithm for extracting a resolution-independent vector representation from pixel art images, based on the paper of Johannes Kopf and Dani Lischinski \cite{Kopf2011}. 
-
-
-% algorithm
-%\begin{algorithm}
-%\caption{ (PageRank algorithm)}\label{pagerank}
-%\begin{algorithmic}[1]
-%\Procedure{MyProcedure}{}
-%\State $\textit{U} \gets \text{list of }\textit{authors}$
-%\State $\textit{G} \gets \text{adjacency matrix}$
-%\State $p \gets \text{dumping factor}$
-%\BState \emph{top}:
-%\If {$i > \textit{stringlen}$} \Return false
-%\EndIf
-%\State $j \gets \textit{patlen}$
-%\BState \emph{loop}:
-%\If {$\textit{string}(i) = \textit{path}(j)$}
-%\State $j \gets j-1$.
-%\State $i \gets i-1$.
-%\State \textbf{goto} \emph{loop}.
-%\State \textbf{close};
-%\EndIf
-%\State $i \gets i+\max(\textit{delta}_1(\textit{string}(i)),\textit{delta}_2(j))$.
-%\State \textbf{goto} \emph{top}.
-%\EndProcedure
-%\end{algorithmic}
-%\end{algorithm}
 
 
 %\newpage

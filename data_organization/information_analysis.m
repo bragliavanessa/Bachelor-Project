@@ -37,6 +37,10 @@ subplot(1,2,2)
 spy(M(r,r))
 title('Ordered connectivity matrix')
 
+% 48
+[lower,upper] = bandwidth(M(r,r));
+L=M(r,r);
+
 % Matrix sparsity = 0.0085
 sparsity = nnz(M)/numel(M);
 
