@@ -51,14 +51,17 @@ A social network consists of a set of objects connected to each other by social 
 	\label{fig:socialnetwork}
 \end{figure}
 
-The goal of this project is to create a social network of computational science authors belonging to Swiss institutions and then analyze the relative graph.
+The goal of this project is to create a social network of computational science authors belonging to Swiss institutions and then analyze the relative graph, represented by an adjacency matrix.
 
 I want to find the relations between authors of the same or different institutions and belonging to the same or to different research scenarios: how they interact with each other and if they are strictly related to the institution or cooperate throughout Switzerland. The result will provide also a ranking of the authors and the institutions to see which are the most influential in the computational science research.
 
-The first step is retrieving all the necessary information for the construction of the social network, i.e., names of the authors and relationships between each other. I crawled the 2015, 2016 and 2017 PASC Conferences and different SIAM conferences of several years, selecting the topics relevant to us (e.g. Optimization, Parallel Computing,...). The PASC conferences are interdisciplinary and bring together researchers across the areas of computational science, high-performance computing, and various domain sciences, 
+The first step is retrieving all the necessary information for the construction of the social network, i.e., names of the authors and relationships between each other. I crawled the 2015, 2016 and 2017 PASC Conferences and different SIAM conferences of several years, selecting the topics relevant to us (e.g. Optimization, Parallel Computing,...). The PASC conferences are interdisciplinary and bring together researchers across the areas of computational science, high-performance computing, and various domain sciences.
 
-The second step is the information analysis to find out relations between institutions and between members belonging to the same institution. With PageRank algorithm we obtain a ``ranking'' of all conferences' participants.
-PageRank is an algorithm used by Google Search to rank websites in their search engine results, but it can be applied to any social network. In this project I use the algorithm to measure the importance of institutions' members considering the number and quality of their collaborations. I use graph partitioning techniques to invert the process and obtain the institutions from members collaborations: it is reasonable to assume that members of the same institution collaborate more between each other than with other institutions' representatives.
+The second step is the information analysis to find out relations between institutions and between members belonging to the same or different university. With PageRank algorithm we obtain a ``ranking'' of all conferences' participants; it is an algorithm used by Google Search to rank websites in their search engine results, but it can be applied to any social network. 
+
+In this project I use the algorithm to measure the importance of the institutions' members considering the number and quality of their collaborations and to find out the relevant universities for computational science researches. 
+
+I use graph partitioning techniques to invert the process, trying to obtain the institutions from members collaborations: it is reasonable to assume that members of the same institution collaborate more between each other than with other institutions' representatives. With this assumption the algorithm will cut the relations between members of different universities, keeping the representatives of each institution in the same group.
 
 I also analyze the institutions' connectivity matrices and their structure: looking at the cliques present in the matrices we can for example detect the different research areas of the institutions and the connection between them. Cliques are dense sub matrices which represent a group of authors that are closely connected with each other. 
 
@@ -86,11 +89,11 @@ A web crawler is an Internet bot that browses the World Wide Web, typically for 
 The web pages that I decide to crawl are the online programs of 2015, 2016 and 2017 PASC conferences and of SIAM conferences with arguments concerning computational science, i.e. Optimization, Parallel Computing, Computational Science \& Engineering, Imaging Science, Uncertainty Quantification, Linear Algebra in Signals, Systems \& Control, Data Mining, Analysis of Partial Differential Equations.
 
 I use Apache Nutch that is a highly extensible and scalable open source web crawler and it allow you to crawl a lot of web pages with few command lines.
-It starts with a list of URLs to visit, called the seeds; I create this list putting there all the links to the computational science web pages previously selected.
+It starts with a list of URLs to visit, called the seeds; I create this list putting there all the links to the computational science conferences web pages previously mentioned.
 
 As the crawler visits the URLs, it identifies all the hyperlinks in the page and adds them to the list of URLs to visit; in my case I crawl only the pages in the starting seed ignoring all the internal links. The crawler copies and saves the information as it goes and stores each page in a distinct file in a repository.
 
-Thanks to Apache Nutch I manage to create a text file with the html of all the saved conferences' pages. Obtained this file ,the next step is studying the structure of the page and how to extract the information needed: where are the information I need? Are they in a particular html tag? How we can extract them? Is here that the parser do its job.
+Thanks to Apache Nutch I manage to create a text file with the html of all the saved conferences' pages. Obtained this file ,the next step is studying the structure of the page and how to extract the information needed: where are the information I need? Are they in a particular html tag? How we can extract them? Here the parser do its job.
 
 \subsection{Parsing}
 
@@ -100,9 +103,9 @@ In this project I personally write a parser, using Python programming language, 
 
 The parser extract only the lines of the pages which contain the names of the authors, their institutions and nationality; the institutions' members that make a conference together appear in group in the page so I keep them together to later get the relations. Thanks to the nation expressed in the program I can differentiate the Swiss authors from the ones from all over the world. 
 
-Obtained the desired lines I take the groups, one after the other, and I extract name, institution, nation and coauthors for each member. With all this information I manage to construct a social network and its adjacency matrix.
+Obtained the desired lines I take the groups, one after the other, and I extract name, institution, nation and coauthors for each member. With all this information I manage to construct a social network and its corresponding adjacency matrix.
 
-I run into some problems like an author with two different institution and I decide to consider it as two different authors because I'm interest in institutions collaborations: so the same author can have some coauthors with one university and completely different coauthors with the other one. We can see an example in Figure \ref{fig:twoUni} where professor Olaf Schenk has two different universities, Università della Svizzera Italiana and Univerisity of Basel: he collaborates with Matthias Bolhoefer with both institutions but he works with Fabio Verbosio only in USI and with Grote Marcus only in the University of Basel.
+I run into some problems like an author with two different institution and I decide to consider it as two different authors because I'm interest in institutions collaborations: so the same author can have some coauthors with one university and completely different coauthors with the other one. We can see an example in Figure \ref{fig:twoUni} where professor Olaf Schenk has two different universities, Universit\`{a} della Svizzera Italiana and Univerisity of Basel: he collaborates with Matthias Bolhoefer with both institutions but he works with Fabio Verbosio only in USI and with Marcus Grote only in the University of Basel.
 \begin{figure}
 \begin{center}
 \tikzset{every picture/.style={line width=0.75pt}}      
@@ -145,7 +148,7 @@ I run into some problems like an author with two different institution and I dec
 
 \draw (108,139) node [scale=0.7] [align=left] {Olaf Schenk};
 \draw (105,162) node [scale=0.7] [align=left] {USI};
-\draw (355,361) node [scale=0.7] [align=left] {Grote Marcus};
+\draw (355,361) node [scale=0.7] [align=left] {Marcus Grote};
 \draw (355,381) node [scale=0.7] [align=left] {Univ. of Basel};
 \draw (354,99) node  [align=left] {{\scriptsize Fabio Verbosio}};
 \draw (354,119) node  [align=left] {{\scriptsize USI}};
@@ -160,6 +163,11 @@ I run into some problems like an author with two different institution and I dec
 \caption{Example of author with two different universities and different coauthors} \label{fig:twoUni}
 \end{center}
 \end{figure}
+
+I make two different databases, one for the Switzerland and one for all the world. The first one contains only Swiss authors and their collaboration with members of the same nation, instead in the second there are other nations authors together with the Swiss ones but their collaborations are extended to all over the world. For each author I save the name, the university, the nation, a list of his coauthors and I assign to each of them a unique index. 
+
+From these information that I easily create the adjacency matrix and thanks to the indexes I can switch between the matrix and the database; from the graph I can read the index and go in the database to see to which author it corresponds.
+
 
 
 
@@ -420,9 +428,9 @@ After retrieving all the necessary information and organizing the data in adjace
 Since the Swiss authors' names obtained are only 422, I decide to extend the research to the institutions from all over the word, reaching 16425 names. 
 
 I first construct the adjacency matrices of the authors and their corresponding universities; for the universities I also build a weighted matrix which keep the number of collaborations between each university. I consider that each author collaborates with himself so the diagonal of the matrix will be all ones.
-We can see in figure \ref{fig:authorsAdj} the authors' matrices, instead in figure \ref{fig:univAdj} the one of the Swiss universities.
+We can see in Figure \ref{fig:authorsAdj} the authors' matrices, instead in Figure \ref{fig:univAdj} the one of the Swiss universities.
 
-\begin{figure}[ht]
+\begin{figure}[tb]
 	\centering
 	\subfigure[]{
 		\includegraphics[height=5.5cm]{img/Analysis/authors_adj.jpg}
@@ -436,14 +444,14 @@ We can see in figure \ref{fig:authorsAdj} the authors' matrices, instead in figu
 	\label{fig:authorsAdj}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[tb]
 	\centering
 	\subfigure[]{
-		\includegraphics[height=5.5cm]{img/Analysis/univ_adj.jpg}
+		\includegraphics[height=5cm]{img/Analysis/univ_adj.jpg}
 		\label{fig:uniAdj}
 	}
 	\subfigure[]{
-		\includegraphics[height=5.5cm]{img/Analysis/univ_adj_weighted.jpg}
+		\includegraphics[height=5cm]{img/Analysis/univ_adj_weighted.jpg}
 		\label{fig:uniAdjW}
 	}
 	\caption{ \subref{fig:uniAdj} is the Swiss university adjacency matrix, \subref{fig:uniAdjW} is the universities weighted graph}
@@ -452,22 +460,22 @@ We can see in figure \ref{fig:authorsAdj} the authors' matrices, instead in figu
 
 The sparsity of a matrix is the number of zero-valued elements divided by the total number of elements; the Swiss authors adjacency matrix has sparsity equal to $0.0085$ instead the one of the world authors matrix is $2.4312*10^{-04}$.
 
-In figure \ref{fig:uniAdjW} (lets call this matrix U) we can see the matrix representing the weighted collaborations between Swiss universities: as we can see in the bar at the right, blue corresponds to no collaboration and while increasing the number of collaborations the color changes to yellow.
+In Figure \ref{fig:uniAdjW} (lets call this matrix U) we can see the matrix representing the weighted collaborations between Swiss universities: as we can see in the bar at the right, blue corresponds to no collaboration and while increasing the number of collaborations the color changes to yellow.
 
-The universities which collaborate more in Switzerland are École polytechnique fédérale de Lausanne and ETH Zürich which correspond to the 7th and 8th columns in the matrix. These two universities collaborate both internally in the university (see the yellow squares of $U_{7,7}$ and $U_{8,8}$ entries of the matrix U)  but also with other institutions (see the 7th and 8th columns of U where we have a lot of light-blue squares): for example  ETH Zürich has 19 collaboration with Università della Svizzera italiana (25th column). 
+The universities which collaborate more in Switzerland are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne and ETH Z\"{u}rich which correspond to the 7th and 8th columns in the matrix. These two universities collaborate both internally in the university (see the yellow squares of $U_{7,7}$ and $U_{8,8}$ entries of the matrix U)  but also with other institutions (see the 7th and 8th columns of U where we have a lot of light-blue squares): for example  ETH Z\"{u}rich has 19 collaboration with Universit\`{a} della Svizzera italiana (25th column). 
 
 We can see that most of the light-blue squares appear in the diagonal of the matrix; it means that institutions' members usually works with authors of the same university instead of ones from a different institution.
 
 I applied the Cuthill-McKee algorithm to the two authors matrices: it permutes a sparse matrix that has a symmetric sparsity pattern into a band matrix form with a small bandwidth.
 A band matrix is a sparse matrix whose non-zero elements are confined to a diagonal band; if the bandwidth of a symmetric matrix A is \textit{n}, it means that 
 $$A_{ij} = 0  \:\: \text{ if } \:\: |j-i| > n$$
- This means that all the non zero elements are put as near as possible to the diagonal of the matrix, as we can see in figure \ref{fig:CuthillMcKee}. 
+ This means that all the non zero elements are put as near as possible to the diagonal of the matrix, as we can see in Figure \ref{fig:CuthillMcKee}. 
  
 For the matrix of Swiss authors in \ref{fig:CuthillMcKeeS} the bandwidth is 48, instead the one of the authors from all the world \ref{fig:CuthillMcKeeW} has a bandwidth of 1210. 
 
 We can notice that in both figures the number of non-zero elements, written below the graph, doesn't change; in fact, the reverse Cuthill-McKee ordering consists only in rows and columns permutations and don't change any entry of the matrix.
 
-\begin{figure}[ht]
+\begin{figure}[tb]
 	\centering
 	\subfigure[]{
 		\includegraphics[height=4cm]{img/Analysis/cuthill_mckee.jpg}
@@ -482,13 +490,13 @@ We can notice that in both figures the number of non-zero elements, written belo
 \end{figure}
 
 \subsection{PageRank}
-Applying the PageRank algorithm I obtain a sorted list of authors and in figure \ref{fig:PRbars} we can see all the 422 Swiss authors with their corresponding PageRank value. 
+Applying the PageRank algorithm I obtain a sorted list of authors and in Figure \ref{fig:PRbars} we can see all the 422 Swiss authors with their corresponding PageRank value. 
 
-In figure \ref{fig:PRlist} we can see the first 10 most ``popular" authors sorted by the algorithm; we can see that the \textit{In\_degree} column, which correspond to the number of collaboration, it is not sorted because PageRank takes into account also the quality of the collaborations. For example the third author \textit{Simone Deparis} has more collaborations than the second \textit{Christoph Schwab}. 
+In Figure \ref{fig:PRlist} we can see the first 10 most ``popular" authors sorted by the algorithm; we can see that the \textit{In\_degree} column, which correspond to the number of collaboration, it is not sorted because PageRank takes into account also the quality of the collaborations. For example the third author \textit{Simone Deparis} has more collaborations than the second \textit{Christoph Schwab}. 
 
-To see it better we can compare this table with the one in figure \ref{fig:degree} that contains the first 10 authors sorted only by degree-centrality (i.e. number of collaborations). The most collaborative author is still \textit{Rolf Krause} because it has 30 associations but from the second we can already see some differences.
+To see it better we can compare this table with the one in Figure \ref{fig:degree} that contains the first 10 authors sorted only by degree-centrality (i.e. number of collaborations). The most collaborative author is still \textit{Rolf Krause} because it has 30 associations but from the second we can already see some differences.
 
-\begin{figure}[ht]
+\begin{figure}[tb]
 	\centering
 	\subfigure[]{
 		\includegraphics[height=6cm]{img/Analysis/page_rank_bars.jpg}
@@ -502,17 +510,17 @@ To see it better we can compare this table with the one in figure \ref{fig:degre
 	\label{fig:PRAuthors}
 \end{figure}
 
-\begin{figure}[ht]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[height=5cm]{img/Analysis/degree_centrality}
 	\caption{Degree Centrality}
 	\label{fig:degree}
 \end{figure}
 
-I have also applied the PageRank algorithm to the universities' adjacency matrix obtaining the results in figure \ref{fig:PRUniversities}.
+I have also applied the PageRank algorithm to the universities' adjacency matrix obtaining the results in Figure \ref{fig:PRUniversities}.
 
-We can observe that the most present universities in the area of computational science are École polytechnique fédérale de Lausanne, ETH Züric and Università della Svizzera italiana. Here the universities sorted by PageRank corresponds to the  sorting by number of collaborations (\textit{In\_degree} column).
-\begin{figure}[ht]
+We can observe that the most present universities in the area of computational science are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, ETH Z\"{u}ric and Universit\`{a} della Svizzera italiana. Here the universities sorted by PageRank corresponds to the  sorting by number of collaborations (\textit{In\_degree} column).
+\begin{figure}[tb]
 	\centering
 	\subfigure[]{
 		\includegraphics[height=6cm]{img/Analysis/page_rank_uni.jpg}
@@ -526,7 +534,7 @@ We can observe that the most present universities in the area of computational s
 	\label{fig:PRUniversities}
 \end{figure}
 
-About what concerning world information we can better see the difference between PageRank and degree centrality sorting in figure \ref{fig:PRAuthorW}; the Swiss  \textit{Rolf Krause}, member of USI, has the 7th PageRank value with only 38 collaborations but doesn't appear in the first ten positions of the degree centrality list.
+About what concerning world information we can better see the difference between PageRank and degree centrality sorting in Figure \ref{fig:PRAuthorW}; the Swiss  \textit{Rolf Krause}, member of USI, has the 7th PageRank value with only 38 collaborations but doesn't appear in the first ten positions of the degree centrality list.
 
 \begin{figure}[ht]
 	\centering
@@ -542,9 +550,9 @@ About what concerning world information we can better see the difference between
 	\label{fig:PRAuthorW}
 \end{figure}
 
-In figure \ref{fig:PRuniW} we can see the first 10 universities with higher PageRank value: in the computational science area the most importante are the University of California and the MAssachusetts Institute of Technology. At the last position we can find the Swiss institution, École polytechnique fédérale de Lausanne, which was in the first position in the Swiss list.
+In Figure \ref{fig:PRuniW} we can see the first 10 universities with higher PageRank value: in the computational science area the most important are the University of California and the Massachusetts Institute of Technology. At the last position we can find the Swiss institution, \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, which was in the first position in the Swiss list.
 
-\begin{figure}[ht]
+\begin{figure}[tb]
 	\centering
 	\includegraphics[height=4cm]{img/Analysis_world/pr_uni_10}
 	\caption{PageRank list of universities from all over the world}
@@ -554,8 +562,8 @@ In figure \ref{fig:PRuniW} we can see the first 10 universities with higher Page
 \subsection{Graph Partitioning}
 Applying the graph partitioning algorithm I would like to obtain a division between different  Swiss universities based on the fact the the members mainly work with people of the same institution. The algorithm, cutting the edges, probably cut the collaboration between different universities and keep the ones internal to the same institution. I decide to apply 4-way partitioning, obtaining four groups of about 105 members. 
 
-Unfortunately the result was not what I expected because the main universities, such as École polytechnique fédérale de Lausanne and  ETH Züric, collaborate with almost all other institutions and for this reason appear in all the groups obtained. This results in four groups which are not divided by universities otherwise we can see that all members of the University of Basel are in the second group, instead the ones of USI are almost all in the third group.
-\begin{figure}[ht]
+Unfortunately the result was not what I expected because the main universities, such as \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne and  ETH Z\"{u}ric, collaborate with almost all other institutions and for this reason appear in all the groups obtained. This results in four groups which are not divided by universities otherwise we can see that all members of the University of Basel are in the second group, instead the ones of USI are almost all in the third group.
+\begin{figure}[tb]
 	\centering
 	\includegraphics[height=6cm]{img/Analysis/graph_partitioning.jpg}
 	\caption{The graph partitioning algortihm}
@@ -575,11 +583,14 @@ Unfortunately the result was not what I expected because the main universities, 
 
 
 
-%\newpage
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{Conclusions} \label{sec:conclusions}
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusions} \label{sec:conclusions}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %I have implemented an algorithm for extracting a resolution-independent vector representation from pixel art images. This algorithm resolves separation/connectedness ambiguities in the square pixel lattice and then reshapes the pixel cells so that both cardinal and diagonal neighbors of a pixel are connected through edges. The regions with smoothly varying shading are extracted and separated through piecewise smooth contour curves. I have demonstrated that conventional image upsampling and vectorization algorithms cannot handle pixel art images well, while this algorithm produces good results on a wide variety of inputs.
 %
 %

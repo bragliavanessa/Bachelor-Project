@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  30 MAY 2018 10:52
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  30 MAY 2018 15:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1258,62 +1258,63 @@ LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
 (Font)              scaled to size 9.60007pt on input line 50.
  [2]
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 13.82408pt on input line 82.
+(Font)              scaled to size 13.82408pt on input line 85.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 13.82408pt on input line 82.
+(Font)              scaled to size 13.82408pt on input line 85.
  [3]
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 150.
+(Font)              scaled to size 7.68005pt on input line 153.
 LaTeX Font Info:    Font shape `T1/mdbch/m/it' will be
-(Font)              scaled to size 11.52008pt on input line 156.
+(Font)              scaled to size 11.52008pt on input line 159.
+ [4]
 File: img/page_rank_example.png Graphic file (type QTm)
  <use  "img/page_rank_example.png" >
-[4]
-LaTeX Font Info:    Try loading font information for TS1+mdbch on input line 18
-5.
- (/usr/local/texlive/2015/texmf-dist/tex/latex/mathdesign/mdbch/ts1mdbch.fd
+LaTeX Font Info:    Try loading font information for TS1+mdbch on input line 19
+3.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/mathdesign/mdbch/ts1mdbch.fd
 File: ts1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for TS1/mdbch.
 )
 LaTeX Font Info:    Font shape `TS1/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 185.
+(Font)              scaled to size 11.52008pt on input line 193.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 196.
-[5]
+(Font)              scaled to size 5.76004pt on input line 204.
+
+[5] [6]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 259.
+put line 267.
 LaTeX Font Info:    Font shape `T1/mdbch/m/fsc' will be
-(Font)              scaled to size 11.52008pt on input line 261.
+(Font)              scaled to size 11.52008pt on input line 269.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 284.
+(Font)              scaled to size 9.60007pt on input line 292.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 284.
+(Font)              scaled to size 6.72005pt on input line 292.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 284.
+(Font)              scaled to size 9.60007pt on input line 292.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 284.
+(Font)              scaled to size 6.72005pt on input line 292.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 284.
+(Font)              scaled to size 9.60007pt on input line 292.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 284.
+(Font)              scaled to size 6.72005pt on input line 292.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 284.
+(Font)              scaled to size 9.60007pt on input line 292.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 284.
+(Font)              scaled to size 6.72005pt on input line 292.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 284.
+(Font)              scaled to size 9.60007pt on input line 292.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 284.
+(Font)              scaled to size 6.72005pt on input line 292.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 284.
+(Font)              scaled to size 9.60007pt on input line 292.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 284.
+(Font)              scaled to size 6.72005pt on input line 292.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 284.
+(Font)              scaled to size 9.60007pt on input line 292.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 284.
+(Font)              scaled to size 6.72005pt on input line 292.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 284.
- [6]
+(Font)              scaled to size 6.72005pt on input line 292.
 File: img/g4.jpg Graphic file (type QTm)
  <use  "img/g4.jpg" >
 File: img/g5.jpg Graphic file (type QTm)
@@ -1329,9 +1330,10 @@ File: img/g12.jpg Graphic file (type QTm)
  <use  "img/g12.jpg" > [7] [8]
 File: img/k_way_partitioning.jpg Graphic file (type QTm)
 
-<use  "img/k_way_partitioning.jpg" >
+<use  "img/k_way_partitioning.jpg" > [9]
 File: img/Analysis/authors_adj.jpg Graphic file (type QTm)
- <use  "img/Analysis/authors_adj.jpg" >
+
+<use  "img/Analysis/authors_adj.jpg" >
 File: img/Analysis_world/author_adj.jpg Graphic file (type QTm)
 
 <use  "img/Analysis_world/author_adj.jpg" >
@@ -1340,7 +1342,7 @@ File: img/Analysis/univ_adj.jpg Graphic file (type QTm)
 <use  "img/Analysis/univ_adj.jpg" >
 File: img/Analysis/univ_adj_weighted.jpg Graphic file (type QTm)
 
-<use  "img/Analysis/univ_adj_weighted.jpg" > [9] [10]
+<use  "img/Analysis/univ_adj_weighted.jpg" > [10]
 File: img/Analysis/cuthill_mckee.jpg Graphic file (type QTm)
 
 <use  "img/Analysis/cuthill_mckee.jpg" >
@@ -1366,34 +1368,37 @@ File: img/Analysis_world/pr_world_10.png Graphic file (type QTm)
 <use  "img/Analysis_world/pr_world_10.png" >
 File: img/Analysis_world/degree.png Graphic file (type QTm)
 
-<use  "img/Analysis_world/degree.png" > [12]
+<use  "img/Analysis_world/degree.png" >
 File: img/Analysis_world/pr_uni_10.png Graphic file (type QTm)
 
 <use  "img/Analysis_world/pr_uni_10.png" >
 File: img/Analysis/graph_partitioning.jpg Graphic file (type QTm)
 
-<use  "img/Analysis/graph_partitioning.jpg" > [13]
+<use  "img/Analysis/graph_partitioning.jpg" > [12]
 
-LaTeX Warning: Hyper reference `label_name' on page 14 undefined on input line 
-572.
+LaTeX Warning: Hyper reference `label_name' on page 13 undefined on input line 
+580.
 
-[14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 600.
- [15]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 600.
+[13]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 611.
+ [14] [15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 611.
  (./bachelorproject.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 600.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 600.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 611.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 611.
 
 
 LaTeX Warning: There were undefined references.
 
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 25654 strings out of 493706
- 437266 string characters out of 6145769
- 520247 words of memory out of 5000000
- 28496 multiletter control sequences out of 15000+600000
+ 25655 strings out of 493706
+ 437283 string characters out of 6145769
+ 519282 words of memory out of 5000000
+ 28497 multiletter control sequences out of 15000+600000
  57364 words of font info for 75 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  60i,9n,94p,907b,793s stack positions out of 5000i,500n,10000p,200000b,80000s
