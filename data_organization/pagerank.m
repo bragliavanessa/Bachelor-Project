@@ -28,6 +28,7 @@ x = x/sum(x);
 figure
 shg
 bar(x)
+x
 
 title('Page Rank')
 xlim([1, length(x)]);
