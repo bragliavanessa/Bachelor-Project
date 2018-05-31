@@ -177,7 +177,7 @@ From these information that I easily create the adjacency matrix and thanks to t
 %%%%%%%%%%%%%%%%%%%%%%%%%
 PageRank is an algorithm used by Google Search to rank websites in their search engine results; it was developed by  Larry Page and  Sergey Brin (the Google's founders) in 1996 as part of their research project at Stanford University.
 
-PageRank is used, together with other algorithms, to measure the importance of web pages and sort them by popularity in the result; it can be used in any graph to compute the importance of each node with its PageRank value. Larry Page and  Sergey Brin algorithm works by counting the number and quality of links to a page to compute a value which represents its importance; more popular a page is, more likely it receives links from other websites and more likely from important websites.
+PageRank is used, together with other algorithms, to measure the importance of web pages and sort them by popularity in the result; it can be used in any graph to compute the importance of each node with its PageRank value. Larry Page and  Sergey Brin algorithm works by counting the number and quality of links to a page, to compute a value which represents its importance; more popular a page is, more likely it receives links from other websites and more likely from important websites.
 
 \begin{figure}[ht]
 	\centering
@@ -186,7 +186,7 @@ PageRank is used, together with other algorithms, to measure the importance of w
 	\label{fig:prexample}
 \end{figure}
 
-As we can see in Fig ure \ref{fig:prexample}, node C has higher PageRank than A even if it has the same number of inner links; this is because the only inner link of C is from the most important node of the graph B so it is considered to be more important than the inner link of node A.
+As we can see in Figure \ref{fig:prexample}, node C has higher PageRank than A even if it has the same number of inner links; this is because the only inner link of C is from the most important node of the graph B so it is considered to be more important than the inner link of node A.
 
 While surfing websites, going from one page to another I want to avoid problems with pages without outer links so I introduce two different methods to choose the next page. The surfer can:
 \begin{itemize}
@@ -210,6 +210,8 @@ The row $r_i$ represents the number of inner-links of page $i$, while column $c_
 \item In-degree of page $i$: \tab $\:\:\:\:r_i = \sum\limits_{j=1}^{n} g_{ij}$
 \item Out-degree of page $i$: \tab $c_i = \sum\limits_{j=1}^{n} g_{ji}$
 \end{itemize}
+Since my graph is undirected, the number of inner-links is equal to the number of outer-links. 
+
 Let $p$ be the probability that the surfer follows a link and $1-p$ the probability that it chooses a random page, then $\delta = \frac{1-p}{n}$ is the probability that a particular random page is chosen.
 
 We construct a transition probability matrix A where all elements are positive, smaller than one and sums of columns are equal to one; column $j$ represents the probabilities to go from page j to all other pages. So we set
@@ -230,7 +232,7 @@ A\:x = x
 
 It is a particular eigenvalue problem because usually they are of the form $Ax=\lambda x$. Finding the solution of eigensystems is complicated and doesn't exist direct methods; the process has to be iterative such as the power or Jacobi methods.
 
-In our specific problem we have $\lambda = 1$ so the power method seems to be the most effective. It computes the eigenvector relative to the greatest eigenvalue and it is our problem since A is a matrix of a Markov chain.
+In our specific problem we have $\lambda = 1$ so the power method seems to be the most effective. It computes the eigenvector relative to the greatest eigenvalue and it is our problem since A is a matrix of a Markov chain and the highest eigenvalue is 1.
 
 The transition matrix $A$ can be written as
 $$A = pGD+ez^{T}, $$
@@ -294,7 +296,7 @@ Graph partitioning consists in dividing a graph $G=(V,E)$\footnote{A graph G wit
 A partitioning algorithm is said to be efficient if it divides a given graph into smaller components with about the same size, cutting as few edges as possible. 
 A valid and fast method is the coordinate bisection, which simply chooses a partitioning plane perpendicular to one of the coordinate axes but spectral algorithm is more efficient. It finds a partition based on the eigenvalues and eigenvectors of the Laplacian matrix of the graph and doesn't need the nodal coordinates.
 
-As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave similarly but usually the second one is more effective.
+As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave similarly but usually the second one is more effective even if it cuts more edges.
 \begin{figure}[ht]
 	\centering
 	\subfigure[]{
@@ -425,19 +427,19 @@ We consider only the simple case where we want to divide the graph in k partitio
 \section{Numerical analysis}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 After retrieving all the necessary information and organizing the data in adjacency matrices, I applied PageRank and Graph Partitioning algorithms, obtaining the following results.
-Since the Swiss authors' names obtained are only 422, I decide to extend the research to the institutions from all over the word, reaching 16425 names. 
+Since the Swiss authors' names obtained are only 422, I decide to extend the research to the institutions from all over the word, reaching 16425 names. So the analysis is done in parallel for both Swiss collaborations and authors from all over the world.
 
-I first construct the adjacency matrices of the authors and their corresponding universities; for the universities I also build a weighted matrix which keep the number of collaborations between each university. I consider that each author collaborates with himself so the diagonal of the matrix will be all ones.
+I first construct the adjacency matrices of the authors and their corresponding universities; for the universities I also build a weighted matrix which keeps the number of collaborations between each university. I consider that each author collaborates with himself so the diagonal of the matrix will have all ones.
 We can see in Figure \ref{fig:authorsAdj} the authors' matrices, instead in Figure \ref{fig:univAdj} the one of the Swiss universities.
 
-\begin{figure}[tb]
+\begin{figure}[b]
 	\centering
 	\subfigure[]{
-		\includegraphics[height=5.5cm]{img/Analysis/authors_adj.jpg}
+		\includegraphics[height=4.5cm]{img/Analysis/authors_adj.jpg}
 		\label{fig:AdjS}
 	}
 	\subfigure[]{
-		\includegraphics[height=5.5cm]{img/Analysis_world/author_adj.jpg}
+		\includegraphics[height=4.5cm]{img/Analysis_world/author_adj.jpg}
 		\label{fig:AdjW}
 	}
 	\caption{\subref{fig:AdjS} is the Swiss authors' adjacency matrix and \subref{fig:AdjW} is the one of the world authors}
@@ -447,11 +449,11 @@ We can see in Figure \ref{fig:authorsAdj} the authors' matrices, instead in Figu
 \begin{figure}[tb]
 	\centering
 	\subfigure[]{
-		\includegraphics[height=5cm]{img/Analysis/univ_adj.jpg}
+		\includegraphics[height=4.5cm]{img/Analysis/univ_adj.jpg}
 		\label{fig:uniAdj}
 	}
 	\subfigure[]{
-		\includegraphics[height=5cm]{img/Analysis/univ_adj_weighted.jpg}
+		\includegraphics[height=4.5cm]{img/Analysis/univ_adj_weighted.jpg}
 		\label{fig:uniAdjW}
 	}
 	\caption{ \subref{fig:uniAdj} is the Swiss university adjacency matrix, \subref{fig:uniAdjW} is the universities weighted graph}
@@ -461,9 +463,7 @@ We can see in Figure \ref{fig:authorsAdj} the authors' matrices, instead in Figu
 The sparsity of a matrix is the number of zero-valued elements divided by the total number of elements; the Swiss authors adjacency matrix has sparsity equal to $0.0085$ instead the one of the world authors matrix is $2.4312*10^{-04}$.
 
 In Figure \ref{fig:uniAdjW} (lets call this matrix U) we can see the matrix representing the weighted collaborations between Swiss universities: as we can see in the bar at the right, blue corresponds to no collaboration and while increasing the number of collaborations the color changes to yellow.
-
 The universities which collaborate more in Switzerland are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne and ETH Z\"{u}rich which correspond to the 7th and 8th columns in the matrix. These two universities collaborate both internally in the university (see the yellow squares of $U_{7,7}$ and $U_{8,8}$ entries of the matrix U)  but also with other institutions (see the 7th and 8th columns of U where we have a lot of light-blue squares): for example  ETH Z\"{u}rich has 19 collaboration with Universit\`{a} della Svizzera italiana (25th column). 
-
 We can see that most of the light-blue squares appear in the diagonal of the matrix; it means that institutions' members usually works with authors of the same university instead of ones from a different institution.
 
 I applied the Cuthill-McKee algorithm to the two authors matrices: it permutes a sparse matrix that has a symmetric sparsity pattern into a band matrix form with a small bandwidth.
@@ -496,6 +496,18 @@ In Figure \ref{fig:PRlist} we can see the first 10 most ``popular" authors sorte
 
 To see it better we can compare this table with the one in Figure \ref{fig:degree} that contains the first 10 authors sorted only by degree-centrality (i.e. number of collaborations). The most collaborative author is still \textit{Rolf Krause} because it has 30 associations but from the second we can already see some differences.
 
+%\begin{figure}[tb]
+%	\centering
+%	\includegraphics[height=5cm]{img/Analysis/page_rank_bars.jpg}
+%	\caption{Degree Centrality}
+%	\label{fig:degree}
+%\end{figure}
+%\begin{figure}[tb]
+%	\centering
+%	\includegraphics[height=5cm]{img/Analysis/Pagerank_swiss_10}
+%	\caption{Degree Centrality}
+%	\label{fig:degree}
+%\end{figure}
 \begin{figure}[tb]
 	\centering
 	\subfigure[]{
