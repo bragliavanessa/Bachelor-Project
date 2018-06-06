@@ -19,6 +19,11 @@ D = sparse(k,k,1./c(k),n,n);
 % Solve (I - p*G*D)*x = e
 e = ones(n,1);
 I = speye(n,n);
+
+
+figure 
+imagesc(p*G*D)
+
 x = (I - p*G*D)\e;
 
 % Normalize so that sum(x) == 1.
