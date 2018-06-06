@@ -22,7 +22,7 @@ I = speye(n,n);
 
 
 figure 
-imagesc(p*G*D)
+spy(I-p*G*D)
 
 x = (I - p*G*D)\e;
 
