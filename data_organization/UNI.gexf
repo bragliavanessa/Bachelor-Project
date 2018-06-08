@@ -2,37 +2,37 @@
 <gexf xmlns:viz="http:///www.gexf.net/1.1draft/viz" version="1.1" xmlns="http://www.gexf.net/1.1draft">
 <graph defaultedgetype="undirected" idtype="string" type="static">
 <nodes count="32">
-<node id="7.0" label="EPFL"> <viz:color r="35" g="11" b="131"/> <viz:size value="26"/></node>
-<node id="8.0" label="ETHZ"> <viz:color r="15" g="5" b="127"/> <viz:size value="25"/></node>
-<node id="25.0" label="USI"> <viz:color r="136" g="255" b="243"/> <viz:size value="8"/></node>
-<node id="12.0" label="IBM"> <viz:color r="0" g="52" b="179"/> <viz:size value="21"/></node>
-<node id="20.0" label="SIB"> <viz:color r="56" g="183" b="255"/> <viz:size value="13"/></node>
-<node id="30.0" label="University of Geneva"> <viz:color r="221" g="255" b="161"/> <viz:size value="3"/></node>
-<node id="24.0" label="UNIL"> <viz:color r="120" g="251" b="255"/> <viz:size value="9"/></node>
-<node id="11.0" label="HES-SO Valais-Wallis"> <viz:color r="0" g="36" b="162"/> <viz:size value="22"/></node>
-<node id="31.0" label="University of Neuchatel"> <viz:color r="238" g="255" b="145"/> <viz:size value="2"/></node>
-<node id="4.0" label="CHUV"> <viz:color r="96" g="30" b="143"/> <viz:size value="29"/></node>
-<node id="19.0" label="Paul Scherrer Institute"> <viz:color r="40" g="166" b="255"/> <viz:size value="14"/></node>
-<node id="21.0" label="Stanford University"> <viz:color r="72" g="200" b="255"/> <viz:size value="12"/></node>
-<node id="27.0" label="UZH"> <viz:color r="170" g="255" b="210"/> <viz:size value="6"/></node>
-<node id="6.0" label="CSCS"> <viz:color r="56" g="17" b="135"/> <viz:size value="27"/></node>
-<node id="29.0" label="University of Bern"> <viz:color r="204" g="255" b="177"/> <viz:size value="4"/></node>
-<node id="5.0" label="CNRS"> <viz:color r="76" g="24" b="139"/> <viz:size value="28"/></node>
-<node id="26.0" label="UTC"> <viz:color r="153" g="255" b="226"/> <viz:size value="7"/></node>
-<node id="23.0" label="Swiss Federal Institute of Technology"> <viz:color r="104" g="234" b="255"/> <viz:size value="10"/></node>
-<node id="22.0" label="Supercomputing Systems AG"> <viz:color r="88" g="217" b="255"/> <viz:size value="11"/></node>
-<node id="18.0" label="PMI"> <viz:color r="24" g="149" b="255"/> <viz:size value="15"/></node>
-<node id="28.0" label="University of Basel"> <viz:color r="187" g="255" b="194"/> <viz:size value="5"/></node>
-<node id="2.0" label="Biognosys AG"> <viz:color r="137" g="42" b="151"/> <viz:size value="31"/></node>
-<node id="15.0" label="Intel"> <viz:color r="0" g="100" b="230"/> <viz:size value="18"/></node>
-<node id="1.0" label="ANSYS, Inc."> <viz:color r="157" g="49" b="155"/> <viz:size value="32"/></node>
-<node id="3.0" label="CERN"> <viz:color r="116" g="36" b="147"/> <viz:size value="30"/></node>
-<node id="9.0" label="Eawag"> <viz:color r="0" g="4" b="128"/> <viz:size value="24"/></node>
-<node id="16.0" label="MeteoSwiss"> <viz:color r="0" g="116" b="247"/> <viz:size value="17"/></node>
-<node id="10.0" label="Fondazione Cardiocentro Ticino"> <viz:color r="0" g="20" b="145"/> <viz:size value="23"/></node>
-<node id="13.0" label="IDSIA"> <viz:color r="0" g="68" b="196"/> <viz:size value="20"/></node>
-<node id="14.0" label="Idiap Research Institute"> <viz:color r="0" g="84" b="213"/> <viz:size value="19"/></node>
-<node id="17.0" label="Ordecsys"> <viz:color r="8" g="132" b="255"/> <viz:size value="16"/></node>
+<node id="7.0" label="EPFL"> <viz:color r="35" g="11" b="131"/> <viz:size value="32"/></node>
+<node id="8.0" label="ETHZ"> <viz:color r="15" g="5" b="127"/> <viz:size value="31"/></node>
+<node id="25.0" label="USI"> <viz:color r="136" g="255" b="243"/> <viz:size value="30"/></node>
+<node id="12.0" label="IBM"> <viz:color r="0" g="52" b="179"/> <viz:size value="29"/></node>
+<node id="20.0" label="SIB"> <viz:color r="56" g="183" b="255"/> <viz:size value="28"/></node>
+<node id="30.0" label="University of Geneva"> <viz:color r="221" g="255" b="161"/> <viz:size value="27"/></node>
+<node id="24.0" label="UNIL"> <viz:color r="120" g="251" b="255"/> <viz:size value="26"/></node>
+<node id="11.0" label="HES-SO Valais-Wallis"> <viz:color r="0" g="36" b="162"/> <viz:size value="25"/></node>
+<node id="31.0" label="University of Neuchatel"> <viz:color r="238" g="255" b="145"/> <viz:size value="24"/></node>
+<node id="4.0" label="CHUV"> <viz:color r="96" g="30" b="143"/> <viz:size value="23"/></node>
+<node id="19.0" label="Paul Scherrer Institute"> <viz:color r="40" g="166" b="255"/> <viz:size value="22"/></node>
+<node id="21.0" label="Stanford University"> <viz:color r="72" g="200" b="255"/> <viz:size value="21"/></node>
+<node id="27.0" label="UZH"> <viz:color r="170" g="255" b="210"/> <viz:size value="20"/></node>
+<node id="6.0" label="CSCS"> <viz:color r="56" g="17" b="135"/> <viz:size value="19"/></node>
+<node id="29.0" label="University of Bern"> <viz:color r="204" g="255" b="177"/> <viz:size value="18"/></node>
+<node id="5.0" label="CNRS"> <viz:color r="76" g="24" b="139"/> <viz:size value="17"/></node>
+<node id="26.0" label="UTC"> <viz:color r="153" g="255" b="226"/> <viz:size value="16"/></node>
+<node id="23.0" label="Swiss Federal Institute of Technology"> <viz:color r="104" g="234" b="255"/> <viz:size value="15"/></node>
+<node id="22.0" label="Supercomputing Systems AG"> <viz:color r="88" g="217" b="255"/> <viz:size value="14"/></node>
+<node id="18.0" label="PMI"> <viz:color r="24" g="149" b="255"/> <viz:size value="13"/></node>
+<node id="28.0" label="University of Basel"> <viz:color r="187" g="255" b="194"/> <viz:size value="12"/></node>
+<node id="2.0" label="Biognosys AG"> <viz:color r="137" g="42" b="151"/> <viz:size value="11"/></node>
+<node id="15.0" label="Intel"> <viz:color r="0" g="100" b="230"/> <viz:size value="10"/></node>
+<node id="1.0" label="ANSYS, Inc."> <viz:color r="157" g="49" b="155"/> <viz:size value="9"/></node>
+<node id="3.0" label="CERN"> <viz:color r="116" g="36" b="147"/> <viz:size value="8"/></node>
+<node id="9.0" label="Eawag"> <viz:color r="0" g="4" b="128"/> <viz:size value="7"/></node>
+<node id="16.0" label="MeteoSwiss"> <viz:color r="0" g="116" b="247"/> <viz:size value="6"/></node>
+<node id="10.0" label="Fondazione Cardiocentro Ticino"> <viz:color r="0" g="20" b="145"/> <viz:size value="5"/></node>
+<node id="13.0" label="IDSIA"> <viz:color r="0" g="68" b="196"/> <viz:size value="4"/></node>
+<node id="14.0" label="Idiap Research Institute"> <viz:color r="0" g="84" b="213"/> <viz:size value="3"/></node>
+<node id="17.0" label="Ordecsys"> <viz:color r="8" g="132" b="255"/> <viz:size value="2"/></node>
 <node id="32.0" label="WLS"> <viz:color r="255" g="255" b="128"/> <viz:size value="1"/></node>
 </nodes>
 <edges count="58">

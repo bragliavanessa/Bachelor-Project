@@ -2,408 +2,408 @@
 <gexf xmlns:viz="http:///www.gexf.net/1.1draft/viz" version="1.1" xmlns="http://www.gexf.net/1.1draft">
 <graph defaultedgetype="undirected" idtype="string" type="static">
 <nodes count="402">
-<node id="12.0" label="Rolf Krause"> <viz:color r="127" g="40" b="149"/> <viz:size value="391"/></node>
-<node id="31.0" label="Olaf Schenk"> <viz:color r="81" g="25" b="140"/> <viz:size value="372"/></node>
-<node id="57.0" label="Christoph Schwab"> <viz:color r="17" g="5" b="127"/> <viz:size value="346"/></node>
-<node id="4.0" label="Simone Deparis"> <viz:color r="147" g="46" b="153"/> <viz:size value="399"/></node>
-<node id="164.0" label="Bruno Sudret"> <viz:color r="71" g="199" b="255"/> <viz:size value="239"/></node>
-<node id="24.0" label="Peter Arbenz"> <viz:color r="98" g="30" b="143"/> <viz:size value="379"/></node>
-<node id="87.0" label="Fabio Nobile"> <viz:color r="0" g="45" b="172"/> <viz:size value="316"/></node>
-<node id="55.0" label="Costas Bekas"> <viz:color r="22" g="7" b="128"/> <viz:size value="348"/></node>
-<node id="38.0" label="Rico Zenklusen"> <viz:color r="63" g="20" b="136"/> <viz:size value="365"/></node>
-<node id="1.0" label="Alfio Quarteroni"> <viz:color r="154" g="48" b="155"/> <viz:size value="402"/></node>
-<node id="213.0" label="Torsten Hoefler"> <viz:color r="168" g="255" b="212"/> <viz:size value="190"/></node>
-<node id="161.0" label="Ola Svensson"> <viz:color r="65" g="193" b="255"/> <viz:size value="242"/></node>
-<node id="73.0" label="Joost VandeVondele"> <viz:color r="0" g="18" b="143"/> <viz:size value="330"/></node>
-<node id="90.0" label="Volkan Cevher"> <viz:color r="0" g="51" b="178"/> <viz:size value="313"/></node>
-<node id="262.0" label="Jan S. Hesthaven"> <viz:color r="142" g="44" b="152"/> <viz:size value="141"/></node>
-<node id="308.0" label="Michael Afanasiev"> <viz:color r="29" g="9" b="129"/> <viz:size value="95"/></node>
-<node id="83.0" label="Daniel Kressner"> <viz:color r="0" g="37" b="163"/> <viz:size value="320"/></node>
-<node id="119.0" label="David Machac"> <viz:color r="0" g="107" b="237"/> <viz:size value="284"/></node>
-<node id="61.0" label="Dominik Obrist"> <viz:color r="7" g="2" b="125"/> <viz:size value="342"/></node>
-<node id="320.0" label="Nicolas Salamin"> <viz:color r="0" g="0" b="124"/> <viz:size value="83"/></node>
-<node id="311.0" label="Filippo Broggini"> <viz:color r="22" g="7" b="128"/> <viz:size value="92"/></node>
-<node id="328.0" label="Thomas Driesner"> <viz:color r="0" g="16" b="141"/> <viz:size value="75"/></node>
-<node id="314.0" label="Max Rietmann"> <viz:color r="14" g="4" b="126"/> <viz:size value="89"/></node>
-<node id="48.0" label="Robert Weismantel"> <viz:color r="39" g="12" b="131"/> <viz:size value="355"/></node>
-<node id="81.0" label="Thomas C. Schulthess"> <viz:color r="0" g="33" b="159"/> <viz:size value="322"/></node>
-<node id="95.0" label="Dimitri Van De Ville"> <viz:color r="0" g="61" b="188"/> <viz:size value="308"/></node>
-<node id="208.0" label="Markus Pueschel"> <viz:color r="158" g="255" b="222"/> <viz:size value="195"/></node>
-<node id="290.0" label="Pierre Vandergheynst"> <viz:color r="73" g="23" b="138"/> <viz:size value="113"/></node>
-<node id="321.0" label="Bastien Chopard"> <viz:color r="0" g="2" b="126"/> <viz:size value="82"/></node>
-<node id="342.0" label="Simon Scheidegger"> <viz:color r="0" g="43" b="169"/> <viz:size value="61"/></node>
-<node id="54.0" label="Alessandro Curioni"> <viz:color r="24" g="7" b="128"/> <viz:size value="349"/></node>
-<node id="52.0" label="Yves Ineichen"> <viz:color r="29" g="9" b="129"/> <viz:size value="351"/></node>
-<node id="151.0" label="Fabien Delalondre"> <viz:color r="46" g="172" b="255"/> <viz:size value="252"/></node>
-<node id="46.0" label="John Lygeros"> <viz:color r="44" g="14" b="132"/> <viz:size value="357"/></node>
-<node id="195.0" label="Andreas Noever"> <viz:color r="131" g="255" b="248"/> <viz:size value="208"/></node>
-<node id="43.0" label="Manfred Morari"> <viz:color r="51" g="16" b="134"/> <viz:size value="360"/></node>
-<node id="42.0" label="Colin Jones"> <viz:color r="54" g="17" b="134"/> <viz:size value="361"/></node>
-<node id="191.0" label="Rajko Nenadov"> <viz:color r="123" g="254" b="255"/> <viz:size value="212"/></node>
-<node id="192.0" label="Nemanja Skoric"> <viz:color r="125" g="255" b="254"/> <viz:size value="211"/></node>
-<node id="62.0" label="Cristiano Malossi"> <viz:color r="4" g="1" b="125"/> <viz:size value="341"/></node>
-<node id="53.0" label="Andreas Adelmann"> <viz:color r="26" g="8" b="129"/> <viz:size value="350"/></node>
-<node id="144.0" label="Drosos Kourounis"> <viz:color r="32" g="158" b="255"/> <viz:size value="259"/></node>
-<node id="382.0" label="Guillaume Anciaux"> <viz:color r="0" g="121" b="252"/> <viz:size value="21"/></node>
-<node id="383.0" label="William Curtin"> <viz:color r="0" g="123" b="254"/> <viz:size value="20"/></node>
-<node id="63.0" label="Peter W. J. Staar"> <viz:color r="2" g="1" b="124"/> <viz:size value="340"/></node>
-<node id="120.0" label="Carlo Albert"> <viz:color r="0" g="109" b="240"/> <viz:size value="283"/></node>
-<node id="21.0" label="Marco Favino"> <viz:color r="105" g="33" b="145"/> <viz:size value="382"/></node>
-<node id="14.0" label="Dorian Krause"> <viz:color r="122" g="38" b="148"/> <viz:size value="389"/></node>
-<node id="70.0" label="Mauro Calderara"> <viz:color r="0" g="12" b="137"/> <viz:size value="333"/></node>
-<node id="71.0" label="Sascha Brueck"> <viz:color r="0" g="14" b="139"/> <viz:size value="332"/></node>
-<node id="72.0" label="Hossein Bani-Hashemian"> <viz:color r="0" g="16" b="141"/> <viz:size value="331"/></node>
-<node id="69.0" label="Mathieu Luisier"> <viz:color r="0" g="10" b="134"/> <viz:size value="334"/></node>
-<node id="378.0" label="Alessandro Margara"> <viz:color r="0" g="113" b="244"/> <viz:size value="25"/></node>
-<node id="379.0" label="Mauro Santoro"> <viz:color r="0" g="115" b="246"/> <viz:size value="24"/></node>
-<node id="149.0" label="Felix Schurmann"> <viz:color r="42" g="168" b="255"/> <viz:size value="254"/></node>
-<node id="153.0" label="Jeffrey Muller"> <viz:color r="49" g="176" b="255"/> <viz:size value="250"/></node>
-<node id="150.0" label="Nenad Buncic"> <viz:color r="44" g="170" b="255"/> <viz:size value="253"/></node>
-<node id="152.0" label="Stefan Eilemann"> <viz:color r="48" g="174" b="255"/> <viz:size value="251"/></node>
-<node id="170.0" label="Reto Fahrni"> <viz:color r="82" g="211" b="255"/> <viz:size value="233"/></node>
-<node id="169.0" label="Paul-Remo Wagner"> <viz:color r="80" g="209" b="255"/> <viz:size value="234"/></node>
-<node id="171.0" label="Michael Klippel"> <viz:color r="84" g="213" b="255"/> <viz:size value="232"/></node>
-<node id="344.0" label="Johannes Brumm"> <viz:color r="0" g="47" b="174"/> <viz:size value="59"/></node>
-<node id="345.0" label="Patrick Gagliardini"> <viz:color r="0" g="49" b="176"/> <viz:size value="58"/></node>
-<node id="346.0" label="Daniel Harenberg"> <viz:color r="0" g="51" b="178"/> <viz:size value="57"/></node>
-<node id="44.0" label="Sean Summers"> <viz:color r="49" g="15" b="133"/> <viz:size value="359"/></node>
-<node id="45.0" label="Davide Raimondo"> <viz:color r="46" g="14" b="133"/> <viz:size value="358"/></node>
-<node id="194.0" label="Asaf Ferber"> <viz:color r="129" g="255" b="250"/> <viz:size value="209"/></node>
-<node id="196.0" label="Ueli Peter"> <viz:color r="133" g="255" b="246"/> <viz:size value="207"/></node>
-<node id="355.0" label="Nicola Marzari"> <viz:color r="0" g="68" b="196"/> <viz:size value="48"/></node>
-<node id="77.0" label="Panagiotis Hadjidoukas"> <viz:color r="0" g="26" b="151"/> <viz:size value="326"/></node>
-<node id="79.0" label="Dmitry Alexeev"> <viz:color r="0" g="30" b="155"/> <viz:size value="324"/></node>
-<node id="75.0" label="Diego Rossinelli"> <viz:color r="0" g="22" b="147"/> <viz:size value="328"/></node>
-<node id="76.0" label="Lina Kulakova"> <viz:color r="0" g="24" b="149"/> <viz:size value="327"/></node>
-<node id="78.0" label="Panagiotis Angelikopoulos"> <viz:color r="0" g="28" b="153"/> <viz:size value="325"/></node>
-<node id="80.0" label="Petros Koumoutsakos"> <viz:color r="0" g="32" b="157"/> <viz:size value="323"/></node>
-<node id="387.0" label="Christophe Dessimoz"> <viz:color r="7" g="131" b="255"/> <viz:size value="16"/></node>
-<node id="389.0" label="Rudiyanto Gunawan"> <viz:color r="11" g="135" b="255"/> <viz:size value="14"/></node>
-<node id="391.0" label="Michal Okoniewski"> <viz:color r="15" g="139" b="255"/> <viz:size value="12"/></node>
-<node id="393.0" label="Oliver Horlacher"> <viz:color r="18" g="143" b="255"/> <viz:size value="10"/></node>
-<node id="388.0" label="Christine Durinx"> <viz:color r="9" g="133" b="255"/> <viz:size value="15"/></node>
-<node id="390.0" label="Iakov Davydov"> <viz:color r="13" g="137" b="255"/> <viz:size value="13"/></node>
-<node id="392.0" label="Omid Shahmirzadi"> <viz:color r="16" g="141" b="255"/> <viz:size value="11"/></node>
-<node id="99.0" label="Dominique P. Zosso"> <viz:color r="0" g="68" b="196"/> <viz:size value="304"/></node>
-<node id="100.0" label="Jean-Philippe Thiran"> <viz:color r="0" g="70" b="198"/> <viz:size value="303"/></node>
-<node id="122.0" label="David Ginsbourger"> <viz:color r="0" g="113" b="244"/> <viz:size value="281"/></node>
-<node id="123.0" label="Ilya Molchanov"> <viz:color r="0" g="115" b="246"/> <viz:size value="280"/></node>
-<node id="130.0" label="Fabrizio Grandoni"> <viz:color r="5" g="129" b="255"/> <viz:size value="273"/></node>
-<node id="131.0" label="Marek Cygan"> <viz:color r="7" g="131" b="255"/> <viz:size value="272"/></node>
-<node id="132.0" label="Monaldo Mastrolilli"> <viz:color r="9" g="133" b="255"/> <viz:size value="271"/></node>
-<node id="147.0" label="Stephan Mohr"> <viz:color r="38" g="164" b="255"/> <viz:size value="256"/></node>
-<node id="148.0" label="Stefan Goedecker"> <viz:color r="40" g="166" b="255"/> <viz:size value="255"/></node>
-<node id="155.0" label="Napat Rujeerapaiboon"> <viz:color r="53" g="180" b="255"/> <viz:size value="248"/></node>
-<node id="156.0" label="Daniel Kuhn"> <viz:color r="55" g="182" b="255"/> <viz:size value="247"/></node>
-<node id="158.0" label="Michel Baes"> <viz:color r="59" g="186" b="255"/> <viz:size value="245"/></node>
-<node id="159.0" label="Michael Buergisser"> <viz:color r="61" g="189" b="255"/> <viz:size value="244"/></node>
-<node id="177.0" label="Friedrich Eisenbrand"> <viz:color r="96" g="226" b="255"/> <viz:size value="226"/></node>
-<node id="178.0" label="Yuri Faenza"> <viz:color r="98" g="228" b="255"/> <viz:size value="225"/></node>
-<node id="179.0" label="Carsten Moldenhauer"> <viz:color r="100" g="230" b="255"/> <viz:size value="224"/></node>
-<node id="189.0" label="Nisheeth K. Vishnoi"> <viz:color r="119" g="250" b="255"/> <viz:size value="214"/></node>
-<node id="190.0" label="Damian Straszak"> <viz:color r="121" g="252" b="255"/> <viz:size value="213"/></node>
-<node id="204.0" label="Dominik Inauen"> <viz:color r="150" g="255" b="230"/> <viz:size value="199"/></node>
-<node id="205.0" label="Camillo De Lellis"> <viz:color r="152" g="255" b="228"/> <viz:size value="198"/></node>
-<node id="217.0" label="James Irving"> <viz:color r="177" g="255" b="204"/> <viz:size value="186"/></node>
-<node id="218.0" label="Corinna Koepke"> <viz:color r="179" g="255" b="202"/> <viz:size value="185"/></node>
-<node id="219.0" label="Delphine Roubinet"> <viz:color r="181" g="255" b="200"/> <viz:size value="184"/></node>
-<node id="220.0" label="Arnulf Jentzen"> <viz:color r="183" g="255" b="198"/> <viz:size value="183"/></node>
-<node id="221.0" label="Patrick Cheridito"> <viz:color r="185" g="255" b="196"/> <viz:size value="182"/></node>
-<node id="222.0" label="Timo Welti"> <viz:color r="187" g="255" b="194"/> <viz:size value="181"/></node>
-<node id="226.0" label="Reinhard Furrer"> <viz:color r="195" g="255" b="186"/> <viz:size value="177"/></node>
-<node id="227.0" label="David Masson"> <viz:color r="197" g="255" b="184"/> <viz:size value="176"/></node>
-<node id="228.0" label="Christoph Jaeggli"> <viz:color r="199" g="255" b="182"/> <viz:size value="175"/></node>
-<node id="229.0" label="Julien Straubhaar"> <viz:color r="201" g="255" b="180"/> <viz:size value="174"/></node>
-<node id="230.0" label="Philippe Renard"> <viz:color r="203" g="255" b="178"/> <viz:size value="173"/></node>
-<node id="232.0" label="Hamed Hassani"> <viz:color r="208" g="255" b="174"/> <viz:size value="171"/></node>
-<node id="233.0" label="Nicolas Macris"> <viz:color r="210" g="255" b="172"/> <viz:size value="170"/></node>
-<node id="234.0" label="Rudiger Urbanke"> <viz:color r="212" g="255" b="170"/> <viz:size value="169"/></node>
-<node id="238.0" label="Pascal Frossard"> <viz:color r="220" g="255" b="162"/> <viz:size value="165"/></node>
-<node id="239.0" label="Dorina Thanou"> <viz:color r="222" g="255" b="160"/> <viz:size value="164"/></node>
-<node id="240.0" label="Virginie Uhlmann"> <viz:color r="224" g="255" b="158"/> <viz:size value="163"/></node>
-<node id="241.0" label="Daniel Schmitter"> <viz:color r="226" g="255" b="156"/> <viz:size value="162"/></node>
-<node id="242.0" label="Michael A. Unser"> <viz:color r="228" g="255" b="154"/> <viz:size value="161"/></node>
-<node id="252.0" label="Stefano Moret"> <viz:color r="249" g="255" b="134"/> <viz:size value="151"/></node>
-<node id="253.0" label="Michel Bierlaire"> <viz:color r="251" g="255" b="132"/> <viz:size value="150"/></node>
-<node id="254.0" label="François Maréchal"> <viz:color r="253" g="255" b="130"/> <viz:size value="149"/></node>
-<node id="255.0" label="Sai Ganesh S. Pai"> <viz:color r="255" g="255" b="128"/> <viz:size value="148"/></node>
-<node id="256.0" label="Ian Smith"> <viz:color r="157" g="49" b="155"/> <viz:size value="147"/></node>
-<node id="258.0" label="Djalel-Eddine Meskaldji"> <viz:color r="152" g="47" b="154"/> <viz:size value="145"/></node>
-<node id="259.0" label="Stephan Morgenthaler"> <viz:color r="149" g="46" b="154"/> <viz:size value="144"/></node>
-<node id="271.0" label="Marcus J Grote"> <viz:color r="120" g="37" b="148"/> <viz:size value="132"/></node>
-<node id="272.0" label="Uri Nahum"> <viz:color r="117" g="36" b="147"/> <viz:size value="131"/></node>
-<node id="273.0" label="Gianluca Crippa"> <viz:color r="115" g="36" b="147"/> <viz:size value="130"/></node>
-<node id="274.0" label="Camilla Nobili"> <viz:color r="113" g="35" b="146"/> <viz:size value="129"/></node>
-<node id="275.0" label="Brian Fitzpatrick"> <viz:color r="110" g="34" b="146"/> <viz:size value="128"/></node>
-<node id="276.0" label="Sanghyeon Yu"> <viz:color r="108" g="33" b="145"/> <viz:size value="127"/></node>
-<node id="280.0" label="Simone Carlo Surace"> <viz:color r="98" g="30" b="143"/> <viz:size value="123"/></node>
-<node id="281.0" label="Jean-Pascal Pfister"> <viz:color r="95" g="30" b="143"/> <viz:size value="122"/></node>
-<node id="282.0" label="Anna Kutschireiter"> <viz:color r="93" g="29" b="142"/> <viz:size value="121"/></node>
-<node id="299.0" label="Joppe Bos"> <viz:color r="51" g="16" b="134"/> <viz:size value="104"/></node>
-<node id="300.0" label="Arjen Lenstra"> <viz:color r="49" g="15" b="133"/> <viz:size value="103"/></node>
-<node id="301.0" label="Jean-Philippe Aumasson"> <viz:color r="46" g="14" b="133"/> <viz:size value="102"/></node>
-<node id="302.0" label="Luca Henzen"> <viz:color r="44" g="14" b="132"/> <viz:size value="101"/></node>
-<node id="304.0" label="William Sawyer"> <viz:color r="39" g="12" b="131"/> <viz:size value="99"/></node>
-<node id="305.0" label="Lucas Benedicic"> <viz:color r="36" g="11" b="131"/> <viz:size value="98"/></node>
-<node id="306.0" label="Juraj Kardos"> <viz:color r="34" g="11" b="130"/> <viz:size value="97"/></node>
-<node id="352.0" label="Romain Teyssier"> <viz:color r="0" g="63" b="190"/> <viz:size value="51"/></node>
-<node id="353.0" label="Lucio Mayer"> <viz:color r="0" g="64" b="192"/> <viz:size value="50"/></node>
-<node id="354.0" label="Alireza Rahmati"> <viz:color r="0" g="66" b="194"/> <viz:size value="49"/></node>
-<node id="368.0" label="Heiner Giefers"> <viz:color r="0" g="94" b="223"/> <viz:size value="35"/></node>
-<node id="369.0" label="Christof Sidler"> <viz:color r="0" g="96" b="225"/> <viz:size value="34"/></node>
-<node id="370.0" label="David Novo"> <viz:color r="0" g="97" b="227"/> <viz:size value="33"/></node>
-<node id="394.0" label="Joachim Stadel"> <viz:color r="20" g="145" b="255"/> <viz:size value="9"/></node>
-<node id="395.0" label="Clement Surville"> <viz:color r="22" g="147" b="255"/> <viz:size value="8"/></node>
-<node id="396.0" label="Simon Grimm"> <viz:color r="24" g="149" b="255"/> <viz:size value="7"/></node>
-<node id="68.0" label="Stephan Brunner"> <viz:color r="0" g="8" b="132"/> <viz:size value="335"/></node>
-<node id="128.0" label="Sahar Sargheini"> <viz:color r="1" g="125" b="255"/> <viz:size value="275"/></node>
-<node id="129.0" label="Alberto Paganini"> <viz:color r="3" g="127" b="255"/> <viz:size value="274"/></node>
-<node id="136.0" label="Stephan Holzer"> <viz:color r="16" g="141" b="255"/> <viz:size value="267"/></node>
-<node id="137.0" label="Roger Wattenhofer"> <viz:color r="18" g="143" b="255"/> <viz:size value="266"/></node>
-<node id="224.0" label="Leonhard Held"> <viz:color r="191" g="255" b="190"/> <viz:size value="179"/></node>
-<node id="225.0" label="Sebastian Meyer"> <viz:color r="193" g="255" b="188"/> <viz:size value="178"/></node>
-<node id="245.0" label="Damiano Pasetto"> <viz:color r="234" g="255" b="148"/> <viz:size value="158"/></node>
-<node id="247.0" label="Enrico Bertuzzo"> <viz:color r="239" g="255" b="144"/> <viz:size value="156"/></node>
-<node id="372.0" label="Noé Ohana"> <viz:color r="0" g="101" b="231"/> <viz:size value="31"/></node>
-<node id="374.0" label="Francois Gallaire"> <viz:color r="0" g="105" b="235"/> <viz:size value="29"/></node>
-<node id="376.0" label="Anne-Virginie Salsac"> <viz:color r="0" g="109" b="240"/> <viz:size value="27"/></node>
-<node id="398.0" label="Felix Schuermann"> <viz:color r="28" g="154" b="255"/> <viz:size value="5"/></node>
-<node id="400.0" label="Marc-Oliver Gewaltig"> <viz:color r="32" g="158" b="255"/> <viz:size value="3"/></node>
-<node id="246.0" label="Flavio Finger"> <viz:color r="236" g="255" b="146"/> <viz:size value="157"/></node>
-<node id="248.0" label="Andrea Rinaldo"> <viz:color r="241" g="255" b="142"/> <viz:size value="155"/></node>
-<node id="323.0" label="Manuel Peitsch"> <viz:color r="0" g="6" b="130"/> <viz:size value="80"/></node>
-<node id="324.0" label="Ioannis Xenarios"> <viz:color r="0" g="8" b="132"/> <viz:size value="79"/></node>
-<node id="325.0" label="Matthias Reumann"> <viz:color r="0" g="10" b="134"/> <viz:size value="78"/></node>
-<node id="326.0" label="Alain Sewer"> <viz:color r="0" g="12" b="137"/> <viz:size value="77"/></node>
-<node id="327.0" label="Arkadiusz Kuczaj"> <viz:color r="0" g="14" b="139"/> <viz:size value="76"/></node>
-<node id="371.0" label="Emmanuel Lanti"> <viz:color r="0" g="99" b="229"/> <viz:size value="32"/></node>
-<node id="373.0" label="Omar Awile"> <viz:color r="0" g="103" b="233"/> <viz:size value="30"/></node>
-<node id="375.0" label="Tobias M. Schneider"> <viz:color r="0" g="107" b="237"/> <viz:size value="28"/></node>
-<node id="377.0" label="Siamak Alimirzazadeh"> <viz:color r="0" g="111" b="242"/> <viz:size value="26"/></node>
-<node id="399.0" label="Eilif B. Muller"> <viz:color r="30" g="156" b="255"/> <viz:size value="4"/></node>
-<node id="401.0" label="Liesbeth Vanherpe"> <viz:color r="34" g="160" b="255"/> <viz:size value="2"/></node>
-<node id="249.0" label="Juan Pablo Carbajal"> <viz:color r="243" g="255" b="140"/> <viz:size value="154"/></node>
-<node id="250.0" label="Jörg Rieckermann"> <viz:color r="245" g="255" b="138"/> <viz:size value="153"/></node>
-<node id="251.0" label="Carlo Albert Eawag"> <viz:color r="247" g="255" b="136"/> <viz:size value="152"/></node>
-<node id="332.0" label="Stephen Miller"> <viz:color r="0" g="24" b="149"/> <viz:size value="71"/></node>
-<node id="329.0" label="Victor Vilarrasa"> <viz:color r="0" g="18" b="143"/> <viz:size value="74"/></node>
-<node id="330.0" label="Jean Decaix"> <viz:color r="0" g="20" b="145"/> <viz:size value="73"/></node>
-<node id="331.0" label="Julian Mindel"> <viz:color r="0" g="22" b="147"/> <viz:size value="72"/></node>
-<node id="334.0" label="Alessandro Rigazzi"> <viz:color r="0" g="28" b="153"/> <viz:size value="69"/></node>
-<node id="335.0" label="Joseph Doetsch"> <viz:color r="0" g="30" b="155"/> <viz:size value="68"/></node>
-<node id="333.0" label="Gunnar Jansen"> <viz:color r="0" g="26" b="151"/> <viz:size value="70"/></node>
-<node id="336.0" label="Ebrahim Jahanbakhsh"> <viz:color r="0" g="32" b="157"/> <viz:size value="67"/></node>
-<node id="49.0" label="Robert Hildebrand"> <viz:color r="36" g="11" b="131"/> <viz:size value="354"/></node>
-<node id="50.0" label="Kevin Zemmer"> <viz:color r="34" g="11" b="130"/> <viz:size value="353"/></node>
-<node id="175.0" label="Anton Kozhevnikov"> <viz:color r="92" g="222" b="255"/> <viz:size value="228"/></node>
-<node id="176.0" label="Solcà Raffaele"> <viz:color r="94" g="224" b="255"/> <viz:size value="227"/></node>
-<node id="91.0" label="Bubacarr Bah"> <viz:color r="0" g="53" b="180"/> <viz:size value="312"/></node>
-<node id="92.0" label="Luca Baldassarre"> <viz:color r="0" g="55" b="182"/> <viz:size value="311"/></node>
-<node id="88.0" label="Dave A. May"> <viz:color r="0" g="47" b="174"/> <viz:size value="315"/></node>
-<node id="365.0" label="Thomas Schulthess"> <viz:color r="0" g="88" b="217"/> <viz:size value="38"/></node>
-<node id="366.0" label="David Leutwyler"> <viz:color r="0" g="90" b="219"/> <viz:size value="37"/></node>
-<node id="364.0" label="Christoph Schär"> <viz:color r="0" g="86" b="215"/> <viz:size value="39"/></node>
-<node id="367.0" label="Oliver Fuhrer"> <viz:color r="0" g="92" b="221"/> <viz:size value="36"/></node>
-<node id="109.0" label="Juergen Doelz"> <viz:color r="0" g="88" b="217"/> <viz:size value="294"/></node>
-<node id="110.0" label="Helmut Harbrecht"> <viz:color r="0" g="90" b="219"/> <viz:size value="293"/></node>
-<node id="111.0" label="Michael Peters"> <viz:color r="0" g="92" b="221"/> <viz:size value="292"/></node>
-<node id="319.0" label="Adrien Lücker"> <viz:color r="2" g="1" b="124"/> <viz:size value="84"/></node>
-<node id="318.0" label="Antonello Gerbi"> <viz:color r="4" g="1" b="125"/> <viz:size value="85"/></node>
-<node id="317.0" label="Thomas Kummer"> <viz:color r="7" g="2" b="125"/> <viz:size value="86"/></node>
-<node id="23.0" label="Pietro Benedusi"> <viz:color r="100" g="31" b="144"/> <viz:size value="380"/></node>
-<node id="385.0" label="Fabio Pavia"> <viz:color r="3" g="127" b="255"/> <viz:size value="18"/></node>
-<node id="386.0" label="Jaehyun Cho"> <viz:color r="5" g="129" b="255"/> <viz:size value="17"/></node>
-<node id="348.0" label="Xavier Meyer"> <viz:color r="0" g="55" b="182"/> <viz:size value="55"/></node>
-<node id="350.0" label="Lester Melie-Garcia"> <viz:color r="0" g="59" b="186"/> <viz:size value="53"/></node>
-<node id="349.0" label="Linda Dib"> <viz:color r="0" g="57" b="184"/> <viz:size value="54"/></node>
-<node id="351.0" label="Claudia Bank"> <viz:color r="0" g="61" b="188"/> <viz:size value="52"/></node>
-<node id="25.0" label="Daniel Hupp"> <viz:color r="95" g="30" b="143"/> <viz:size value="378"/></node>
-<node id="312.0" label="Johan Robertsson"> <viz:color r="19" g="6" b="127"/> <viz:size value="91"/></node>
-<node id="313.0" label="Jean M. Favre"> <viz:color r="17" g="5" b="127"/> <viz:size value="90"/></node>
-<node id="17.0" label="Angelo Auricchio"> <viz:color r="115" g="36" b="147"/> <viz:size value="386"/></node>
-<node id="15.0" label="Mark Potse"> <viz:color r="120" g="37" b="148"/> <viz:size value="388"/></node>
-<node id="16.0" label="Thomas Dickopf"> <viz:color r="117" g="36" b="147"/> <viz:size value="387"/></node>
-<node id="337.0" label="Marcus Grote"> <viz:color r="0" g="33" b="159"/> <viz:size value="66"/></node>
-<node id="18.0" label="Daniel Ruprecht"> <viz:color r="113" g="35" b="146"/> <viz:size value="385"/></node>
-<node id="84.0" label="Bart Vandereycken"> <viz:color r="0" g="39" b="165"/> <viz:size value="319"/></node>
-<node id="85.0" label="Michael Steinlechner"> <viz:color r="0" g="41" b="167"/> <viz:size value="318"/></node>
-<node id="267.0" label="Christian Boehm"> <viz:color r="130" g="40" b="150"/> <viz:size value="136"/></node>
-<node id="269.0" label="Andreas Fichtner"> <viz:color r="125" g="39" b="149"/> <viz:size value="134"/></node>
-<node id="8.0" label="Paolo Crosetto"> <viz:color r="137" g="43" b="151"/> <viz:size value="395"/></node>
-<node id="9.0" label="Gilles Fourestey"> <viz:color r="135" g="42" b="151"/> <viz:size value="394"/></node>
-<node id="113.0" label="Michele Pisaroni"> <viz:color r="0" g="96" b="225"/> <viz:size value="290"/></node>
-<node id="115.0" label="Francesco Tesei"> <viz:color r="0" g="99" b="229"/> <viz:size value="288"/></node>
-<node id="116.0" label="Sebastian Krumscheid"> <viz:color r="0" g="101" b="231"/> <viz:size value="287"/></node>
-<node id="114.0" label="Penelope Leyl"> <viz:color r="0" g="97" b="227"/> <viz:size value="289"/></node>
-<node id="361.0" label="Tobias Grosser"> <viz:color r="0" g="80" b="209"/> <viz:size value="42"/></node>
-<node id="210.0" label="Andrea Arteaga"> <viz:color r="162" g="255" b="218"/> <viz:size value="193"/></node>
-<node id="211.0" label="Christophe Charpilloz"> <viz:color r="164" g="255" b="216"/> <viz:size value="192"/></node>
-<node id="212.0" label="Olive Fuhrer"> <viz:color r="166" g="255" b="214"/> <viz:size value="191"/></node>
-<node id="362.0" label="Tobias Gysi"> <viz:color r="0" g="82" b="211"/> <viz:size value="41"/></node>
-<node id="363.0" label="Daniele Spampinato"> <viz:color r="0" g="84" b="213"/> <viz:size value="40"/></node>
-<node id="381.0" label="Oliver Martin Bernhardt"> <viz:color r="0" g="119" b="250"/> <viz:size value="22"/></node>
-<node id="165.0" label="Christos Lataniotis"> <viz:color r="73" g="201" b="255"/> <viz:size value="238"/></node>
-<node id="163.0" label="Stefano Marelli"> <viz:color r="69" g="197" b="255"/> <viz:size value="240"/></node>
-<node id="186.0" label="Martin Nägele"> <viz:color r="113" g="244" b="255"/> <viz:size value="217"/></node>
-<node id="187.0" label="Benny Sudakov"> <viz:color r="115" g="246" b="255"/> <viz:size value="216"/></node>
-<node id="184.0" label="Alfonso Cevallos"> <viz:color r="110" g="240" b="255"/> <viz:size value="219"/></node>
-<node id="185.0" label="Stefan Weltge"> <viz:color r="112" g="242" b="255"/> <viz:size value="218"/></node>
-<node id="180.0" label="Hyung-Chan An"> <viz:color r="102" g="232" b="255"/> <viz:size value="223"/></node>
-<node id="181.0" label="Ashkan Norouzi-Fard"> <viz:color r="104" g="234" b="255"/> <viz:size value="222"/></node>
-<node id="182.0" label="Chidambaram Annamalai"> <viz:color r="106" g="236" b="255"/> <viz:size value="221"/></node>
-<node id="183.0" label="Christos Kalaitzis"> <viz:color r="108" g="238" b="255"/> <viz:size value="220"/></node>
-<node id="291.0" label="Karthik Raoaroor"> <viz:color r="71" g="22" b="138"/> <viz:size value="112"/></node>
-<node id="96.0" label="Michel Kocher"> <viz:color r="0" g="63" b="190"/> <viz:size value="307"/></node>
-<node id="97.0" label="Djano Kandaswamy"> <viz:color r="0" g="64" b="192"/> <viz:size value="306"/></node>
-<node id="207.0" label="François Serre"> <viz:color r="156" g="255" b="224"/> <viz:size value="196"/></node>
-<node id="209.0" label="Victoria Caparros Cabezas"> <viz:color r="160" g="255" b="220"/> <viz:size value="194"/></node>
-<node id="289.0" label="Yves Wiaux"> <viz:color r="76" g="23" b="139"/> <viz:size value="114"/></node>
-<node id="33.0" label="Johannes Huber"> <viz:color r="76" g="23" b="139"/> <viz:size value="370"/></node>
-<node id="32.0" label="Grote Marcus"> <viz:color r="78" g="24" b="139"/> <viz:size value="371"/></node>
-<node id="141.0" label="Patrick Sanan"> <viz:color r="26" g="151" b="255"/> <viz:size value="262"/></node>
-<node id="142.0" label="Simplice Donfack"> <viz:color r="28" g="154" b="255"/> <viz:size value="261"/></node>
-<node id="34.0" label="Matthias Christen"> <viz:color r="73" g="23" b="138"/> <viz:size value="369"/></node>
-<node id="35.0" label="Helmar Burkhart"> <viz:color r="71" g="22" b="138"/> <viz:size value="368"/></node>
-<node id="309.0" label="Ylona van Dinther"> <viz:color r="26" g="8" b="129"/> <viz:size value="94"/></node>
-<node id="310.0" label="Casper Pranger"> <viz:color r="24" g="7" b="128"/> <viz:size value="93"/></node>
-<node id="118.0" label="Peter Reichert"> <viz:color r="0" g="105" b="235"/> <viz:size value="285"/></node>
-<node id="315.0" label="Simone Pezzuto"> <viz:color r="12" g="4" b="126"/> <viz:size value="88"/></node>
-<node id="316.0" label="Barna Errol Mario Becsek"> <viz:color r="9" g="3" b="126"/> <viz:size value="87"/></node>
-<node id="160.0" label="Moran Feldman"> <viz:color r="63" g="191" b="255"/> <viz:size value="243"/></node>
-<node id="322.0" label="Jonas Latt"> <viz:color r="0" g="4" b="128"/> <viz:size value="81"/></node>
-<node id="20.0" label="Erich Foster"> <viz:color r="108" g="33" b="145"/> <viz:size value="383"/></node>
-<node id="22.0" label="Patrick Zulian"> <viz:color r="103" g="32" b="144"/> <viz:size value="381"/></node>
-<node id="29.0" label="Alessio Quaglino"> <viz:color r="86" g="27" b="141"/> <viz:size value="374"/></node>
-<node id="28.0" label="Seif Ben Bader"> <viz:color r="88" g="27" b="141"/> <viz:size value="375"/></node>
-<node id="107.0" label="Ralf Hiptmair"> <viz:color r="0" g="84" b="213"/> <viz:size value="296"/></node>
-<node id="105.0" label="Fillippo Leonardi"> <viz:color r="0" g="80" b="209"/> <viz:size value="298"/></node>
-<node id="106.0" label="Laura Scarabosio"> <viz:color r="0" g="82" b="211"/> <viz:size value="297"/></node>
-<node id="104.0" label="Siddhartha Mishra"> <viz:color r="0" g="78" b="207"/> <viz:size value="299"/></node>
-<node id="338.0" label="Andreas Kreienbuehl"> <viz:color r="0" g="35" b="161"/> <viz:size value="65"/></node>
-<node id="143.0" label="Juraj Kardoš"> <viz:color r="30" g="156" b="255"/> <viz:size value="260"/></node>
-<node id="145.0" label="Fabio Verbosio"> <viz:color r="34" g="160" b="255"/> <viz:size value="258"/></node>
-<node id="263.0" label="Allan Nielsen"> <viz:color r="140" g="43" b="152"/> <viz:size value="140"/></node>
-<node id="264.0" label="Mengwu Guo"> <viz:color r="137" g="43" b="151"/> <viz:size value="139"/></node>
-<node id="265.0" label="Caterina Bigoni"> <viz:color r="135" g="42" b="151"/> <viz:size value="138"/></node>
-<node id="202.0" label="Alfio Lazzaro"> <viz:color r="146" g="255" b="234"/> <viz:size value="201"/></node>
-<node id="203.0" label="Ole Schuett"> <viz:color r="148" g="255" b="232"/> <viz:size value="200"/></node>
-<node id="384.0" label="Zhaoxuan Wu"> <viz:color r="1" g="125" b="255"/> <viz:size value="19"/></node>
-<node id="3.0" label="Peng Chen"> <viz:color r="149" g="46" b="154"/> <viz:size value="400"/></node>
-<node id="356.0" label="Sean Hill"> <viz:color r="0" g="70" b="198"/> <viz:size value="47"/></node>
-<node id="268.0" label="Naiara Korta Martiartu"> <viz:color r="127" g="40" b="149"/> <viz:size value="135"/></node>
-<node id="358.0" label="Marie-Christine Sawley"> <viz:color r="0" g="74" b="202"/> <viz:size value="45"/></node>
-<node id="359.0" label="Peter W.J. Staar"> <viz:color r="0" g="76" b="205"/> <viz:size value="44"/></node>
-<node id="5.0" label="Davide Forti"> <viz:color r="145" g="45" b="153"/> <viz:size value="398"/></node>
-<node id="58.0" label="Cyril Flaig"> <viz:color r="14" g="4" b="126"/> <viz:size value="345"/></node>
-<node id="59.0" label="Daniel Kellenberger"> <viz:color r="12" g="4" b="126"/> <viz:size value="344"/></node>
-<node id="380.0" label="Mauro Pezzè"> <viz:color r="0" g="117" b="248"/> <viz:size value="23"/></node>
-<node id="41.0" label="Stefan Richter"> <viz:color r="56" g="17" b="135"/> <viz:size value="362"/></node>
-<node id="193.0" label="Angelika Steger"> <viz:color r="127" g="255" b="252"/> <viz:size value="210"/></node>
-<node id="51.0" label="Friedrich Eisenbr"> <viz:color r="31" g="10" b="130"/> <viz:size value="352"/></node>
-<node id="82.0" label="Raffaele Solca"> <viz:color r="0" g="35" b="161"/> <viz:size value="321"/></node>
-<node id="357.0" label="Martin Jaggi"> <viz:color r="0" g="72" b="200"/> <viz:size value="46"/></node>
-<node id="93.0" label="Jonathan Scarlett"> <viz:color r="0" g="57" b="184"/> <viz:size value="310"/></node>
-<node id="94.0" label="Alp Yurtsever"> <viz:color r="0" g="59" b="186"/> <viz:size value="309"/></node>
-<node id="27.0" label="Xiaozhou Li"> <viz:color r="90" g="28" b="142"/> <viz:size value="376"/></node>
-<node id="26.0" label="Andreas Kreienbühl"> <viz:color r="93" g="29" b="142"/> <viz:size value="377"/></node>
-<node id="86.0" label="Jonas Ballani"> <viz:color r="0" g="43" b="169"/> <viz:size value="317"/></node>
-<node id="112.0" label="Lorenzo Tamellini"> <viz:color r="0" g="94" b="223"/> <viz:size value="291"/></node>
-<node id="117.0" label="Eleonora Musharbash"> <viz:color r="0" g="103" b="233"/> <viz:size value="286"/></node>
-<node id="125.0" label="Simone Ulzega"> <viz:color r="0" g="119" b="250"/> <viz:size value="278"/></node>
-<node id="168.0" label="RolSchöbi"> <viz:color r="79" g="207" b="255"/> <viz:size value="235"/></node>
-<node id="166.0" label="Schoebi Rol"> <viz:color r="75" g="203" b="255"/> <viz:size value="237"/></node>
-<node id="167.0" label="Chu Mai"> <viz:color r="77" g="205" b="255"/> <viz:size value="236"/></node>
-<node id="343.0" label="Karl Schmedders"> <viz:color r="0" g="45" b="172"/> <viz:size value="60"/></node>
-<node id="37.0" label="Laura Sanita'"> <viz:color r="66" g="20" b="137"/> <viz:size value="366"/></node>
-<node id="140.0" label="Dmitry Mikushin"> <viz:color r="24" g="149" b="255"/> <viz:size value="263"/></node>
-<node id="146.0" label="Aryan Eftekhar"> <viz:color r="36" g="162" b="255"/> <viz:size value="257"/></node>
-<node id="36.0" label="Madan Sathe"> <viz:color r="68" g="21" b="137"/> <viz:size value="367"/></node>
-<node id="360.0" label="Nicolas Mounet"> <viz:color r="0" g="78" b="207"/> <viz:size value="43"/></node>
-<node id="103.0" label="Vladimir Kazeev"> <viz:color r="0" g="76" b="205"/> <viz:size value="300"/></node>
-<node id="108.0" label="Robert N. Gantner"> <viz:color r="0" g="86" b="215"/> <viz:size value="295"/></node>
-<node id="102.0" label="Claudia Schillings"> <viz:color r="0" g="74" b="202"/> <viz:size value="301"/></node>
-<node id="2.0" label="Gianluigi Rozza"> <viz:color r="152" g="47" b="154"/> <viz:size value="401"/></node>
-<node id="6.0" label="Matteo Astorino"> <viz:color r="142" g="44" b="152"/> <viz:size value="397"/></node>
-<node id="7.0" label="Andrea Manzoni"> <viz:color r="140" g="43" b="152"/> <viz:size value="396"/></node>
-<node id="303.0" label="Juerg Hutter"> <viz:color r="41" g="13" b="132"/> <viz:size value="100"/></node>
-<node id="154.0" label="Timothee Ewart"> <viz:color r="51" g="178" b="255"/> <viz:size value="249"/></node>
-<node id="47.0" label="AlbertoGiovanni Busetto"> <viz:color r="41" g="13" b="132"/> <viz:size value="356"/></node>
-<node id="197.0" label="Manuela Fischer"> <viz:color r="135" g="255" b="244"/> <viz:size value="206"/></node>
-<node id="214.0" label="Florian Scheidegger"> <viz:color r="171" g="255" b="210"/> <viz:size value="189"/></node>
-<node id="56.0" label="Bendikt Oswald"> <viz:color r="19" g="6" b="127"/> <viz:size value="347"/></node>
-<node id="89.0" label="Radu Popescu"> <viz:color r="0" g="49" b="176"/> <viz:size value="314"/></node>
-<node id="60.0" label="Manuel Kohler"> <viz:color r="9" g="3" b="126"/> <viz:size value="343"/></node>
-<node id="19.0" label="Johannes Steiner"> <viz:color r="110" g="34" b="146"/> <viz:size value="384"/></node>
-<node id="13.0" label="Robert Speck"> <viz:color r="125" g="39" b="149"/> <viz:size value="390"/></node>
-<node id="11.0" label="Christian Gross"> <viz:color r="130" g="40" b="150"/> <viz:size value="392"/></node>
-<node id="30.0" label="Alena Kopanicakova"> <viz:color r="83" g="26" b="140"/> <viz:size value="373"/></node>
-<node id="10.0" label="Michael Gloor"> <viz:color r="132" g="41" b="150"/> <viz:size value="393"/></node>
-<node id="39.0" label="Alberto Del Pia"> <viz:color r="61" g="19" b="136"/> <viz:size value="364"/></node>
-<node id="40.0" label="Diethard Klatte"> <viz:color r="58" g="18" b="135"/> <viz:size value="363"/></node>
-<node id="64.0" label="Tulin Kaman"> <viz:color r="0" g="0" b="124"/> <viz:size value="339"/></node>
-<node id="65.0" label="H. Mete Soner"> <viz:color r="0" g="2" b="126"/> <viz:size value="338"/></node>
-<node id="66.0" label="Tristan Rivière"> <viz:color r="0" g="4" b="128"/> <viz:size value="337"/></node>
-<node id="67.0" label="Michel M. Chipot"> <viz:color r="0" g="6" b="130"/> <viz:size value="336"/></node>
-<node id="74.0" label="Martin J. Gander"> <viz:color r="0" g="20" b="145"/> <viz:size value="329"/></node>
-<node id="98.0" label="Michael M. Bronstein"> <viz:color r="0" g="66" b="194"/> <viz:size value="305"/></node>
-<node id="101.0" label="Martin Vetterli"> <viz:color r="0" g="72" b="200"/> <viz:size value="302"/></node>
-<node id="121.0" label="Hans Rudolf Kuensch"> <viz:color r="0" g="111" b="242"/> <viz:size value="282"/></node>
-<node id="124.0" label="Victor M. Panaretos"> <viz:color r="0" g="117" b="248"/> <viz:size value="279"/></node>
-<node id="126.0" label="Toni Lassila"> <viz:color r="0" g="121" b="252"/> <viz:size value="277"/></node>
-<node id="127.0" label="Jonas Šukys"> <viz:color r="0" g="123" b="254"/> <viz:size value="276"/></node>
-<node id="133.0" label="Henning Thomas"> <viz:color r="11" g="135" b="255"/> <viz:size value="270"/></node>
-<node id="134.0" label="Aditya Bhaskara"> <viz:color r="13" g="137" b="255"/> <viz:size value="269"/></node>
-<node id="135.0" label="Parinya Chalermsook"> <viz:color r="15" g="139" b="255"/> <viz:size value="268"/></node>
-<node id="138.0" label="Klaus-Tycho Förster"> <viz:color r="20" g="145" b="255"/> <viz:size value="265"/></node>
-<node id="139.0" label="Felix Kwok"> <viz:color r="22" g="147" b="255"/> <viz:size value="264"/></node>
-<node id="157.0" label="Jean-Philippe Vial"> <viz:color r="57" g="184" b="255"/> <viz:size value="246"/></node>
-<node id="162.0" label="Thomas Wuest"> <viz:color r="67" g="195" b="255"/> <viz:size value="241"/></node>
-<node id="172.0" label="Seyedehsomayeh Hosseini"> <viz:color r="86" g="215" b="255"/> <viz:size value="231"/></node>
-<node id="173.0" label="Guillaume Jouvet"> <viz:color r="88" g="217" b="255"/> <viz:size value="230"/></node>
-<node id="174.0" label="Xavier Bresson"> <viz:color r="90" g="219" b="255"/> <viz:size value="229"/></node>
-<node id="188.0" label="Janos Pach"> <viz:color r="117" g="248" b="255"/> <viz:size value="215"/></node>
-<node id="198.0" label="Aleksander Madry"> <viz:color r="138" g="255" b="242"/> <viz:size value="205"/></node>
-<node id="199.0" label="Robert Luce"> <viz:color r="140" g="255" b="240"/> <viz:size value="204"/></node>
-<node id="200.0" label="Edgar Solomonik"> <viz:color r="142" g="255" b="238"/> <viz:size value="203"/></node>
-<node id="201.0" label="Ding Lu"> <viz:color r="144" g="255" b="236"/> <viz:size value="202"/></node>
-<node id="206.0" label="Hoai-Minh Nguyen"> <viz:color r="154" g="255" b="226"/> <viz:size value="197"/></node>
-<node id="215.0" label="Kjetil O. Lye"> <viz:color r="173" g="255" b="208"/> <viz:size value="188"/></node>
-<node id="216.0" label="Hans Rudolf Künsch"> <viz:color r="175" g="255" b="206"/> <viz:size value="187"/></node>
-<node id="223.0" label="Anthony Davison"> <viz:color r="189" g="255" b="192"/> <viz:size value="180"/></node>
-<node id="231.0" label="Anja Becker"> <viz:color r="206" g="255" b="176"/> <viz:size value="172"/></node>
-<node id="235.0" label="János Pach"> <viz:color r="214" g="255" b="168"/> <viz:size value="168"/></node>
-<node id="236.0" label="Tsz Chiu Kwok"> <viz:color r="216" g="255" b="166"/> <viz:size value="167"/></node>
-<node id="237.0" label="Benjamin Sudakov"> <viz:color r="218" g="255" b="164"/> <viz:size value="166"/></node>
-<node id="243.0" label="Michael Liebling"> <viz:color r="230" g="255" b="152"/> <viz:size value="160"/></node>
-<node id="244.0" label="Pencho Yordanov"> <viz:color r="232" g="255" b="150"/> <viz:size value="159"/></node>
-<node id="257.0" label="Yousra El Bachir"> <viz:color r="154" g="48" b="155"/> <viz:size value="146"/></node>
-<node id="260.0" label="Léo Belzile"> <viz:color r="147" g="46" b="153"/> <viz:size value="143"/></node>
-<node id="261.0" label="Mikael Kuusela"> <viz:color r="145" g="45" b="153"/> <viz:size value="142"/></node>
-<node id="266.0" label="Marzio Sala"> <viz:color r="132" g="41" b="150"/> <viz:size value="137"/></node>
-<node id="270.0" label="Sebastian Stich"> <viz:color r="122" g="38" b="148"/> <viz:size value="133"/></node>
-<node id="277.0" label="Laura Keller"> <viz:color r="105" g="33" b="145"/> <viz:size value="126"/></node>
-<node id="278.0" label="Tal Ben-Nun"> <viz:color r="103" g="32" b="144"/> <viz:size value="125"/></node>
-<node id="279.0" label="Igor V. Pivkin"> <viz:color r="100" g="31" b="144"/> <viz:size value="124"/></node>
-<node id="283.0" label="Davide Torlo"> <viz:color r="90" g="28" b="142"/> <viz:size value="120"/></node>
-<node id="284.0" label="Dan Alistarh"> <viz:color r="88" g="27" b="141"/> <viz:size value="119"/></node>
-<node id="285.0" label="Pascal Su"> <viz:color r="86" g="27" b="141"/> <viz:size value="118"/></node>
-<node id="286.0" label="Jara Uitto"> <viz:color r="83" g="26" b="140"/> <viz:size value="117"/></node>
-<node id="287.0" label="Przemyslaw Uznanski"> <viz:color r="81" g="25" b="140"/> <viz:size value="116"/></node>
-<node id="288.0" label="Daniel W. Meyer"> <viz:color r="78" g="24" b="139"/> <viz:size value="115"/></node>
-<node id="292.0" label="Vasile Gradinaru"> <viz:color r="68" g="21" b="137"/> <viz:size value="111"/></node>
-<node id="293.0" label="Gisela Widmer"> <viz:color r="66" g="20" b="137"/> <viz:size value="110"/></node>
-<node id="294.0" label="Christof Voemel"> <viz:color r="63" g="20" b="136"/> <viz:size value="109"/></node>
-<node id="295.0" label="Martin H. Gutknecht"> <viz:color r="61" g="19" b="136"/> <viz:size value="108"/></node>
-<node id="296.0" label="Martin Gutknecht"> <viz:color r="58" g="18" b="135"/> <viz:size value="107"/></node>
-<node id="297.0" label="Halil Mete Soner"> <viz:color r="56" g="17" b="135"/> <viz:size value="106"/></node>
-<node id="298.0" label="Rafaela Guberovic"> <viz:color r="54" g="17" b="134"/> <viz:size value="105"/></node>
-<node id="307.0" label="Michele Ceriotti"> <viz:color r="31" g="10" b="130"/> <viz:size value="96"/></node>
-<node id="339.0" label="Martin Uhrin"> <viz:color r="0" g="37" b="163"/> <viz:size value="64"/></node>
-<node id="340.0" label="Markus Meuwly"> <viz:color r="0" g="39" b="165"/> <viz:size value="63"/></node>
-<node id="341.0" label="Carlos Osuna Escamilla"> <viz:color r="0" g="41" b="167"/> <viz:size value="62"/></node>
-<node id="347.0" label="Mauro Werder"> <viz:color r="0" g="53" b="180"/> <viz:size value="56"/></node>
-<node id="397.0" label="Mauro Bianco"> <viz:color r="26" g="151" b="255"/> <viz:size value="6"/></node>
-<node id="402.0" label="Ursula Röthlisberger"> <viz:color r="36" g="162" b="255"/> <viz:size value="1"/></node>
+<node id="12.0" label="Rolf Krause"> <viz:color r="253" g="255" b="130"/> <viz:size value="402"/></node>
+<node id="31.0" label="Olaf Schenk"> <viz:color r="75" g="203" b="255"/> <viz:size value="401"/></node>
+<node id="57.0" label="Christoph Schwab"> <viz:color r="46" g="172" b="255"/> <viz:size value="400"/></node>
+<node id="4.0" label="Simone Deparis"> <viz:color r="0" g="117" b="248"/> <viz:size value="399"/></node>
+<node id="164.0" label="Bruno Sudret"> <viz:color r="0" g="101" b="231"/> <viz:size value="398"/></node>
+<node id="24.0" label="Peter Arbenz"> <viz:color r="0" g="94" b="223"/> <viz:size value="397"/></node>
+<node id="87.0" label="Fabio Nobile"> <viz:color r="0" g="90" b="219"/> <viz:size value="396"/></node>
+<node id="55.0" label="Costas Bekas"> <viz:color r="0" g="86" b="215"/> <viz:size value="395"/></node>
+<node id="38.0" label="Rico Zenklusen"> <viz:color r="0" g="66" b="194"/> <viz:size value="394"/></node>
+<node id="1.0" label="Alfio Quarteroni"> <viz:color r="0" g="61" b="188"/> <viz:size value="393"/></node>
+<node id="213.0" label="Torsten Hoefler"> <viz:color r="0" g="55" b="182"/> <viz:size value="392"/></node>
+<node id="161.0" label="Ola Svensson"> <viz:color r="0" g="35" b="161"/> <viz:size value="391"/></node>
+<node id="73.0" label="Joost VandeVondele"> <viz:color r="0" g="26" b="151"/> <viz:size value="390"/></node>
+<node id="90.0" label="Volkan Cevher"> <viz:color r="0" g="22" b="147"/> <viz:size value="389"/></node>
+<node id="262.0" label="Jan S. Hesthaven"> <viz:color r="0" g="22" b="147"/> <viz:size value="388"/></node>
+<node id="308.0" label="Michael Afanasiev"> <viz:color r="0" g="16" b="141"/> <viz:size value="387"/></node>
+<node id="83.0" label="Daniel Kressner"> <viz:color r="2" g="1" b="124"/> <viz:size value="386"/></node>
+<node id="119.0" label="David Machac"> <viz:color r="2" g="1" b="124"/> <viz:size value="385"/></node>
+<node id="61.0" label="Dominik Obrist"> <viz:color r="9" g="3" b="126"/> <viz:size value="384"/></node>
+<node id="320.0" label="Nicolas Salamin"> <viz:color r="12" g="4" b="126"/> <viz:size value="383"/></node>
+<node id="311.0" label="Filippo Broggini"> <viz:color r="12" g="4" b="126"/> <viz:size value="382"/></node>
+<node id="328.0" label="Thomas Driesner"> <viz:color r="19" g="6" b="127"/> <viz:size value="381"/></node>
+<node id="314.0" label="Max Rietmann"> <viz:color r="19" g="6" b="127"/> <viz:size value="380"/></node>
+<node id="48.0" label="Robert Weismantel"> <viz:color r="22" g="7" b="128"/> <viz:size value="379"/></node>
+<node id="81.0" label="Thomas C. Schulthess"> <viz:color r="22" g="7" b="128"/> <viz:size value="378"/></node>
+<node id="95.0" label="Dimitri Van De Ville"> <viz:color r="22" g="7" b="128"/> <viz:size value="377"/></node>
+<node id="208.0" label="Markus Pueschel"> <viz:color r="22" g="7" b="128"/> <viz:size value="376"/></node>
+<node id="290.0" label="Pierre Vandergheynst"> <viz:color r="22" g="7" b="128"/> <viz:size value="375"/></node>
+<node id="321.0" label="Bastien Chopard"> <viz:color r="24" g="7" b="128"/> <viz:size value="374"/></node>
+<node id="342.0" label="Simon Scheidegger"> <viz:color r="26" g="8" b="129"/> <viz:size value="373"/></node>
+<node id="54.0" label="Alessandro Curioni"> <viz:color r="29" g="9" b="129"/> <viz:size value="372"/></node>
+<node id="52.0" label="Yves Ineichen"> <viz:color r="29" g="9" b="129"/> <viz:size value="371"/></node>
+<node id="151.0" label="Fabien Delalondre"> <viz:color r="29" g="9" b="129"/> <viz:size value="370"/></node>
+<node id="46.0" label="John Lygeros"> <viz:color r="31" g="10" b="130"/> <viz:size value="369"/></node>
+<node id="195.0" label="Andreas Noever"> <viz:color r="31" g="10" b="130"/> <viz:size value="368"/></node>
+<node id="43.0" label="Manfred Morari"> <viz:color r="39" g="12" b="131"/> <viz:size value="367"/></node>
+<node id="42.0" label="Colin Jones"> <viz:color r="39" g="12" b="131"/> <viz:size value="366"/></node>
+<node id="191.0" label="Rajko Nenadov"> <viz:color r="39" g="12" b="131"/> <viz:size value="365"/></node>
+<node id="192.0" label="Nemanja Skoric"> <viz:color r="39" g="12" b="131"/> <viz:size value="364"/></node>
+<node id="62.0" label="Cristiano Malossi"> <viz:color r="41" g="13" b="132"/> <viz:size value="363"/></node>
+<node id="53.0" label="Andreas Adelmann"> <viz:color r="41" g="13" b="132"/> <viz:size value="362"/></node>
+<node id="144.0" label="Drosos Kourounis"> <viz:color r="46" g="14" b="133"/> <viz:size value="361"/></node>
+<node id="382.0" label="Guillaume Anciaux"> <viz:color r="46" g="14" b="133"/> <viz:size value="360"/></node>
+<node id="383.0" label="William Curtin"> <viz:color r="46" g="14" b="133"/> <viz:size value="359"/></node>
+<node id="63.0" label="Peter W. J. Staar"> <viz:color r="49" g="15" b="133"/> <viz:size value="358"/></node>
+<node id="120.0" label="Carlo Albert"> <viz:color r="54" g="17" b="134"/> <viz:size value="357"/></node>
+<node id="21.0" label="Marco Favino"> <viz:color r="54" g="17" b="134"/> <viz:size value="356"/></node>
+<node id="14.0" label="Dorian Krause"> <viz:color r="58" g="18" b="135"/> <viz:size value="355"/></node>
+<node id="70.0" label="Mauro Calderara"> <viz:color r="61" g="19" b="136"/> <viz:size value="354"/></node>
+<node id="71.0" label="Sascha Brueck"> <viz:color r="61" g="19" b="136"/> <viz:size value="353"/></node>
+<node id="72.0" label="Hossein Bani-Hashemian"> <viz:color r="61" g="19" b="136"/> <viz:size value="352"/></node>
+<node id="69.0" label="Mathieu Luisier"> <viz:color r="61" g="19" b="136"/> <viz:size value="351"/></node>
+<node id="378.0" label="Alessandro Margara"> <viz:color r="63" g="20" b="136"/> <viz:size value="350"/></node>
+<node id="379.0" label="Mauro Santoro"> <viz:color r="63" g="20" b="136"/> <viz:size value="349"/></node>
+<node id="149.0" label="Felix Schurmann"> <viz:color r="63" g="20" b="136"/> <viz:size value="348"/></node>
+<node id="153.0" label="Jeffrey Muller"> <viz:color r="63" g="20" b="136"/> <viz:size value="347"/></node>
+<node id="150.0" label="Nenad Buncic"> <viz:color r="63" g="20" b="136"/> <viz:size value="346"/></node>
+<node id="152.0" label="Stefan Eilemann"> <viz:color r="63" g="20" b="136"/> <viz:size value="345"/></node>
+<node id="170.0" label="Reto Fahrni"> <viz:color r="63" g="20" b="136"/> <viz:size value="344"/></node>
+<node id="169.0" label="Paul-Remo Wagner"> <viz:color r="63" g="20" b="136"/> <viz:size value="343"/></node>
+<node id="171.0" label="Michael Klippel"> <viz:color r="63" g="20" b="136"/> <viz:size value="342"/></node>
+<node id="344.0" label="Johannes Brumm"> <viz:color r="66" g="20" b="137"/> <viz:size value="341"/></node>
+<node id="345.0" label="Patrick Gagliardini"> <viz:color r="66" g="20" b="137"/> <viz:size value="340"/></node>
+<node id="346.0" label="Daniel Harenberg"> <viz:color r="66" g="20" b="137"/> <viz:size value="339"/></node>
+<node id="44.0" label="Sean Summers"> <viz:color r="66" g="20" b="137"/> <viz:size value="338"/></node>
+<node id="45.0" label="Davide Raimondo"> <viz:color r="66" g="20" b="137"/> <viz:size value="337"/></node>
+<node id="194.0" label="Asaf Ferber"> <viz:color r="66" g="20" b="137"/> <viz:size value="336"/></node>
+<node id="196.0" label="Ueli Peter"> <viz:color r="66" g="20" b="137"/> <viz:size value="335"/></node>
+<node id="355.0" label="Nicola Marzari"> <viz:color r="68" g="21" b="137"/> <viz:size value="334"/></node>
+<node id="77.0" label="Panagiotis Hadjidoukas"> <viz:color r="68" g="21" b="137"/> <viz:size value="333"/></node>
+<node id="79.0" label="Dmitry Alexeev"> <viz:color r="68" g="21" b="137"/> <viz:size value="332"/></node>
+<node id="75.0" label="Diego Rossinelli"> <viz:color r="68" g="21" b="137"/> <viz:size value="331"/></node>
+<node id="76.0" label="Lina Kulakova"> <viz:color r="68" g="21" b="137"/> <viz:size value="330"/></node>
+<node id="78.0" label="Panagiotis Angelikopoulos"> <viz:color r="68" g="21" b="137"/> <viz:size value="329"/></node>
+<node id="80.0" label="Petros Koumoutsakos"> <viz:color r="68" g="21" b="137"/> <viz:size value="328"/></node>
+<node id="387.0" label="Christophe Dessimoz"> <viz:color r="68" g="21" b="137"/> <viz:size value="327"/></node>
+<node id="389.0" label="Rudiyanto Gunawan"> <viz:color r="68" g="21" b="137"/> <viz:size value="326"/></node>
+<node id="391.0" label="Michal Okoniewski"> <viz:color r="68" g="21" b="137"/> <viz:size value="325"/></node>
+<node id="393.0" label="Oliver Horlacher"> <viz:color r="68" g="21" b="137"/> <viz:size value="324"/></node>
+<node id="388.0" label="Christine Durinx"> <viz:color r="68" g="21" b="137"/> <viz:size value="323"/></node>
+<node id="390.0" label="Iakov Davydov"> <viz:color r="68" g="21" b="137"/> <viz:size value="322"/></node>
+<node id="392.0" label="Omid Shahmirzadi"> <viz:color r="68" g="21" b="137"/> <viz:size value="321"/></node>
+<node id="99.0" label="Dominique P. Zosso"> <viz:color r="68" g="21" b="137"/> <viz:size value="320"/></node>
+<node id="100.0" label="Jean-Philippe Thiran"> <viz:color r="68" g="21" b="137"/> <viz:size value="319"/></node>
+<node id="122.0" label="David Ginsbourger"> <viz:color r="68" g="21" b="137"/> <viz:size value="318"/></node>
+<node id="123.0" label="Ilya Molchanov"> <viz:color r="68" g="21" b="137"/> <viz:size value="317"/></node>
+<node id="130.0" label="Fabrizio Grandoni"> <viz:color r="68" g="21" b="137"/> <viz:size value="316"/></node>
+<node id="131.0" label="Marek Cygan"> <viz:color r="68" g="21" b="137"/> <viz:size value="315"/></node>
+<node id="132.0" label="Monaldo Mastrolilli"> <viz:color r="68" g="21" b="137"/> <viz:size value="314"/></node>
+<node id="147.0" label="Stephan Mohr"> <viz:color r="68" g="21" b="137"/> <viz:size value="313"/></node>
+<node id="148.0" label="Stefan Goedecker"> <viz:color r="68" g="21" b="137"/> <viz:size value="312"/></node>
+<node id="155.0" label="Napat Rujeerapaiboon"> <viz:color r="68" g="21" b="137"/> <viz:size value="311"/></node>
+<node id="156.0" label="Daniel Kuhn"> <viz:color r="68" g="21" b="137"/> <viz:size value="310"/></node>
+<node id="158.0" label="Michel Baes"> <viz:color r="68" g="21" b="137"/> <viz:size value="309"/></node>
+<node id="159.0" label="Michael Buergisser"> <viz:color r="68" g="21" b="137"/> <viz:size value="308"/></node>
+<node id="177.0" label="Friedrich Eisenbrand"> <viz:color r="68" g="21" b="137"/> <viz:size value="307"/></node>
+<node id="178.0" label="Yuri Faenza"> <viz:color r="68" g="21" b="137"/> <viz:size value="306"/></node>
+<node id="179.0" label="Carsten Moldenhauer"> <viz:color r="68" g="21" b="137"/> <viz:size value="305"/></node>
+<node id="189.0" label="Nisheeth K. Vishnoi"> <viz:color r="68" g="21" b="137"/> <viz:size value="304"/></node>
+<node id="190.0" label="Damian Straszak"> <viz:color r="68" g="21" b="137"/> <viz:size value="303"/></node>
+<node id="204.0" label="Dominik Inauen"> <viz:color r="68" g="21" b="137"/> <viz:size value="302"/></node>
+<node id="205.0" label="Camillo De Lellis"> <viz:color r="68" g="21" b="137"/> <viz:size value="301"/></node>
+<node id="217.0" label="James Irving"> <viz:color r="68" g="21" b="137"/> <viz:size value="300"/></node>
+<node id="218.0" label="Corinna Koepke"> <viz:color r="68" g="21" b="137"/> <viz:size value="299"/></node>
+<node id="219.0" label="Delphine Roubinet"> <viz:color r="68" g="21" b="137"/> <viz:size value="298"/></node>
+<node id="220.0" label="Arnulf Jentzen"> <viz:color r="68" g="21" b="137"/> <viz:size value="297"/></node>
+<node id="221.0" label="Patrick Cheridito"> <viz:color r="68" g="21" b="137"/> <viz:size value="296"/></node>
+<node id="222.0" label="Timo Welti"> <viz:color r="68" g="21" b="137"/> <viz:size value="295"/></node>
+<node id="226.0" label="Reinhard Furrer"> <viz:color r="68" g="21" b="137"/> <viz:size value="294"/></node>
+<node id="227.0" label="David Masson"> <viz:color r="68" g="21" b="137"/> <viz:size value="293"/></node>
+<node id="228.0" label="Christoph Jaeggli"> <viz:color r="68" g="21" b="137"/> <viz:size value="292"/></node>
+<node id="229.0" label="Julien Straubhaar"> <viz:color r="68" g="21" b="137"/> <viz:size value="291"/></node>
+<node id="230.0" label="Philippe Renard"> <viz:color r="68" g="21" b="137"/> <viz:size value="290"/></node>
+<node id="232.0" label="Hamed Hassani"> <viz:color r="68" g="21" b="137"/> <viz:size value="289"/></node>
+<node id="233.0" label="Nicolas Macris"> <viz:color r="68" g="21" b="137"/> <viz:size value="288"/></node>
+<node id="234.0" label="Rudiger Urbanke"> <viz:color r="68" g="21" b="137"/> <viz:size value="287"/></node>
+<node id="238.0" label="Pascal Frossard"> <viz:color r="68" g="21" b="137"/> <viz:size value="286"/></node>
+<node id="239.0" label="Dorina Thanou"> <viz:color r="68" g="21" b="137"/> <viz:size value="285"/></node>
+<node id="240.0" label="Virginie Uhlmann"> <viz:color r="68" g="21" b="137"/> <viz:size value="284"/></node>
+<node id="241.0" label="Daniel Schmitter"> <viz:color r="68" g="21" b="137"/> <viz:size value="283"/></node>
+<node id="242.0" label="Michael A. Unser"> <viz:color r="68" g="21" b="137"/> <viz:size value="282"/></node>
+<node id="252.0" label="Stefano Moret"> <viz:color r="68" g="21" b="137"/> <viz:size value="281"/></node>
+<node id="253.0" label="Michel Bierlaire"> <viz:color r="68" g="21" b="137"/> <viz:size value="280"/></node>
+<node id="254.0" label="François Maréchal"> <viz:color r="68" g="21" b="137"/> <viz:size value="279"/></node>
+<node id="255.0" label="Sai Ganesh S. Pai"> <viz:color r="68" g="21" b="137"/> <viz:size value="278"/></node>
+<node id="256.0" label="Ian Smith"> <viz:color r="68" g="21" b="137"/> <viz:size value="277"/></node>
+<node id="258.0" label="Djalel-Eddine Meskaldji"> <viz:color r="68" g="21" b="137"/> <viz:size value="276"/></node>
+<node id="259.0" label="Stephan Morgenthaler"> <viz:color r="68" g="21" b="137"/> <viz:size value="275"/></node>
+<node id="271.0" label="Marcus J Grote"> <viz:color r="68" g="21" b="137"/> <viz:size value="274"/></node>
+<node id="272.0" label="Uri Nahum"> <viz:color r="68" g="21" b="137"/> <viz:size value="273"/></node>
+<node id="273.0" label="Gianluca Crippa"> <viz:color r="68" g="21" b="137"/> <viz:size value="272"/></node>
+<node id="274.0" label="Camilla Nobili"> <viz:color r="68" g="21" b="137"/> <viz:size value="271"/></node>
+<node id="275.0" label="Brian Fitzpatrick"> <viz:color r="68" g="21" b="137"/> <viz:size value="270"/></node>
+<node id="276.0" label="Sanghyeon Yu"> <viz:color r="68" g="21" b="137"/> <viz:size value="269"/></node>
+<node id="280.0" label="Simone Carlo Surace"> <viz:color r="68" g="21" b="137"/> <viz:size value="268"/></node>
+<node id="281.0" label="Jean-Pascal Pfister"> <viz:color r="68" g="21" b="137"/> <viz:size value="267"/></node>
+<node id="282.0" label="Anna Kutschireiter"> <viz:color r="68" g="21" b="137"/> <viz:size value="266"/></node>
+<node id="299.0" label="Joppe Bos"> <viz:color r="68" g="21" b="137"/> <viz:size value="265"/></node>
+<node id="300.0" label="Arjen Lenstra"> <viz:color r="68" g="21" b="137"/> <viz:size value="264"/></node>
+<node id="301.0" label="Jean-Philippe Aumasson"> <viz:color r="68" g="21" b="137"/> <viz:size value="263"/></node>
+<node id="302.0" label="Luca Henzen"> <viz:color r="68" g="21" b="137"/> <viz:size value="262"/></node>
+<node id="304.0" label="William Sawyer"> <viz:color r="68" g="21" b="137"/> <viz:size value="261"/></node>
+<node id="305.0" label="Lucas Benedicic"> <viz:color r="68" g="21" b="137"/> <viz:size value="260"/></node>
+<node id="306.0" label="Juraj Kardos"> <viz:color r="68" g="21" b="137"/> <viz:size value="259"/></node>
+<node id="352.0" label="Romain Teyssier"> <viz:color r="68" g="21" b="137"/> <viz:size value="258"/></node>
+<node id="353.0" label="Lucio Mayer"> <viz:color r="68" g="21" b="137"/> <viz:size value="257"/></node>
+<node id="354.0" label="Alireza Rahmati"> <viz:color r="68" g="21" b="137"/> <viz:size value="256"/></node>
+<node id="368.0" label="Heiner Giefers"> <viz:color r="68" g="21" b="137"/> <viz:size value="255"/></node>
+<node id="369.0" label="Christof Sidler"> <viz:color r="68" g="21" b="137"/> <viz:size value="254"/></node>
+<node id="370.0" label="David Novo"> <viz:color r="68" g="21" b="137"/> <viz:size value="253"/></node>
+<node id="394.0" label="Joachim Stadel"> <viz:color r="68" g="21" b="137"/> <viz:size value="252"/></node>
+<node id="395.0" label="Clement Surville"> <viz:color r="68" g="21" b="137"/> <viz:size value="251"/></node>
+<node id="396.0" label="Simon Grimm"> <viz:color r="68" g="21" b="137"/> <viz:size value="250"/></node>
+<node id="68.0" label="Stephan Brunner"> <viz:color r="68" g="21" b="137"/> <viz:size value="249"/></node>
+<node id="128.0" label="Sahar Sargheini"> <viz:color r="68" g="21" b="137"/> <viz:size value="248"/></node>
+<node id="129.0" label="Alberto Paganini"> <viz:color r="68" g="21" b="137"/> <viz:size value="247"/></node>
+<node id="136.0" label="Stephan Holzer"> <viz:color r="68" g="21" b="137"/> <viz:size value="246"/></node>
+<node id="137.0" label="Roger Wattenhofer"> <viz:color r="68" g="21" b="137"/> <viz:size value="245"/></node>
+<node id="224.0" label="Leonhard Held"> <viz:color r="68" g="21" b="137"/> <viz:size value="244"/></node>
+<node id="225.0" label="Sebastian Meyer"> <viz:color r="68" g="21" b="137"/> <viz:size value="243"/></node>
+<node id="245.0" label="Damiano Pasetto"> <viz:color r="68" g="21" b="137"/> <viz:size value="242"/></node>
+<node id="247.0" label="Enrico Bertuzzo"> <viz:color r="68" g="21" b="137"/> <viz:size value="241"/></node>
+<node id="372.0" label="Noé Ohana"> <viz:color r="68" g="21" b="137"/> <viz:size value="240"/></node>
+<node id="374.0" label="Francois Gallaire"> <viz:color r="68" g="21" b="137"/> <viz:size value="239"/></node>
+<node id="376.0" label="Anne-Virginie Salsac"> <viz:color r="68" g="21" b="137"/> <viz:size value="238"/></node>
+<node id="398.0" label="Felix Schuermann"> <viz:color r="68" g="21" b="137"/> <viz:size value="237"/></node>
+<node id="400.0" label="Marc-Oliver Gewaltig"> <viz:color r="68" g="21" b="137"/> <viz:size value="236"/></node>
+<node id="246.0" label="Flavio Finger"> <viz:color r="68" g="21" b="137"/> <viz:size value="235"/></node>
+<node id="248.0" label="Andrea Rinaldo"> <viz:color r="68" g="21" b="137"/> <viz:size value="234"/></node>
+<node id="323.0" label="Manuel Peitsch"> <viz:color r="68" g="21" b="137"/> <viz:size value="233"/></node>
+<node id="324.0" label="Ioannis Xenarios"> <viz:color r="68" g="21" b="137"/> <viz:size value="232"/></node>
+<node id="325.0" label="Matthias Reumann"> <viz:color r="68" g="21" b="137"/> <viz:size value="231"/></node>
+<node id="326.0" label="Alain Sewer"> <viz:color r="68" g="21" b="137"/> <viz:size value="230"/></node>
+<node id="327.0" label="Arkadiusz Kuczaj"> <viz:color r="68" g="21" b="137"/> <viz:size value="229"/></node>
+<node id="371.0" label="Emmanuel Lanti"> <viz:color r="68" g="21" b="137"/> <viz:size value="228"/></node>
+<node id="373.0" label="Omar Awile"> <viz:color r="68" g="21" b="137"/> <viz:size value="227"/></node>
+<node id="375.0" label="Tobias M. Schneider"> <viz:color r="68" g="21" b="137"/> <viz:size value="226"/></node>
+<node id="377.0" label="Siamak Alimirzazadeh"> <viz:color r="68" g="21" b="137"/> <viz:size value="225"/></node>
+<node id="399.0" label="Eilif B. Muller"> <viz:color r="68" g="21" b="137"/> <viz:size value="224"/></node>
+<node id="401.0" label="Liesbeth Vanherpe"> <viz:color r="68" g="21" b="137"/> <viz:size value="223"/></node>
+<node id="249.0" label="Juan Pablo Carbajal"> <viz:color r="71" g="22" b="138"/> <viz:size value="222"/></node>
+<node id="250.0" label="Jörg Rieckermann"> <viz:color r="71" g="22" b="138"/> <viz:size value="221"/></node>
+<node id="251.0" label="Carlo Albert Eawag"> <viz:color r="71" g="22" b="138"/> <viz:size value="220"/></node>
+<node id="332.0" label="Stephen Miller"> <viz:color r="71" g="22" b="138"/> <viz:size value="219"/></node>
+<node id="329.0" label="Victor Vilarrasa"> <viz:color r="71" g="22" b="138"/> <viz:size value="218"/></node>
+<node id="330.0" label="Jean Decaix"> <viz:color r="71" g="22" b="138"/> <viz:size value="217"/></node>
+<node id="331.0" label="Julian Mindel"> <viz:color r="71" g="22" b="138"/> <viz:size value="216"/></node>
+<node id="334.0" label="Alessandro Rigazzi"> <viz:color r="71" g="22" b="138"/> <viz:size value="215"/></node>
+<node id="335.0" label="Joseph Doetsch"> <viz:color r="71" g="22" b="138"/> <viz:size value="214"/></node>
+<node id="333.0" label="Gunnar Jansen"> <viz:color r="71" g="22" b="138"/> <viz:size value="213"/></node>
+<node id="336.0" label="Ebrahim Jahanbakhsh"> <viz:color r="71" g="22" b="138"/> <viz:size value="212"/></node>
+<node id="49.0" label="Robert Hildebrand"> <viz:color r="71" g="22" b="138"/> <viz:size value="211"/></node>
+<node id="50.0" label="Kevin Zemmer"> <viz:color r="71" g="22" b="138"/> <viz:size value="210"/></node>
+<node id="175.0" label="Anton Kozhevnikov"> <viz:color r="71" g="22" b="138"/> <viz:size value="209"/></node>
+<node id="176.0" label="Solcà Raffaele"> <viz:color r="71" g="22" b="138"/> <viz:size value="208"/></node>
+<node id="91.0" label="Bubacarr Bah"> <viz:color r="73" g="23" b="138"/> <viz:size value="207"/></node>
+<node id="92.0" label="Luca Baldassarre"> <viz:color r="73" g="23" b="138"/> <viz:size value="206"/></node>
+<node id="88.0" label="Dave A. May"> <viz:color r="73" g="23" b="138"/> <viz:size value="205"/></node>
+<node id="365.0" label="Thomas Schulthess"> <viz:color r="73" g="23" b="138"/> <viz:size value="204"/></node>
+<node id="366.0" label="David Leutwyler"> <viz:color r="73" g="23" b="138"/> <viz:size value="203"/></node>
+<node id="364.0" label="Christoph Schär"> <viz:color r="73" g="23" b="138"/> <viz:size value="202"/></node>
+<node id="367.0" label="Oliver Fuhrer"> <viz:color r="73" g="23" b="138"/> <viz:size value="201"/></node>
+<node id="109.0" label="Juergen Doelz"> <viz:color r="73" g="23" b="138"/> <viz:size value="200"/></node>
+<node id="110.0" label="Helmut Harbrecht"> <viz:color r="73" g="23" b="138"/> <viz:size value="199"/></node>
+<node id="111.0" label="Michael Peters"> <viz:color r="73" g="23" b="138"/> <viz:size value="198"/></node>
+<node id="319.0" label="Adrien Lücker"> <viz:color r="76" g="23" b="139"/> <viz:size value="197"/></node>
+<node id="318.0" label="Antonello Gerbi"> <viz:color r="76" g="23" b="139"/> <viz:size value="196"/></node>
+<node id="317.0" label="Thomas Kummer"> <viz:color r="76" g="23" b="139"/> <viz:size value="195"/></node>
+<node id="23.0" label="Pietro Benedusi"> <viz:color r="76" g="23" b="139"/> <viz:size value="194"/></node>
+<node id="385.0" label="Fabio Pavia"> <viz:color r="76" g="23" b="139"/> <viz:size value="193"/></node>
+<node id="386.0" label="Jaehyun Cho"> <viz:color r="76" g="23" b="139"/> <viz:size value="192"/></node>
+<node id="348.0" label="Xavier Meyer"> <viz:color r="76" g="23" b="139"/> <viz:size value="191"/></node>
+<node id="350.0" label="Lester Melie-Garcia"> <viz:color r="76" g="23" b="139"/> <viz:size value="190"/></node>
+<node id="349.0" label="Linda Dib"> <viz:color r="76" g="23" b="139"/> <viz:size value="189"/></node>
+<node id="351.0" label="Claudia Bank"> <viz:color r="76" g="23" b="139"/> <viz:size value="188"/></node>
+<node id="25.0" label="Daniel Hupp"> <viz:color r="78" g="24" b="139"/> <viz:size value="187"/></node>
+<node id="312.0" label="Johan Robertsson"> <viz:color r="78" g="24" b="139"/> <viz:size value="186"/></node>
+<node id="313.0" label="Jean M. Favre"> <viz:color r="78" g="24" b="139"/> <viz:size value="185"/></node>
+<node id="17.0" label="Angelo Auricchio"> <viz:color r="81" g="25" b="140"/> <viz:size value="184"/></node>
+<node id="15.0" label="Mark Potse"> <viz:color r="81" g="25" b="140"/> <viz:size value="183"/></node>
+<node id="16.0" label="Thomas Dickopf"> <viz:color r="81" g="25" b="140"/> <viz:size value="182"/></node>
+<node id="337.0" label="Marcus Grote"> <viz:color r="81" g="25" b="140"/> <viz:size value="181"/></node>
+<node id="18.0" label="Daniel Ruprecht"> <viz:color r="81" g="25" b="140"/> <viz:size value="180"/></node>
+<node id="84.0" label="Bart Vandereycken"> <viz:color r="83" g="26" b="140"/> <viz:size value="179"/></node>
+<node id="85.0" label="Michael Steinlechner"> <viz:color r="83" g="26" b="140"/> <viz:size value="178"/></node>
+<node id="267.0" label="Christian Boehm"> <viz:color r="83" g="26" b="140"/> <viz:size value="177"/></node>
+<node id="269.0" label="Andreas Fichtner"> <viz:color r="83" g="26" b="140"/> <viz:size value="176"/></node>
+<node id="8.0" label="Paolo Crosetto"> <viz:color r="86" g="27" b="141"/> <viz:size value="175"/></node>
+<node id="9.0" label="Gilles Fourestey"> <viz:color r="86" g="27" b="141"/> <viz:size value="174"/></node>
+<node id="113.0" label="Michele Pisaroni"> <viz:color r="86" g="27" b="141"/> <viz:size value="173"/></node>
+<node id="115.0" label="Francesco Tesei"> <viz:color r="86" g="27" b="141"/> <viz:size value="172"/></node>
+<node id="116.0" label="Sebastian Krumscheid"> <viz:color r="86" g="27" b="141"/> <viz:size value="171"/></node>
+<node id="114.0" label="Penelope Leyl"> <viz:color r="86" g="27" b="141"/> <viz:size value="170"/></node>
+<node id="361.0" label="Tobias Grosser"> <viz:color r="90" g="28" b="142"/> <viz:size value="169"/></node>
+<node id="210.0" label="Andrea Arteaga"> <viz:color r="90" g="28" b="142"/> <viz:size value="168"/></node>
+<node id="211.0" label="Christophe Charpilloz"> <viz:color r="90" g="28" b="142"/> <viz:size value="167"/></node>
+<node id="212.0" label="Olive Fuhrer"> <viz:color r="90" g="28" b="142"/> <viz:size value="166"/></node>
+<node id="362.0" label="Tobias Gysi"> <viz:color r="90" g="28" b="142"/> <viz:size value="165"/></node>
+<node id="363.0" label="Daniele Spampinato"> <viz:color r="90" g="28" b="142"/> <viz:size value="164"/></node>
+<node id="381.0" label="Oliver Martin Bernhardt"> <viz:color r="90" g="28" b="142"/> <viz:size value="163"/></node>
+<node id="165.0" label="Christos Lataniotis"> <viz:color r="90" g="28" b="142"/> <viz:size value="162"/></node>
+<node id="163.0" label="Stefano Marelli"> <viz:color r="90" g="28" b="142"/> <viz:size value="161"/></node>
+<node id="186.0" label="Martin Nägele"> <viz:color r="93" g="29" b="142"/> <viz:size value="160"/></node>
+<node id="187.0" label="Benny Sudakov"> <viz:color r="93" g="29" b="142"/> <viz:size value="159"/></node>
+<node id="184.0" label="Alfonso Cevallos"> <viz:color r="93" g="29" b="142"/> <viz:size value="158"/></node>
+<node id="185.0" label="Stefan Weltge"> <viz:color r="93" g="29" b="142"/> <viz:size value="157"/></node>
+<node id="180.0" label="Hyung-Chan An"> <viz:color r="93" g="29" b="142"/> <viz:size value="156"/></node>
+<node id="181.0" label="Ashkan Norouzi-Fard"> <viz:color r="93" g="29" b="142"/> <viz:size value="155"/></node>
+<node id="182.0" label="Chidambaram Annamalai"> <viz:color r="93" g="29" b="142"/> <viz:size value="154"/></node>
+<node id="183.0" label="Christos Kalaitzis"> <viz:color r="93" g="29" b="142"/> <viz:size value="153"/></node>
+<node id="291.0" label="Karthik Raoaroor"> <viz:color r="93" g="29" b="142"/> <viz:size value="152"/></node>
+<node id="96.0" label="Michel Kocher"> <viz:color r="93" g="29" b="142"/> <viz:size value="151"/></node>
+<node id="97.0" label="Djano Kandaswamy"> <viz:color r="93" g="29" b="142"/> <viz:size value="150"/></node>
+<node id="207.0" label="François Serre"> <viz:color r="93" g="29" b="142"/> <viz:size value="149"/></node>
+<node id="209.0" label="Victoria Caparros Cabezas"> <viz:color r="93" g="29" b="142"/> <viz:size value="148"/></node>
+<node id="289.0" label="Yves Wiaux"> <viz:color r="93" g="29" b="142"/> <viz:size value="147"/></node>
+<node id="33.0" label="Johannes Huber"> <viz:color r="95" g="30" b="143"/> <viz:size value="146"/></node>
+<node id="32.0" label="Grote Marcus"> <viz:color r="95" g="30" b="143"/> <viz:size value="145"/></node>
+<node id="141.0" label="Patrick Sanan"> <viz:color r="95" g="30" b="143"/> <viz:size value="144"/></node>
+<node id="142.0" label="Simplice Donfack"> <viz:color r="95" g="30" b="143"/> <viz:size value="143"/></node>
+<node id="34.0" label="Matthias Christen"> <viz:color r="95" g="30" b="143"/> <viz:size value="142"/></node>
+<node id="35.0" label="Helmar Burkhart"> <viz:color r="95" g="30" b="143"/> <viz:size value="141"/></node>
+<node id="309.0" label="Ylona van Dinther"> <viz:color r="95" g="30" b="143"/> <viz:size value="140"/></node>
+<node id="310.0" label="Casper Pranger"> <viz:color r="95" g="30" b="143"/> <viz:size value="139"/></node>
+<node id="118.0" label="Peter Reichert"> <viz:color r="95" g="30" b="143"/> <viz:size value="138"/></node>
+<node id="315.0" label="Simone Pezzuto"> <viz:color r="95" g="30" b="143"/> <viz:size value="137"/></node>
+<node id="316.0" label="Barna Errol Mario Becsek"> <viz:color r="95" g="30" b="143"/> <viz:size value="136"/></node>
+<node id="160.0" label="Moran Feldman"> <viz:color r="95" g="30" b="143"/> <viz:size value="135"/></node>
+<node id="322.0" label="Jonas Latt"> <viz:color r="95" g="30" b="143"/> <viz:size value="134"/></node>
+<node id="20.0" label="Erich Foster"> <viz:color r="98" g="30" b="143"/> <viz:size value="133"/></node>
+<node id="22.0" label="Patrick Zulian"> <viz:color r="98" g="30" b="143"/> <viz:size value="132"/></node>
+<node id="29.0" label="Alessio Quaglino"> <viz:color r="98" g="30" b="143"/> <viz:size value="131"/></node>
+<node id="28.0" label="Seif Ben Bader"> <viz:color r="98" g="30" b="143"/> <viz:size value="130"/></node>
+<node id="107.0" label="Ralf Hiptmair"> <viz:color r="98" g="30" b="143"/> <viz:size value="129"/></node>
+<node id="105.0" label="Fillippo Leonardi"> <viz:color r="98" g="30" b="143"/> <viz:size value="128"/></node>
+<node id="106.0" label="Laura Scarabosio"> <viz:color r="98" g="30" b="143"/> <viz:size value="127"/></node>
+<node id="104.0" label="Siddhartha Mishra"> <viz:color r="98" g="30" b="143"/> <viz:size value="126"/></node>
+<node id="338.0" label="Andreas Kreienbuehl"> <viz:color r="100" g="31" b="144"/> <viz:size value="125"/></node>
+<node id="143.0" label="Juraj Kardoš"> <viz:color r="100" g="31" b="144"/> <viz:size value="124"/></node>
+<node id="145.0" label="Fabio Verbosio"> <viz:color r="100" g="31" b="144"/> <viz:size value="123"/></node>
+<node id="263.0" label="Allan Nielsen"> <viz:color r="100" g="31" b="144"/> <viz:size value="122"/></node>
+<node id="264.0" label="Mengwu Guo"> <viz:color r="100" g="31" b="144"/> <viz:size value="121"/></node>
+<node id="265.0" label="Caterina Bigoni"> <viz:color r="100" g="31" b="144"/> <viz:size value="120"/></node>
+<node id="202.0" label="Alfio Lazzaro"> <viz:color r="103" g="32" b="144"/> <viz:size value="119"/></node>
+<node id="203.0" label="Ole Schuett"> <viz:color r="103" g="32" b="144"/> <viz:size value="118"/></node>
+<node id="384.0" label="Zhaoxuan Wu"> <viz:color r="103" g="32" b="144"/> <viz:size value="117"/></node>
+<node id="3.0" label="Peng Chen"> <viz:color r="103" g="32" b="144"/> <viz:size value="116"/></node>
+<node id="356.0" label="Sean Hill"> <viz:color r="108" g="33" b="145"/> <viz:size value="115"/></node>
+<node id="268.0" label="Naiara Korta Martiartu"> <viz:color r="108" g="33" b="145"/> <viz:size value="114"/></node>
+<node id="358.0" label="Marie-Christine Sawley"> <viz:color r="108" g="33" b="145"/> <viz:size value="113"/></node>
+<node id="359.0" label="Peter W.J. Staar"> <viz:color r="108" g="33" b="145"/> <viz:size value="112"/></node>
+<node id="5.0" label="Davide Forti"> <viz:color r="110" g="34" b="146"/> <viz:size value="111"/></node>
+<node id="58.0" label="Cyril Flaig"> <viz:color r="110" g="34" b="146"/> <viz:size value="110"/></node>
+<node id="59.0" label="Daniel Kellenberger"> <viz:color r="110" g="34" b="146"/> <viz:size value="109"/></node>
+<node id="380.0" label="Mauro Pezzè"> <viz:color r="110" g="34" b="146"/> <viz:size value="108"/></node>
+<node id="41.0" label="Stefan Richter"> <viz:color r="113" g="35" b="146"/> <viz:size value="107"/></node>
+<node id="193.0" label="Angelika Steger"> <viz:color r="113" g="35" b="146"/> <viz:size value="106"/></node>
+<node id="51.0" label="Friedrich Eisenbr"> <viz:color r="115" g="36" b="147"/> <viz:size value="105"/></node>
+<node id="82.0" label="Raffaele Solca"> <viz:color r="115" g="36" b="147"/> <viz:size value="104"/></node>
+<node id="357.0" label="Martin Jaggi"> <viz:color r="115" g="36" b="147"/> <viz:size value="103"/></node>
+<node id="93.0" label="Jonathan Scarlett"> <viz:color r="115" g="36" b="147"/> <viz:size value="102"/></node>
+<node id="94.0" label="Alp Yurtsever"> <viz:color r="115" g="36" b="147"/> <viz:size value="101"/></node>
+<node id="27.0" label="Xiaozhou Li"> <viz:color r="120" g="37" b="148"/> <viz:size value="100"/></node>
+<node id="26.0" label="Andreas Kreienbühl"> <viz:color r="120" g="37" b="148"/> <viz:size value="99"/></node>
+<node id="86.0" label="Jonas Ballani"> <viz:color r="122" g="38" b="148"/> <viz:size value="98"/></node>
+<node id="112.0" label="Lorenzo Tamellini"> <viz:color r="122" g="38" b="148"/> <viz:size value="97"/></node>
+<node id="117.0" label="Eleonora Musharbash"> <viz:color r="122" g="38" b="148"/> <viz:size value="96"/></node>
+<node id="125.0" label="Simone Ulzega"> <viz:color r="125" g="39" b="149"/> <viz:size value="95"/></node>
+<node id="168.0" label="RolSchöbi"> <viz:color r="125" g="39" b="149"/> <viz:size value="94"/></node>
+<node id="166.0" label="Schoebi Rol"> <viz:color r="125" g="39" b="149"/> <viz:size value="93"/></node>
+<node id="167.0" label="Chu Mai"> <viz:color r="125" g="39" b="149"/> <viz:size value="92"/></node>
+<node id="343.0" label="Karl Schmedders"> <viz:color r="127" g="40" b="149"/> <viz:size value="91"/></node>
+<node id="37.0" label="Laura Sanita'"> <viz:color r="127" g="40" b="149"/> <viz:size value="90"/></node>
+<node id="140.0" label="Dmitry Mikushin"> <viz:color r="127" g="40" b="149"/> <viz:size value="89"/></node>
+<node id="146.0" label="Aryan Eftekhar"> <viz:color r="127" g="40" b="149"/> <viz:size value="88"/></node>
+<node id="36.0" label="Madan Sathe"> <viz:color r="127" g="40" b="149"/> <viz:size value="87"/></node>
+<node id="360.0" label="Nicolas Mounet"> <viz:color r="127" g="40" b="149"/> <viz:size value="86"/></node>
+<node id="103.0" label="Vladimir Kazeev"> <viz:color r="130" g="40" b="150"/> <viz:size value="85"/></node>
+<node id="108.0" label="Robert N. Gantner"> <viz:color r="130" g="40" b="150"/> <viz:size value="84"/></node>
+<node id="102.0" label="Claudia Schillings"> <viz:color r="130" g="40" b="150"/> <viz:size value="83"/></node>
+<node id="2.0" label="Gianluigi Rozza"> <viz:color r="132" g="41" b="150"/> <viz:size value="82"/></node>
+<node id="6.0" label="Matteo Astorino"> <viz:color r="132" g="41" b="150"/> <viz:size value="81"/></node>
+<node id="7.0" label="Andrea Manzoni"> <viz:color r="132" g="41" b="150"/> <viz:size value="80"/></node>
+<node id="303.0" label="Juerg Hutter"> <viz:color r="132" g="41" b="150"/> <viz:size value="79"/></node>
+<node id="154.0" label="Timothee Ewart"> <viz:color r="135" g="42" b="151"/> <viz:size value="78"/></node>
+<node id="47.0" label="AlbertoGiovanni Busetto"> <viz:color r="135" g="42" b="151"/> <viz:size value="77"/></node>
+<node id="197.0" label="Manuela Fischer"> <viz:color r="135" g="42" b="151"/> <viz:size value="76"/></node>
+<node id="214.0" label="Florian Scheidegger"> <viz:color r="135" g="42" b="151"/> <viz:size value="75"/></node>
+<node id="56.0" label="Bendikt Oswald"> <viz:color r="135" g="42" b="151"/> <viz:size value="74"/></node>
+<node id="89.0" label="Radu Popescu"> <viz:color r="137" g="43" b="151"/> <viz:size value="73"/></node>
+<node id="60.0" label="Manuel Kohler"> <viz:color r="137" g="43" b="151"/> <viz:size value="72"/></node>
+<node id="19.0" label="Johannes Steiner"> <viz:color r="140" g="43" b="152"/> <viz:size value="71"/></node>
+<node id="13.0" label="Robert Speck"> <viz:color r="140" g="43" b="152"/> <viz:size value="70"/></node>
+<node id="11.0" label="Christian Gross"> <viz:color r="140" g="43" b="152"/> <viz:size value="69"/></node>
+<node id="30.0" label="Alena Kopanicakova"> <viz:color r="140" g="43" b="152"/> <viz:size value="68"/></node>
+<node id="10.0" label="Michael Gloor"> <viz:color r="157" g="49" b="155"/> <viz:size value="67"/></node>
+<node id="39.0" label="Alberto Del Pia"> <viz:color r="157" g="49" b="155"/> <viz:size value="66"/></node>
+<node id="40.0" label="Diethard Klatte"> <viz:color r="157" g="49" b="155"/> <viz:size value="65"/></node>
+<node id="64.0" label="Tulin Kaman"> <viz:color r="157" g="49" b="155"/> <viz:size value="64"/></node>
+<node id="65.0" label="H. Mete Soner"> <viz:color r="157" g="49" b="155"/> <viz:size value="63"/></node>
+<node id="66.0" label="Tristan Rivière"> <viz:color r="157" g="49" b="155"/> <viz:size value="62"/></node>
+<node id="67.0" label="Michel M. Chipot"> <viz:color r="157" g="49" b="155"/> <viz:size value="61"/></node>
+<node id="74.0" label="Martin J. Gander"> <viz:color r="157" g="49" b="155"/> <viz:size value="60"/></node>
+<node id="98.0" label="Michael M. Bronstein"> <viz:color r="157" g="49" b="155"/> <viz:size value="59"/></node>
+<node id="101.0" label="Martin Vetterli"> <viz:color r="157" g="49" b="155"/> <viz:size value="58"/></node>
+<node id="121.0" label="Hans Rudolf Kuensch"> <viz:color r="157" g="49" b="155"/> <viz:size value="57"/></node>
+<node id="124.0" label="Victor M. Panaretos"> <viz:color r="157" g="49" b="155"/> <viz:size value="56"/></node>
+<node id="126.0" label="Toni Lassila"> <viz:color r="157" g="49" b="155"/> <viz:size value="55"/></node>
+<node id="127.0" label="Jonas Šukys"> <viz:color r="157" g="49" b="155"/> <viz:size value="54"/></node>
+<node id="133.0" label="Henning Thomas"> <viz:color r="157" g="49" b="155"/> <viz:size value="53"/></node>
+<node id="134.0" label="Aditya Bhaskara"> <viz:color r="157" g="49" b="155"/> <viz:size value="52"/></node>
+<node id="135.0" label="Parinya Chalermsook"> <viz:color r="157" g="49" b="155"/> <viz:size value="51"/></node>
+<node id="138.0" label="Klaus-Tycho Förster"> <viz:color r="157" g="49" b="155"/> <viz:size value="50"/></node>
+<node id="139.0" label="Felix Kwok"> <viz:color r="157" g="49" b="155"/> <viz:size value="49"/></node>
+<node id="157.0" label="Jean-Philippe Vial"> <viz:color r="157" g="49" b="155"/> <viz:size value="48"/></node>
+<node id="162.0" label="Thomas Wuest"> <viz:color r="157" g="49" b="155"/> <viz:size value="47"/></node>
+<node id="172.0" label="Seyedehsomayeh Hosseini"> <viz:color r="157" g="49" b="155"/> <viz:size value="46"/></node>
+<node id="173.0" label="Guillaume Jouvet"> <viz:color r="157" g="49" b="155"/> <viz:size value="45"/></node>
+<node id="174.0" label="Xavier Bresson"> <viz:color r="157" g="49" b="155"/> <viz:size value="44"/></node>
+<node id="188.0" label="Janos Pach"> <viz:color r="157" g="49" b="155"/> <viz:size value="43"/></node>
+<node id="198.0" label="Aleksander Madry"> <viz:color r="157" g="49" b="155"/> <viz:size value="42"/></node>
+<node id="199.0" label="Robert Luce"> <viz:color r="157" g="49" b="155"/> <viz:size value="41"/></node>
+<node id="200.0" label="Edgar Solomonik"> <viz:color r="157" g="49" b="155"/> <viz:size value="40"/></node>
+<node id="201.0" label="Ding Lu"> <viz:color r="157" g="49" b="155"/> <viz:size value="39"/></node>
+<node id="206.0" label="Hoai-Minh Nguyen"> <viz:color r="157" g="49" b="155"/> <viz:size value="38"/></node>
+<node id="215.0" label="Kjetil O. Lye"> <viz:color r="157" g="49" b="155"/> <viz:size value="37"/></node>
+<node id="216.0" label="Hans Rudolf Künsch"> <viz:color r="157" g="49" b="155"/> <viz:size value="36"/></node>
+<node id="223.0" label="Anthony Davison"> <viz:color r="157" g="49" b="155"/> <viz:size value="35"/></node>
+<node id="231.0" label="Anja Becker"> <viz:color r="157" g="49" b="155"/> <viz:size value="34"/></node>
+<node id="235.0" label="János Pach"> <viz:color r="157" g="49" b="155"/> <viz:size value="33"/></node>
+<node id="236.0" label="Tsz Chiu Kwok"> <viz:color r="157" g="49" b="155"/> <viz:size value="32"/></node>
+<node id="237.0" label="Benjamin Sudakov"> <viz:color r="157" g="49" b="155"/> <viz:size value="31"/></node>
+<node id="243.0" label="Michael Liebling"> <viz:color r="157" g="49" b="155"/> <viz:size value="30"/></node>
+<node id="244.0" label="Pencho Yordanov"> <viz:color r="157" g="49" b="155"/> <viz:size value="29"/></node>
+<node id="257.0" label="Yousra El Bachir"> <viz:color r="157" g="49" b="155"/> <viz:size value="28"/></node>
+<node id="260.0" label="Léo Belzile"> <viz:color r="157" g="49" b="155"/> <viz:size value="27"/></node>
+<node id="261.0" label="Mikael Kuusela"> <viz:color r="157" g="49" b="155"/> <viz:size value="26"/></node>
+<node id="266.0" label="Marzio Sala"> <viz:color r="157" g="49" b="155"/> <viz:size value="25"/></node>
+<node id="270.0" label="Sebastian Stich"> <viz:color r="157" g="49" b="155"/> <viz:size value="24"/></node>
+<node id="277.0" label="Laura Keller"> <viz:color r="157" g="49" b="155"/> <viz:size value="23"/></node>
+<node id="278.0" label="Tal Ben-Nun"> <viz:color r="157" g="49" b="155"/> <viz:size value="22"/></node>
+<node id="279.0" label="Igor V. Pivkin"> <viz:color r="157" g="49" b="155"/> <viz:size value="21"/></node>
+<node id="283.0" label="Davide Torlo"> <viz:color r="157" g="49" b="155"/> <viz:size value="20"/></node>
+<node id="284.0" label="Dan Alistarh"> <viz:color r="157" g="49" b="155"/> <viz:size value="19"/></node>
+<node id="285.0" label="Pascal Su"> <viz:color r="157" g="49" b="155"/> <viz:size value="18"/></node>
+<node id="286.0" label="Jara Uitto"> <viz:color r="157" g="49" b="155"/> <viz:size value="17"/></node>
+<node id="287.0" label="Przemyslaw Uznanski"> <viz:color r="157" g="49" b="155"/> <viz:size value="16"/></node>
+<node id="288.0" label="Daniel W. Meyer"> <viz:color r="157" g="49" b="155"/> <viz:size value="15"/></node>
+<node id="292.0" label="Vasile Gradinaru"> <viz:color r="157" g="49" b="155"/> <viz:size value="14"/></node>
+<node id="293.0" label="Gisela Widmer"> <viz:color r="157" g="49" b="155"/> <viz:size value="13"/></node>
+<node id="294.0" label="Christof Voemel"> <viz:color r="157" g="49" b="155"/> <viz:size value="12"/></node>
+<node id="295.0" label="Martin H. Gutknecht"> <viz:color r="157" g="49" b="155"/> <viz:size value="11"/></node>
+<node id="296.0" label="Martin Gutknecht"> <viz:color r="157" g="49" b="155"/> <viz:size value="10"/></node>
+<node id="297.0" label="Halil Mete Soner"> <viz:color r="157" g="49" b="155"/> <viz:size value="9"/></node>
+<node id="298.0" label="Rafaela Guberovic"> <viz:color r="157" g="49" b="155"/> <viz:size value="8"/></node>
+<node id="307.0" label="Michele Ceriotti"> <viz:color r="157" g="49" b="155"/> <viz:size value="7"/></node>
+<node id="339.0" label="Martin Uhrin"> <viz:color r="157" g="49" b="155"/> <viz:size value="6"/></node>
+<node id="340.0" label="Markus Meuwly"> <viz:color r="157" g="49" b="155"/> <viz:size value="5"/></node>
+<node id="341.0" label="Carlos Osuna Escamilla"> <viz:color r="157" g="49" b="155"/> <viz:size value="4"/></node>
+<node id="347.0" label="Mauro Werder"> <viz:color r="157" g="49" b="155"/> <viz:size value="3"/></node>
+<node id="397.0" label="Mauro Bianco"> <viz:color r="157" g="49" b="155"/> <viz:size value="2"/></node>
+<node id="402.0" label="Ursula Röthlisberger"> <viz:color r="157" g="49" b="155"/> <viz:size value="1"/></node>
 </nodes>
 <edges count="503">
 <edge id="1" source="1.0" target="2.0"/>

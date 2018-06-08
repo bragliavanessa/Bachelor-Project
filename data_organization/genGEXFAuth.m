@@ -307,14 +307,18 @@ index = [12 31 57 4 164 24 87 55 38 1 ...
 397 402];
 sz    = length(index):-1:1;
 
+mn = min(TP.Pagerank);
+h  = (max(TP.Pagerank) - mn) / 255;
+%mp = min(TP.Pagerank):h:max(TP.Pagerank);
+
 fprintf(f, '<nodes count="%d">\n', size(m,1));
 for j = 1:size(m,1)
     k = index(j);
-    kcm = mod(k, 256)+1;
+    kcm = floor((TP.Pagerank(j)-mn)/h + 1);
     a = authors(k).name;
     fprintf(f, '<node id="%.1f" label="%s"> ', k, a);
     fprintf(f, '<viz:color r="%d" g="%d" b="%d"/> ', cm(kcm,1), cm(kcm,2), cm(kcm,3));
-    fprintf(f, '<viz:size value="%d"/>', sz(k));
+    fprintf(f, '<viz:size value="%d"/>', sz(j));
     fprintf(f, '</node>\n');
 end
 fprintf(f, '</nodes>\n');

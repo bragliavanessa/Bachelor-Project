@@ -48,7 +48,7 @@ for j = 1:size(u,1)
     k = index(j);
     fprintf(f, '<node id="%.1f" label="%s"> ', k, univ{k});
     fprintf(f, '<viz:color r="%d" g="%d" b="%d"/> ', cm(k,1), cm(k,2), cm(k,3));
-    fprintf(f, '<viz:size value="%d"/>', sz(k));
+    fprintf(f, '<viz:size value="%d"/>', sz(j));
     fprintf(f, '</node>\n');
 end
 fprintf(f, '</nodes>\n');
