@@ -174,7 +174,7 @@ From this data set I easily create the adjacency matrix and thanks to the indexe
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The PageRank Algorithm} \label{sec:pagerank} 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-PageRank is an algorithm used by Google Search to rank websites in their search engine results. It was developed by  Larry Page and  Sergey Brin (the Google founders) in 1996 as part of their research project at Stanford University~\cite{PR}.
+PageRank is an algorithm used by Google Search to rank websites in their search engine results. It was developed by  Larry Page and  Sergey Brin (the Google founders) in 1996 as part of their research project at Stanford University~\cite{pagerank}.
 
 PageRank is used, together with other algorithms, to measure the importance of web pages and sort them by popularity in the results; it can be used on any graph to compute the importance of each node by its PageRank value. Larry Page and  Sergey Brin algorithm works by counting the number and quality of links to a page, to compute a value which represents its importance: more popular a page is, more likely it receives links from other websites and even more likely from important websites.
 
@@ -222,7 +222,7 @@ a_{ij} =
 \frac{1}{n} & \text{if } c_{j} = 0
 \end{cases}.
 \end{equation}
-In other words, if page $j$ has no outer links, it means that column $j$ of $A$ present a uniform probability $\frac{1}{n}$ in all its elements. Since matrix A is a transition matrix of a Markov chain~\cite{MarkovChain}, all its eigenvalues are real, between 0 and 1, and 1 is an eigenvalue itself
+In other words, if page $j$ has no outer links, it means that column $j$ of $A$ present a uniform probability $\frac{1}{n}$ in all its elements. Since matrix A is a transition matrix of a Markov chain~\cite[Chapter 7]{markov}, all its eigenvalues are real, between 0 and 1, and 1 is an eigenvalue itself
 $$0 \leq \lambda_1 \leq \lambda_2 \leq \dots \leq \lambda_n = 1 \text{.}$$
 We can now compute PageRank values by solving the problem 
 
@@ -230,7 +230,7 @@ We can now compute PageRank values by solving the problem
 A\:x = x \text{.}
 \end{equation}
 
-This is a particular eigenvalue problem~\cite{eigenproblem} of the form $Ax=\lambda x$, where, in our specific case, $\lambda = 1$. We compute the eigenvector relative to the greatest eigenvalue, which is 1 as just mentioned.
+This is a particular eigenvalue problem (for more details see~\cite[Chapter 8]{eigs}) of the form $Ax=\lambda x$, where, in our specific case, $\lambda = 1$. We compute the eigenvector relative to the greatest eigenvalue, which is 1 as just mentioned.
 
 The transition matrix $A$ can be written as
 $$A = pGD+ez^{T}, $$
@@ -285,15 +285,41 @@ and then rescale the solution so that $\sum\limits_{i=1}^{n} x_i = 1$.
 
 
 
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\section{The Graph Partitioning Algorithm} \label{sec:graphpart} 
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%Graph partitioning consists in dividing a graph $G=(V,E)$\footnote{A graph G with vertexes V and edges E.}  cutting the smaller number of edges and obtaining sub-graphs with specific properties. For example k-way partitioning divides the graph G into k smaller components.
-%
-%A partitioning algorithm is said to be efficient if it divides a given graph into smaller components with about the same size, cutting as few edges as possible. 
-%A valid and fast method is the coordinate bisection, which simply chooses a partitioning plane perpendicular to one of the coordinate axes but spectral algorithm is more efficient. It finds a partition based on the eigenvalues and eigenvectors of the Laplacian matrix of the graph and doesn't need the nodal coordinates.
-%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Graph Partitioning Algorithm} \label{sec:graphpart} 
+%%%%%%%%%%%%%%%%%%%%%%%%%
+Graph partitioning consists in dividing a graph $G=(V,E)$\footnote{A graph G with vertexes V and edges E.}  cutting the smaller number of edges and obtaining sub-graphs with specific properties. K-way partitioning of a graph G of n nodes, consists in a division of its nodes in k disjoint subset, all with size nearly $\frac{n}{k}$ (see Figure \ref{fig:kpartitioning}). The idea is just to apply the spectral partitioning $\frac{k}{2}$ times recursively to each of the partitions obtained. The method is presented in Algorithm~\ref{kpartitioning}.
+
+\begin{figure}[ht]
+	\centering
+	\includegraphics[height=3cm]{img/k_way_partitioning.jpg}
+	\caption{Example of k-way graph partitioning}
+	\label{fig:kpartitioning}
+\end{figure}
+
+\begin{algorithm}
+\caption{ (k-way Partitioning)}\label{kpartitioning}
+\begin{algorithmic}[1]
+\Procedure{k-way Partitioning}{}
+\State $\textit{G} \gets \text{(V,E)}$
+\State $k \gets \text{number of desired partitions}$
+\State $\text{Apply spectral partitioning on G and find }G_1 \text{ and } G_2$
+\BState \emph{loop}:
+\If {$\frac{k}{2} > 1$}
+\State $\text{Recursive partition on }G_1 \text{ with } \frac{k}{2}$
+\State $\text{Recursive partition on }G_2 \text{ with } \frac{k}{2}$
+\State $k \gets \frac{k}{2}$
+\EndIf
+\State \textbf{goto} \emph{loop}\\
+\Return $G_1 = (V_1,E_1) \text{ ... } G_K = (V_K,E_K)$
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+A partitioning algorithm is said to be efficient if it divides a given graph into smaller components with about the same size, cutting as few edges as possible. 
+A valid and fast method is the coordinate bisection, which simply chooses a partitioning plane perpendicular to one of the coordinate axes but spectral algorithm is more efficient. It finds a partition based on the eigenvalues and eigenvectors of the Laplacian matrix of the graph and doesn't need the nodal coordinates.
+
 %As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave similarly but usually the second one is more effective even if it cuts more edges.
 %\begin{figure}[ht]
 %	\centering
@@ -312,108 +338,60 @@ and then rescale the solution so that $\sum\limits_{i=1}^{n} x_i = 1$.
 %	\caption{In both \subref{fig:corandsp} and \subref{fig:cororsp} we have the graph at the left, the coordinate bisection in the middle and the spectral partition on the right}
 %	\label{fig:partitioning}
 %\end{figure}
-%
-%\subsection{How to apply spectral graph partitioning}
-%To apply graph partitioning we need the adjacency matrix $A$ of the graph, which is symmetric since the graph is considered to be undirected, and the Laplacian matrix $L$ constructed such that: 
-%\begin{equation}\notag
-%L_{ij} = 
-%\begin{cases}
-%d_i \tab \:\:\: if \:\: i=j \\
-%-1 \tab if \:\: i \neq j \:\: and \: \: (i,j) \in E \\
-%0 \tab \:\:\:\: \text{otherwise}
-%\end{cases}
-%\end{equation}
-%where $d_i$ is the vertex degree of node $i \in V$.
-%The relation between A and L is
-%\begin{equation}\notag
-%L = D - A
-%\end{equation}
-%where D is the diagonal matrix having the $d_i$'s on the diagonal. Since L is symmetric and positive semidefinite by construction, all its eigenvalues are real and nonnegative. The first eigenvalue is always zero and, in the general case, the multiplicity of the the first eigenvalue corresponds to the number of connected components of the graph.
-%
-%The eigenvalues of L are ordered as follows:
-%\begin{equation}\notag
-%0 = \lambda_1 = \ldots = \lambda_m < \lambda_{m+1} \le \ldots \lambda_n
-%\end{equation}
-%
-%The eigenvector corresponding to the first eigenvalue $\lambda_1$ is the vector of all ones and it does not provide information about the graph structure; the second lowest eigenvector, instead, called ``Fiedler eigenvector'', is used by spectral partitioning to return the smaller sub-graphs. Dividing the nodes of graph G according to the median $s$ of the Fiedler vector $v = (v_1,v_2,...,v_n)$ gives two partitions $V_1$ and $V_2$ such that
-%\begin{equation}\notag
-%\begin{cases}
-%v_i \in V_1 \text{\;\; if \;\;} v_i \leq s \\
-%v_i \in V_2 \text{\;\; if \;\;} v_i > s
-%\end{cases} .
-%\end{equation}
-%Such a partition is called the Fiedler cut and leads to two parts of G with nearly equal number of vertexes, minimizing the number of cut edges. 
-%
-%Fiedler theorem said that if the graph G is connected, L the Laplacian matrix, $N_+$ and $N_-$ a partitioning such that
-%\begin{equation}\notag
-%x(i) = +1 \tab \text{if } v_i \text{in } N_+ 
-%\end{equation}
-%\begin{equation}\notag
-%x(i) = -1 \tab \text{if } v_i \text{in } N_-
-%\end{equation}
-%
-%Then the number of edges cut is:
-%\begin{equation}\notag
-%\#\text{edge\_cut} = \frac{1}{4}x^T L x
-%\end{equation}
-%
-%This problem of minimizing the number of cut edges is NP-hard and can be written as a constrained minimization problem:
-%\begin{equation}\notag
-%\min\limits_z f(z)=\frac{1}{4} z^T L z \tab \text{subject to} \tab 
-%\begin{cases}
-%z^T z = n \tab \text{z is a real vector}\\
-%z^T e = 0 \tab \text{with } e=[1,1,...,1]^T
-%\end{cases}
-%\end{equation}
-%
-%
-%\begin{algorithm}
-%\caption{ (Graph Partitioning)}\label{gpartitioning}
-%\begin{algorithmic}[1]
-%\Procedure{Graph Partitioning}{}
-%\State $\textit{G} \gets \text{(V,E)}$
-%\State $\text{compute Fiedler vector of } \textit{L = D - A}$
-%\State $\text{Sort the vector values}$
-%\State $\text{Put first half of the nodes in } V_1 \text{ and second half in } V_2$
-%\State $ E_1 \gets \text{ edges with both nodes in } V_1$
-%\State $ E_2 \gets \text{ edges with both nodes in } V_2$\\
-%\Return $\textit{G1} = \text{(V1,E1) and } \textit{G2} = \text{(V2,E2)}$
-%\EndProcedure
-%\end{algorithmic}
-%\end{algorithm}
-%
-%
-%
-%\subsection{K-way Partitioning}
-%K-way partitioning of a graph G of n nodes, consists in a division of its nodes in k disjoint subset, all with size nearly $\frac{n}{k}$ (see Figure \ref{fig:kpartitioning}).
-%
-%\begin{figure}[ht]
-%	\centering
-%	\includegraphics[height=3cm]{img/k_way_partitioning.jpg}
-%	\caption{Example of k-way graph partitioning}
-%	\label{fig:kpartitioning}
-%\end{figure}
-%
-%We consider only the simple case where we want to divide the graph in k partitions and k is a power of two. The idea is just to apply the spectral partitioning $\frac{k}{2}$ times recursively to each of the partitions obtained. The method is presented in Algorithm~\ref{kpartitioning}.
-%
-%\begin{algorithm}
-%\caption{ (k-way Partitioning)}\label{kpartitioning}
-%\begin{algorithmic}[1]
-%\Procedure{k-way Partitioning}{}
-%\State $\textit{G} \gets \text{(V,E)}$
-%\State $k \gets \text{number of desired partitions}$
-%\State $\text{Apply spectral partitioning on G and find }G_1 \text{ and } G_2$
-%\BState \emph{loop}:
-%\If {$\frac{k}{2} > 1$}
-%\State $\text{Recursive partition on }G_1 \text{ with } \frac{k}{2}$
-%\State $\text{Recursive partition on }G_2 \text{ with } \frac{k}{2}$
-%\State $k \gets \frac{k}{2}$
-%\EndIf
-%\State \textbf{goto} \emph{loop}\\
-%\Return $G_1 = (V_1,E_1) \text{ ... } G_K = (V_K,E_K)$
-%\EndProcedure
-%\end{algorithmic}
-%\end{algorithm}
+
+\subsection{How to apply spectral graph partitioning}
+To apply graph partitioning we need the adjacency matrix $A$ of the graph, which is symmetric since the graph is considered to be undirected, and the Laplacian matrix $L$ constructed such that: 
+\begin{equation}\notag
+L_{ij} = 
+\begin{cases}
+d_i \tab \:\:\: if \:\: i=j \\
+-1 \tab if \:\: i \neq j \:\: and \: \: (i,j) \in E \\
+0 \tab \:\:\:\: \text{otherwise}
+\end{cases}
+\end{equation}
+where $d_i$ is the vertex degree of node $i \in V$.
+The relation between A and L is
+\begin{equation}\notag
+L = D - A
+\end{equation}
+where D is the diagonal matrix having the $d_i$'s on the diagonal. Since L is symmetric and positive semidefinite by construction, all its eigenvalues are real and nonnegative. The first eigenvalue is always zero and, in the general case, the multiplicity of the the first eigenvalue corresponds to the number of connected components of the graph.
+
+The eigenvalues of L are ordered as follows:
+\begin{equation}\notag
+0 = \lambda_1 = \ldots = \lambda_m < \lambda_{m+1} \le \ldots \lambda_n
+\end{equation}
+
+The eigenvector corresponding to the first eigenvalue $\lambda_1$ is the vector of all ones and it does not provide information about the graph structure; the second lowest eigenvector, instead, called ``Fiedler eigenvector'', is used by spectral partitioning to return the smaller sub-graphs. Dividing the nodes of graph G according to the median $s$ of the Fiedler vector $v = (v_1,v_2,...,v_n)$ gives two partitions $V_1$ and $V_2$ such that
+\begin{equation}\notag
+\begin{cases}
+v_i \in V_1 \text{\;\; if \;\;} v_i \leq s \\
+v_i \in V_2 \text{\;\; if \;\;} v_i > s
+\end{cases} .
+\end{equation}
+Such a partition is called the Fiedler cut and leads to two parts of G with nearly equal number of vertexes, minimizing the number of cut edges. 
+
+Fiedler theorem said that if the graph G is connected, L the Laplacian matrix, $N_+$ and $N_-$ a partitioning such that
+\begin{equation}\notag
+x(i) = +1 \tab \text{if } v_i \text{in } N_+ 
+\end{equation}
+\begin{equation}\notag
+x(i) = -1 \tab \text{if } v_i \text{in } N_-
+\end{equation}
+
+Then the number of edges cut is:
+\begin{equation}\notag
+\#\text{edge\_cut} = \frac{1}{4}x^T L x
+\end{equation}
+
+This problem of minimizing the number of cut edges is NP-hard and can be written as a constrained minimization problem:
+\begin{equation}\notag
+\min\limits_z f(z)=\frac{1}{4} z^T L z \tab \text{subject to} \tab 
+\begin{cases}
+z^T z = n \tab \text{z is a real vector}\\
+z^T e = 0 \tab \text{with } e=[1,1,...,1]^T
+\end{cases}
+\end{equation}
+
 
 
 
@@ -491,7 +469,14 @@ We can notice that in both figures the number of non-zero elements, written belo
 
 
 \subsection{PageRank}
-Applying the PageRank algorithm I obtain a sorted list of authors and in Figure \ref{fig:PRbars} we can see all the 422 Swiss authors with their corresponding PageRank value. 
+Applying the PageRank algorithm I obtain a sorted list of authors and in Figure \ref{fig:pr} we can see all the 422 Swiss authors with their corresponding PageRank value. 
+
+\begin{figure}[tb]
+	\centering
+	\includegraphics[height=6cm]{img/Analysis/page_rank_bars.jpg}
+	\label{fig:pr}
+	\caption{ Bar graph of Swiss authors PageRank values}
+\end{figure}
 
 Table~\ref{table:PRDC}~(left) shows the first 10 most ``popular" authors sorted by the algorithm.
 We can see that the \textit{In\_degree} column, which corresponds to the number of collaboration, it is not sorted because PageRank takes into account also the quality of the collaborations.
@@ -516,7 +501,7 @@ To see it better we can compare this table with the one on the right, containing
 1 & 0.0067923 	& \ccc 8 	& Alfio Quarteroni & EPFL \\
 144 & 0.0066262 & \ccc 7 	& Olaf Schenk & USI \\
 219 & 0.0063917 & \ccc 10 	& Torsten Hoefler & ETHZ
-\end{tabular} \label{table:PR}
+\end{tabular}
 \qquad\qquad
 \begin{tabular}{c m{10mm} l}
 \textbf{Index} & \textbf{Degree \newline Centrality} & \textbf{Name} \\
@@ -536,14 +521,6 @@ To see it better we can compare this table with the one on the right, containing
 \end{table}
 
 
-\begin{figure}[bt]
-	\centering
-	\includegraphics[height=6cm]{img/Analysis/page_rank_bars.jpg}
-	\label{fig:PRbars}
-	\caption{ Bar graph of Swiss authors PageRank values}
-\end{figure}
-
-
 I have also applied the PageRank algorithm to the universities adjacency matrix obtaining the results in Figure \ref{fig:PRUniversities}.
 We can observe that the most present universities in the area of computational science are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, ETH Z\"{u}rich and Universit\`{a} della Svizzera italiana. Here the universities sorted by PageRank corresponds to the  sorting by number of collaborations (\textit{In\_degree} column).
 \begin{figure}[tb]
@@ -556,57 +533,17 @@ We can observe that the most present universities in the area of computational s
 		\includegraphics[height=4cm]{img/Analysis_world/pr_uni.jpg}
 		\label{fig:PRlistuni}
 	}
-	\caption{ \subref{fig:PRbars} is a bar graph of PageRank values, \subref{fig:PRlist} are the first 15 universities with higher PageRank value}
+	\caption{ \subref{fig:PRbarsuni} is a bar graph of Swiss institutions PageRank values, while  \subref{fig:PRlistuni} is the one of world institutions}
 	\label{fig:PRUniversities}
 \end{figure}
 
-\begin{table}[h!]
-\begin{minipage}[b]{.5\linewidth}
-\tiny
-\begin{tabular}{c c c l l}
-\textbf{Index} & \textbf{PageRank} & \textbf{D.Centrality} & \textbf{Institution}\\
-\hline
-7 & 0.12632 & 16 & EPFL \\
-8 & 0.12601 & 16 & ETHZ \\
-25 & 0.09368 & 12 & USI \\
-12 & 0.059924 & 7 & IBM \\
-20 & 0.053813 & 7 & SIB \\
-30 & 0.046199 & 6 & University of Geneva \\
-24 & 0.038438 & 5 & UNIL \\
-11 & 0.032109 & 4 & HES-SO Valais-Wallais\\
-31 & 0.032109 & 4 & University of Neuchatel \\
-4 & 0.031569 & 4 & CHUV
-\end{tabular}
-\label{table:PR}
-\caption{First ten Swiss institutions sorted by PageRank}
-\end{minipage}
-\begin{minipage}[b]{.5\linewidth}
-\tiny
-\begin{tabular}{c c c l l}
-\textbf{Index} & \textbf{PageRank} & \textbf{D.Centrality} & \textbf{Institution}\\
-\hline
-1498 & 0.018077 & 256 & University of California \\
-801 & 0.0073476 & 114 & Massachusetts Institute of Technology \\
-1215 & 0.0065502 & 101 & Stanford University \\
-1132 & 0.0065372 & 103 & Sandia National Laboratories \\
-1319 & 0.0064138 & 97 & The University of Texas at Austin \\
-454 & 0.0060685 & 92 & Georgia Institute of Technology \\
-937 & 0.0059833 & 96 & New York University-NYU \\
-760 & 0.0058694 & 87 & Lawrence Berkeley National Laboratory\\
-527 & 0.0049737 & 80 & IBM \\
-326 & 0.0048789 & 69 & EPFL
-\end{tabular}
-\label{table:DC}
-\caption{First ten institutions sorted by PageRank}
-\end{minipage}
-\end{table}
 
-About what concerning world information we can better see the difference between PageRank and degree centrality sorting in Figure \ref{fig:PRAuthorW}; the Swiss  \textit{Rolf Krause}, member of USI, has the 7th PageRank value with only 38 collaborations but does not appear in the first ten positions of the degree centrality list.
-
-\begin{table}[h!]
-\begin{minipage}[b]{.55\linewidth}
+\newcommand\eee{\centering}
+\begin{table}[tbh]
+\centering
 \tiny
-\begin{tabular*}{\textwidth}{c c c l l}
+\caption{First 10 authors ranked by PageRank (left) and degree centrality (right)}
+\begin{tabular}{c c c l l}
 \textbf{Index} & \textbf{PageRank} & \textbf{D.Centrality} & \textbf{Name} & \textbf{Institution}\\
 \hline
 1343 & 0.00066775 & 47 & Youssef M. Marzouk & Massachusetts Institute of Technology \\
@@ -619,13 +556,8 @@ About what concerning world information we can better see the difference between
 758 & 0.00047899 & 52 & Xiaoye Sherry Li & Lawrence Berkeley National Laboratory \\
 701 & 0.00047145 & 51 & Eric Phipps & Sandia National Laboratories \\
 773 & 0.00045236 & 41 & James W. Demmel& University of California
-\end{tabular*}
-\label{table:PR}
-\caption{First ten authors \\ sorted by PageRank}
-\end{minipage}
-\begin{minipage}[b]{.4\linewidth}
-\tiny
-\raggedleft
+\end{tabular}
+\qquad\qquad
 \begin{tabular}{c c l}
 \textbf{Index} & \textbf{Degree Centrality} & \textbf{Name} \\
 \hline
@@ -640,47 +572,50 @@ About what concerning world information we can better see the difference between
 784 & 42 & Emmanuel Agullo \\
 2719 & 42 & Stanley J. Osher
 \end{tabular}
-\label{table:DC  }
-\caption{First ten authors sorted by degree centrality}
-\end{minipage}
+\label{table:prW}
 \end{table}
 
 
-In Figure \ref{fig:PRuniW} we can see the first 10 universities with higher PageRank value: in the computational science area the most important are the University of California and the Massachusetts Institute of Technology. At ranking 10th we can find the Swiss institution, \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, which was in the first position in the Swiss list.
+About what concerning world information we can better see the difference between PageRank and degree centrality sorting in Table \ref{fig:prW}; the Swiss  \textit{Rolf Krause}, member of USI, has the 7th PageRank value with only 38 collaborations but does not appear in the first ten positions of the degree centrality list.
 
+Table \ref{table:PRUNI} shows the first 10 universities with higher PageRank value, the Swiss ones on the left and world information on the right: in the computational science area the most important are the University of California and the Massachusetts Institute of Technology. At ranking 10th we can find the Swiss institution, \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, which was in the first position in the Swiss list.
 
-%\bigskip
-%\noindent
-%\begin{minipage}[t]{.45\textwidth}
-%\raggedright
-%This is \\
-%some left-aligned \\
-%text in a column \\
-%for demo purposes
-%\end{minipage}
-%\hfill
-%\noindent
-%\begin{minipage}[t]{.45\textwidth}
-%\raggedleft
-%This is \\
-%some different \\
-%text, right-aligned \\
-%for demo purposes, \\
-%and with more lines.
-%\end{minipage}
-
-
-%\newpage
-%\section{Bibliography  \textcolor{red}{Temporary}}
-%\begin{itemize}
-%\item https://en.wikipedia.org/wiki/PageRank
-%\item Assignment1 1 Course Numerical Computing 2107/2018
-%\item Assignment2 1 Course Numerical Computing 2107/2018
-%\item \hyperref[label_name]{''https://am.vsb.cz/export/sites/am/cs/theses/kabelikova\_ing.pdf''}
-%\item https://en.wikipedia.org/wiki/Graph\_partition
-%\end{itemize}
-
-
+\newcommand\ddd{\centering}
+\begin{table}[tbh]
+\centering
+\tiny
+\caption{First 10 Swiss institutions (left) and world institutions (right)  ranked by PageRank}
+\begin{tabular}{c c c l l}
+\textbf{Index} & \textbf{PageRank} & \textbf{D.Centrality} & \textbf{Institution}\\
+\hline
+7 & 0.12632 & 16 & EPFL \\
+8 & 0.12601 & 16 & ETHZ \\
+25 & 0.09368 & 12 & USI \\
+12 & 0.059924 & 7 & IBM \\
+20 & 0.053813 & 7 & SIB \\
+30 & 0.046199 & 6 & University of Geneva \\
+24 & 0.038438 & 5 & UNIL \\
+11 & 0.032109 & 4 & HES-SO Valais-Wallais\\
+31 & 0.032109 & 4 & University of Neuchatel \\
+4 & 0.031569 & 4 & CHUV
+\end{tabular}
+\qquad\qquad
+\begin{tabular}{c c c l l}
+\textbf{Index} & \textbf{PageRank} & \textbf{D.Centrality} & \textbf{Institution}\\
+\hline
+1498 & 0.018077 & 256 & University of California \\
+801 & 0.0073476 & 114 & Massachusetts Institute of Technology \\
+1215 & 0.0065502 & 101 & Stanford University \\
+1132 & 0.0065372 & 103 & Sandia National Laboratories \\
+1319 & 0.0064138 & 97 & The University of Texas at Austin \\
+454 & 0.0060685 & 92 & Georgia Institute of Technology \\
+937 & 0.0059833 & 96 & New York University-NYU \\
+760 & 0.0058694 & 87 & Lawrence Berkeley National Laboratory\\
+527 & 0.0049737 & 80 & IBM \\
+326 & 0.0048789 & 69 & EPFL
+\end{tabular}
+\label{table:PRUNI}
+\end{table}
 
 
 
