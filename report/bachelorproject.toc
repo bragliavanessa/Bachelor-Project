@@ -5,11 +5,7 @@
 \contentsline {subsection}{\numberline {2.2}Parsing}{3}{subsection.2.2}
 \contentsline {section}{\numberline {3}The PageRank Algorithm}{5}{section.3}
 \contentsline {subsection}{\numberline {3.1}How to compute PageRank values}{5}{subsection.3.1}
-\contentsline {section}{\numberline {4}The Graph Partitioning Algorithm}{7}{section.4}
-\contentsline {subsection}{\numberline {4.1}How to apply spectral graph partitioning}{7}{subsection.4.1}
-\contentsline {subsection}{\numberline {4.2}K-way Partitioning}{9}{subsection.4.2}
-\contentsline {section}{\numberline {5}Numerical analysis}{10}{section.5}
-\contentsline {subsection}{\numberline {5.1}PageRank}{11}{subsection.5.1}
-\contentsline {subsection}{\numberline {5.2}Graph Partitioning}{12}{subsection.5.2}
-\contentsline {section}{\numberline {6}Bibliography \leavevmode {\color {red}Temporary}}{13}{section.6}
-\contentsline {section}{\numberline {7}Conclusions}{13}{section.7}
+\contentsline {section}{\numberline {4}Numerical analysis}{7}{section.4}
+\contentsline {subsection}{\numberline {4.1}PageRank}{9}{subsection.4.1}
+\contentsline {section}{\numberline {5}Bibliography \leavevmode {\color {red}Temporary}}{12}{section.5}
+\contentsline {section}{\numberline {6}Conclusions}{12}{section.6}

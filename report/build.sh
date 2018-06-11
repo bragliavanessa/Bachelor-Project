@@ -1,0 +1,3 @@
+pdflatex bachelorProject.tex
+bibtex bachelorProject
+pdflatex bachelorProject.tex

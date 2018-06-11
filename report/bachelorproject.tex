@@ -42,7 +42,7 @@ To construct the graph representing the relations (the edges) between authors (t
 \section{Introduction} \label{sec:intro} 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-A social network consists of a set of objects connected to each other by social relations. The best way to model social networks is using graphs (see Figure \ref{fig:socialnetwork}): the objects (entities) are represented as nodes and the connections as edges between two different nodes. The most common example we can take is the World Wide Web (WWW) where we have web pages as nodes connected by hyperlinks, the edges.
+A social network consists of a set of objects connected to each other by social relations. The best way to model social networks is using graphs: the objects (entities) are represented as nodes and the connections as edges between two different nodes (see Figure \ref{fig:socialnetwork}). The most common example we can take is the World Wide Web (WWW) where we have web pages as nodes connected by hyperlinks, the edges.
 
 \begin{figure}[ht]
 	\centering
@@ -51,19 +51,17 @@ A social network consists of a set of objects connected to each other by social 
 	\label{fig:socialnetwork}
 \end{figure}
 
-The goal of this project is to create a social network of computational science authors belonging to Swiss institutions and then analyze the relative graph, represented by an adjacency matrix.
-
-I want to find the relations between authors of the same or different institutions and belonging to the same or to different research scenarios: how they interact with each other and if they are strictly related to the institution or cooperate throughout Switzerland. The result will provide also a ranking of the authors and the institutions to see which are the most influential in the computational science research.
+The goal of this project is to create a social network of computational science authors belonging to Swiss institutions and corporations, and then analyze the relative graph, represented by an adjacency matrix. I want to find the relations between authors of the same or different institutions and belonging to the same or to different research scenarios: how they interact with each other and if they are strictly related to the institution or cooperate throughout Switzerland. The result will provide also a ranking of the authors and the institutions to see which are the most influential in the computational science research.
 
 The first step is retrieving all the necessary information for the construction of the social network, i.e., names of the authors and relationships between each other. I crawled the 2015, 2016 and 2017 PASC Conferences and different SIAM conferences of several years, selecting the topics relevant to us (e.g. Optimization, Parallel Computing,...). The PASC conferences are interdisciplinary and bring together researchers across the areas of computational science, high-performance computing, and various domain sciences.
 
-The second step is the information analysis to find out relations between institutions and between members belonging to the same or different university. With PageRank algorithm we obtain a ``ranking'' of all conferences' participants; it is an algorithm used by Google Search to rank websites in their search engine results, but it can be applied to any social network. 
+The second step is the information analysis to find out relations between institutions and between members belonging to the same or different institutes. With PageRank algorithm we obtain a ranking of all the conference participants; it is an algorithm used by Google Search to rank websites in their search engine results, but it can be applied to any social network. 
 
-In this project I use the algorithm to measure the importance of the institutions' members considering the number and quality of their collaborations and to find out the relevant universities for computational science researches. 
+In this project I use the algorithm to measure the importance of the institution members considering the number and quality of their collaborations and to find out the relevant universities for computational science researches. 
 
-I use graph partitioning techniques to invert the process, trying to obtain the institutions from members collaborations: it is reasonable to assume that members of the same institution collaborate more between each other than with other institutions' representatives. With this assumption the algorithm will cut the relations between members of different universities, keeping the representatives of each institution in the same group.
+%I use graph partitioning techniques to invert the process, trying to obtain the institutions from members collaborations: it is reasonable to assume that members of the same institution collaborate more between each other than with other institutions' representatives. With this assumption the algorithm will cut the relations between members of different universities, keeping the representatives of each institution in the same group.
 
-I also analyze the institutions' connectivity matrices and their structure: looking at the cliques present in the matrices we can for example detect the different research areas of the institutions and the connection between them. Cliques are dense sub matrices which represent a group of authors that are closely connected with each other. 
+I also analyze the institutions connectivity matrices and their structure: looking at the cliques present in the matrices, we can for example detect the different research areas of the institutions and the connection between them. Cliques are dense sub matrices which represent a group of authors that are closely connected with each other. 
 
 The results will provide an interesting picture of the different research scenarios in Switzerland and how they interact with each other.
 
@@ -76,36 +74,38 @@ The results will provide an interesting picture of the different research scenar
 \section{Information Retrieval} \label{sec:inforetrieval} 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
-Information retrieval is the process of extracting, starting from an information need, the relevant information from a collection of resources. In this project the necessary information are the names of the institutions' members and the collaborations between them. 
+Information retrieval is the process of extracting, starting from an information need, the relevant information from a collection of resources. In this project, the necessary information are the names of the institutions members and the collaborations between them. 
 
-After the first useless attempt to use Mendeley API, I decide to  extract the information from some online conferences' programs; the idea is that if two authors made a conference together, in my social network it turns out that they have collaboration.
+\textcolor{red}{Firstly I try to use Mendeley API but it allows only to take 100 results per query and if you run the same query more times it returns always the same information. Additionally it does not return all the information needed i.e., not all authors have a specified institution and only few papers were available.}
 
-I crawl the conferences' programs and I construct a parser to extract the information from the html pages and  to organize the data.
+After this first unproductive attempt to use Mendeley API, I decide to  extract the information from some online conferences' programs; the idea is that if two authors made a conference together, then they are connected in my social network.
+
+I crawl the conferences' programs and I construct a parser to extract the information from the HTML pages and  to organize the data.
 
 \subsection{Crawling}
 
-A web crawler is an Internet bot that browses the World Wide Web, typically for the purpose of web indexing of search engines. In this project the goal is not indexing web pages but save the information contained in the html to parse them and construct the social network.
+A web crawler is an Internet bot that browses the World Wide Web, typically for the purpose of web indexing of search engines. In this project the goal is not indexing web pages but save the information contained in the HTML to parse them and construct the social network.
 
-The web pages that I decide to crawl are the online programs of 2015, 2016 and 2017 PASC conferences and of SIAM conferences with arguments concerning computational science, i.e. Optimization, Parallel Computing, Computational Science \& Engineering, Imaging Science, Uncertainty Quantification, Linear Algebra in Signals, Systems \& Control, Data Mining, Analysis of Partial Differential Equations.
+The web pages that I decide to crawl are the online programs of 2015, 2016 and 2017 PASC conferences and of SIAM conferences with arguments concerning computational science i.e., Optimization, Parallel Computing, Computational Science \& Engineering, Imaging Science, Uncertainty Quantification, Linear Algebra in Signals, Systems \& Control, Data Mining and Analysis of Partial Differential Equations.
 
-I use Apache Nutch that is a highly extensible and scalable open source web crawler and it allow you to crawl a lot of web pages with few command lines.
-It starts with a list of URLs to visit, called the seeds; I create this list putting there all the links to the computational science conferences web pages previously mentioned.
+I use Apache Nutch, a highly extensible and scalable open source web crawler, allowing the user to crawl a lot of web pages with few command lines.
+It starts with a list of URLs to visit, called the seeds; I create this list including all the links to the computational science conferences web pages previously mentioned.
 
-As the crawler visits the URLs, it identifies all the hyperlinks in the page and adds them to the list of URLs to visit; in my case I crawl only the pages in the starting seed ignoring all the internal links. The crawler copies and saves the information as it goes and stores each page in a distinct file in a repository.
+As the crawler visits the URLs, it identifies all the hyperlinks in the page and adds them to the list of URLs to visit; in my case I crawl only the pages in the starting seed ignoring all the internal links. The crawler copies and saves the information as it goes and stores in a repository each page as a distinct file.
 
-Thanks to Apache Nutch I manage to create a text file with the html of all the saved conferences' pages. Obtained this file ,the next step is studying the structure of the page and how to extract the information needed: where are the information I need? Are they in a particular html tag? How we can extract them? Here the parser do its job.
+Thanks to Apache Nutch I manage to create a text file with the HTML of all the saved conference pages. Obtained this file, the next step is studying the structure of the page and how to extract the information needed. \textcolor{red}{Where we can find the information in the page, if they are in some particular tag, as we can extract them. The parser is responsible for these tasks.}
 
 \subsection{Parsing}
 
-A parser is a program that receives some data as input and breaks it up into smaller elements that can then be used for different purposes. In this project the parser read the text file created after the crawling, extracting from the text the information about Swiss institutions and their members. The data obtained is used to create the social network ready to be analyzed.
+A parser is a program that receives data as input and breaks it up into smaller elements that can then be used for different purposes. In this project, the parser reads the text file created after the crawling and extracts from it the information about Swiss institutions and their members. The data obtained is used to create the social network ready to be analyzed.
 
-In this project I personally write a parser, using Python programming language, to extract the information from the conferences' html pages. The parser go through the structure of the page and extract only the pieces where there are useful information; clearly different page structures require different parser. I write two of them because  all the SIAM conferences have the same structure but the PASC ones are different.
+In this project I personally write a parser, using Python programming language, to extract the information from the conferences HTML pages. The parser goes through the structure of the page and extracts only the useful information. Clearly, different page structures require different parser, then I write two of them because the SIAM conferences and the PASC have different structures.
 
-The parser extract only the lines of the pages which contain the names of the authors, their institutions and nationality; the institutions' members that make a conference together appear in group in the page so I keep them together to later get the relations. Thanks to the nation expressed in the program I can differentiate the Swiss authors from the ones from all over the world. 
+The parser extracts only the lines of the pages which contain the names of the authors, their institutions and nationality; the institutions members that present a work together at a conference appear in group in the page so I keep them together to later extract the relations. Thanks to the nation expressed in the program I can differentiate the Swiss authors from the rest of the the world. 
 
-Obtained the desired lines I take the groups, one after the other, and I extract name, institution, nation and coauthors for each member. With all this information I manage to construct a social network and its corresponding adjacency matrix.
+Once that the desired lines are collected, I take the groups one after the other, and I extract name, institution, nation and coauthors for each member. With all this information I manage to construct a social network and its corresponding adjacency matrix.
 
-I run into some problems like an author with two different institution and I decide to consider it as two different authors because I'm interest in institutions collaborations: so the same author can have some coauthors with one university and completely different coauthors with the other one. We can see an example in Figure \ref{fig:twoUni} where professor Olaf Schenk has two different universities, Universit\`{a} della Svizzera Italiana and Univerisity of Basel: he collaborates with Matthias Bolhoefer with both institutions but he works with Fabio Verbosio only in USI and with Marcus Grote only in the University of Basel.
+\textcolor{red}{In case a single author belongs to two distinct institutions I decide to include two different entries because I'm interest in institutions collaborations: so the same author can have some coauthors with one university and completely different coauthors with the other one. We can see an example in Figure \ref{fig:twoUni} where professor Olaf Schenk is affiliated to two different universities (Universit\`{a} della Svizzera Italiana and Univerisity of Basel) and collaborates with Matthias Bolhoefer from both institutions but he works with Fabio Verbosio only from USI and with Marcus Grote only from the University of Basel.}
 \begin{figure}
 \begin{center}
 \tikzset{every picture/.style={line width=0.75pt}}      
@@ -164,9 +164,9 @@ I run into some problems like an author with two different institution and I dec
 \end{center}
 \end{figure}
 
-I make two different databases, one for the Switzerland and one for all the world. The first one contains only Swiss authors and their collaboration with members of the same nation, instead in the second there are other nations authors together with the Swiss ones but their collaborations are extended to all over the world. For each author I save the name, the university, the nation, a list of his coauthors and I assign to each of them a unique index. 
+I make two different databases, one for Switzerland and one for the whole world. The first one contains only Swiss authors and their collaborations with members of the same nation, while in the second there are also authors other nations and their collaborations are extended to all over the world. For each author I save the name, the university, the nation, a list of his coauthors and I assign to each of them a unique index. 
 
-From these information that I easily create the adjacency matrix and thanks to the indexes I can switch between the matrix and the database; from the graph I can read the index and go in the database to see to which author it corresponds.
+From this data set I easily create the adjacency matrix and thanks to the indexes I can switch between the matrix and the database; from the graph I can read the index and go in the database to see to which author it corresponds.
 
 
 
@@ -175,9 +175,9 @@ From these information that I easily create the adjacency matrix and thanks to t
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The PageRank Algorithm} \label{sec:pagerank} 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-PageRank is an algorithm used by Google Search to rank websites in their search engine results; it was developed by  Larry Page and  Sergey Brin (the Google's founders) in 1996 as part of their research project at Stanford University.
+PageRank is an algorithm used by Google Search to rank websites in their search engine results. It was developed by  Larry Page and  Sergey Brin (the Google founders) in 1996 as part of their research project at Stanford University.
 
-PageRank is used, together with other algorithms, to measure the importance of web pages and sort them by popularity in the result; it can be used in any graph to compute the importance of each node with its PageRank value. Larry Page and  Sergey Brin algorithm works by counting the number and quality of links to a page, to compute a value which represents its importance; more popular a page is, more likely it receives links from other websites and more likely from important websites.
+PageRank is used, together with other algorithms, to measure the importance of web pages and sort them by popularity in the results; it can be used on any graph to compute the importance of each node by its PageRank value. Larry Page and  Sergey Brin algorithm works by counting the number and quality of links to a page, to compute a value which represents its importance: more popular a page is, more likely it receives links from other websites and even more likely from important websites.
 
 \begin{figure}[ht]
 	\centering
@@ -186,11 +186,11 @@ PageRank is used, together with other algorithms, to measure the importance of w
 	\label{fig:prexample}
 \end{figure}
 
-As we can see in Figure \ref{fig:prexample}, node C has higher PageRank than A even if it has the same number of inner links; this is because the only inner link of C is from the most important node of the graph B so it is considered to be more important than the inner link of node A.
+As we can see in Figure \ref{fig:prexample}, node C has higher PageRank than A even if it has the same number of inner links; this is because the only inner link of C is from the most important node of the graph, B, so it is considered to be more important than the inner link on node A.
 
-While surfing websites, going from one page to another I want to avoid problems with pages without outer links so I introduce two different methods to choose the next page. The surfer can:
+While surfing websites, going from one page to another, I want to avoid problems with pages without outer links so I introduce two different methods to choose the next page. The surfer can:
 \begin{itemize}
-\item randomly choose an outgoing link from the page,
+\item randomly choose an outgoing link from the page, or
 \item choose a random page from the network.
 \end{itemize}
 We assume that the surfer follows the first option with probability $p$ (typically $p=0.85$) and the second with probability $1-p$. This theoretical random walk is known as a Markov chain or Markov process.
@@ -205,34 +205,33 @@ g_{ij}=1 \text{\;\;\; if and only if nodes $i$ and $j$ are connected.}
 \end{equation*}
 The number of non-zeros in $G$ is the total number of connections in the graph.
 
-The row $r_i$ represents the number of inner-links of page $i$, while column $c_i$ the number of outer-links. So we can define:
+The scalar $r_i$ represents the number of inner-links of page $i$, while column $c_i$ the number of outer-links. So we can define:
 \begin{itemize}
 \item In-degree of page $i$: \tab $\:\:\:\:r_i = \sum\limits_{j=1}^{n} g_{ij}$
 \item Out-degree of page $i$: \tab $c_i = \sum\limits_{j=1}^{n} g_{ji}$
 \end{itemize}
-Since my graph is undirected, the number of inner-links is equal to the number of outer-links. 
+Since the collaboration is a symmetric relation, my graph is undirected, hence the number of inner-links is equal to the number of outer-links. 
 
 Let $p$ be the probability that the surfer follows a link and $1-p$ the probability that it chooses a random page, then $\delta = \frac{1-p}{n}$ is the probability that a particular random page is chosen.
 
-We construct a transition probability matrix A where all elements are positive, smaller than one and sums of columns are equal to one; column $j$ represents the probabilities to go from page j to all other pages. So we set
+We construct a transition probability matrix A where all the elements are positive and smaller than one, and the sum of each column is equal to one; this last property is due to the fact that column $j$ represents the probabilities to go from page j to all other pages. So, we set
 \begin{equation}\notag
 a_{ij} = 
 \begin{cases}
 \frac{pg_{ij}}{c_{j}} + \delta  & \text{if } c_{j} \neq 0\\
 \frac{1}{n} & \text{if } c_{j} = 0
-\end{cases}
+\end{cases}.
 \end{equation}
-In other words, if page $j$ has no outer links, it means that column $j$ of $A$ present a uniform probability $\frac{1}{n}$ in all its elements. Since matrix A is a transition matrix of a Markov chian, all its eigenvalues are real, between 0 and 1, and 1 is an eigenvalue itself. 
-
-We can now compute PageRank values by solving the problem. 
+In other words, if page $j$ has no outer links, it means that column $j$ of $A$ present a uniform probability $\frac{1}{n}$ in all its elements. Since matrix A is a transition matrix of a Markov chian, all its eigenvalues are real, between 0 and 1, and 1 is an eigenvalue itself
+$$0 \leq \lambda_1 \leq \lambda_2 \leq \dots \leq \lambda_n = 1 \text{.}$$
+We can now compute PageRank values by solving the problem 
 
 \begin{equation}\notag
-A\:x = x
+A\:x = x \text{.}
 \end{equation}
 
-It is a particular eigenvalue problem because usually they are of the form $Ax=\lambda x$. Finding the solution of eigensystems is complicated and doesn't exist direct methods; the process has to be iterative such as the power or Jacobi methods.
-
-In our specific problem we have $\lambda = 1$ so the power method seems to be the most effective. It computes the eigenvector relative to the greatest eigenvalue and it is our problem since A is a matrix of a Markov chain and the highest eigenvalue is 1.
+This is a particular eigenvalue problem because usually they are of the form $Ax=\lambda x$. 
+In our specific problem, in fact, we have $\lambda = 1$ so we compute the eigenvector relative to the greatest eigenvalue which is 1, as just mentioned.
 
 The transition matrix $A$ can be written as
 $$A = pGD+ez^{T}, $$
@@ -252,7 +251,7 @@ z_{j} =
 \frac{1}{n} & \text{if } c_{j} = 0
 \end{cases} \,,
 \end{equation}
-and e is the vector of length n with all ones.
+and $e$ is the vector of length $n$ with all ones.
 
 We can write the linear system
 $$(I-A)x=0$$
@@ -275,7 +274,7 @@ and then rescale the solution so that $\sum\limits_{i=1}^{n} x_i = 1$.
 \State $\textit{G} \gets \textit{G} - \text{diag(}\textit{G}\text{)} \: \: \: \text{(remove self collaborations)}$
 \State $\textit{c} \gets \text{sum(}\textit{G}\text{,1)} \:\:\: \textit{r} \gets \text{sum(}\textit{G}\text{,2)} \:\:\: \text{(Compute out-degree and in-degree of each node)}$
 \State $\textit{D} \gets \text{Diagonal matrix with reciprocals of out-degrees}$
-\State $(I - pGD)x = e$
+\State Solve $(I - pGD)x = e$
 \State $x \gets x / sum(x) \: \:\: \text{(normalize the result x)}$
 \State $x \gets \text{sort x in descending order}$\\
 \Return x
@@ -287,135 +286,135 @@ and then rescale the solution so that $\sum\limits_{i=1}^{n} x_i = 1$.
 
 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The Graph Partitioning Algorithm} \label{sec:graphpart} 
-%%%%%%%%%%%%%%%%%%%%%%%%%
-Graph partitioning consists in dividing a graph $G=(V,E)$\footnote{A graph G with vertexes V and edges E.}  cutting the smaller number of edges and obtaining sub-graphs with specific properties. For example k-way partitioning divides the graph G into k smaller components.
-
-A partitioning algorithm is said to be efficient if it divides a given graph into smaller components with about the same size, cutting as few edges as possible. 
-A valid and fast method is the coordinate bisection, which simply chooses a partitioning plane perpendicular to one of the coordinate axes but spectral algorithm is more efficient. It finds a partition based on the eigenvalues and eigenvectors of the Laplacian matrix of the graph and doesn't need the nodal coordinates.
-
-As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave similarly but usually the second one is more effective even if it cuts more edges.
-\begin{figure}[ht]
-	\centering
-	\subfigure[]{
-		\includegraphics[height=4cm]{img/g4.jpg}
-		\includegraphics[height=4cm]{img/g5.jpg}
-		\includegraphics[height=4cm]{img/g6.jpg}
-		\label{fig:corandsp}
-	}
-	\subfigure[]{
-		\includegraphics[height=4cm]{img/g10.jpg}
-		\includegraphics[height=4cm]{img/g11.jpg}
-		\includegraphics[height=4cm]{img/g12.jpg}
-		\label{fig:cororsp}
-	}
-	\caption{In both \subref{fig:corandsp} and \subref{fig:cororsp} we have the graph at the left, the coordinate bisection in the middle and the spectral partition on the right}
-	\label{fig:partitioning}
-\end{figure}
-
-\subsection{How to apply spectral graph partitioning}
-To apply graph partitioning we need the adjacency matrix $A$ of the graph, which is symmetric since the graph is considered to be undirected, and the Laplacian matrix $L$ constructed such that: 
-\begin{equation}\notag
-L_{ij} = 
-\begin{cases}
-d_i \tab \:\:\: if \:\: i=j \\
--1 \tab if \:\: i \neq j \:\: and \: \: (i,j) \in E \\
-0 \tab \:\:\:\: \text{otherwise}
-\end{cases}
-\end{equation}
-where $d_i$ is the vertex degree of node $i \in V$.
-The relation between A and L is
-\begin{equation}\notag
-L = D - A
-\end{equation}
-where D is the diagonal matrix having the $d_i$'s on the diagonal. Since L is symmetric and positive semidefinite by construction, all its eigenvalues are real and nonnegative. The first eigenvalue is always zero and, in the general case, the multiplicity of the the first eigenvalue corresponds to the number of connected components of the graph.
-
-The eigenvalues of L are ordered as follows:
-\begin{equation}\notag
-0 = \lambda_1 = \ldots = \lambda_m < \lambda_{m+1} \le \ldots \lambda_n
-\end{equation}
-
-The eigenvector corresponding to the first eigenvalue $\lambda_1$ is the vector of all ones and it does not provide information about the graph structure; the second lowest eigenvector, instead, called ``Fiedler eigenvector'', is used by spectral partitioning to return the smaller sub-graphs. Dividing the nodes of graph G according to the median $s$ of the Fiedler vector $v = (v_1,v_2,...,v_n)$ gives two partitions $V_1$ and $V_2$ such that
-\begin{equation}\notag
-\begin{cases}
-v_i \in V_1 \text{\;\; if \;\;} v_i \leq s \\
-v_i \in V_2 \text{\;\; if \;\;} v_i > s
-\end{cases} .
-\end{equation}
-Such a partition is called the Fiedler cut and leads to two parts of G with nearly equal number of vertexes, minimizing the number of cut edges. 
-
-Fiedler theorem said that if the graph G is connected, L the Laplacian matrix, $N_+$ and $N_-$ a partitioning such that
-\begin{equation}\notag
-x(i) = +1 \tab \text{if } v_i \text{in } N_+ 
-\end{equation}
-\begin{equation}\notag
-x(i) = -1 \tab \text{if } v_i \text{in } N_-
-\end{equation}
-
-Then the number of edges cut is:
-\begin{equation}\notag
-\#\text{edge\_cut} = \frac{1}{4}x^T L x
-\end{equation}
-
-This problem of minimizing the number of cut edges is NP-hard and can be written as a constrained minimization problem:
-\begin{equation}\notag
-\min\limits_z f(z)=\frac{1}{4} z^T L z \tab \text{subject to} \tab 
-\begin{cases}
-z^T z = n \tab \text{z is a real vector}\\
-z^T e = 0 \tab \text{with } e=[1,1,...,1]^T
-\end{cases}
-\end{equation}
-
-
-\begin{algorithm}
-\caption{ (Graph Partitioning)}\label{gpartitioning}
-\begin{algorithmic}[1]
-\Procedure{Graph Partitioning}{}
-\State $\textit{G} \gets \text{(V,E)}$
-\State $\text{compute Fiedler vector of } \textit{L = D - A}$
-\State $\text{Sort the vector values}$
-\State $\text{Put first half of the nodes in } V_1 \text{ and second half in } V_2$
-\State $ E_1 \gets \text{ edges with both nodes in } V_1$
-\State $ E_2 \gets \text{ edges with both nodes in } V_2$\\
-\Return $\textit{G1} = \text{(V1,E1) and } \textit{G2} = \text{(V2,E2)}$
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
-
-
-
-\subsection{K-way Partitioning}
-K-way partitioning of a graph G of n nodes, consists in a division of its nodes in k disjoint subset, all with size nearly $\frac{n}{k}$ (see Figure \ref{fig:kpartitioning}).
-
-\begin{figure}[ht]
-	\centering
-	\includegraphics[height=3cm]{img/k_way_partitioning.jpg}
-	\caption{Example of k-way graph partitioning}
-	\label{fig:kpartitioning}
-\end{figure}
-
-We consider only the simple case where we want to divide the graph in k partitions and k is a power of two. The idea is just to apply the spectral partitioning $\frac{k}{2}$ times recursively to each of the partitions obtained. The method is presented in Algorithm~\ref{kpartitioning}.
-
-\begin{algorithm}
-\caption{ (k-way Partitioning)}\label{kpartitioning}
-\begin{algorithmic}[1]
-\Procedure{k-way Partitioning}{}
-\State $\textit{G} \gets \text{(V,E)}$
-\State $k \gets \text{number of desired partitions}$
-\State $\text{Apply spectral partitioning on G and find }G_1 \text{ and } G_2$
-\BState \emph{loop}:
-\If {$\frac{k}{2} > 1$}
-\State $\text{Recursive partition on }G_1 \text{ with } \frac{k}{2}$
-\State $\text{Recursive partition on }G_2 \text{ with } \frac{k}{2}$
-\State $k \gets \frac{k}{2}$
-\EndIf
-\State \textbf{goto} \emph{loop}\\
-\Return $G_1 = (V_1,E_1) \text{ ... } G_K = (V_K,E_K)$
-\EndProcedure
-\end{algorithmic}
-\end{algorithm}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{The Graph Partitioning Algorithm} \label{sec:graphpart} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Graph partitioning consists in dividing a graph $G=(V,E)$\footnote{A graph G with vertexes V and edges E.}  cutting the smaller number of edges and obtaining sub-graphs with specific properties. For example k-way partitioning divides the graph G into k smaller components.
+%
+%A partitioning algorithm is said to be efficient if it divides a given graph into smaller components with about the same size, cutting as few edges as possible. 
+%A valid and fast method is the coordinate bisection, which simply chooses a partitioning plane perpendicular to one of the coordinate axes but spectral algorithm is more efficient. It finds a partition based on the eigenvalues and eigenvectors of the Laplacian matrix of the graph and doesn't need the nodal coordinates.
+%
+%As we can see in Figure \ref{fig:partitioning} sometimes coordinate and spectral partitioning behave similarly but usually the second one is more effective even if it cuts more edges.
+%\begin{figure}[ht]
+%	\centering
+%	\subfigure[]{
+%		\includegraphics[height=4cm]{img/g4.jpg}
+%		\includegraphics[height=4cm]{img/g5.jpg}
+%		\includegraphics[height=4cm]{img/g6.jpg}
+%		\label{fig:corandsp}
+%	}
+%	\subfigure[]{
+%		\includegraphics[height=4cm]{img/g10.jpg}
+%		\includegraphics[height=4cm]{img/g11.jpg}
+%		\includegraphics[height=4cm]{img/g12.jpg}
+%		\label{fig:cororsp}
+%	}
+%	\caption{In both \subref{fig:corandsp} and \subref{fig:cororsp} we have the graph at the left, the coordinate bisection in the middle and the spectral partition on the right}
+%	\label{fig:partitioning}
+%\end{figure}
+%
+%\subsection{How to apply spectral graph partitioning}
+%To apply graph partitioning we need the adjacency matrix $A$ of the graph, which is symmetric since the graph is considered to be undirected, and the Laplacian matrix $L$ constructed such that: 
+%\begin{equation}\notag
+%L_{ij} = 
+%\begin{cases}
+%d_i \tab \:\:\: if \:\: i=j \\
+%-1 \tab if \:\: i \neq j \:\: and \: \: (i,j) \in E \\
+%0 \tab \:\:\:\: \text{otherwise}
+%\end{cases}
+%\end{equation}
+%where $d_i$ is the vertex degree of node $i \in V$.
+%The relation between A and L is
+%\begin{equation}\notag
+%L = D - A
+%\end{equation}
+%where D is the diagonal matrix having the $d_i$'s on the diagonal. Since L is symmetric and positive semidefinite by construction, all its eigenvalues are real and nonnegative. The first eigenvalue is always zero and, in the general case, the multiplicity of the the first eigenvalue corresponds to the number of connected components of the graph.
+%
+%The eigenvalues of L are ordered as follows:
+%\begin{equation}\notag
+%0 = \lambda_1 = \ldots = \lambda_m < \lambda_{m+1} \le \ldots \lambda_n
+%\end{equation}
+%
+%The eigenvector corresponding to the first eigenvalue $\lambda_1$ is the vector of all ones and it does not provide information about the graph structure; the second lowest eigenvector, instead, called ``Fiedler eigenvector'', is used by spectral partitioning to return the smaller sub-graphs. Dividing the nodes of graph G according to the median $s$ of the Fiedler vector $v = (v_1,v_2,...,v_n)$ gives two partitions $V_1$ and $V_2$ such that
+%\begin{equation}\notag
+%\begin{cases}
+%v_i \in V_1 \text{\;\; if \;\;} v_i \leq s \\
+%v_i \in V_2 \text{\;\; if \;\;} v_i > s
+%\end{cases} .
+%\end{equation}
+%Such a partition is called the Fiedler cut and leads to two parts of G with nearly equal number of vertexes, minimizing the number of cut edges. 
+%
+%Fiedler theorem said that if the graph G is connected, L the Laplacian matrix, $N_+$ and $N_-$ a partitioning such that
+%\begin{equation}\notag
+%x(i) = +1 \tab \text{if } v_i \text{in } N_+ 
+%\end{equation}
+%\begin{equation}\notag
+%x(i) = -1 \tab \text{if } v_i \text{in } N_-
+%\end{equation}
+%
+%Then the number of edges cut is:
+%\begin{equation}\notag
+%\#\text{edge\_cut} = \frac{1}{4}x^T L x
+%\end{equation}
+%
+%This problem of minimizing the number of cut edges is NP-hard and can be written as a constrained minimization problem:
+%\begin{equation}\notag
+%\min\limits_z f(z)=\frac{1}{4} z^T L z \tab \text{subject to} \tab 
+%\begin{cases}
+%z^T z = n \tab \text{z is a real vector}\\
+%z^T e = 0 \tab \text{with } e=[1,1,...,1]^T
+%\end{cases}
+%\end{equation}
+%
+%
+%\begin{algorithm}
+%\caption{ (Graph Partitioning)}\label{gpartitioning}
+%\begin{algorithmic}[1]
+%\Procedure{Graph Partitioning}{}
+%\State $\textit{G} \gets \text{(V,E)}$
+%\State $\text{compute Fiedler vector of } \textit{L = D - A}$
+%\State $\text{Sort the vector values}$
+%\State $\text{Put first half of the nodes in } V_1 \text{ and second half in } V_2$
+%\State $ E_1 \gets \text{ edges with both nodes in } V_1$
+%\State $ E_2 \gets \text{ edges with both nodes in } V_2$\\
+%\Return $\textit{G1} = \text{(V1,E1) and } \textit{G2} = \text{(V2,E2)}$
+%\EndProcedure
+%\end{algorithmic}
+%\end{algorithm}
+%
+%
+%
+%\subsection{K-way Partitioning}
+%K-way partitioning of a graph G of n nodes, consists in a division of its nodes in k disjoint subset, all with size nearly $\frac{n}{k}$ (see Figure \ref{fig:kpartitioning}).
+%
+%\begin{figure}[ht]
+%	\centering
+%	\includegraphics[height=3cm]{img/k_way_partitioning.jpg}
+%	\caption{Example of k-way graph partitioning}
+%	\label{fig:kpartitioning}
+%\end{figure}
+%
+%We consider only the simple case where we want to divide the graph in k partitions and k is a power of two. The idea is just to apply the spectral partitioning $\frac{k}{2}$ times recursively to each of the partitions obtained. The method is presented in Algorithm~\ref{kpartitioning}.
+%
+%\begin{algorithm}
+%\caption{ (k-way Partitioning)}\label{kpartitioning}
+%\begin{algorithmic}[1]
+%\Procedure{k-way Partitioning}{}
+%\State $\textit{G} \gets \text{(V,E)}$
+%\State $k \gets \text{number of desired partitions}$
+%\State $\text{Apply spectral partitioning on G and find }G_1 \text{ and } G_2$
+%\BState \emph{loop}:
+%\If {$\frac{k}{2} > 1$}
+%\State $\text{Recursive partition on }G_1 \text{ with } \frac{k}{2}$
+%\State $\text{Recursive partition on }G_2 \text{ with } \frac{k}{2}$
+%\State $k \gets \frac{k}{2}$
+%\EndIf
+%\State \textbf{goto} \emph{loop}\\
+%\Return $G_1 = (V_1,E_1) \text{ ... } G_K = (V_K,E_K)$
+%\EndProcedure
+%\end{algorithmic}
+%\end{algorithm}
 
 
 
@@ -427,12 +426,12 @@ We consider only the simple case where we want to divide the graph in k partitio
 \section{Numerical analysis}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 After retrieving all the necessary information and organizing the data in adjacency matrices, I applied PageRank and Graph Partitioning algorithms, obtaining the following results.
-Since the Swiss authors' names obtained are only 422, I decide to extend the research to the institutions from all over the word, reaching 16425 names. So the analysis is done in parallel for both Swiss collaborations and authors from all over the world.
+Since the Swiss author names obtained are only 422, I decide to extend the research to the institutions from all over the word, reaching 16425 names. So the analysis is done in parallel for both Swiss collaborations and authors from all over the world.
 
-I first construct the adjacency matrices of the authors and their corresponding universities; for the universities I also build a weighted matrix which keeps the number of collaborations between each university. I consider that each author collaborates with himself so the diagonal of the matrix will have all ones.
-We can see in Figure \ref{fig:authorsAdj} the authors' matrices, instead in Figure \ref{fig:univAdj} the one of the Swiss universities.
+I first construct the adjacency matrices of the authors and their corresponding institutions; for the organizations I also build a weighted matrix which keeps stored the number of collaborations between them. I consider that each author collaborates with himself so the diagonal of the matrix will contain ones.
+We can see in Figure \ref{fig:authorsAdj} the authors matrices, while in Figure \ref{fig:univAdj} the one of the Swiss institutions.
 
-\begin{figure}[b]
+\begin{figure}[tb]
 	\centering
 	\subfigure[]{
 		\includegraphics[height=4.5cm]{img/Analysis/authors_adj.jpg}
@@ -456,16 +455,17 @@ We can see in Figure \ref{fig:authorsAdj} the authors' matrices, instead in Figu
 		\includegraphics[height=4.5cm]{img/Analysis/univ_adj_weighted.jpg}
 		\label{fig:uniAdjW}
 	}
-	\caption{ \subref{fig:uniAdj} is the Swiss university adjacency matrix, \subref{fig:uniAdjW} is the universities weighted graph}
+	\caption{ \subref{fig:uniAdj} is the Swiss institutions adjacency matrix, \subref{fig:uniAdjW} is the organizations weighted graph}
 	\label{fig:univAdj}
 \end{figure}
 
-The sparsity of a matrix is the number of zero-valued elements divided by the total number of elements; the Swiss authors adjacency matrix has sparsity equal to $0.0085$ instead the one of the world authors matrix is $2.4312 \cdot 10^{-4}$.
+The sparsity of a matrix is the number of zero-valued elements divided by the total number of elements; the Swiss authors adjacency matrix has sparsity equal to $8.5 \cdot 10^{-3}$ instead the one of the world authors matrix is $2.4 \cdot 10^{-4}$.
 
 In Figure \ref{fig:uniAdjW} (lets call this matrix U) we can see the matrix representing the weighted collaborations between Swiss universities: as we can see in the bar at the right, blue corresponds to no collaboration and while increasing the number of collaborations the color changes to yellow.
-The universities which collaborate more in Switzerland are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne and ETH Z\"{u}rich which correspond to the 7th and 8th columns in the matrix. These two universities collaborate both internally in the university (see the yellow squares of $U_{7,7}$ and $U_{8,8}$ entries of the matrix U)  but also with other institutions (see the 7th and 8th columns of U where we have a lot of light-blue squares): for example  ETH Z\"{u}rich has 19 collaboration with Universit\`{a} della Svizzera italiana (25th column). 
-We can see that most of the light-blue squares appear in the diagonal of the matrix; it means that institutions' members usually works with authors of the same university instead of ones from a different institution.
+The institutions which collaborate more in Switzerland are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne and ETH Z\"{u}rich which correspond to the 7th and 8th columns/rows in the matrix. These two universities collaborate both internally in the university (see the yellow squares of $U_{7,7}$ and $U_{8,8}$ entries of the matrix U)  but also with other institutions (see the 7th and 8th columns/rows of U where we have a lot of light-blue squares): for example  ETH Z\"{u}rich has 19 collaboration with Universit\`{a} della Svizzera italiana (25th column). 
+We can see that most of the light-blue squares appear in the diagonal of the matrix; it means that institutions' members usually works with authors of the same organization instead of ones from a different institution.
 
+\textcolor{red}{Add something to say why do we apply the cuthill, come influenza i metodi numerici}\\
 I applied the Cuthill-McKee algorithm to the two authors matrices: it permutes a sparse matrix that has a symmetric sparsity pattern into a band matrix form with a small bandwidth.
 A band matrix is a sparse matrix whose non-zero elements are confined to a diagonal band; if the bandwidth of a symmetric matrix A is \textit{n}, it means that 
 $$A_{ij} = 0  \:\: \text{ if } \:\: |j-i| > n$$
@@ -489,45 +489,63 @@ We can notice that in both figures the number of non-zero elements, written belo
 	\label{fig:CuthillMcKee}
 \end{figure}
 
+
+
 \subsection{PageRank}
 Applying the PageRank algorithm I obtain a sorted list of authors and in Figure \ref{fig:PRbars} we can see all the 422 Swiss authors with their corresponding PageRank value. 
 
-In Figure \ref{fig:PRlist} we can see the first 10 most ``popular" authors sorted by the algorithm; we can see that the \textit{In\_degree} column, which correspond to the number of collaboration, it is not sorted because PageRank takes into account also the quality of the collaborations. For example the third author \textit{Simone Deparis} has more collaborations than the second \textit{Christoph Schwab}. 
+\textcolor{red}{In Table ~\ref{table:Tutto} we can see the first 10 most ``popular" authors sorted by the algorithm; we can see that the \textit{In\_degree} column, which correspond to the number of collaboration, it is not sorted because PageRank takes into account also the quality of the collaborations. For example the third author \textit{Simone Deparis} has more collaborations than the second \textit{Christoph Schwab}. To see it better we can compare this table with the one in Figure \ref{fig:degree} containing the first 10 authors sorted only by degree-centrality (i.e., number of collaborations). The most collaborative author is still \textit{Rolf Krause} because it has 30 associations but from the second we can already see some differences.}
 
-To see it better we can compare this table with the one in Figure \ref{fig:degree} that contains the first 10 authors sorted only by degree-centrality (i.e. number of collaborations). The most collaborative author is still \textit{Rolf Krause} because it has 30 associations but from the second we can already see some differences.
+\begin{table}[h!]
+\begin{minipage}[b]{.5\linewidth}
+\tiny
+\begin{tabular*}{\textwidth}{c c c l l}
+\textbf{Index} & \textbf{PageRank} & \textbf{Degree Centrality} & \textbf{Name} & \textbf{Institution}\\
+\hline
+12 & 0.016757 & 30 & Rolf Krause & USI \\
+58 & 0.010648 & 12 & Christoph Schwab & ETHZ \\
+4 & 0.0085765 & 14 & Simone Deparis & EPFL \\
+55 & 0.0079721 & 12 & Costas Bekas & IBM \\
+169 & 0.0078995 & 8 & Bruno Sudret & ETHZ \\
+24 & 0.0076977 & 12 & Peter Arbenz & ETHZ \\
+89 & 0.0075607 & 7 & Fabio Nobile & EPFL \\
+1 & 0.0067923 & 8 & Alfio Quarteroni & EPFL \\
+144 & 0.0066262 & 7 & Olaf Schenk & USI \\
+219 & 0.0063917 & 10 & Torsten Hoefler & ETHZ
+\end{tabular*}
+\label{table:PR}
+\caption{First ten Swiss authors sorted by PageRank}
+\end{minipage}
+\begin{minipage}[b]{.5\linewidth}
+\tiny
+\centering
+\begin{tabular}{c c l}
+\textbf{Index} & \textbf{Degree Centrality} & \textbf{Name} \\
+\hline
+12 & 30 & Rolf Krause \\
+4 & 14 & Simone Deparis \\
+24 & 12 & Peter Arbenz \\
+55 &12 & Costas Bekas \\
+58 & 12 & Christoph Schwab \\
+219 & 10 & Torsten Hoefler \\
+332 & 10 & Nicolas Salamin \\
+319 & 9 & Michael Afanasiev \\
+1& 8 & Alfio Quarteroni \\
+169 & 8 & Bruno Sudret
+\end{tabular}
+\label{table:DC}
+\caption{First ten Swiss authors sorted by degree centrality}
+\end{minipage}
+\end{table}
 
-%\begin{figure}[tb]
-%	\centering
-%	\includegraphics[height=5cm]{img/Analysis/page_rank_bars.jpg}
-%	\caption{Degree Centrality}
-%	\label{fig:degree}
-%\end{figure}
-%\begin{figure}[tb]
-%	\centering
-%	\includegraphics[height=5cm]{img/Analysis/Pagerank_swiss_10}
-%	\caption{Degree Centrality}
-%	\label{fig:degree}
-%\end{figure}
-\begin{figure}[tb]
+
+\begin{figure}[bt]
 	\centering
-	\subfigure[]{
-		\includegraphics[height=6cm]{img/Analysis/page_rank_bars.jpg}
-		\label{fig:PRbars}
-	}
-	\subfigure[]{
-		\includegraphics[height=4.5cm]{img/Analysis/Pagerank_swiss_10}
-		\label{fig:PRlist}
-	}
-	\caption{ \subref{fig:PRbars} is a bar graph of PageRank values, \subref{fig:PRlist} are the first 15 people with higher PageRank value}
-	\label{fig:PRAuthors}
+	\includegraphics[height=6cm]{img/Analysis/page_rank_bars.jpg}
+	\label{fig:PRbars}
+	\caption{ Bar graph of Swiss authors PageRank values}
 \end{figure}
 
-\begin{figure}[tb]
-	\centering
-	\includegraphics[height=5cm]{img/Analysis/degree_centrality}
-	\caption{Degree Centrality}
-	\label{fig:degree}
-\end{figure}
 
 I have also applied the PageRank algorithm to the universities' adjacency matrix obtaining the results in Figure \ref{fig:PRUniversities}.
 
@@ -535,52 +553,125 @@ We can observe that the most present universities in the area of computational s
 \begin{figure}[tb]
 	\centering
 	\subfigure[]{
-		\includegraphics[height=6cm]{img/Analysis/page_rank_uni.jpg}
+		\includegraphics[height=4.5cm]{img/Analysis/page_rank_uni.jpg}
 		\label{fig:PRbarsuni}
 	}
 	\subfigure[]{
-		\includegraphics[height=4.5cm]{img/Analysis/pr_uni_10}
+		\includegraphics[height=4cm]{img/Analysis_world/pr_uni.jpg}
 		\label{fig:PRlistuni}
 	}
 	\caption{ \subref{fig:PRbars} is a bar graph of PageRank values, \subref{fig:PRlist} are the first 15 universities with higher PageRank value}
 	\label{fig:PRUniversities}
 \end{figure}
 
-About what concerning world information we can better see the difference between PageRank and degree centrality sorting in Figure \ref{fig:PRAuthorW}; the Swiss  \textit{Rolf Krause}, member of USI, has the 7th PageRank value with only 38 collaborations but doesn't appear in the first ten positions of the degree centrality list.
+\begin{table}[h!]
+\begin{minipage}[b]{.5\linewidth}
+\tiny
+\begin{tabular}{c c c l l}
+\textbf{Index} & \textbf{PageRank} & \textbf{D.Centrality} & \textbf{Institution}\\
+\hline
+7 & 0.12632 & 16 & EPFL \\
+8 & 0.12601 & 16 & ETHZ \\
+25 & 0.09368 & 12 & USI \\
+12 & 0.059924 & 7 & IBM \\
+20 & 0.053813 & 7 & SIB \\
+30 & 0.046199 & 6 & University of Geneva \\
+24 & 0.038438 & 5 & UNIL \\
+11 & 0.032109 & 4 & HES-SO Valais-Wallais\\
+31 & 0.032109 & 4 & University of Neuchatel \\
+4 & 0.031569 & 4 & CHUV
+\end{tabular}
+\label{table:PR}
+\caption{First ten Swiss institutions sorted by PageRank}
+\end{minipage}
+\begin{minipage}[b]{.5\linewidth}
+\tiny
+\begin{tabular}{c c c l l}
+\textbf{Index} & \textbf{PageRank} & \textbf{D.Centrality} & \textbf{Institution}\\
+\hline
+1498 & 0.018077 & 256 & University of California \\
+801 & 0.0073476 & 114 & Massachusetts Institute of Technology \\
+1215 & 0.0065502 & 101 & Stanford University \\
+1132 & 0.0065372 & 103 & Sandia National Laboratories \\
+1319 & 0.0064138 & 97 & The University of Texas at Austin \\
+454 & 0.0060685 & 92 & Georgia Institute of Technology \\
+937 & 0.0059833 & 96 & New York University-NYU \\
+760 & 0.0058694 & 87 & Lawrence Berkeley National Laboratory\\
+527 & 0.0049737 & 80 & IBM \\
+326 & 0.0048789 & 69 & EPFL
+\end{tabular}
+\label{table:DC}
+\caption{First ten institutions sorted by PageRank}
+\end{minipage}
+\end{table}
 
-\begin{figure}[ht]
-	\centering
-	\subfigure[]{
-		\includegraphics[height=3.5cm]{img/Analysis_world/pr_world_10}
-		\label{fig:PRauthorW}
-	}
-	\subfigure[]{
-		\includegraphics[height=4cm]{img/Analysis_world/degree}
-		\label{fig:degreeW}
-	}
-	\caption{ \subref{fig:PRauthorW} is the words authors sorted by PageRank values; \subref{fig:degreeW}  is the words authors sorted by degree centrality}
-	\label{fig:PRAuthorW}
-\end{figure}
+About what concerning world information we can better see the difference between PageRank and degree centrality sorting in Figure \ref{fig:PRAuthorW}; the Swiss  \textit{Rolf Krause}, member of USI, has the 7th PageRank value with only 38 collaborations but does not appear in the first ten positions of the degree centrality list.
 
-In Figure \ref{fig:PRuniW} we can see the first 10 universities with higher PageRank value: in the computational science area the most important are the University of California and the Massachusetts Institute of Technology. At the last position we can find the Swiss institution, \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, which was in the first position in the Swiss list.
+\begin{table}[h!]
+\begin{minipage}[b]{.55\linewidth}
+\tiny
+\begin{tabular*}{\textwidth}{c c c l l}
+\textbf{Index} & \textbf{PageRank} & \textbf{D.Centrality} & \textbf{Name} & \textbf{Institution}\\
+\hline
+1343 & 0.00066775 & 47 & Youssef M. Marzouk & Massachusetts Institute of Technology \\
+3794 & 0.00064672 & 42 & Andrea L. Bertozzi & University of California \\
+2719 & 0.00055678 & 42 & Stanley J. Osher & University of California \\
+115 & 0.00052919 & 49 & Omar Ghattas & The University of Texas at Austin \\
+2478 & 0.00052283 & 23 & Stefan Ulbrich & Technical University Darmstadt \\
+2333 & 0.0005056 & 33 & Gianluca Iaccarino & Stanford University \\
+25 & 0.00049204 & 38 & Rolf Krause & USI \\
+758 & 0.00047899 & 52 & Xiaoye Sherry Li & Lawrence Berkeley National Laboratory \\
+701 & 0.00047145 & 51 & Eric Phipps & Sandia National Laboratories \\
+773 & 0.00045236 & 41 & James W. Demmel& University of California
+\end{tabular*}
+\label{table:PR}
+\caption{First ten authors \\ sorted by PageRank}
+\end{minipage}
+\begin{minipage}[b]{.4\linewidth}
+\tiny
+\raggedleft
+\begin{tabular}{c c l}
+\textbf{Index} & \textbf{Degree Centrality} & \textbf{Name} \\
+\hline
+715& 52 & Mark S. Shephard \\
+758 & 52 & Xiaoye Sherry Li \\
+701 & 51 & Eric Phipps\\
+115 &49 & Omar Ghattas \\
+1343 & 47 & Youssef M. Marzouk\\
+188 & 44 & Siva Rajamanickam\\
+189 & 43 & Erik G. Boman\\
+957 & 43 & Lois Curfman McInnes\\
+784 & 42 & Emmanuel Agullo \\
+2719 & 42 & Stanley J. Osher
+\end{tabular}
+\label{table:DC}
+\caption{First ten authors sorted by degree centrality}
+\end{minipage}
+\end{table}
 
-\begin{figure}[tb]
-	\centering
-	\includegraphics[height=4cm]{img/Analysis_world/pr_uni_10}
-	\caption{PageRank list of universities from all over the world}
-	\label{fig:PRuniW}
-\end{figure}
 
-\subsection{Graph Partitioning}
-Applying the graph partitioning algorithm I would like to obtain a division between different  Swiss universities based on the fact the the members mainly work with people of the same institution. The algorithm, cutting the edges, probably cut the collaboration between different universities and keep the ones internal to the same institution. I decide to apply 4-way partitioning, obtaining four groups of about 105 members. 
+In Figure \ref{fig:PRuniW} we can see the first 10 universities with higher PageRank value: in the computational science area the most important are the University of California and the Massachusetts Institute of Technology. At ranking 10th we can find the Swiss institution, \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, which was in the first position in the Swiss list.
 
-Unfortunately the result was not what I expected because the main universities, such as \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne and  ETH Z\"{u}ric, collaborate with almost all other institutions and for this reason appear in all the groups obtained. This results in four groups which are not divided by universities otherwise we can see that all members of the University of Basel are in the second group, instead the ones of USI are almost all in the third group.
-\begin{figure}[tb]
-	\centering
-	\includegraphics[height=6cm]{img/Analysis/graph_partitioning.jpg}
-	\caption{The graph partitioning algortihm}
-	\label{fig:graphPart}
-\end{figure}
+
+%\bigskip
+%\noindent
+%\begin{minipage}[t]{.45\textwidth}
+%\raggedright
+%This is \\
+%some left-aligned \\
+%text in a column \\
+%for demo purposes
+%\end{minipage}
+%\hfill
+%\noindent
+%\begin{minipage}[t]{.45\textwidth}
+%\raggedleft
+%This is \\
+%some different \\
+%text, right-aligned \\
+%for demo purposes, \\
+%and with more lines.
+%\end{minipage}
 
 
 \newpage
@@ -615,9 +706,10 @@ Unfortunately the result was not what I expected because the main universities, 
 %
 %I want to thank my project advisor, prof. Kai Hormann, for suggesting this fascinating project. I really enjoyed working on it and prof. Hormann has been very helpful throughout the whole project. I was given a lot of freedom and independence, which pushed me to give the best of myself. The project had such a great potential and was so intellectually challenging that I was thrilled and eager every time I could spend time working on it.\\
 %I also want to thank my wife for being so supportive and patient. The long nights passed working on this project really proved her love, and her caring for my well-being helped me a lot through the difficult and stressing moments. Her excitement for every new feature pushed me to improve the project more and more, seeking that wonderful smile.
-%
-%%%%%%
-%\bibliographystyle{abbrv}
-%\bibliography{references}
+
+
+
+\bibliographystyle{abbrv}
+\bibliography{references}
 
 \end{document}

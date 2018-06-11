@@ -1,6 +1,6 @@
 %% Remove duplicates
-i = {[394,395],[181,391],[188,242],[122,257],[324,325],[75,311],[315,316],[336,337],[52,65],[416,417],[332,335],[31,144],[3,105],[24,56],[38,166],[356,359],[83,180],[313,314],[363,364,365]};
-[M,A,authors] = removeDuplicates(i,M,A,authors);
+% i = {[394,395],[181,391],[188,242],[122,257],[324,325],[75,311],[315,316],[336,337],[52,65],[416,417],[332,335],[31,144],[3,105],[24,56],[38,166],[356,359],[83,180],[313,314],[363,364,365]};
+% [M,A,authors] = removeDuplicates(i,M,A,authors);
 
 %% Matrix visualization
 figure
@@ -9,12 +9,12 @@ title('authors adjacency matrix')
 
 figure
 spy(U)
-title('universities adjacency matrix')
+title('institutions adjacency matrix')
 
 figure
 imagesc(W)
 colorbar
-title('universities weighted adjacency matrix')
+title('institutions weighted adjacency matrix')
 
 %% PageRank
 % Call the function with swiss authors' information
