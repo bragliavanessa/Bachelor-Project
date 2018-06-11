@@ -3,6 +3,7 @@
 \usepackage{footnotebackref}
 \usepackage[english]{babel}
 \usepackage[noend]{algpseudocode}
+
 \newcommand\tab[1][1cm]{\hspace*{#1}}
 \captionsetup{labelfont={bf}}
 
@@ -20,10 +21,10 @@
 \versiondate{\today}
 
 % DA SCOMMENTARE
-%\begin{committee}
-%\advisor[Universit\`a della Svizzera Italiana, Switzerland]{Prof.}{Olaf}{Schenk}
-%\assistant[Universit\`a della Svizzera Italiana, Switzerland]{}{Fabio}{Verbosio}
-%\end{committee}
+\begin{committee}
+\advisor[Universit\`{a} della Svizzera Italiana, Switzerland]{Prof.}{Olaf}{Schenk}
+\assistant[Universit\`a della Svizzera Italiana, Switzerland]{}{Fabio}{Verbosio}
+\end{committee}
 
 \abstract {
 In this project I implemented some algorithms to analyze the swiss scientific social network.
@@ -33,7 +34,7 @@ To construct the graph representing the relations (the edges) between authors (t
 
 \begin{document}
 % DA SCOMMENTARE
-%\maketitle
+\maketitle
 \newpage
 \tableofcontents
 \newpage
@@ -75,12 +76,11 @@ The results will provide an interesting picture of the different research scenar
 %%%%%%%%%%%%%%%%%%%%%%%%%
 
 Information retrieval is the process of extracting, starting from an information need, the relevant information from a collection of resources. In this project, the necessary information are the names of the institutions members and the collaborations between them. 
+First, I try to use Mendeley API but it allows only to take 100 results per query and there is no control on the type of information to be retrieved. Additionally, it does not return all the information needed, i.e., not all authors have a specified institution and only few papers were available.
 
-\textcolor{red}{Firstly I try to use Mendeley API but it allows only to take 100 results per query and if you run the same query more times it returns always the same information. Additionally it does not return all the information needed i.e., not all authors have a specified institution and only few papers were available.}
+After this first unproductive attempt to use Mendeley API, I decide to  extract the information from some online conferences programs: the idea is that if two authors presented some work together at a conference, then they are connected in my social network.
 
-After this first unproductive attempt to use Mendeley API, I decide to  extract the information from some online conferences' programs; the idea is that if two authors made a conference together, then they are connected in my social network.
-
-I crawl the conferences' programs and I construct a parser to extract the information from the HTML pages and  to organize the data.
+I crawl the conference programs and I construct a parser to extract the information from the HTML pages and to organize the data.
 
 \subsection{Crawling}
 
@@ -88,15 +88,14 @@ A web crawler is an Internet bot that browses the World Wide Web, typically for 
 
 The web pages that I decide to crawl are the online programs of 2015, 2016 and 2017 PASC conferences and of SIAM conferences with arguments concerning computational science i.e., Optimization, Parallel Computing, Computational Science \& Engineering, Imaging Science, Uncertainty Quantification, Linear Algebra in Signals, Systems \& Control, Data Mining and Analysis of Partial Differential Equations.
 
-I use Apache Nutch, a highly extensible and scalable open source web crawler, allowing the user to crawl a lot of web pages with few command lines.
+I use Apache Nutch~\cite{nutch}, a highly extensible and scalable open source web crawler, allowing the user to crawl a lot of web pages with few command lines.
 It starts with a list of URLs to visit, called the seeds; I create this list including all the links to the computational science conferences web pages previously mentioned.
 
 As the crawler visits the URLs, it identifies all the hyperlinks in the page and adds them to the list of URLs to visit; in my case I crawl only the pages in the starting seed ignoring all the internal links. The crawler copies and saves the information as it goes and stores in a repository each page as a distinct file.
 
-Thanks to Apache Nutch I manage to create a text file with the HTML of all the saved conference pages. Obtained this file, the next step is studying the structure of the page and how to extract the information needed. \textcolor{red}{Where we can find the information in the page, if they are in some particular tag, as we can extract them. The parser is responsible for these tasks.}
+Thanks to Apache Nutch I manage to create a text file with the HTML of all the saved conference pages. After this file is created, the next step is studying the structure of the page and how to extract the information needed, i.e., where we can find the information in the page, if it is included in some particular HTML tag, and how to interpret it. In order to do so, I designed a parser responsible for these tasks.
 
 \subsection{Parsing}
-
 A parser is a program that receives data as input and breaks it up into smaller elements that can then be used for different purposes. In this project, the parser reads the text file created after the crawling and extracts from it the information about Swiss institutions and their members. The data obtained is used to create the social network ready to be analyzed.
 
 In this project I personally write a parser, using Python programming language, to extract the information from the conferences HTML pages. The parser goes through the structure of the page and extracts only the useful information. Clearly, different page structures require different parser, then I write two of them because the SIAM conferences and the PASC have different structures.
@@ -175,7 +174,7 @@ From this data set I easily create the adjacency matrix and thanks to the indexe
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The PageRank Algorithm} \label{sec:pagerank} 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-PageRank is an algorithm used by Google Search to rank websites in their search engine results. It was developed by  Larry Page and  Sergey Brin (the Google founders) in 1996 as part of their research project at Stanford University.
+PageRank is an algorithm used by Google Search to rank websites in their search engine results. It was developed by  Larry Page and  Sergey Brin (the Google founders) in 1996 as part of their research project at Stanford University~\cite{PR}.
 
 PageRank is used, together with other algorithms, to measure the importance of web pages and sort them by popularity in the results; it can be used on any graph to compute the importance of each node by its PageRank value. Larry Page and  Sergey Brin algorithm works by counting the number and quality of links to a page, to compute a value which represents its importance: more popular a page is, more likely it receives links from other websites and even more likely from important websites.
 
@@ -214,7 +213,8 @@ Since the collaboration is a symmetric relation, my graph is undirected, hence t
 
 Let $p$ be the probability that the surfer follows a link and $1-p$ the probability that it chooses a random page, then $\delta = \frac{1-p}{n}$ is the probability that a particular random page is chosen.
 
-We construct a transition probability matrix A where all the elements are positive and smaller than one, and the sum of each column is equal to one; this last property is due to the fact that column $j$ represents the probabilities to go from page j to all other pages. So, we set
+We construct a transition probability matrix A, where all the elements are positive and smaller than one, and the sum of each column is equal to one.
+The last property comes from the fact that column $j$ represents the probabilities to go from page j to all other pages. So, we set
 \begin{equation}\notag
 a_{ij} = 
 \begin{cases}
@@ -222,7 +222,7 @@ a_{ij} =
 \frac{1}{n} & \text{if } c_{j} = 0
 \end{cases}.
 \end{equation}
-In other words, if page $j$ has no outer links, it means that column $j$ of $A$ present a uniform probability $\frac{1}{n}$ in all its elements. Since matrix A is a transition matrix of a Markov chian, all its eigenvalues are real, between 0 and 1, and 1 is an eigenvalue itself
+In other words, if page $j$ has no outer links, it means that column $j$ of $A$ present a uniform probability $\frac{1}{n}$ in all its elements. Since matrix A is a transition matrix of a Markov chain~\cite{MarkovChain}, all its eigenvalues are real, between 0 and 1, and 1 is an eigenvalue itself
 $$0 \leq \lambda_1 \leq \lambda_2 \leq \dots \leq \lambda_n = 1 \text{.}$$
 We can now compute PageRank values by solving the problem 
 
@@ -230,8 +230,7 @@ We can now compute PageRank values by solving the problem
 A\:x = x \text{.}
 \end{equation}
 
-This is a particular eigenvalue problem because usually they are of the form $Ax=\lambda x$. 
-In our specific problem, in fact, we have $\lambda = 1$ so we compute the eigenvector relative to the greatest eigenvalue which is 1, as just mentioned.
+This is a particular eigenvalue problem~\cite{eigenproblem} of the form $Ax=\lambda x$, where, in our specific case, $\lambda = 1$. We compute the eigenvector relative to the greatest eigenvalue, which is 1 as just mentioned.
 
 The transition matrix $A$ can be written as
 $$A = pGD+ez^{T}, $$
@@ -251,7 +250,7 @@ z_{j} =
 \frac{1}{n} & \text{if } c_{j} = 0
 \end{cases} \,,
 \end{equation}
-and $e$ is the vector of length $n$ with all ones.
+and $e$ is the vector of length $n$ with all ones. For more details about this, see~\cite[Chapter 7]{molerPR} (https://ch.mathworks.com/moler/chapters.html).
 
 We can write the linear system
 $$(I-A)x=0$$
@@ -425,7 +424,7 @@ and then rescale the solution so that $\sum\limits_{i=1}^{n} x_i = 1$.
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Numerical analysis}
 %%%%%%%%%%%%%%%%%%%%%%%%%
-After retrieving all the necessary information and organizing the data in adjacency matrices, I applied PageRank and Graph Partitioning algorithms, obtaining the following results.
+After retrieving all the necessary information and organizing the data in adjacency matrices, I applied the PageRank algorithm, obtaining the following results.
 Since the Swiss author names obtained are only 422, I decide to extend the research to the institutions from all over the word, reaching 16425 names. So the analysis is done in parallel for both Swiss collaborations and authors from all over the world.
 
 I first construct the adjacency matrices of the authors and their corresponding institutions; for the organizations I also build a weighted matrix which keeps stored the number of collaborations between them. I consider that each author collaborates with himself so the diagonal of the matrix will contain ones.
@@ -452,20 +451,20 @@ We can see in Figure \ref{fig:authorsAdj} the authors matrices, while in Figure 
 		\label{fig:uniAdj}
 	}
 	\subfigure[]{
-		\includegraphics[height=4.5cm]{img/Analysis/univ_adj_weighted.jpg}
+		\includegraphics[height=4.5cm]{img/Analysis/image_W.png}
 		\label{fig:uniAdjW}
 	}
 	\caption{ \subref{fig:uniAdj} is the Swiss institutions adjacency matrix, \subref{fig:uniAdjW} is the organizations weighted graph}
 	\label{fig:univAdj}
 \end{figure}
 
-The sparsity of a matrix is the number of zero-valued elements divided by the total number of elements; the Swiss authors adjacency matrix has sparsity equal to $8.5 \cdot 10^{-3}$ instead the one of the world authors matrix is $2.4 \cdot 10^{-4}$.
+The sparsity of a matrix is the number of zero-valued elements divided by the total number of elements; the Swiss authors adjacency matrix has sparsity equal to $8.5 \cdot 10^{-3}$ instead the one of the world authors matrix is $2.4 \cdot 10^{-4}$ (for more on sparse matrices, see~\cite[Chapter 3]{saad}).
 
 In Figure \ref{fig:uniAdjW} (lets call this matrix U) we can see the matrix representing the weighted collaborations between Swiss universities: as we can see in the bar at the right, blue corresponds to no collaboration and while increasing the number of collaborations the color changes to yellow.
 The institutions which collaborate more in Switzerland are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne and ETH Z\"{u}rich which correspond to the 7th and 8th columns/rows in the matrix. These two universities collaborate both internally in the university (see the yellow squares of $U_{7,7}$ and $U_{8,8}$ entries of the matrix U)  but also with other institutions (see the 7th and 8th columns/rows of U where we have a lot of light-blue squares): for example  ETH Z\"{u}rich has 19 collaboration with Universit\`{a} della Svizzera italiana (25th column). 
 We can see that most of the light-blue squares appear in the diagonal of the matrix; it means that institutions' members usually works with authors of the same organization instead of ones from a different institution.
 
-\textcolor{red}{Add something to say why do we apply the cuthill, come influenza i metodi numerici}\\
+\textcolor{red}{Add something to say why do we apply the cuthill, come influenza i metodi numerici -- Comparare nnz(L+U) con e senza RCM. Eventualmente provare con power method.}\\
 I applied the Cuthill-McKee algorithm to the two authors matrices: it permutes a sparse matrix that has a symmetric sparsity pattern into a band matrix form with a small bandwidth.
 A band matrix is a sparse matrix whose non-zero elements are confined to a diagonal band; if the bandwidth of a symmetric matrix A is \textit{n}, it means that 
 $$A_{ij} = 0  \:\: \text{ if } \:\: |j-i| > n$$
@@ -494,48 +493,46 @@ We can notice that in both figures the number of non-zero elements, written belo
 \subsection{PageRank}
 Applying the PageRank algorithm I obtain a sorted list of authors and in Figure \ref{fig:PRbars} we can see all the 422 Swiss authors with their corresponding PageRank value. 
 
-\textcolor{red}{In Table ~\ref{table:Tutto} we can see the first 10 most ``popular" authors sorted by the algorithm; we can see that the \textit{In\_degree} column, which correspond to the number of collaboration, it is not sorted because PageRank takes into account also the quality of the collaborations. For example the third author \textit{Simone Deparis} has more collaborations than the second \textit{Christoph Schwab}. To see it better we can compare this table with the one in Figure \ref{fig:degree} containing the first 10 authors sorted only by degree-centrality (i.e., number of collaborations). The most collaborative author is still \textit{Rolf Krause} because it has 30 associations but from the second we can already see some differences.}
+Table~\ref{table:PRDC}~(left) shows the first 10 most ``popular" authors sorted by the algorithm.
+We can see that the \textit{In\_degree} column, which corresponds to the number of collaboration, it is not sorted because PageRank takes into account also the quality of the collaborations.
+For example, the third author \textit{Simone Deparis} has more collaborations than the second \textit{Christoph Schwab}.
+To see it better we can compare this table with the one on the right, containing the first 10 authors sorted only by degree-centrality (i.e., number of collaborations). The most collaborative author is still \textit{Rolf Krause} because it has 30 associations but from the second we can already see some differences in the ranking.
 
-\begin{table}[h!]
-\begin{minipage}[b]{.5\linewidth}
-\tiny
-\begin{tabular*}{\textwidth}{c c c l l}
-\textbf{Index} & \textbf{PageRank} & \textbf{Degree Centrality} & \textbf{Name} & \textbf{Institution}\\
-\hline
-12 & 0.016757 & 30 & Rolf Krause & USI \\
-58 & 0.010648 & 12 & Christoph Schwab & ETHZ \\
-4 & 0.0085765 & 14 & Simone Deparis & EPFL \\
-55 & 0.0079721 & 12 & Costas Bekas & IBM \\
-169 & 0.0078995 & 8 & Bruno Sudret & ETHZ \\
-24 & 0.0076977 & 12 & Peter Arbenz & ETHZ \\
-89 & 0.0075607 & 7 & Fabio Nobile & EPFL \\
-1 & 0.0067923 & 8 & Alfio Quarteroni & EPFL \\
-144 & 0.0066262 & 7 & Olaf Schenk & USI \\
-219 & 0.0063917 & 10 & Torsten Hoefler & ETHZ
-\end{tabular*}
-\label{table:PR}
-\caption{First ten Swiss authors sorted by PageRank}
-\end{minipage}
-\begin{minipage}[b]{.5\linewidth}
-\tiny
+\newcommand\ccc{\centering}
+\begin{table}[tbh]
 \centering
-\begin{tabular}{c c l}
-\textbf{Index} & \textbf{Degree Centrality} & \textbf{Name} \\
+\scriptsize
+\caption{First 10 Swiss authors ranked by PageRank (left) and degree centrality (right)}
+\begin{tabular}{c c m{10mm} l l}
+\textbf{Index} & \textbf{PageRank} & \textbf{Degree \newline Centrality} & \textbf{Name} & \textbf{Institution}\\
 \hline
-12 & 30 & Rolf Krause \\
-4 & 14 & Simone Deparis \\
-24 & 12 & Peter Arbenz \\
-55 &12 & Costas Bekas \\
-58 & 12 & Christoph Schwab \\
-219 & 10 & Torsten Hoefler \\
-332 & 10 & Nicolas Salamin \\
-319 & 9 & Michael Afanasiev \\
-1& 8 & Alfio Quarteroni \\
-169 & 8 & Bruno Sudret
+12 & 0.016757 	& \ccc 30 	& Rolf Krause & USI \\
+58 & 0.010648 	& \ccc 12 	& Christoph Schwab & ETHZ \\
+4 & 0.0085765 	& \ccc 14 	& Simone Deparis & EPFL \\
+55 & 0.0079721 	& \ccc 12 	& Costas Bekas & IBM \\
+169 & 0.0078995 & \ccc 8 	& Bruno Sudret & ETHZ \\
+24 & 0.0076977 	& \ccc 12 	& Peter Arbenz & ETHZ \\
+89 & 0.0075607 	& \ccc 7 	& Fabio Nobile & EPFL \\
+1 & 0.0067923 	& \ccc 8 	& Alfio Quarteroni & EPFL \\
+144 & 0.0066262 & \ccc 7 	& Olaf Schenk & USI \\
+219 & 0.0063917 & \ccc 10 	& Torsten Hoefler & ETHZ
+\end{tabular} \label{table:PR}
+\qquad\qquad
+\begin{tabular}{c m{10mm} l}
+\textbf{Index} & \textbf{Degree \newline Centrality} & \textbf{Name} \\
+\hline
+12 	& \ccc 30 & Rolf Krause \\
+4 	& \ccc 14 & Simone Deparis \\
+24 	& \ccc 12 & Peter Arbenz \\
+55 	& \ccc 12 & Costas Bekas \\
+58 	& \ccc 12 & Christoph Schwab \\
+219 & \ccc 10 & Torsten Hoefler \\
+332 & \ccc 10 & Nicolas Salamin \\
+319 & \ccc 9 & Michael Afanasiev \\
+1 	& \ccc 8 & Alfio Quarteroni \\
+169 & \ccc 8 & Bruno Sudret
 \end{tabular}
-\label{table:DC}
-\caption{First ten Swiss authors sorted by degree centrality}
-\end{minipage}
+\label{table:PRDC}
 \end{table}
 
 
@@ -547,9 +544,8 @@ Applying the PageRank algorithm I obtain a sorted list of authors and in Figure 
 \end{figure}
 
 
-I have also applied the PageRank algorithm to the universities' adjacency matrix obtaining the results in Figure \ref{fig:PRUniversities}.
-
-We can observe that the most present universities in the area of computational science are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, ETH Z\"{u}ric and Universit\`{a} della Svizzera italiana. Here the universities sorted by PageRank corresponds to the  sorting by number of collaborations (\textit{In\_degree} column).
+I have also applied the PageRank algorithm to the universities adjacency matrix obtaining the results in Figure \ref{fig:PRUniversities}.
+We can observe that the most present universities in the area of computational science are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, ETH Z\"{u}rich and Universit\`{a} della Svizzera italiana. Here the universities sorted by PageRank corresponds to the  sorting by number of collaborations (\textit{In\_degree} column).
 \begin{figure}[tb]
 	\centering
 	\subfigure[]{
@@ -644,7 +640,7 @@ About what concerning world information we can better see the difference between
 784 & 42 & Emmanuel Agullo \\
 2719 & 42 & Stanley J. Osher
 \end{tabular}
-\label{table:DC}
+\label{table:DC  }
 \caption{First ten authors sorted by degree centrality}
 \end{minipage}
 \end{table}
@@ -674,16 +670,15 @@ In Figure \ref{fig:PRuniW} we can see the first 10 universities with higher Page
 %\end{minipage}
 
 
-\newpage
-\section{Bibliography  \textcolor{red}{Temporary}}
-\begin{itemize}
-\item https://en.wikipedia.org/wiki/PageRank
-\item Assignment1 1 Course Numerical Computing 2107/2018
-\item Assignment2 1 Course Numerical Computing 2107/2018
-\item \hyperref[label_name]{''https://am.vsb.cz/export/sites/am/cs/theses/kabelikova\_ing.pdf''}
-\item https://en.wikipedia.org/wiki/Graph\_partition
-\end{itemize}
-
+%\newpage
+%\section{Bibliography  \textcolor{red}{Temporary}}
+%\begin{itemize}
+%\item https://en.wikipedia.org/wiki/PageRank
+%\item Assignment1 1 Course Numerical Computing 2107/2018
+%\item Assignment2 1 Course Numerical Computing 2107/2018
+%\item \hyperref[label_name]{''https://am.vsb.cz/export/sites/am/cs/theses/kabelikova\_ing.pdf''}
+%\item https://en.wikipedia.org/wiki/Graph\_partition
+%\end{itemize}
 
 
 
@@ -709,7 +704,7 @@ In Figure \ref{fig:PRuniW} we can see the first 10 universities with higher Page
 
 
 
-\bibliographystyle{abbrv}
+\bibliographystyle{plain}
 \bibliography{references}
 
 \end{document}
