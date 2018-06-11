@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  11 JUN 2018 17:37
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  11 JUN 2018 18:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1009,11 +1009,36 @@ File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
 s/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.0 (rcs-revision 1.2)
 )))
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count186
+\lst@gtempboxa=\box43
+\lst@token=\toks62
+\lst@length=\count187
+\lst@currlwidth=\dimen200
+\lst@column=\count188
+\lst@pos=\count189
+\lst@lostspace=\dimen201
+\lst@width=\dimen202
+\lst@newlines=\count190
+\lst@lineno=\count191
+\lst@maxwidth=\dimen203
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2014/09/06 1.5e (Carsten Heinz)
+\c@lstnumber=\count192
+\lst@skipnumbers=\count193
+\lst@framebox=\box44
+)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2014/09/06 1.5e listings configuration
+))
+Package: listings 2014/09/06 1.5e (Carsten Heinz)
+
 (/usr/local/texlive/2015/texmf-dist/tex/latex/footnotebackref/footnotebackref.s
 ty
 Package: footnotebackref 2012/07/01 v1.0 Backreferences for footnotes (Holger L
 ange)
-\c@BackrefHyperFootnoteCounter=\count186
+\c@BackrefHyperFootnoteCounter=\count194
 ) (/usr/local/texlive/2015/texmf-dist/tex/generic/babel/babel.sty
 Package: babel 2014/09/25 3.9l The Babel package
 
@@ -1022,8 +1047,8 @@ Language: english 2012/08/20 v3.3p English support from the babel system
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/babel/babel.def
 File: babel.def 2014/09/25 3.9l Babel common definitions
-\babel@savecnt=\count187
-\U@D=\dimen200
+\babel@savecnt=\count195
+\U@D=\dimen204
 
 (/usr/local/texlive/2015/texmf-dist/tex/generic/babel/xebabel.def))
 \l@canadian = a dialect from \language\l@american 
@@ -1037,23 +1062,23 @@ Package: algpseudocode
 Package: algorithmicx 2005/04/27 v1.2 Algorithmicx
 
 Document Style algorithmicx 1.2 - a greatly improved `algorithmic' style
-\c@ALG@line=\count188
-\c@ALG@rem=\count189
-\c@ALG@nested=\count190
+\c@ALG@line=\count196
+\c@ALG@rem=\count197
+\c@ALG@nested=\count198
 \ALG@tlm=\skip69
 \ALG@thistlm=\skip70
-\c@ALG@Lnr=\count191
-\c@ALG@blocknr=\count192
-\c@ALG@storecount=\count193
-\c@ALG@tmpcounter=\count194
+\c@ALG@Lnr=\count199
+\c@ALG@blocknr=\count200
+\c@ALG@storecount=\count201
+\c@ALG@tmpcounter=\count202
 \ALG@tmplength=\skip71
 )
 Document Style - pseudocode environments for use with the `algorithmicx' style
 )
-\dtldb@committee=\toks62
-\dtlkeys@committee=\toks63
-\dtlrows@committee=\count195
-\dtlcols@committee=\count196
+\dtldb@committee=\toks63
+\dtlkeys@committee=\toks64
+\dtlrows@committee=\count203
+\dtlcols@committee=\count204
 
 
 LaTeX Warning: Unused global option(s):
@@ -1139,10 +1164,11 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: hypcap package is loaded.
+Package caption Info: listings package is loaded.
 Package caption Info: subfigure package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box43
+\AtBeginShipoutBox=\box45
 Package hyperref Info: Link coloring OFF on input line 35.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -1150,7 +1176,7 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/local/texlive/2015/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count197
+\c@section@level=\count205
 )
 LaTeX Info: Redefining \ref on input line 35.
 LaTeX Info: Redefining \pageref on input line 35.
@@ -1162,6 +1188,7 @@ LaTeX Info: Redefining \nameref on input line 35.
 
 
 ABD: EveryShipout initializing macros
+\c@lstlisting=\count206
 File: logo-info.pdf Graphic file (type QTm)
  <use  "logo-info.pdf" >
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
@@ -1283,72 +1310,75 @@ LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
 \openout6 = `bachelorproject.toc'.
 
  [1]
-File: img/graph2.png Graphic file (type QTm)
- <use  "img/graph2.png" >
+File: img/graph_auth.pdf Graphic file (type QTm)
+ <use  "img/graph_auth.pdf" >
+File: img/graph_uni.pdf Graphic file (type QTm)
+
+<use  "img/graph_uni.pdf" >
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 51.
+(Font)              scaled to size 9.60007pt on input line 53.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 9.60007pt on input line 51.
+(Font)              scaled to size 9.60007pt on input line 53.
  [2]
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 13.82408pt on input line 84.
+(Font)              scaled to size 13.82408pt on input line 86.
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 13.82408pt on input line 84.
+(Font)              scaled to size 13.82408pt on input line 86.
  [3]
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 7.68005pt on input line 151.
+(Font)              scaled to size 7.68005pt on input line 153.
  [4]
-LaTeX Font Info:    Try loading font information for TS1+mdbch on input line 16
-9.
+LaTeX Font Info:    Try loading font information for TS1+mdbch on input line 17
+1.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/mathdesign/mdbch/ts1mdbch.fd
 File: ts1mdbch.fd 2013/08/29 Fontinst v1.933 font definitions for TS1/mdbch.
 )
 LaTeX Font Info:    Font shape `TS1/mdbch/m/n' will be
-(Font)              scaled to size 11.52008pt on input line 169.
+(Font)              scaled to size 11.52008pt on input line 171.
 File: img/page_rank_example.png Graphic file (type QTm)
 
 <use  "img/page_rank_example.png" > [5]
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 212.
+(Font)              scaled to size 5.76004pt on input line 214.
  [6]
 
-LaTeX Warning: Citation `molerPR' on page 7 undefined on input line 262.
+LaTeX Warning: Citation `molerPR' on page 7 undefined on input line 264.
 
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 276.
+put line 278.
 LaTeX Font Info:    Font shape `T1/mdbch/m/fsc' will be
-(Font)              scaled to size 11.52008pt on input line 278.
+(Font)              scaled to size 11.52008pt on input line 280.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 303.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 303.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 303.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 303.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 303.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 303.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 303.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 303.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 303.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 303.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 303.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 303.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 303.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 303.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 303.
 [7]
 File: img/k_way_partitioning.jpg Graphic file (type QTm)
  <use  "img/k_way_partitioning.jpg" > [8] [9]
@@ -1369,18 +1399,21 @@ File: img/Analysis/cuthill_mckee.jpg Graphic file (type QTm)
 File: img/Analysis_world/cuthill_mckee.jpg Graphic file (type QTm)
 
 <use  "img/Analysis_world/cuthill_mckee.jpg" >
+(/usr/local/texlive/2015/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2014/09/06 1.5e listings language file
+) [11]
 File: img/Analysis/page_rank_bars.jpg Graphic file (type QTm)
 
-<use  "img/Analysis/page_rank_bars.jpg" > [11]
+<use  "img/Analysis/page_rank_bars.jpg" >
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 501.
+(Font)              scaled to size 7.68005pt on input line 515.
 
-Overfull \hbox (6.66035pt too wide) in paragraph at lines 501--501
+Overfull \hbox (6.66035pt too wide) in paragraph at lines 515--515
 \T1/mdbch/b/n/8 Centrality| 
  []
 
 
-Overfull \hbox (6.66035pt too wide) in paragraph at lines 516--516
+Overfull \hbox (6.66035pt too wide) in paragraph at lines 530--530
 \T1/mdbch/b/n/8 Centrality| 
  []
 
@@ -1388,16 +1421,16 @@ File: img/Analysis/page_rank_uni.jpg Graphic file (type QTm)
 <use  "img/Analysis/page_rank_uni.jpg" >
 File: img/Analysis_world/pr_uni.jpg Graphic file (type QTm)
 
-<use  "img/Analysis_world/pr_uni.jpg" >
+<use  "img/Analysis_world/pr_uni.jpg" > [12]
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 5.76004pt on input line 558.
- [12] [13] (./bachelorproject.bbl)
-[14]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 661.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 661.
+(Font)              scaled to size 5.76004pt on input line 572.
+ [13] [14] (./bachelorproject.bbl)
+[15]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 675.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 675.
  (./bachelorproject.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 661.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 661.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 675.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 675.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1407,12 +1440,12 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 25660 strings out of 493706
- 437238 string characters out of 6145769
- 523256 words of memory out of 5000000
- 28510 multiletter control sequences out of 15000+600000
+ 27435 strings out of 493706
+ 461554 string characters out of 6145769
+ 572690 words of memory out of 5000000
+ 30268 multiletter control sequences out of 15000+600000
  65620 words of font info for 80 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 60i,11n,94p,907b,793s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,11n,94p,916b,1440s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bachelorproject.pdf (15 pages).
+Output written on bachelorproject.pdf (16 pages).

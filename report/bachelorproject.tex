@@ -1,5 +1,5 @@
 \documentclass[]{usiinfbachelorproject}
-\usepackage{subfigure, wrapfig, url, array, caption,xcolor,amsmath,algorithm, tikz}
+\usepackage{subfigure, wrapfig, url, array, caption,xcolor,amsmath,algorithm, tikz,listings}
 \usepackage{footnotebackref}
 \usepackage[english]{babel}
 \usepackage[noend]{algpseudocode}
@@ -47,8 +47,10 @@ A social network consists of a set of objects connected to each other by social 
 
 \begin{figure}[ht]
 	\centering
-	\includegraphics[height=4cm]{img/graph2.png}
-	\caption{Example of social network graph}
+	\includegraphics[height=6cm]{img/graph_auth.pdf}
+	\qquad\qquad
+	\includegraphics[height=6cm]{img/graph_uni.pdf}
+	\caption{Example of social network graphs}
 	\label{fig:socialnetwork}
 \end{figure}
 
@@ -451,7 +453,6 @@ In Figure \ref{fig:uniAdjW} (lets call this matrix U) we can see the matrix repr
 The institutions which collaborate more in Switzerland are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne and ETH Z\"{u}rich which correspond to the 7th and 8th columns/rows in the matrix. These two universities collaborate both internally in the university (see the yellow squares of $U_{7,7}$ and $U_{8,8}$ entries of the matrix U)  but also with other institutions (see the 7th and 8th columns/rows of U where we have a lot of light-blue squares): for example  ETH Z\"{u}rich has 19 collaboration with Universit\`{a} della Svizzera italiana (25th column). 
 We can see that most of the light-blue squares appear in the diagonal of the matrix; it means that institutions' members usually works with authors of the same organization instead of ones from a different institution.
 
-\textcolor{red}{Add something to say why do we apply the cuthill, come influenza i metodi numerici -- Comparare nnz(L+U) con e senza RCM. Eventualmente provare con power method.}\\
 I applied the Cuthill-McKee algorithm to the two authors matrices: it permutes a sparse matrix that has a symmetric sparsity pattern into a band matrix form with a small bandwidth.
 A band matrix is a sparse matrix whose non-zero elements are confined to a diagonal band; if the bandwidth of a symmetric matrix A is \textit{n}, it means that 
 $$A_{ij} = 0  \:\: \text{ if } \:\: |j-i| > n$$
@@ -475,7 +476,20 @@ We can notice that in both figures the number of non-zero elements, written belo
 	\label{fig:CuthillMcKee}
 \end{figure}
 
+The reverse Cuthill Mckee ordering may reduce the fill in of the matrix in some iterative methods. For example, we can apply the LU factorization to the original matrix and then to ordered one. Considering M to be the  adjacency matrix of Swiss authors, we run the code
 
+\lstset{language=Matlab}
+\begin{lstlisting}
+[L,U] = lu(M); 	  
+nn = nnz(L)+nnz(U);
+r = symrcm(M);
+[L1,U1] = lu(M(r,r));
+nn1 = nnz(L1)+nnz(U1);
+\end{lstlisting}
+
+and we obtain that with the original matrix the result has 2344 non zero elements, while with the ordering only 1422. 
+
+Increasing the size of the matrix, the result can be even more evident. We can consider the world author matrix that is more than four times larger than the Swiss one, examined before. Applying the LU factorization we obtain a matrix with 3297712 non zero elements but with the reordering there are only 72637.
 
 \subsection{PageRank}
 Applying the PageRank algorithm I obtain a sorted list of authors and in Figure \ref{fig:pagerank_bars} we can see all the 422 Swiss authors with their corresponding PageRank value. 
@@ -641,17 +655,9 @@ Despite all, the members of the University of Basel are almost all in the second
 
 
 
-
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions} \label{sec:conclusions}
 %%%%%%%%%%%%%%%%%%%%%%%%%
-I have implemented some numerical methods to analyze data. The PageRank algorithm was useful to obtain 
-%I have implemented an algorithm for extracting a resolution-independent vector representation from pixel art images. This algorithm resolves separation/connectedness ambiguities in the square pixel lattice and then reshapes the pixel cells so that both cardinal and diagonal neighbors of a pixel are connected through edges. The regions with smoothly varying shading are extracted and separated through piecewise smooth contour curves. I have demonstrated that conventional image upsampling and vectorization algorithms cannot handle pixel art images well, while this algorithm produces good results on a wide variety of inputs.
-
-%\subsection{Acknowledgments}
-%
-%I want to thank my project advisor, prof. Kai Hormann, for suggesting this fascinating project. I really enjoyed working on it and prof. Hormann has been very helpful throughout the whole project. I was given a lot of freedom and independence, which pushed me to give the best of myself. The project had such a great potential and was so intellectually challenging that I was thrilled and eager every time I could spend time working on it.\\
-%I also want to thank my wife for being so supportive and patient. The long nights passed working on this project really proved her love, and her caring for my well-being helped me a lot through the difficult and stressing moments. Her excitement for every new feature pushed me to improve the project more and more, seeking that wonderful smile.
 
 
 \newpage

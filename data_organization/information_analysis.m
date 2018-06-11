@@ -32,6 +32,10 @@ TD = degree_centrality(A,M);
 TD(1:10,:)
 
 %% The Reverse Cuthill McKee Ordering
+
+% [L,U] = lu(M);
+% nn = nnz(L)+nnz(U);
+% nnz = nnz(L)+nnz(U);
 r = symrcm(M);
 figure
 subplot(1,2,1)
@@ -41,6 +45,10 @@ subplot(1,2,2)
 spy(M(r,r))
 title('Ordered connectivity matrix')
 
+% [L1,U1] = lu(M(r,r));
+% nnz1 = nnz(L1)+nnz(U1);
+% nnz
+% nnz1
 
 % p2 = amd(M);
 % new2 = authors(p2,:);
