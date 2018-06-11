@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  11 JUN 2018 18:15
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  11 JUN 2018 22:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1406,31 +1406,31 @@ File: img/Analysis/page_rank_bars.jpg Graphic file (type QTm)
 
 <use  "img/Analysis/page_rank_bars.jpg" >
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 515.
+(Font)              scaled to size 7.68005pt on input line 517.
 
-Overfull \hbox (6.66035pt too wide) in paragraph at lines 515--515
+Overfull \hbox (6.66035pt too wide) in paragraph at lines 517--517
 \T1/mdbch/b/n/8 Centrality| 
  []
 
 
-Overfull \hbox (6.66035pt too wide) in paragraph at lines 530--530
+Overfull \hbox (6.66035pt too wide) in paragraph at lines 532--532
 \T1/mdbch/b/n/8 Centrality| 
  []
 
+[12]
+LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
+(Font)              scaled to size 5.76004pt on input line 557.
 File: img/Analysis/page_rank_uni.jpg Graphic file (type QTm)
-<use  "img/Analysis/page_rank_uni.jpg" >
+ <use  "img/Analysis/page_rank_uni.jpg" >
 File: img/Analysis_world/pr_uni.jpg Graphic file (type QTm)
 
-<use  "img/Analysis_world/pr_uni.jpg" > [12]
-LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 5.76004pt on input line 572.
- [13] [14] (./bachelorproject.bbl)
-[15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 675.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 675.
- (./bachelorproject.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 675.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 675.
+<use  "img/Analysis_world/pr_uni.jpg" > [13] (./bachelorproject.bbl) [14]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 677.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 677.
+
+(./bachelorproject.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 677.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 677.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1442,10 +1442,10 @@ LaTeX Warning: There were undefined references.
 Here is how much of TeX's memory you used:
  27435 strings out of 493706
  461554 string characters out of 6145769
- 572690 words of memory out of 5000000
+ 572771 words of memory out of 5000000
  30268 multiletter control sequences out of 15000+600000
  65620 words of font info for 80 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
  60i,11n,94p,916b,1440s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on bachelorproject.pdf (16 pages).
+Output written on bachelorproject.pdf (15 pages).

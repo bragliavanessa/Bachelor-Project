@@ -17,7 +17,7 @@
 
 \author{Vanessa Braglia}
 
-\title{The swiss scientific social network}
+\title{The Swiss Society for Industrial and Applied Mathematics Social Network}
 \versiondate{\today}
 
 % DA SCOMMENTARE
@@ -27,8 +27,8 @@
 \end{committee}
 
 \abstract {
-In this project I implemented some algorithms to analyze the swiss scientific social network.
-To construct the graph representing the relations (the edges) between authors (the nodes) I crawled some conferences' online programs and I have extracted all the necessary information. I used PageRank and graph partitioning to study the relationships between authors: I found the members that collaborate more with each other and the relationship between different institutions. The results provide an interesting picture of the different research scenarios in Switzerland and how they interact with each other internally to an establishment but also between different institutions. 
+In this project I implemented some algorithms to analyze the Swiss society for industrial and applied mathematics  social network.
+To construct the graph representing the relations (the edges) between authors (the nodes) I crawled some conferences' online programs and I have extracted all the necessary information. I used PageRank and graph partitioning to study the relationships between authors: I found the members that collaborate more with each other and the relationship between different institutions. The results provide an interesting picture of the different research scenarios in Switzerland and how they interact with each other internally to an organization but also between different institutions. 
 }
 
 
@@ -58,7 +58,7 @@ The goal of this project is to create a social network of computational science 
 
 The first step is retrieving all the necessary information for the construction of the social network, i.e., names of the authors and relationships between each other. I crawled the 2015, 2016 and 2017 PASC Conferences and different SIAM conferences of several years, selecting the topics relevant to us (e.g. Optimization, Parallel Computing,...). The PASC conferences are interdisciplinary and bring together researchers across the areas of computational science, high-performance computing, and various domain sciences.
 
-The second step is the information analysis to find out relations between institutions and between members belonging to the same or different institutes. With PageRank algorithm we obtain a ranking of all the conference participants; it is an algorithm used by Google Search to rank websites in their search engine results, but it can be applied to any social network. 
+The second step is the information analysis to find out relations between institutions and between members belonging to the same or different institutes. With PageRank algorithm we obtain a ranking of all the conference participants; it is an algorithm used by Google Search to rank websites in their search engine results, but it can be applied on any social network. 
 
 In this project I use the algorithm to measure the importance of the institution members considering the number and quality of their collaborations and to find out the relevant universities for computational science researches. 
 
@@ -174,7 +174,7 @@ To solve this problem I construct an hash map putting the label to use as key an
 
 For each university I scan this map and reassign the corresponding name.
 
-I make two different databases, one for Switzerland and one for the whole world. The first one contains only Swiss authors and their collaborations with members of the same nation, while in the second there are also authors other nations and their collaborations are extended to all over the world. For each author I save the name, the university, the nation, a list of his coauthors and I assign to each of them a unique index. 
+I make two different databases, one for Switzerland and one for the whole world. The first one contains only Swiss authors and their collaborations with members of the same nation, while in the second there are also authors from other nations and their collaborations are extended to all over the world. For each author I save the name, the university, the nation, a list of his coauthors and I assign to each of them a unique index. 
 
 From this data set I easily create the adjacency matrix and thanks to the indexes I can switch between the matrix and the database; from the graph I can read the index and go in the database to see to which author it corresponds.
 
@@ -372,7 +372,7 @@ The eigenvalues of L are ordered as follows:
 0 = \lambda_1 = \ldots = \lambda_m < \lambda_{m+1} \le \ldots \lambda_n
 \end{equation}
 
-The eigenvector corresponding to the first eigenvalue $\lambda_1$ is the vector of all ones and it does not provide information about the graph structure; the second lowest eigenvector, instead, called ``Fiedler eigenvector'', is used by spectral partitioning to return the smaller sub-graphs. Dividing the nodes of graph G according to the median $s$ of the Fiedler vector $v = (v_1,v_2,...,v_n)$ gives two partitions $V_1$ and $V_2$ such that
+The eigenvector corresponding to the first eigenvalue $\lambda_1$ is the vector of all ones and it does not provide information about the graph structure. The second lowest eigenvector, instead, called ``Fiedler eigenvector'', is used by spectral partitioning to return the smaller sub-graphs. Dividing the nodes of graph G according to the median $s$ of the Fiedler vector $v = (v_1,v_2,...,v_n)$ gives two partitions $V_1$ and $V_2$ such that
 \begin{equation}\notag
 \begin{cases}
 v_i \in V_1 \text{\;\; if \;\;} v_i \leq s \\
@@ -414,7 +414,7 @@ z^T e = 0 \tab \text{with } e=[1,1,...,1]^T
 \section{Numerical analysis}
 %%%%%%%%%%%%%%%%%%%%%%%%%
 After retrieving all the necessary information and organizing the data in adjacency matrices, I applied the PageRank algorithm, obtaining the following results.
-Since the Swiss author names obtained are only 422, I decide to extend the research to the institutions from all over the word, reaching 16425 names. So the analysis is done in parallel for both Swiss collaborations and authors from all over the world.
+Since the Swiss author names obtained are only 422, I decide to extend the research to the institutions from all over the word, reaching 16425 names. The analysis is done in parallel for both Swiss collaborations and authors from all over the world.
 
 I first construct the adjacency matrices of the authors and their corresponding institutions; for the organizations I also build a weighted matrix which keeps stored the number of collaborations between them. I consider that each author collaborates with himself so the diagonal of the matrix will contain ones.
 We can see in Figure \ref{fig:authorsAdj} the authors matrices, while in Figure \ref{fig:univAdj} the one of the Swiss institutions.
@@ -476,7 +476,7 @@ We can notice that in both figures the number of non-zero elements, written belo
 	\label{fig:CuthillMcKee}
 \end{figure}
 
-The reverse Cuthill Mckee ordering may reduce the fill in of the matrix in some iterative methods. For example, we can apply the LU factorization to the original matrix and then to ordered one. Considering M to be the  adjacency matrix of Swiss authors, we run the code
+The reverse Cuthill Mckee ordering may reduce the fill in of the matrix in some iterative methods. For example, we can apply the LU factorization to the original matrix and then to ordered one. Considering M to be the  adjacency matrix of Swiss authors, we run the following code.
 
 \lstset{language=Matlab}
 \begin{lstlisting}
@@ -487,7 +487,9 @@ r = symrcm(M);
 nn1 = nnz(L1)+nnz(U1);
 \end{lstlisting}
 
-and we obtain that with the original matrix the result has 2344 non zero elements, while with the ordering only 1422. 
+It computes the LU factorization and counts the non zero elements of the result, then applies the reverse Cuthill McKee ordering and figures out the factorization again.
+
+We obtain that with the original matrix the result has 2344 non zero elements, while with the ordering only 1422. 
 
 Increasing the size of the matrix, the result can be even more evident. We can consider the world author matrix that is more than four times larger than the Swiss one, examined before. Applying the LU factorization we obtain a matrix with 3297712 non zero elements but with the reordering there are only 72637.
 
@@ -544,24 +546,7 @@ To see it better we can compare this table with the one on the right, containing
 \end{table}
 
 
-I have also applied the PageRank algorithm to the universities adjacency matrix obtaining the results in Figure \ref{fig:PRUniversities}.
-We can observe that the most present universities in the area of computational science are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, ETH Z\"{u}rich and Universit\`{a} della Svizzera italiana. Here the universities sorted by PageRank corresponds to the  sorting by number of collaborations (\textit{In\_degree} column).
-\begin{figure}[tb]
-	\centering
-	\subfigure[]{
-		\includegraphics[height=4.5cm]{img/Analysis/page_rank_uni.jpg}
-		\label{fig:PRbarsuni}
-	}
-	\subfigure[]{
-		\includegraphics[height=4cm]{img/Analysis_world/pr_uni.jpg}
-		\label{fig:PRlistuni}
-	}
-	\caption{ \subref{fig:PRbarsuni} is a bar graph of Swiss institutions PageRank values, while  \subref{fig:PRlistuni} is the one of world institutions}
-	\label{fig:PRUniversities}
-\end{figure}
-
-
-About what concerning world information we can better see the difference between PageRank and degree centrality sorting in Table \ref{table:prW}; the Swiss  \textit{Rolf Krause}, member of USI, has the 7th PageRank value with only 38 collaborations but does not appear in the first ten positions of the degree centrality list.
+About what concerning world information we can better see the difference between \\PageRank and degree centrality sorting in Table \ref{table:prW}; the Swiss  \textit{Rolf Krause}, member of USI, has the 7th PageRank value with only 38 collaborations but does not appear in the first ten positions of the degree centrality list.
 
 \newcommand\eee{\centering}
 \begin{table}[tbh]
@@ -599,6 +584,23 @@ About what concerning world information we can better see the difference between
 \end{tabular}
 \label{table:prW}
 \end{table}
+
+I have also applied the PageRank algorithm to the universities adjacency matrices obtaining the results in Figure \ref{fig:PRUniversities}.
+We can observe that, in Switzerland, the most present universities in the area of computational science are \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, ETH Z\"{u}rich and Universit\`{a} della Svizzera italiana. Here we have a special case where the universities sorted by PageRank corresponds to the  sorting by number of collaborations (\textit{In\_degree} column).
+\begin{figure}[bt]
+	\centering
+	\subfigure[]{
+		\includegraphics[height=4.5cm]{img/Analysis/page_rank_uni.jpg}
+		\label{fig:PRbarsuni}
+	}
+	\subfigure[]{
+		\includegraphics[height=4cm]{img/Analysis_world/pr_uni.jpg}
+		\label{fig:PRlistuni}
+	}
+	\caption{ \subref{fig:PRbarsuni} is a bar graph of Swiss institutions PageRank values, while  \subref{fig:PRlistuni} is the one of world institutions}
+	\label{fig:PRUniversities}
+\end{figure}
+
 
 Table \ref{table:PRUNI} shows the first 10 universities with higher PageRank value, the Swiss ones on the left and world information on the right: in the computational science area the most important are the University of California and the Massachusetts Institute of Technology. At ranking 10th we can find the Swiss institution, \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, which was in the first position in the Swiss list.
 
@@ -658,9 +660,17 @@ Despite all, the members of the University of Basel are almost all in the second
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions} \label{sec:conclusions}
 %%%%%%%%%%%%%%%%%%%%%%%%%
+In this project I constructed a Swiss society for industrial and applied mathematics social network. 
+Starting from crawling some conference programs, I manage to construct a data set containing some Swiss authors coupled with their institutions. Two members are connected in the social network graph if and only if they present a work together at a conference. 
+
+Retrieved the information and constructed the social network, I created the corresponding adjacency matrices and analyzed them. The implementation of the PageRank algorithm helped in ranking both the authors and the institutions: considering the number of collaborations and their quality, the algorithm compute the PageRank value, with which we can sort the data. 
+I found which are the most relevant authors and institutions in the computational science area and how they interact with each other.
+I implemented the graph partitioning algorithm even if it does not lead to meaningful results.
+
+Even if the original project changed and we had to find a new way to take the information, the results provide an interesting picture of the different organizations in Switzerland and how they interact with each other.
 
 
-\newpage
+
 \bibliographystyle{plain}
 \bibliography{references}
 
