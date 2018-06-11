@@ -60,7 +60,7 @@ The second step is the information analysis to find out relations between instit
 
 In this project I use the algorithm to measure the importance of the institution members considering the number and quality of their collaborations and to find out the relevant universities for computational science researches. 
 
-%I use graph partitioning techniques to invert the process, trying to obtain the institutions from members collaborations: it is reasonable to assume that members of the same institution collaborate more between each other than with other institutions' representatives. With this assumption the algorithm will cut the relations between members of different universities, keeping the representatives of each institution in the same group.
+I use graph partitioning techniques to invert the process, trying to obtain the institutions from members collaborations: it is reasonable to assume that members of the same institution collaborate more between each other than with other institutions' representatives. With this assumption the algorithm will cut the relations between members of different universities, keeping the representatives of each institution in the same group.
 
 I also analyze the institutions connectivity matrices and their structure: looking at the cliques present in the matrices, we can for example detect the different research areas of the institutions and the connection between them. Cliques are dense sub matrices which represent a group of authors that are closely connected with each other. 
 
@@ -74,7 +74,6 @@ The results will provide an interesting picture of the different research scenar
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Information Retrieval} \label{sec:inforetrieval} 
 %%%%%%%%%%%%%%%%%%%%%%%%%
-
 Information retrieval is the process of extracting, starting from an information need, the relevant information from a collection of resources. In this project, the necessary information are the names of the institutions members and the collaborations between them. 
 First, I try to use Mendeley API but it allows only to take 100 results per query and there is no control on the type of information to be retrieved. Additionally, it does not return all the information needed, i.e., not all authors have a specified institution and only few papers were available.
 
@@ -104,7 +103,7 @@ The parser extracts only the lines of the pages which contain the names of the a
 
 Once that the desired lines are collected, I take the groups one after the other, and I extract name, institution, nation and coauthors for each member. With all this information I manage to construct a social network and its corresponding adjacency matrix.
 
-\textcolor{red}{In case a single author belongs to two distinct institutions I decide to include two different entries because I'm interest in institutions collaborations: so the same author can have some coauthors with one university and completely different coauthors with the other one. We can see an example in Figure \ref{fig:twoUni} where professor Olaf Schenk is affiliated to two different universities (Universit\`{a} della Svizzera Italiana and Univerisity of Basel) and collaborates with Matthias Bolhoefer from both institutions but he works with Fabio Verbosio only from USI and with Marcus Grote only from the University of Basel.}
+In case a single author belongs to two distinct institutions I decide to include two different entries because I'm interest in institutions collaborations: so the same author can have some coauthors with one university and completely different coauthors with the other one. We can see an example in Figure \ref{fig:twoUni} where professor Olaf Schenk is affiliated to two different universities (Universit\`{a} della Svizzera Italiana and Univerisity of Basel) and collaborates with Matthias Bolhoefer from both institutions but he works with Fabio Verbosio only from USI and with Marcus Grote only from the University of Basel.
 \begin{figure}
 \begin{center}
 \tikzset{every picture/.style={line width=0.75pt}}      
@@ -162,6 +161,16 @@ Once that the desired lines are collected, I take the groups one after the other
 \caption{Example of author with two different universities and different coauthors} \label{fig:twoUni}
 \end{center}
 \end{figure}
+
+One of the big issues of my dataset was that the institutions were labeled differently. For example, the Swiss university \textit{ETH Z\"{u}rich} can also be named \textit{ETHZ} or \textit{Swiss Federal Institute of Technology Zurich}.  Moreover there can be some organizations of the university such as the \textit{ETHZ Computational Laboratory} or the \textit{Institute of Fluid Dynamics}. All these names have to be represented by the same institution label. 
+
+To solve this problem I construct an hash map putting the label to use as key and a list with all names represented by that label as value. For example the one for ETH Z\"{u}rich will have: 
+\begin{itemize}
+\item label:  ``ETHZ''
+\item value:  [``ETH Z\"{u}rich'',``Swiss Federal Institute of Technology Zurich'', ``ETHZ Computational Laboratory'', ``Institute of Fluid Dynamics'']
+\end{itemize}
+
+For each university I scan this map and reassign the corresponding name.
 
 I make two different databases, one for Switzerland and one for the whole world. The first one contains only Swiss authors and their collaborations with members of the same nation, while in the second there are also authors other nations and their collaborations are extended to all over the world. For each author I save the name, the university, the nation, a list of his coauthors and I assign to each of them a unique index. 
 
@@ -469,13 +478,13 @@ We can notice that in both figures the number of non-zero elements, written belo
 
 
 \subsection{PageRank}
-Applying the PageRank algorithm I obtain a sorted list of authors and in Figure \ref{fig:pr} we can see all the 422 Swiss authors with their corresponding PageRank value. 
+Applying the PageRank algorithm I obtain a sorted list of authors and in Figure \ref{fig:pagerank_bars} we can see all the 422 Swiss authors with their corresponding PageRank value. 
 
 \begin{figure}[tb]
 	\centering
 	\includegraphics[height=6cm]{img/Analysis/page_rank_bars.jpg}
-	\label{fig:pr}
 	\caption{ Bar graph of Swiss authors PageRank values}
+	\label{fig:pagerank_bars}
 \end{figure}
 
 Table~\ref{table:PRDC}~(left) shows the first 10 most ``popular" authors sorted by the algorithm.
@@ -538,6 +547,8 @@ We can observe that the most present universities in the area of computational s
 \end{figure}
 
 
+About what concerning world information we can better see the difference between PageRank and degree centrality sorting in Table \ref{table:prW}; the Swiss  \textit{Rolf Krause}, member of USI, has the 7th PageRank value with only 38 collaborations but does not appear in the first ten positions of the degree centrality list.
+
 \newcommand\eee{\centering}
 \begin{table}[tbh]
 \centering
@@ -574,9 +585,6 @@ We can observe that the most present universities in the area of computational s
 \end{tabular}
 \label{table:prW}
 \end{table}
-
-
-About what concerning world information we can better see the difference between PageRank and degree centrality sorting in Table \ref{fig:prW}; the Swiss  \textit{Rolf Krause}, member of USI, has the 7th PageRank value with only 38 collaborations but does not appear in the first ten positions of the degree centrality list.
 
 Table \ref{table:PRUNI} shows the first 10 universities with higher PageRank value, the Swiss ones on the left and world information on the right: in the computational science area the most important are the University of California and the Massachusetts Institute of Technology. At ranking 10th we can find the Swiss institution, \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne, which was in the first position in the Swiss list.
 
@@ -618,27 +626,35 @@ Table \ref{table:PRUNI} shows the first 10 universities with higher PageRank val
 \end{table}
 
 
+\subsection{Graph partitioning}
+Applying the graph partitioning algorithm, the expected result was to obtain groups divided according to institution: members of the same organization will be in the same partition. This is based on the fact the the members mainly work with people of the same institution. 
+
+I decide to apply 4-way partitioning, obtaining four groups of about 105 members.
+
+Unfortunately the result was not what I expected because the main universities, such as \'{E}cole Polytechnique F\'{e}d\'{e}rale de Lausanne and ETH Z\"{u}rich, collaborate with almost all other institutions and for this reason appear in all the groups obtained.  
+
+Despite all, the members of the University of Basel are almost all in the second group and the ones from USI are in the third partition.
+
+
+
+
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusions} \label{sec:conclusions}
 %%%%%%%%%%%%%%%%%%%%%%%%%
-
+I have implemented some numerical methods to analyze data. The PageRank algorithm was useful to obtain 
 %I have implemented an algorithm for extracting a resolution-independent vector representation from pixel art images. This algorithm resolves separation/connectedness ambiguities in the square pixel lattice and then reshapes the pixel cells so that both cardinal and diagonal neighbors of a pixel are connected through edges. The regions with smoothly varying shading are extracted and separated through piecewise smooth contour curves. I have demonstrated that conventional image upsampling and vectorization algorithms cannot handle pixel art images well, while this algorithm produces good results on a wide variety of inputs.
-%
-%
-%\subsection{Future work} \label{sec:future}
-%
-%There are many possibilities for future work. The implementation still suffers from some limitations (Section \ref{sec:limitations}) which could be corrected or improved, but also more features can be added to increase the number of different applications for this algorithm.
-%
-%
+
 %\subsection{Acknowledgments}
 %
 %I want to thank my project advisor, prof. Kai Hormann, for suggesting this fascinating project. I really enjoyed working on it and prof. Hormann has been very helpful throughout the whole project. I was given a lot of freedom and independence, which pushed me to give the best of myself. The project had such a great potential and was so intellectually challenging that I was thrilled and eager every time I could spend time working on it.\\
 %I also want to thank my wife for being so supportive and patient. The long nights passed working on this project really proved her love, and her caring for my well-being helped me a lot through the difficult and stressing moments. Her excitement for every new feature pushed me to improve the project more and more, seeking that wonderful smile.
 
 
-
+\newpage
 \bibliographystyle{plain}
 \bibliography{references}
 
