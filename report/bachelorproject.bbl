@@ -4,12 +4,13 @@
 Uri~M. Ascher and Chen Greif.
 \newblock {\em A First Course in Numerical Methods}.
 \newblock Society for Industrial and Applied Mathematics, Philadelphia, PA,
-  USA, 2011.
+  2011.
 
 \bibitem{markov}
 Dimitri~P. Bertsekas and John~N. Tsitsiklis.
 \newblock {\em Introduction to Probability}.
-\newblock Massachusetts Institute of Technology, second edition, 2008.
+\newblock Massachusetts Institute of Technology, Cambridge, MA, second edition,
+  2008.
 
 \bibitem{nutch}
 Apache~Software Foundation.
@@ -23,6 +24,12 @@ Larry Page, Sergey Brin, R.~Motwani, and T.~Winograd.
 \bibitem{saad}
 Y.~Saad.
 \newblock {\em Iterative Methods for Sparse Linear Systems}.
-\newblock Society for Industrial and Applied Mathematics, second edition, 2003.
+\newblock Society for Industrial and Applied Mathematics, Philadelphia, PA,
+  USA, second edition, 2003.
+
+\bibitem{molerPR}
+Inc. The~MathWorks.
+\newblock Numerical computing with matlab, 2018.
+\newblock [Online; accessed 14-June-2018].
 
 \end{thebibliography}

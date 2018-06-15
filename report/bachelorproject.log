@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  11 JUN 2018 22:15
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015) (preloaded format=xelatex 2015.9.15)  15 JUN 2018 09:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1338,50 +1338,48 @@ LaTeX Font Info:    Font shape `TS1/mdbch/m/n' will be
 (Font)              scaled to size 11.52008pt on input line 169.
 File: img/page_rank_example.png Graphic file (type QTm)
 
-<use  "img/page_rank_example.png" > [5]
+<use  "img/page_rank_example.png" >
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 5.76004pt on input line 212.
- [6]
-
-LaTeX Warning: Citation `molerPR' on page 7 undefined on input line 262.
-
+(Font)              scaled to size 5.76004pt on input line 213.
+ [5] [6]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
-put line 276.
+put line 277.
 LaTeX Font Info:    Font shape `T1/mdbch/m/fsc' will be
-(Font)              scaled to size 11.52008pt on input line 278.
+(Font)              scaled to size 11.52008pt on input line 279.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 302.
 LaTeX Font Info:    Font shape `OT1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 302.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 302.
 LaTeX Font Info:    Font shape `OML/mdbch/m/it' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 302.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 302.
 LaTeX Font Info:    Font shape `OMS/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 302.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 302.
 LaTeX Font Info:    Font shape `OMX/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 302.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 302.
 LaTeX Font Info:    Font shape `OML/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 302.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 302.
 LaTeX Font Info:    Font shape `MDA/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 302.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 9.60007pt on input line 301.
+(Font)              scaled to size 9.60007pt on input line 302.
 LaTeX Font Info:    Font shape `MDB/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
+(Font)              scaled to size 6.72005pt on input line 302.
 LaTeX Font Info:    Font shape `T1/mdbch/m/n' will be
-(Font)              scaled to size 6.72005pt on input line 301.
-[7]
+(Font)              scaled to size 6.72005pt on input line 302.
+ [7]
 File: img/k_way_partitioning.jpg Graphic file (type QTm)
- <use  "img/k_way_partitioning.jpg" > [8] [9]
+
+<use  "img/k_way_partitioning.jpg" > [8] [9]
 File: img/Analysis/authors_adj.jpg Graphic file (type QTm)
 
 <use  "img/Analysis/authors_adj.jpg" >
@@ -1406,43 +1404,43 @@ File: img/Analysis/page_rank_bars.jpg Graphic file (type QTm)
 
 <use  "img/Analysis/page_rank_bars.jpg" >
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 7.68005pt on input line 515.
+(Font)              scaled to size 7.68005pt on input line 516.
 
-Overfull \hbox (6.66035pt too wide) in paragraph at lines 515--515
-\T1/mdbch/b/n/8 Centrality| 
+Overfull \hbox (5.4162pt too wide) in paragraph at lines 516--516
+\T1/mdbch/b/n/8 centrality| 
  []
 
 
-Overfull \hbox (6.66035pt too wide) in paragraph at lines 530--530
-\T1/mdbch/b/n/8 Centrality| 
+Overfull \hbox (5.4162pt too wide) in paragraph at lines 531--531
+\T1/mdbch/b/n/8 centrality| 
  []
 
 [12]
 LaTeX Font Info:    Font shape `T1/mdbch/b/n' will be
-(Font)              scaled to size 5.76004pt on input line 555.
+(Font)              scaled to size 5.76004pt on input line 556.
 File: img/Analysis/page_rank_uni.jpg Graphic file (type QTm)
  <use  "img/Analysis/page_rank_uni.jpg" >
 File: img/Analysis_world/pr_uni.jpg Graphic file (type QTm)
 
-<use  "img/Analysis_world/pr_uni.jpg" > [13] [14] (./bachelorproject.bbl)
-[15]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 677.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 677.
+<use  "img/Analysis_world/pr_uni.jpg" >
+Underfull \vbox (badness 3158) has occurred while \output is active []
+
+ [13]
+[14] (./bachelorproject.bbl) [15]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 678.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 678.
  (./bachelorproject.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 677.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 677.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 678.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 678.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-
-LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
  27435 strings out of 493706
  461554 string characters out of 6145769
- 572771 words of memory out of 5000000
+ 572789 words of memory out of 5000000
  30268 multiletter control sequences out of 15000+600000
  65620 words of font info for 80 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191

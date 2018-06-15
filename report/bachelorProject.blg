@@ -28,51 +28,51 @@ You're missing a field name---line 38 of file references.bib
  : % author = {Daniel Glasner and Shai Bagon and Michal Irani},
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
-You're missing a field name---line 47 of file references.bib
- : 
- : % author = {Wikipedia},
-(Error may have been on previous line)
+Warning--I'm ignoring markov's extra "address" field
+--line 63 of file references.bib
+Repeated entry---line 85 of file references.bib
+ : @book{eigs
+ :           ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "molerPR"
-You've used 5 entries,
+You've used 6 entries,
             2118 wiz_defined-function locations,
-            524 strings with 4558 characters,
-and the built_in function-call counts, 1262 in all, are:
-= -- 111
-> -- 63
+            530 strings with 4672 characters,
+and the built_in function-call counts, 1476 in all, are:
+= -- 132
+> -- 70
 < -- 0
-+ -- 27
-- -- 20
-* -- 64
-:= -- 222
-add.period$ -- 14
-call.type$ -- 5
-change.case$ -- 24
++ -- 30
+- -- 22
+* -- 72
+:= -- 258
+add.period$ -- 17
+call.type$ -- 6
+change.case$ -- 28
 chr.to.int$ -- 0
-cite$ -- 5
-duplicate$ -- 50
-empty$ -- 111
-format.name$ -- 20
-if$ -- 263
+cite$ -- 6
+duplicate$ -- 57
+empty$ -- 133
+format.name$ -- 22
+if$ -- 310
 int.to.chr$ -- 0
-int.to.str$ -- 5
+int.to.str$ -- 6
 missing$ -- 6
-newline$ -- 27
-num.names$ -- 10
-pop$ -- 44
+newline$ -- 32
+num.names$ -- 12
+pop$ -- 51
 preamble$ -- 1
-purify$ -- 20
+purify$ -- 23
 quote$ -- 0
-skip$ -- 35
+skip$ -- 42
 stack$ -- 0
-substring$ -- 27
-swap$ -- 5
+substring$ -- 32
+swap$ -- 6
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 14
+type$ -- 18
 warning$ -- 0
-while$ -- 10
-width$ -- 6
-write$ -- 53
+while$ -- 12
+width$ -- 7
+write$ -- 65
 (There were 6 error messages)
